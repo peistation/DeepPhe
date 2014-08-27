@@ -1,0 +1,478 @@
+Woody Woodpecker
+Buzz Buzzard
+Wally Walrus
+Andy Panda
+Chilly Willy
+Mighty Mouse
+Pink Panther
+Yogi Bear
+Kermit Frog
+Miss Piggy
+Fozzie Bear
+Rowlf Dog
+Rizzo Rat
+Bobo Bear
+Big Bird
+Cookie Monster
+Snuffleupagus
+Gobo Fraggle
+Mokey Fraggle
+Boober Fraggle
+Buster Bunny
+Babs Bunny
+Plucky Duck
+Hamton Pig
+Dizzy Devil
+Calamity Coyote
+Little Beeper
+Gogo Dodo
+Barky Marky
+Tyrone Turtle
+Marcia Martian
+Furrball
+Barnyard Dawg
+Bugs Bunny
+Honey Bunny
+Lola Bunny
+Daffy Duck
+Elmer Fudd
+Foghorn Leghorn
+Speedy Gonzales
+Goofy Gophers
+Henery Hawk
+Hippety Hopper
+Penelope Pussycat
+Petunia Pig
+Porky Pig
+Sam Sheepdog
+Tasmanian Devil
+Tweety
+Wile Coyote
+Road Runner
+Yosemite Sam
+Donald Duck
+Daisy Duck
+Mickey Mouse
+Minnie Mouse
+Baggy Beagle
+Baloo Bear
+Huey Duck
+Dewey Duck
+Louie Duck
+Tootsie Triceratops
+Bigtime Beagle
+Burger Beagle
+Bouncer Beagle
+Bankjob Beagle
+Babyface Beagle
+Megabyte Beagle
+Darkwing Duck
+Scrooge McDuck
+Bugle Beagle
+Bomber Beagle
+Backwards Beagle
+Binky Beagle
+Bacon Beagle
+Baritone Beagle
+Webby Vanderquack
+Launchpad McQuack
+Glittering Goldie
+Doofus Drake
+Dracula Duck
+Ma Beagle
+Gyro Gearloose
+Loopey McQuack
+Ripcord McQuack
+Birdie Mcquack
+Snow Monster
+Buzzie Vulture
+Slob Elephant
+Gloomy Elephant
+Dizzy Vulture
+Flaps Vulture
+Ziggy Vulture
+Winifred Elephant
+Snow White
+Evil Queen
+Grumpy Dwarf
+Happy Dwarf
+Sleepy Dwarf
+Bashful Dwarf
+Sneezy Dwarf
+Dopey Dwarf
+Meeko Racoon
+Flit Hummingbird
+Bambi Deer
+Thumper Rabbit
+Simba Lion
+Timon Meerkat
+Pumbaa Warthog
+Nala Lion
+Mufasa Lion
+Sarabi Lion
+Zazu Hornbill
+Shenzi Hyena
+Banzai Hyena
+Ed Hyena
+Sarafina Lion
+Alex Lion
+Marty Zebra
+Gloria Hippopotamus
+Skipper Penguin
+Rico Penguin
+Kowalski Penguin
+Winnie Pooh
+Tigger
+Eeyore
+Piglet
+Maximus Horse
+Pascal Chameleon
+Peter Pan
+Tinker Bell
+Captain Hook
+Dumbo
+Jiminy Cricket
+Blue Fairy
+Sebastian Crab
+Flounder Fish
+Scuttle Seagull
+Chip Chipmunk
+Dale Chipmunk
+Pluto Pup
+Goofy
+Chicken Little
+Foxy Loxy
+Goosey Loosey
+Turkey Lurkey
+Morkubine Porcupine
+Papa Smurf
+Hefty Smurf
+Brainy Smurf
+Grouchy Smurf
+Clumsy Smurf
+Greedy Smurf
+Jokey Smurf
+Chef Smurf
+Vanity Smurf
+Handy Smurf
+Scaredy Smurf
+Tracker Smurk
+Sloppy Smurf
+Harmony Smurf
+Painter Smurf
+Poet Smurf
+Baby Smurf
+Natural Smurf
+Nat Smurfling
+Snappy Smurfling
+Slouchy Smurfling
+Grandpa Smurf
+Farmer Smurf
+Sassette Smurfling
+Alchemist Smurf
+Timid Smurf
+Architect Smurf
+Baker Smurf
+Clockwork Smurf
+Clockwork Smurfette
+Dabbler Smurf
+Dopey Smurf
+Enamored Smurf
+Finance Smurf
+Flying Smurf
+King Smurf
+Lazy Smurf
+Miner Smurf
+Nanny Smurf
+Granny Smurf
+Nosy Smurf
+Editor Smurf
+Reflection Smurf
+Reporter Smurf
+Sneezy Smurf
+Stinky Smurf
+Sweepy Smurf
+Tailor Smurf
+Weakling Smurf
+Wild Smurf
+Weepy Smurf
+Tuffy Smurf
+Wooly Smurf
+Lucky Smurf
+Lumberjack Smurf
+Pretentious Smurf
+Pastrycook Smurf
+Cook Smurf
+Submariner Smurf
+Gutsy Smurf
+Navigator Smurf
+Fisher Smurf
+Hunter Smurf
+Marco Smurfo
+Flighty Smurf
+Nobody Smurf
+Pushover Smurf
+Crazy Smurf
+Passive-Aggressive Smurf
+Narrator Smurf
+Panicky Smurf
+Social Smurf
+Smooth Smurf
+Clueless Smurf
+Vexy Smurf
+Hackus Smurf
+Complimentary Smurf
+Drummer Smurf
+Suspicious Smurf
+Bedtime Bear
+Birthday Bear
+Cheer Bear
+Friend Bear
+Funshine Bear
+Goodluck Bear
+Grumpy Bear
+Love-a-lot Bear
+Tenderheart Bear
+Wish Bear
+Champ Bear
+Daydream Bear
+Grams Bear
+Harmony Bear
+Secret Bear
+Share Bear
+Surprise Bear
+Laugh-a-lot Bear
+Bashful Bear
+Thanks-a-lot Bear
+Oopsy Bear
+Messy Bear
+Heartsong Bear
+Superstar Bear
+Garfield
+Odie
+Pooky
+Binky Clown
+Santa Clause
+Rudolph Reindeer
+Dasher Reindeer
+Dancer Reindeer
+Prancer Reindeer
+Vixen Reindeer
+Comet Reindeer
+Cupid Reindeer
+Donner Reindeer
+Blitzen Reindeer
+Frosty Snowman
+Humpty Dumpty
+Sleeping Beauty
+Buzz Lightyear
+Slinky Dog
+Horton Elephant
+Yertle Turtle
+Lorax
+Grinch
+Krusty Clown
+Voltron
+Optimus Prime
+Omega Supreme
+Grimlock
+Slag
+Sludge
+Snarl
+Swoop
+Wheeljack
+Bumblebee
+Cliffjumper
+Prowl
+Sideswipe
+Ratchet
+Ironhide
+Springer
+Kup
+Blurr
+Wheelie
+Hound
+Mirage
+Trailbreaker
+Sunstreaker
+Bluestreak
+Tracks
+Grapple
+Red Alert
+Smokescreen
+Hoist
+Inferno
+Skids
+Windcharger
+Brawn
+Huffer
+Gears
+Warpath
+Seaspray
+Powerglide
+Beachcomber
+Cosmos
+Outback
+Pipes
+Swerve
+Tailgate
+Skyfire
+Blaster
+Perceptor
+Devcon
+Alpha Trion
+Broadside
+Metroplex
+Sky Lynx
+Punch
+Counterpunch
+Sandstorm
+Beta
+Silverbolt
+Air Raid
+Slingshot
+Skydive
+Fireflight
+Superion
+Streetwise
+Groove
+Blades
+Defensor
+Firestar
+Moonracer
+Lightspeed
+Strafe
+Scattershot
+Afterburner
+Computron
+Chase
+Freeway
+Rollbar
+Searchlight
+Wideload
+Sureshot
+Pointblank
+Crosshairs
+Hardhead
+Chromedome
+Brainstorm
+Highbrow
+Fortress Maximus
+Megatron
+Soundwave
+Shockwave
+Skywarp
+Starscream
+Thundercracker
+Reflector
+Shrapnel
+Bombshell
+Kickback
+Hook
+Scrapper
+Bonecrusher
+Long Haul
+Scavenger
+Mixmaster
+Devastator
+Thrust
+Ramjet
+Dirge
+Typticon
+Motormaster
+Breakdown
+Wildrider
+Menasor
+Brawl
+Swindle
+Blast Off
+Vortex
+Onslaught
+Bruticus
+Octane
+Blitzwing
+Astrotrain
+Sixshot
+Tantrum
+Rampage
+Headstrong
+Razorclaw
+Divebomb
+Predaking
+Rippersnapper
+Triggerhappy
+Wonder Woman
+Green Arrow
+Green Lantern
+Wonder Girl
+Incredible Hulk
+Human Torch
+Invisible Woman
+Silver Surfer
+Iron Man
+Black Widow
+Green Goblin
+Ghost Rider
+Captain America
+Spider-Man
+Thor
+Wolverine
+Black Panther
+Captain Marvel
+Hawkeye
+Quicksilver
+Spider-Woman
+Superman
+Batman
+Batgirl
+Supergirl
+The Flash
+Aquaman
+Catwoman
+Magneto
+Venom
+Red Skull
+Sonic Hedgehog
+Donkey Kong
+He-Man
+Cringer
+Battle Cat
+Teela
+Evil-Lyn
+Orko
+Trap-Jaw
+Tri-Klops
+Skeletor
+Chewbacca
+C-3PO
+R2-D2
+Darth Vader
+Yoda
+Lightning McQueen
+Elastigirl
+Nemo
+Tarzan
+Cinderella
+Little Mermaid
+Rapunzel
+Ugly Duckling
+Thumbelina
+Frodo Baggins
+Samwise Gamgee
+Meriadoc Brandybuck
+Gandalf
+Gimli
+Legolas
+Bilbo Baggins
+Aragorn
+Peregrin Took
+Saruman
+Sauron
+Thorin Oakenshield
+Rainbow Brite
+Strawberry Shortcake
+Spongebob Squarepants
+Squidward Tentacles
+Sheldon Plankton
+Mermaid Man
+
