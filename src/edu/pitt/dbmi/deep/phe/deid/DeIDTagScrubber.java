@@ -19,6 +19,8 @@ public class DeIDTagScrubber {
 	private static final String DEID_TAG_PATTERN = "\\*?\\*\\*[A-Z\\-]+(\\[[^\\*]*\\])?";
 	
 	private Map<String,String> nameMap;
+	private Set<String> realNames;
+	private String currentPatientID, currentPatientName;
 	private Iterator<String> availableDoubleName,availableSingleName;
 	private List<String> places, institutions;
 	
@@ -36,7 +38,7 @@ public class DeIDTagScrubber {
 			try{
 				r = new BufferedReader(new FileReader(file));
 				for(String l=r.readLine();l!=null;l=r.readLine()){
-					str.append(process(l)+"\n");
+					str.append(process(l)+"\n"); //scrubRealNames(l)
 				}
 			}catch(IOException ex){
 				throw ex;
@@ -49,6 +51,19 @@ public class DeIDTagScrubber {
 		return null;
 	}
 	
+	private void setupCurrentPatient(String line){
+		Pattern p = Pattern.compile("Patient ID\\.+([^\\s]+)");
+		Matcher m = p.matcher(line);
+		if(m.matches()){
+			currentPatientID = m.group(1);
+		}
+		p = Pattern.compile("Patient Name\\.+([^\\.]+)");
+		m = p.matcher(line);
+		if(m.matches()){
+			currentPatientName = extractTagParts(m.group(1))[1];
+		}
+	}
+	
 	/**
 	 * process line of text to scrub DeID tags
 	 * @param l
@@ -56,6 +71,10 @@ public class DeIDTagScrubber {
 	 */
 	
 	private String process(String line) {
+		// OK, now find special DeID fields to resolve
+		// patient names properly
+		setupCurrentPatient(line);
+		
 		// find and replace all tags
 		Pattern pt = Pattern.compile(DEID_TAG_PATTERN);
 		Matcher mt = pt.matcher(line);
@@ -72,17 +91,30 @@ public class DeIDTagScrubber {
 	}
 
 	/**
+	 * return tag name=vale
+	 * @param tag name [0], value[1]
+	 * @return
+	 */
+	private String [] extractTagParts(String tag){
+		Matcher m = Pattern.compile("\\*?\\*\\*([A-Z\\-]+)(\\[.*\\])?").matcher(tag);
+		if(m.matches()){
+			return new String[] { m.group(1),m.group(2)};
+		}
+		return new String [0];
+	}
+	
+	/**
 	 * scrub individual DeID tag
 	 * @param group
 	 * @return
 	 */
 	private String scrub(String tag) {
-		Matcher m = Pattern.compile("\\*?\\*\\*([A-Z\\-]+)(\\[.*\\])?").matcher(tag);
-		if(m.matches()){
-			String tagName = m.group(1);
+		String [] parts = extractTagParts(tag);
+		if(parts.length > 0){
+			String tagName = parts[0];
 			// do different things
 			if("NAME".equals(tagName)){
-				return getName(m.group(2));
+				return getName(parts[1]);
 			}else if("PLACE".equals(tagName)){
 				return getPlace();
 			}else if("INSTITUTION".equals(tagName)){
@@ -170,35 +202,92 @@ public class DeIDTagScrubber {
 		if(nameMap == null){
 			nameMap = new HashMap<String, String>();
 		}
+		// 
+		if(deid == null)
+			return "";
+		
+		
+		// do patient specific stuff
+		String p = "";
+		if(deid.equals(currentPatientName)){
+			p = currentPatientID+"|";
+		}
+		
+		
+		// get rid of brackets and remove commas and periods
+		deid = deid.substring(1,deid.length()-1).trim();
+		deid = deid.replaceAll("[^A-Z ]\\s*"," ");
+		
 		// if we have a mention of name return it
-		if(nameMap.containsKey(deid))
-			return nameMap.get(deid);
+		if(nameMap.containsKey(p+deid)){
+			return  nameMap.get(p+deid);
+		}
 		
 		// else choose a new name
 		String name = generateName(deid.contains(" "));
-		nameMap.put(deid,name);
+		nameMap.put(p+deid,name);
+		
+		// lets add name without middle name initial
+		if(deid.matches("[A-Z]+ [A-Z]+ [A-Z]+"))
+			nameMap.put(p+deid.substring(0,deid.lastIndexOf(" ")),name);
+		
+		// lets add just last name
+		if(deid.contains(" ") && name.contains(" "))
+			nameMap.put(p+deid.substring(0,deid.indexOf(" ")),name.substring(name.indexOf(" ")+1));
 		
 		return name;
 	}
 	
-	
-	
+	/**
+	 * load real names for filtering
+	 * @param fn
+	 *
+	private void loadRealNames(File file) throws Exception {
+		realNames = new LinkedHashSet<String>();
+		BufferedReader r = new BufferedReader(new FileReader(file));
+		for(String l=r.readLine();l!=null;l=r.readLine()){
+			for(String p : l.split("\\s+")){
+				if(p.trim().length() > 3){
+					realNames.add(p.trim().toLowerCase());
+				}
+			}
+		}
+		r.close();
+	}
+	*/
+
+	/*
+	private String scrubRealNames(String text){
+		for(String name: realNames){
+			if(text.toLowerCase().indexOf(name) > -1){
+				String otext = text;
+				text = text.replaceAll("(?i)\\b"+name+"\\b"," ");
+				if(!otext.equals(text))
+					System.out.println("Warning: found a real name in text: "+name);
+			}
+		}
+		return text;
+	}
+	*/
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) throws Exception {
-		String f = "/home/tseytlin/Data/DeepPhe/DeepPheSample.deid";
-		String ff = "/home/tseytlin/Data/DeepPhe/DeepPheSample.scrubbed";
+		String type = "Breast";
+		File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.deid.fixed");
+		File fs = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.scrubbed");
+		//File fn = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_names.txt");
 		
 		DeIDTagScrubber scrubber = new DeIDTagScrubber();
-		String text = scrubber.process(new File(f));
+		//scrubber.loadRealNames(fn);
+		String text = scrubber.process(fd);
 		
-		BufferedWriter w = new BufferedWriter(new FileWriter(new File(ff)));
+		BufferedWriter w = new BufferedWriter(new FileWriter(fs));
 		w.write(text);
 		w.close();
 		
-		System.out.println("done");
+		System.out.println(type+"\t"+fd.getParentFile().getAbsolutePath());
 		//System.out.println(scrubber.nameMap);
 		
 	}

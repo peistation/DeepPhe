@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class TextUtils {
 	/**
@@ -28,5 +31,41 @@ public class TextUtils {
 			buf.close();
 		}
 		return strBuf.toString();
+	}
+	
+	
+	/**
+	 * parse Date String
+	 * @param dateString
+	 * @return
+	 */
+	
+	public static Date parseDateString(String dateString) {
+		try {
+			if(dateString == null){
+				return null;
+			}
+			
+			//Cleanup and trim excess of string
+			dateString = dateString.trim();
+			if(dateString.length()>13)
+				dateString = dateString.substring(0,13);
+			
+			if (dateString.length() < 8) {
+				return null;
+			}
+
+			
+			SimpleDateFormat dateOnly = new SimpleDateFormat("yyyyMMdd");
+			SimpleDateFormat dateAndTime = new SimpleDateFormat("yyyyMMdd HHmm");
+			
+			SimpleDateFormat df = dateOnly;
+			if (dateString.length() > 8) {
+				df = dateAndTime;
+			}
+			return df.parse(dateString);
+		} catch (ParseException e) {
+			return null;
+		}
 	}
 }
