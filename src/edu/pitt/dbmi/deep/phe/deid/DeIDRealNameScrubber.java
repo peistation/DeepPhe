@@ -70,7 +70,31 @@ public class DeIDRealNameScrubber {
 			}
 		}
 		
+		// scrub Record Subtype (we have path numbers there) 
+		m = match(l,"Record Subtype\\.+.*");
+		if(m.matches()){
+			return "";
+		}
+		
+		// scrub addresses that were missed
+		m = match(l,"(.*)Address:.*");
+		if(m.matches()){
+			System.out.println("Warning: Address found -> "+l);
+			return m.group(1)+"Address: **PLACE";
+		}
+		
+		// scrub addresses that are not spelled out
+		m = match(l,".*(\\*{2,3}[A-Z\\-]+.*\\b([Ss][Tt]|[Aa][Vv][Ee]|[Rr][Dd])\\b|\\b([Ss][Tt]|[Aa][Vv][Ee]|[Rr][Dd])\\b.*\\*{2,3}[A-Z\\-]+).*");
+		if(m.matches()){
+			System.out.println("Warning: Address found -> "+l);
+			return "**PLACE";
+		}
 		return l;
+	}
+	
+	private Matcher match(String text, String regex){
+		Pattern p = Pattern.compile(regex);
+		return p.matcher(text);	
 	}
 	
 	/**
@@ -84,7 +108,9 @@ public class DeIDRealNameScrubber {
 		BufferedReader r = new BufferedReader(new FileReader(input));
 		BufferedWriter w = new BufferedWriter(new FileWriter(output));
 		for(String l=r.readLine(); l!= null;l=r.readLine()){
-			w.write(scrub(l)+"\n");
+			String s = scrub(l);
+			if(s.length() > 0 || l.trim().length() == 0)
+				w.write(s+"\n");
 			if(l.trim().equals("E_O_R"))
 				currentReport++;
 		}
@@ -97,10 +123,15 @@ public class DeIDRealNameScrubber {
 	 * @param args
 	 */
 	public static void main(String[] args) throws Exception {
-		String type = "Ovarian";
-		File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.deid");
+		String type = "Breast";
+		File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_new_sample.deid");
+		File fr = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_new_sample.bar");
+		File ff = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_new_sample.deid.fixed");
+		/*File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.deid");
 		File fr = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.bar");
-		File ff = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.deid.fixed");
+		File ff = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.deid.fixed");*/
+		
+		
 		
 		DeIDRealNameScrubber scrubber = new DeIDRealNameScrubber();
 		scrubber.loadRealNames(fr);

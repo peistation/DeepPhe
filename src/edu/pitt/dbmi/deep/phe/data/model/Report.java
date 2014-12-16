@@ -181,7 +181,7 @@ public class Report {
 					String mrn =hd[ID].trim();
 					String[] parts = mrn.split(" ");
 					if(parts.length > 1)
-						doc.setMedicalRecordNumber(parts[0] + " " + parts[1]);
+						doc.setMedicalRecordNumber(parts[0] + parts[1]);
 					else
 						doc.setMedicalRecordNumber(mrn);
 					doc.setRace(hd[RACE].trim());
@@ -195,7 +195,6 @@ public class Report {
 				
 				header = null;
 				body = new StringBuffer();
-				xml.append(l+"\n");
 			}else if("E_O_R".equals(l) && inBody){
 				inHeader = false;
 				inBody = false;

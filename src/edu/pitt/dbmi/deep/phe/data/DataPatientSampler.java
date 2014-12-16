@@ -6,7 +6,7 @@ import java.util.*;
 import edu.pitt.dbmi.deep.phe.data.model.*;
 import edu.pitt.dbmi.deep.phe.util.TextUtils;
 
-public class DataSampler {
+public class DataPatientSampler {
 	public static int MIN_NUM_DOCS = 8;
 	public static int MAX_NUM_DOCS = 30;
 	public static int DOCS_AFTER_CA = 5;
@@ -64,7 +64,7 @@ public class DataSampler {
 	
 	public List<Filter> getFilters() {
 		if(filters == null){
-			filters = new ArrayList<DataSampler.Filter>();
+			filters = new ArrayList<DataPatientSampler.Filter>();
 			// check if report number is in good report
 			filters.add(new Filter(){
 				public boolean filter(Patient p) {
@@ -234,13 +234,13 @@ public class DataSampler {
 		//String infile = "/home/tseytlin/Data/MARS/caties_summary.bar";
 		// Ovarian/54, Breast/45, Melanoma/34
 		String domain = "Melanoma";  
-		DataSampler.MAX_NUM_DOCS = 34; 
+		DataPatientSampler.MAX_NUM_DOCS = 34; 
 		
 		String infile = "/home/tseytlin/Data/DeepPhe/"+domain+"/"+domain.toLowerCase()+"_cases_summary.txt";
 		String infile2 = "/home/tseytlin/Data/DeepPhe/"+domain+"/"+domain.toLowerCase()+"_patients+dates.csv";
 		String outfile = "/home/tseytlin/Data/DeepPhe/"+domain+"/"+domain.toLowerCase()+"_patient_sample.who";
 		
-		DataSampler ds = new DataSampler();
+		DataPatientSampler ds = new DataPatientSampler();
 	
 		System.out.println("loading dataset .. "+infile);
 		

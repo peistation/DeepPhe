@@ -108,8 +108,18 @@ public class DeIDReportSplitter {
 	 */
 	public static void main(String[] args) throws IOException {
 		String type = "Breast";
-		File fs = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.scrubbed");
-		File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample_scrubbed");
+		String ver = "scrubbed";
+		//File fs = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.scrubbed");
+		//File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample_scrubbed");
+		
+//		File fs = new File("/home/tseytlin/Data/DeepPhe/"+type+"/sample/"+type.toLowerCase()+"_12doc_sample."+ver);
+//		File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/sample/"+type.toLowerCase()+"_12doc_sample_"+ver);
+		
+/*		File fs = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_new_sample.bar");
+		File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_new_sample_id");*/
+		
+		File fs = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_new_sample."+ver);
+		File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_new_sample_"+ver);
 		
 		DeIDReportSplitter splitter = new DeIDReportSplitter();
 		splitter.split(fs,fd);

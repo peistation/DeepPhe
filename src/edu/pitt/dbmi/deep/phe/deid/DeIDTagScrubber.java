@@ -128,17 +128,19 @@ public class DeIDTagScrubber {
 	}
 
 	private String getPlace() {
-		if(places == null){
+		/*if(places == null){
 			places = getList(DEID_PLACES);
 		}
-		return places.get(0);
+		return places.get(0);*/
+		return "Some Location";
 	}
 	
 	private String getInstitution() {
-		if(institutions == null){
+		/*if(institutions == null){
 			institutions = getList(DEID_INSTITUTIONS);
 		}
-		return institutions.get(0);
+		return institutions.get(0);*/
+		return "Some Institution";
 	}
 	
 	private List<String> getList(String file){
@@ -157,7 +159,7 @@ public class DeIDTagScrubber {
 	 * @return
 	 */
 	private String generateName(boolean full){
-		if(availableDoubleName == null){
+		/*if(availableDoubleName == null){
 			List<String> doubleNames = new ArrayList<String>();
 			List<String> singleNames = new ArrayList<String>();
 			try {
@@ -190,7 +192,9 @@ public class DeIDTagScrubber {
 		if(name == null)
 			name = "Noname Nobody";
 		
-		return name;
+		return name;	
+			*/
+		return "Person "+(nameMap.size()+1);
 	}
 	
 	/**
@@ -233,7 +237,8 @@ public class DeIDTagScrubber {
 		
 		// lets add just last name
 		if(deid.contains(" ") && name.contains(" "))
-			nameMap.put(p+deid.substring(0,deid.indexOf(" ")),name.substring(name.indexOf(" ")+1));
+			nameMap.put(p+deid.substring(0,deid.indexOf(" ")),name);
+			//nameMap.put(p+deid.substring(0,deid.indexOf(" ")),name.substring(name.indexOf(" ")+1));
 		
 		return name;
 	}
@@ -275,9 +280,10 @@ public class DeIDTagScrubber {
 	 */
 	public static void main(String[] args) throws Exception {
 		String type = "Breast";
-		File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.deid.fixed");
-		File fs = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.scrubbed");
-		//File fn = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_names.txt");
+		File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_new_sample.deid.fixed");
+		File fs = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_new_sample.scrubbed");
+		/*File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.deid.fixed");
+		File fs = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.scrubbed");*/
 		
 		DeIDTagScrubber scrubber = new DeIDTagScrubber();
 		//scrubber.loadRealNames(fn);

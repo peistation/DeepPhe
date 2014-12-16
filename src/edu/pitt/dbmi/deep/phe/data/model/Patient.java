@@ -7,6 +7,7 @@ public class Patient {
 	private String name,mrn,ssn,race,gender;
 	private Date birthDate;
 	private Date cancerDate;
+	private Map<String,Date> dates;
 	private Map<String,Integer> countMap;
 	public String getMedicalRecordNumber() {
 		return mrn;
@@ -66,6 +67,19 @@ public class Patient {
 	public int getReportCount(){
 		return getReports().size();
 	}
+	public Map<String, Date> getDates() {
+		if(dates == null)
+			dates = new LinkedHashMap<String, Date>();
+		return dates;
+	}
+	
+	public Date getDate(String type){
+		return getDates().get(type);
+	}
+	
+	public void addDate(Date dt, String type){
+		getDates().put(type,dt);
+	}
 	
 	public Map<String,Integer> getReportCounts(){
 		if(countMap == null){
@@ -76,6 +90,28 @@ public class Patient {
 			}
 		}
 		return countMap;
+	}
+	
+	public SortedSet<Date> getTreatmentDates(){
+		SortedSet<Date> d = new TreeSet<Date>();
+		for(String type: getDates().keySet()){
+			if(!Arrays.asList("Date 1st Recurrence","Date of 1st Contact","Date of Death","Date of Initial Diagnosis","Date of Last Contact").contains(type)){
+				d.add(getDate(type));
+			}
+		}
+		return d;
+	}
+	
+	public Date getInitialDiagnosisDate(){
+		return getDate("Date of Initial Diagnosis");
+	}
+
+	public Date getRecurrenceDate(){
+		return getDate("Date 1st Recurrence");
+	}
+
+	public Date getDeathDate(){
+		return getDate("Date of Death");
 	}
 	
 	public int  getReportCounts(List<String> types){
