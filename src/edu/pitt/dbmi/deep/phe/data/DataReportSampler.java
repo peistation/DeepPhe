@@ -20,10 +20,10 @@ public class DataReportSampler {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
-		String domain = "Ovarian";
-		File patientDates = new File("/home/tseytlin/Data/DeepPhe/new_sample_patients+dates.who");
-		File dataFile = new File("/home/tseytlin/Data/DeepPhe/"+domain+"/"+domain.toLowerCase()+"_new_sample.bar");
-		File outputFile = new File("/home/tseytlin/Data/DeepPhe/"+domain+"/"+domain.toLowerCase()+"_new_sample_filtered.bar");
+		String domain = "Breast";
+		File patientDates = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+domain+"/"+domain.toLowerCase()+"_patient_sample+dates.csv");
+		File dataFile = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+domain+"/"+domain.toLowerCase()+"_sample.bar");
+		File outputFile = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+domain+"/"+domain.toLowerCase()+"_sample_filtered.bar");
 		if(outputFile.exists())
 			outputFile.delete();
 		

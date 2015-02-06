@@ -123,10 +123,10 @@ public class DeIDRealNameScrubber {
 	 * @param args
 	 */
 	public static void main(String[] args) throws Exception {
-		String type = "Breast";
-		File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_new_sample.deid");
-		File fr = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_new_sample.bar");
-		File ff = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_new_sample.deid.fixed");
+		String type = "Ovarian";
+		File fd = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.deid");
+		File fr = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.bar");
+		File ff = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.deid.fixed");
 		/*File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.deid");
 		File fr = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.bar");
 		File ff = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.deid.fixed");*/

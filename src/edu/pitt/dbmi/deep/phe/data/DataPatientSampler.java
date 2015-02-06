@@ -7,8 +7,8 @@ import edu.pitt.dbmi.deep.phe.data.model.*;
 import edu.pitt.dbmi.deep.phe.util.TextUtils;
 
 public class DataPatientSampler {
-	public static int MIN_NUM_DOCS = 8;
-	public static int MAX_NUM_DOCS = 30;
+	public static int MIN_NUM_DOCS = 18; //8
+	public static int MAX_NUM_DOCS = 1000; //30
 	public static int DOCS_AFTER_CA = 5;
 	public static int TIME_AFTER_CA = 6; //month
 	
@@ -204,7 +204,7 @@ public class DataPatientSampler {
 				String mrn = p[0].trim();
 				String dt = p[1].trim();
 				Patient pt = patients.get(mrn);
-				if(pt != null){
+				if(pt != null && pt.getCancerDate() == null){
 					pt.setCancerDate(TextUtils.parseDateString(dt));
 				}
 			}
@@ -233,12 +233,13 @@ public class DataPatientSampler {
 	public static void main(String[] args) throws Exception {
 		//String infile = "/home/tseytlin/Data/MARS/caties_summary.bar";
 		// Ovarian/54, Breast/45, Melanoma/34
-		String domain = "Melanoma";  
-		DataPatientSampler.MAX_NUM_DOCS = 34; 
+		String domain = "Ovarian";  
+		//DataPatientSampler.MAX_NUM_DOCS = 34; 
 		
-		String infile = "/home/tseytlin/Data/DeepPhe/"+domain+"/"+domain.toLowerCase()+"_cases_summary.txt";
-		String infile2 = "/home/tseytlin/Data/DeepPhe/"+domain+"/"+domain.toLowerCase()+"_patients+dates.csv";
-		String outfile = "/home/tseytlin/Data/DeepPhe/"+domain+"/"+domain.toLowerCase()+"_patient_sample.who";
+		String infile = "/home/tseytlin/Data/DeepPhe/Data/"+domain+"/"+domain.toLowerCase()+"_cases_summary.txt";
+		//String infile2 = "/home/tseytlin/Data/DeepPhe/Data/"+domain+"/"+domain.toLowerCase()+"_patients+dates.csv";
+		String infile2 = "/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+domain+"/"+domain.toLowerCase()+"_patients+dates.csv";
+		String outfile = "/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+domain+"/"+domain.toLowerCase()+"_patient_sample.who";
 		
 		DataPatientSampler ds = new DataPatientSampler();
 	

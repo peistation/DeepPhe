@@ -132,7 +132,7 @@ public class DeIDTagScrubber {
 			places = getList(DEID_PLACES);
 		}
 		return places.get(0);*/
-		return "Some Location";
+		return "Location";
 	}
 	
 	private String getInstitution() {
@@ -140,7 +140,7 @@ public class DeIDTagScrubber {
 			institutions = getList(DEID_INSTITUTIONS);
 		}
 		return institutions.get(0);*/
-		return "Some Institution";
+		return "Institution";
 	}
 	
 	private List<String> getList(String file){
@@ -194,7 +194,7 @@ public class DeIDTagScrubber {
 		
 		return name;	
 			*/
-		return "Person "+(nameMap.size()+1);
+		return "Person"+(nameMap.size()+1);
 	}
 	
 	/**
@@ -279,9 +279,9 @@ public class DeIDTagScrubber {
 	 * @param args
 	 */
 	public static void main(String[] args) throws Exception {
-		String type = "Breast";
-		File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_new_sample.deid.fixed");
-		File fs = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_new_sample.scrubbed");
+		String type = "Melanoma";
+		File fd = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.deid.fixed");
+		File fs = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.scrubbed");
 		/*File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.deid.fixed");
 		File fs = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.scrubbed");*/
 		
