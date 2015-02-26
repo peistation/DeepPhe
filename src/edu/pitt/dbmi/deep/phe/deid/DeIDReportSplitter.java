@@ -40,14 +40,14 @@ public class DeIDReportSplitter {
 					// parse existing header
 					/*
 					Report ID.....................2,HuUnE+zzpudA
-					Patient ID....................HuUnE+zzpudA
-					Patient Name..................**NAME[AAA BBB M]
+					PatientElement ID....................HuUnE+zzpudA
+					PatientElement Name..................**NAME[AAA BBB M]
 					Principal Date................20060223 1325
 					Record Subtype................PVS06-2730
 					Record Type...................SP
 					*/
-					currentPatient = getHeaderField(report.toString(),"Patient ID");
-					currentReport.setName(getHeaderField(report.toString(),"Patient Name"));
+					currentPatient = getHeaderField(report.toString(),"PatientElement ID");
+					currentReport.setName(getHeaderField(report.toString(),"PatientElement Name"));
 					currentReport.setEventDate(TextUtils.parseDateString(getHeaderField(report.toString(),"Principal Date")));
 					currentReport.setDocumentType(getHeaderField(report.toString(),"Record Type"));
 				}

@@ -156,8 +156,8 @@ public class Patient {
  16    UNIQ ?
  17    ADDR Address
  18    ADT ?
- 19    AGE Patient Age
- 20    ALG Patient allegies
+ 19    AGE PatientElement Age
+ 20    ALG PatientElement allegies
  21    ASP Secondary Document ID
  22    CHRG ?
  23    DNO Doctor Number
@@ -180,10 +180,10 @@ public class Patient {
  40    OPD ?
  41    PDOC Procedure Doc
  42    PDX Pathology DX
- 43    PMSG Patient Message
- 44    PNOT Patient Note
+ 43    PMSG PatientElement Message
+ 44    PNOT PatientElement Note
  45    PROC Procedure Code
- 46    PTYP Patient Type
+ 46    PTYP PatientElement Type
  47    RACE Race
  48    RDOC Referring Doc
  49    RES  Resident

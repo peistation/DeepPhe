@@ -52,12 +52,12 @@ public class DeIDTagScrubber {
 	}
 	
 	private void setupCurrentPatient(String line){
-		Pattern p = Pattern.compile("Patient ID\\.+([^\\s]+)");
+		Pattern p = Pattern.compile("PatientElement ID\\.+([^\\s]+)");
 		Matcher m = p.matcher(line);
 		if(m.matches()){
 			currentPatientID = m.group(1);
 		}
-		p = Pattern.compile("Patient Name\\.+([^\\.]+)");
+		p = Pattern.compile("PatientElement Name\\.+([^\\.]+)");
 		m = p.matcher(line);
 		if(m.matches()){
 			currentPatientName = extractTagParts(m.group(1))[1];

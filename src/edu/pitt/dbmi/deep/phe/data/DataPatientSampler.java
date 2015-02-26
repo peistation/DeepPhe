@@ -114,7 +114,7 @@ public class DataPatientSampler {
 	}
 
 	/**
-	 * Is this Patient kosher for our selection
+	 * Is this PatientElement kosher for our selection
 	 * @param p
 	 * @return
 	 */
