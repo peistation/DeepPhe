@@ -1,7 +1,5 @@
 package org.apache.ctakes.cancer.ae;
 
-import static org.junit.Assert.*;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -22,12 +20,11 @@ import org.apache.ctakes.typesystem.type.textsem.EventMention;
 import org.apache.log4j.Logger;
 import org.apache.uima.analysis_engine.AnalysisEngine;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
+import org.apache.uima.fit.factory.AggregateBuilder;
+import org.apache.uima.fit.factory.AnalysisEngineFactory;
+import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 import org.junit.Test;
-import org.uimafit.component.JCasAnnotator_ImplBase;
-import org.uimafit.factory.AggregateBuilder;
-import org.uimafit.factory.AnalysisEngineFactory;
-import org.uimafit.util.JCasUtil;
 
 import com.google.common.collect.Lists;
 
@@ -45,9 +42,9 @@ public class CancerPipelineTest {
 		AggregateBuilder builder = new AggregateBuilder();
 		builder.add(ClinicalPipelineFactory.getTokenProcessingPipeline());
 		builder.add(AnalysisEngineFactory
-				.createPrimitiveDescription(CopyNPChunksToLookupWindowAnnotations.class));
+				.createEngineDescription(CopyNPChunksToLookupWindowAnnotations.class));
 		builder.add(AnalysisEngineFactory
-				.createPrimitiveDescription(RemoveEnclosedLookupWindows.class));
+				.createEngineDescription(RemoveEnclosedLookupWindows.class));
 
 		builder.add(UmlsDictionaryLookupAnnotator
 				.createAnnotatorDescription());
@@ -60,13 +57,13 @@ public class CancerPipelineTest {
 		builder.add(EventAnnotator
 				.createAnnotatorDescription("/org/apache/ctakes/temporal/ae/eventannotator/model.jar"));
 		//link event to eventMention
-		builder.add(AnalysisEngineFactory.createPrimitiveDescription(AddEvent.class));
+		builder.add(AnalysisEngineFactory.createEngineDescription(AddEvent.class));
 		// Add Document Time Relative Annotator
 		builder.add(DocTimeRelAnnotator
 				.createAnnotatorDescription("/org/apache/ctakes/temporal/ae/doctimerel/model.jar"));
 		
 		builder.add(PolarityCleartkAnalysisEngine.createAnnotatorDescription());
-		builder.add(AnalysisEngineFactory.createPrimitiveDescription(ExtractionPrepAnnotator.class));			
+		builder.add(AnalysisEngineFactory.createEngineDescription(ExtractionPrepAnnotator.class));			
 		
 		//ADD XMI CAS CONSUMER HERE?
 		
@@ -90,7 +87,7 @@ public class CancerPipelineTest {
 
 	}
 
-	public static class AddEvent extends org.uimafit.component.JCasAnnotator_ImplBase {
+	public static class AddEvent extends org.apache.uima.fit.component.JCasAnnotator_ImplBase {
 		@Override
 		public void process(JCas jCas) throws AnalysisEngineProcessException {
 			for (EventMention emention : Lists.newArrayList(JCasUtil.select(
