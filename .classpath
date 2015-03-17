@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="ctakes-cancer/src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/httpclient-4.2.3.jar"/>
+	<classpathentry kind="lib" path="lib/httpcore-4.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/xpp3-1.1.3.4.O.jar"/>
 	<classpathentry kind="lib" path="lib/commons-codec-1.3.jar"/>
 	<classpathentry kind="lib" path="lib/commons-lang3-3.1.jar"/>
 	<classpathentry kind="lib" path="lib/commons-logging-1.1.jar"/>
 	<classpathentry kind="lib" path="lib/commons-logging-api-1.1.jar"/>
-	<classpathentry kind="lib" path="lib/gson-2.2.4.jar"/>
-	<classpathentry kind="lib" path="lib/httpclient-4.2.3.jar"/>
-	<classpathentry kind="lib" path="lib/httpcore-4.2.2.jar"/>
-	<classpathentry kind="lib" path="lib/xpp3-1.1.3.4.O.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/nobletools"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/ctakes-clinical-pipeline"/>
 	<classpathentry kind="lib" path="lib/fhir-0.0.82.jar"/>
+	<classpathentry kind="lib" path="lib/gson-2.2.4.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ctakes-clinical-pipeline"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ctakes-temporal"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/nobletools"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
