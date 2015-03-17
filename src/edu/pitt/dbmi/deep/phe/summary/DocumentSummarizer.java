@@ -5,7 +5,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.ctakes.clinicalpipeline.ClinicalPipelineFactory;
 import org.apache.ctakes.core.cc.XmiWriterCasConsumerCtakes;
@@ -14,6 +16,7 @@ import org.apache.ctakes.core.util.CtakesFileNamer;
 import org.apache.ctakes.core.util.JCasUtil;
 import org.apache.ctakes.typesystem.type.refsem.OntologyConcept;
 import org.apache.ctakes.typesystem.type.refsem.OntologyConcept_Type;
+import org.apache.ctakes.typesystem.type.structured.Demographics;
 import org.apache.ctakes.typesystem.type.textsem.DiseaseDisorderMention;
 import org.apache.uima.UIMAException;
 import org.apache.uima.UIMAFramework;
@@ -26,6 +29,7 @@ import org.apache.uima.collection.CollectionReader;
 import org.apache.uima.fit.factory.*;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
+import org.apache.uima.jcas.tcas.DocumentAnnotation;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.resource.metadata.TypeSystemDescription;
 import org.cleartk.util.cr.FilesCollectionReader;
@@ -34,6 +38,7 @@ import org.hl7.fhir.instance.formats.XmlComposerBase;
 import org.hl7.fhir.instance.model.Composition;
 import org.hl7.fhir.instance.model.Resource;
 
+import edu.pitt.dbmi.deep.phe.model.*;
 import edu.pitt.dbmi.nlp.noble.coder.NobleCoder;
 import edu.pitt.dbmi.nlp.noble.coder.model.Document;
 import edu.pitt.dbmi.nlp.noble.ontology.IOntology;
@@ -48,7 +53,13 @@ import edu.pitt.dbmi.nlp.noble.tools.TextTools;
  *
  */
 public class DocumentSummarizer {
+	private ResourceFactory resourceFactory;
 
+	public DocumentSummarizer(IOntology ontology){
+		resourceFactory = new ResourceFactory(ontology);
+	}
+	
+	
 	/**
 	 * process document and produce
 	 * @param document
@@ -74,11 +85,98 @@ public class DocumentSummarizer {
 		return JCasFactory.createJCas(document.getAbsolutePath(),tp);
 	}
 	
-	public void saveFHIR(Resource r, File file) throws FileNotFoundException, Exception{
-		XmlComposer xml = new XmlComposer();
-		xml.compose(new FileOutputStream(file), r, true);
-	}
 
+	/**
+	 * processing CAS and build a FHIR object model out of it
+	 * @param cas
+	 * @return
+	 *
+	public Report process(JCas cas){
+		Report report = null;
+		// process given CAS document
+		Iterator<Annotation> it = cas.getAnnotationIndex(DocumentAnnotation.type).iterator();
+		if(it.hasNext()){
+			report = resourceFactory.getReport(it.next());
+			if(report != null){
+				// now examine varies types of annotations and how they can relate
+				Demographics demo = getPrimaryPatient(cas);
+				if(demo != null){
+					//Patient patient = resourceFactory.getPatient(demo);
+					
+				}
+			}
+		}
+		return null;
+	}
+	*/
+	
+	
+	/**
+	 * Create Report object from NobleCoder annotated document
+	 * @param doc
+	 * @return
+	 */
+	public Report process(Document doc){
+		Report report = resourceFactory.getReport(doc);
+		if(report == null)
+			return null;
+		// do we have a title?
+		report.setTitleSimple(doc.getTitle());
+		
+		// find patient if available
+		Patient patient = resourceFactory.getPatient(doc);
+		if(patient != null){
+			report.setPatient(patient);
+			patient.assertRelatedData(doc);
+			patient.inferRelatedData();
+		}
+		// now find all primary diagnosis that are found in report
+		for(Diagnosis dx: resourceFactory.getDiagnoses(doc)){
+			report.addDiagnosis(dx);
+			dx.assertRelatedData(doc);
+			dx.inferRelatedData();
+		}
+		
+		// find all procedures mentioned in each report
+		for(Procedure p: resourceFactory.getProcedures(doc)){
+			report.addProcedure(p);
+			p.assertRelatedData(doc);
+			p.inferRelatedData();
+		}
+		
+		return report;
+	}
+	
+	/**
+	 * Create Report object from NobleCoder annotated document
+	 * @param doc
+	 * @return
+	 */
+	public Report process(JCas cas){
+		Report report = resourceFactory.getReport(cas);
+		// find patient if available
+		Patient patient = resourceFactory.getPatient(cas);
+		if(patient != null){
+			patient.assertRelatedData(cas);
+			patient.inferRelatedData();
+			report.setPatient(patient);
+		}
+		// now find all primary diagnosis that are found in report
+		for(Diagnosis dx: resourceFactory.getDiagnoses(cas)){
+			dx.assertRelatedData(cas);
+			dx.inferRelatedData();
+			report.addDiagnosis(dx);
+		}
+		
+		// find all procedures mentioned in each report
+		for(Procedure p: resourceFactory.getProcedures(cas)){
+			p.assertRelatedData(cas);
+			p.inferRelatedData();
+			report.addProcedure(p);
+		}
+		
+		return report;
+	}
 	
 	/**
 	 * test out this 
@@ -92,12 +190,37 @@ public class DocumentSummarizer {
 	
 	public static void main(String [] args ) throws Exception{
 		//File ontology = new File("/home/tseytlin/Data/DeepPhe/Model/BreastCancerModel.owl");
-		File file = new File("/home/tseytlin/Data/DeepPhe/Model/reports/doc1.txt");
-		File file_cas = new File("/home/tseytlin/Data/DeepPhe/Model/reports_cas/doc1.xmi");
-		File file_fhir = new File("/home/tseytlin/Data/DeepPhe/Model/reports_fhir/doc1.xml");
+		File project = new File("/home/tseytlin/Work/DeepPhe/");
+		//File ontology = new File(project,"ontologies/breastCAEx.owl");
+		File ontology = new File(project,"data/sample/ontology/BreastCancerModel.owl");
+		File out = new File(project,"data/sample/fhir");
+		File [] docs = new File(project,"data/sample/docs").listFiles();
+		Arrays.sort(docs);
 		
-		DocumentSummarizer summarizer = new DocumentSummarizer();
-		JCas cas = summarizer.loadCAS(file_cas);
+		// process reports
+		/*DocumentSummarizer summarizer = new DocumentSummarizer();
+		for(File f: dir.listFiles()){
+			JCas cas = summarizer.process(f);
+			
+		}*/
+		
+		System.out.println("loading ontology .."+ontology.getName());
+		IOntology ont = OOntology.loadOntology(ontology);
+		DocumentSummarizer summarizer = new DocumentSummarizer(ont);
+		for(File file: docs){
+			System.out.println("coding document .."+file.getName());
+			NobleCoder coder = new NobleCoder(new NobleCoderTerminology(ont));
+			Document doc = coder.process(file);
+			System.out.println("generating summary ..");
+			Report report = summarizer.process(doc);
+			System.out.println(report.getSummary());
+			report.saveFHIR(out);
+		}
+		
+		
+		
+		
+		//JCas cas = summarizer.loadCAS(file_cas);
 		//DocumentElement doc = summarizer.process(cas);
 		//System.out.println(doc.getText());
 		//summarizer.saveFHIR(doc.getModel(),file_fhir);
