@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.apache.ctakes</groupId>
     <artifactId>ctakes</artifactId>
-    <version>3.2.1-SNAPSHOT</version>
+    <version>3.2.2-SNAPSHOT</version>
   </parent>
   <artifactId>ctakes-cancer</artifactId>
   <name>ctakes-cancer</name>
