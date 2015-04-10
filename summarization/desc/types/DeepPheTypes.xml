@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <name>DeepPheTypes</name>
+    <description>cTAKES type system along with summarization types.</description>
+    <version>1.0</version>
+    <vendor>University of Pittsburgh DBMI</vendor>
+  <imports>
+    <import location="file:/C:/Users/kjm84/git/DeepPhe/summarization/src/main/resources/org/apache/ctakes/typesystem/types/TypeSystem.xml"/>
+  </imports>
+<types>
+    <typeDescription>
+      <name>edu.pitt.dbmi.deepphe.summarization.typesystem.type.textsem.TnmMention</name>
+      <description>Tnm Mention at Document Level</description>
+      <supertypeName>org.apache.ctakes.typesystem.type.textsem.EventMention</supertypeName>
+      <features>
+        <featureDescription>
+          <name>tumor</name>
+          <description/>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>node</name>
+          <description/>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>metastasis</name>
+          <description/>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  </types>
+</typeSystemDescription>
