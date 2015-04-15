@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.uima.jcas.JCas;
 import org.hl7.fhir.instance.formats.XmlComposer;
@@ -20,9 +22,11 @@ import org.hl7.fhir.instance.model.Patient.ContactComponent;
 import org.hl7.fhir.instance.model.Patient.PatientLinkComponent;
 
 import edu.pitt.dbmi.nlp.noble.coder.model.Document;
+import edu.pitt.dbmi.nlp.noble.coder.model.Mention;
+import edu.pitt.dbmi.nlp.noble.tools.TextTools;
 
-public class Patient extends org.hl7.fhir.instance.model.Patient implements DeepPheModel{
-	private Date currentDate;
+public class Patient extends org.hl7.fhir.instance.model.Patient implements Element{
+	private int yearsOld;
 	
 	public Patient(){
 		setActiveSimple(true);
@@ -72,29 +76,15 @@ public class Patient extends org.hl7.fhir.instance.model.Patient implements Deep
 		r.setReferenceSimple(getIdentifierSimple());
 		return r;
 	}
-	
-	public Date getCurrentDate() {
-		return currentDate;
-	}
 
 	public void setCurrentDate(Date currentDate) {
-		currentDate = currentDate;
+		// derive birhdate if available
+		if(yearsOld > 0){
+			Date bday = new Date(currentDate.getTime()-Utils.MILLISECONDS_IN_YEAR* yearsOld);
+			setBirthDateSimple(Utils.getDate(bday));
+		}
 	}
 
-	public void assertRelatedData(Document doc) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void assertRelatedData(JCas cas) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void inferRelatedData() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	public String getDisplaySimple() {
 		return getNameSimple();
@@ -107,6 +97,11 @@ public class Patient extends org.hl7.fhir.instance.model.Patient implements Deep
 	public String getSummary() {
 		StringBuffer st = new StringBuffer();
 		st.append("Patient:\t"+getDisplaySimple());
+		if(getGender() != null)
+			st.append(" | gender: "+getGender().getTextSimple());
+		if(getAge() > 0)
+			st.append(" | age: "+getAge());
+		
 		return st.toString();
 	}
 	
@@ -157,8 +152,28 @@ public class Patient extends org.hl7.fhir.instance.model.Patient implements Deep
 		dst.active = ((target.getActive() == null) ? null : target.getActive().copy());
 	}
 
-	public void saveFHIR(File dir) throws FileNotFoundException, Exception {
+	public void save(File dir) throws Exception {
 		Utils.saveFHIR(this,getIdentifierSimple(),dir);
+	}
+
+	public void setReport(Report r) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public int getAge(){
+		return yearsOld;
+	}
+
+	public void setAge(Mention m) {
+		Pattern pp = Pattern.compile("\\d+");
+		Matcher mm = pp.matcher(m.getText());
+		if(mm.find())
+			yearsOld = TextTools.parseIntegerValue(mm.group());
+	}
+
+	public void setGender(Mention m) {
+		setGender(Utils.getCodeableConcept(m));
 	}
 
 }

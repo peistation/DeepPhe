@@ -1,0 +1,1212 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:syntax="http:///org/apache/ctakes/typesystem/type/syntax.ecore" xmlns:refsem="http:///org/apache/ctakes/typesystem/type/refsem.ecore" xmlns:cas="http:///uima/cas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:util="http:///org/apache/ctakes/typesystem/type/util.ecore" xmlns:textspan="http:///org/apache/ctakes/typesystem/type/textspan.ecore" xmlns:assertion="http:///org/apache/ctakes/typesystem/type/temporary/assertion.ecore" xmlns:structured="http:///org/apache/ctakes/typesystem/type/structured.ecore" xmlns:relation="http:///org/apache/ctakes/typesystem/type/relation.ecore" xmlns:textsem="http:///org/apache/ctakes/typesystem/type/textsem.ecore" xmlns:type="http:///org/apache/ctakes/drugner/type.ecore" xmlns:tcas="http:///uima/tcas.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <cas:Sofa xmi:id="6" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="===================================================================&#10;Patient Name..................Jane Doe&#10;Principal Date................20130424 1130&#10;Record Type...................PGN&#10;===================================================================&#10;&#10;Patient is a 54 year old female with history of T2N0M0 left breast cancer ER-neg, PR-neg, HER2+, now undergoing neoadjuvant chemo with taxotere, carboplatin, Herceptin, and pertuzumab.&#10;"/>
+    <tcas:DocumentAnnotation xmi:id="1" sofa="6" begin="0" end="439" language="en"/>
+    <textspan:Segment xmi:id="13" sofa="6" begin="0" end="439" id="SIMPLE_SEGMENT"/>
+    <textspan:Sentence xmi:id="19" sofa="6" begin="0" end="67" sentenceNumber="0"/>
+    <textspan:Sentence xmi:id="25" sofa="6" begin="68" end="106" sentenceNumber="1"/>
+    <textspan:Sentence xmi:id="31" sofa="6" begin="107" end="150" sentenceNumber="2"/>
+    <textspan:Sentence xmi:id="37" sofa="6" begin="151" end="184" sentenceNumber="3"/>
+    <textspan:Sentence xmi:id="43" sofa="6" begin="185" end="252" sentenceNumber="4"/>
+    <textspan:Sentence xmi:id="49" sofa="6" begin="254" end="438" sentenceNumber="5"/>
+    <syntax:NewlineToken xmi:id="55" sofa="6" begin="67" end="68" tokenNumber="67" normalizedForm="&#10;"/>
+    <syntax:NewlineToken xmi:id="63" sofa="6" begin="106" end="107" tokenNumber="78" normalizedForm="&#10;"/>
+    <syntax:NewlineToken xmi:id="71" sofa="6" begin="150" end="151" tokenNumber="88" normalizedForm="&#10;"/>
+    <syntax:NewlineToken xmi:id="79" sofa="6" begin="184" end="185" tokenNumber="99" normalizedForm="&#10;"/>
+    <syntax:NewlineToken xmi:id="87" sofa="6" begin="252" end="253" tokenNumber="167" normalizedForm="&#10;"/>
+    <syntax:NewlineToken xmi:id="95" sofa="6" begin="253" end="254" tokenNumber="168" normalizedForm="&#10;"/>
+    <syntax:NewlineToken xmi:id="103" sofa="6" begin="438" end="439" tokenNumber="208" normalizedForm="&#10;"/>
+    <syntax:SymbolToken xmi:id="111" sofa="6" begin="0" end="1" tokenNumber="0" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="119" sofa="6" begin="1" end="2" tokenNumber="1" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="127" sofa="6" begin="2" end="3" tokenNumber="2" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="135" sofa="6" begin="3" end="4" tokenNumber="3" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="143" sofa="6" begin="4" end="5" tokenNumber="4" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="151" sofa="6" begin="5" end="6" tokenNumber="5" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="159" sofa="6" begin="6" end="7" tokenNumber="6" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="167" sofa="6" begin="7" end="8" tokenNumber="7" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="175" sofa="6" begin="8" end="9" tokenNumber="8" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="183" sofa="6" begin="9" end="10" tokenNumber="9" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="191" sofa="6" begin="10" end="11" tokenNumber="10" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="199" sofa="6" begin="11" end="12" tokenNumber="11" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="207" sofa="6" begin="12" end="13" tokenNumber="12" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="215" sofa="6" begin="13" end="14" tokenNumber="13" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="223" sofa="6" begin="14" end="15" tokenNumber="14" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="231" sofa="6" begin="15" end="16" tokenNumber="15" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="239" sofa="6" begin="16" end="17" tokenNumber="16" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="247" sofa="6" begin="17" end="18" tokenNumber="17" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="255" sofa="6" begin="18" end="19" tokenNumber="18" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="263" sofa="6" begin="19" end="20" tokenNumber="19" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="271" sofa="6" begin="20" end="21" tokenNumber="20" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="279" sofa="6" begin="21" end="22" tokenNumber="21" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="287" sofa="6" begin="22" end="23" tokenNumber="22" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="295" sofa="6" begin="23" end="24" tokenNumber="23" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="303" sofa="6" begin="24" end="25" tokenNumber="24" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="311" sofa="6" begin="25" end="26" tokenNumber="25" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="319" sofa="6" begin="26" end="27" tokenNumber="26" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="327" sofa="6" begin="27" end="28" tokenNumber="27" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="335" sofa="6" begin="28" end="29" tokenNumber="28" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="343" sofa="6" begin="29" end="30" tokenNumber="29" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="351" sofa="6" begin="30" end="31" tokenNumber="30" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="359" sofa="6" begin="31" end="32" tokenNumber="31" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="367" sofa="6" begin="32" end="33" tokenNumber="32" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="375" sofa="6" begin="33" end="34" tokenNumber="33" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="383" sofa="6" begin="34" end="35" tokenNumber="34" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="391" sofa="6" begin="35" end="36" tokenNumber="35" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="399" sofa="6" begin="36" end="37" tokenNumber="36" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="407" sofa="6" begin="37" end="38" tokenNumber="37" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="415" sofa="6" begin="38" end="39" tokenNumber="38" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="423" sofa="6" begin="39" end="40" tokenNumber="39" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="431" sofa="6" begin="40" end="41" tokenNumber="40" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="439" sofa="6" begin="41" end="42" tokenNumber="41" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="447" sofa="6" begin="42" end="43" tokenNumber="42" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="455" sofa="6" begin="43" end="44" tokenNumber="43" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="463" sofa="6" begin="44" end="45" tokenNumber="44" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="471" sofa="6" begin="45" end="46" tokenNumber="45" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="479" sofa="6" begin="46" end="47" tokenNumber="46" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="487" sofa="6" begin="47" end="48" tokenNumber="47" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="495" sofa="6" begin="48" end="49" tokenNumber="48" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="503" sofa="6" begin="49" end="50" tokenNumber="49" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="511" sofa="6" begin="50" end="51" tokenNumber="50" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="519" sofa="6" begin="51" end="52" tokenNumber="51" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="527" sofa="6" begin="52" end="53" tokenNumber="52" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="535" sofa="6" begin="53" end="54" tokenNumber="53" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="543" sofa="6" begin="54" end="55" tokenNumber="54" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="551" sofa="6" begin="55" end="56" tokenNumber="55" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="559" sofa="6" begin="56" end="57" tokenNumber="56" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="567" sofa="6" begin="57" end="58" tokenNumber="57" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="575" sofa="6" begin="58" end="59" tokenNumber="58" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="583" sofa="6" begin="59" end="60" tokenNumber="59" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="591" sofa="6" begin="60" end="61" tokenNumber="60" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="599" sofa="6" begin="61" end="62" tokenNumber="61" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="607" sofa="6" begin="62" end="63" tokenNumber="62" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="615" sofa="6" begin="63" end="64" tokenNumber="63" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="623" sofa="6" begin="64" end="65" tokenNumber="64" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="631" sofa="6" begin="65" end="66" tokenNumber="65" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="639" sofa="6" begin="66" end="67" tokenNumber="66" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="917" sofa="6" begin="185" end="186" tokenNumber="100" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="925" sofa="6" begin="186" end="187" tokenNumber="101" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="933" sofa="6" begin="187" end="188" tokenNumber="102" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="941" sofa="6" begin="188" end="189" tokenNumber="103" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="949" sofa="6" begin="189" end="190" tokenNumber="104" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="957" sofa="6" begin="190" end="191" tokenNumber="105" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="965" sofa="6" begin="191" end="192" tokenNumber="106" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="973" sofa="6" begin="192" end="193" tokenNumber="107" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="981" sofa="6" begin="193" end="194" tokenNumber="108" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="989" sofa="6" begin="194" end="195" tokenNumber="109" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="997" sofa="6" begin="195" end="196" tokenNumber="110" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1005" sofa="6" begin="196" end="197" tokenNumber="111" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1013" sofa="6" begin="197" end="198" tokenNumber="112" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1021" sofa="6" begin="198" end="199" tokenNumber="113" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1029" sofa="6" begin="199" end="200" tokenNumber="114" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1037" sofa="6" begin="200" end="201" tokenNumber="115" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1045" sofa="6" begin="201" end="202" tokenNumber="116" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1053" sofa="6" begin="202" end="203" tokenNumber="117" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1061" sofa="6" begin="203" end="204" tokenNumber="118" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1069" sofa="6" begin="204" end="205" tokenNumber="119" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1077" sofa="6" begin="205" end="206" tokenNumber="120" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1085" sofa="6" begin="206" end="207" tokenNumber="121" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1093" sofa="6" begin="207" end="208" tokenNumber="122" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1101" sofa="6" begin="208" end="209" tokenNumber="123" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1109" sofa="6" begin="209" end="210" tokenNumber="124" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1117" sofa="6" begin="210" end="211" tokenNumber="125" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1125" sofa="6" begin="211" end="212" tokenNumber="126" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1133" sofa="6" begin="212" end="213" tokenNumber="127" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1141" sofa="6" begin="213" end="214" tokenNumber="128" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1149" sofa="6" begin="214" end="215" tokenNumber="129" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1157" sofa="6" begin="215" end="216" tokenNumber="130" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1165" sofa="6" begin="216" end="217" tokenNumber="131" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1173" sofa="6" begin="217" end="218" tokenNumber="132" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1181" sofa="6" begin="218" end="219" tokenNumber="133" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1189" sofa="6" begin="219" end="220" tokenNumber="134" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1197" sofa="6" begin="220" end="221" tokenNumber="135" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1205" sofa="6" begin="221" end="222" tokenNumber="136" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1213" sofa="6" begin="222" end="223" tokenNumber="137" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1221" sofa="6" begin="223" end="224" tokenNumber="138" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1229" sofa="6" begin="224" end="225" tokenNumber="139" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1237" sofa="6" begin="225" end="226" tokenNumber="140" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1245" sofa="6" begin="226" end="227" tokenNumber="141" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1253" sofa="6" begin="227" end="228" tokenNumber="142" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1261" sofa="6" begin="228" end="229" tokenNumber="143" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1269" sofa="6" begin="229" end="230" tokenNumber="144" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1277" sofa="6" begin="230" end="231" tokenNumber="145" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1285" sofa="6" begin="231" end="232" tokenNumber="146" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1293" sofa="6" begin="232" end="233" tokenNumber="147" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1301" sofa="6" begin="233" end="234" tokenNumber="148" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1309" sofa="6" begin="234" end="235" tokenNumber="149" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1317" sofa="6" begin="235" end="236" tokenNumber="150" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1325" sofa="6" begin="236" end="237" tokenNumber="151" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1333" sofa="6" begin="237" end="238" tokenNumber="152" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1341" sofa="6" begin="238" end="239" tokenNumber="153" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1349" sofa="6" begin="239" end="240" tokenNumber="154" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1357" sofa="6" begin="240" end="241" tokenNumber="155" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1365" sofa="6" begin="241" end="242" tokenNumber="156" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1373" sofa="6" begin="242" end="243" tokenNumber="157" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1381" sofa="6" begin="243" end="244" tokenNumber="158" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1389" sofa="6" begin="244" end="245" tokenNumber="159" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1397" sofa="6" begin="245" end="246" tokenNumber="160" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1405" sofa="6" begin="246" end="247" tokenNumber="161" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1413" sofa="6" begin="247" end="248" tokenNumber="162" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1421" sofa="6" begin="248" end="249" tokenNumber="163" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1429" sofa="6" begin="249" end="250" tokenNumber="164" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1437" sofa="6" begin="250" end="251" tokenNumber="165" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1445" sofa="6" begin="251" end="252" tokenNumber="166" normalizedForm="=" partOfSpeech="SYM"/>
+    <syntax:SymbolToken xmi:id="1710" sofa="6" begin="348" end="349" tokenNumber="192" normalizedForm="+" partOfSpeech="SYM"/>
+    <syntax:WordToken xmi:id="647" sofa="6" begin="68" end="75" tokenNumber="68" normalizedForm="patient" partOfSpeech="NN" capitalization="1" numPosition="0" canonicalForm="patient"/>
+    <syntax:WordToken xmi:id="659" sofa="6" begin="76" end="80" tokenNumber="69" normalizedForm="name" partOfSpeech="NN" capitalization="1" numPosition="0" canonicalForm="name"/>
+    <syntax:WordToken xmi:id="719" sofa="6" begin="98" end="102" tokenNumber="76" normalizedForm="jane" partOfSpeech="NNP" capitalization="1" numPosition="0" canonicalForm="jane"/>
+    <syntax:WordToken xmi:id="731" sofa="6" begin="103" end="106" tokenNumber="77" normalizedForm="doe" partOfSpeech="NNP" capitalization="1" numPosition="0" canonicalForm="doe"/>
+    <syntax:WordToken xmi:id="743" sofa="6" begin="107" end="116" tokenNumber="79" normalizedForm="principal" partOfSpeech="NN" capitalization="1" numPosition="0" canonicalForm="principal"/>
+    <syntax:WordToken xmi:id="755" sofa="6" begin="117" end="121" tokenNumber="80" normalizedForm="date" partOfSpeech="NN" capitalization="1" numPosition="0" canonicalForm="date"/>
+    <syntax:WordToken xmi:id="825" sofa="6" begin="151" end="157" tokenNumber="89" normalizedForm="record" partOfSpeech="NN" capitalization="1" numPosition="0" canonicalForm="record"/>
+    <syntax:WordToken xmi:id="837" sofa="6" begin="158" end="162" tokenNumber="90" normalizedForm="type" partOfSpeech="NN" capitalization="1" numPosition="0" canonicalForm="type"/>
+    <syntax:WordToken xmi:id="905" sofa="6" begin="181" end="184" tokenNumber="98" normalizedForm="pgn" partOfSpeech="NN" capitalization="3" numPosition="0" canonicalForm="pgn"/>
+    <syntax:WordToken xmi:id="1453" sofa="6" begin="254" end="261" tokenNumber="169" normalizedForm="patient" partOfSpeech="NN" capitalization="1" numPosition="0" canonicalForm="patient"/>
+    <syntax:WordToken xmi:id="1465" sofa="6" begin="262" end="264" tokenNumber="170" normalizedForm="is" partOfSpeech="VBZ" capitalization="0" numPosition="0" canonicalForm="is"/>
+    <syntax:WordToken xmi:id="1477" sofa="6" begin="265" end="266" tokenNumber="171" normalizedForm="a" partOfSpeech="DT" capitalization="0" numPosition="0" canonicalForm="a"/>
+    <syntax:WordToken xmi:id="1498" sofa="6" begin="270" end="274" tokenNumber="173" normalizedForm="year" partOfSpeech="NN" capitalization="0" numPosition="0" canonicalForm="year"/>
+    <syntax:WordToken xmi:id="1510" sofa="6" begin="275" end="278" tokenNumber="174" normalizedForm="old" partOfSpeech="JJ" capitalization="0" numPosition="0" canonicalForm="old"/>
+    <syntax:WordToken xmi:id="1522" sofa="6" begin="279" end="285" tokenNumber="175" normalizedForm="female" partOfSpeech="NN" capitalization="0" numPosition="0" canonicalForm="female"/>
+    <syntax:WordToken xmi:id="1534" sofa="6" begin="286" end="290" tokenNumber="176" normalizedForm="with" partOfSpeech="IN" capitalization="0" numPosition="0"/>
+    <syntax:WordToken xmi:id="1546" sofa="6" begin="291" end="298" tokenNumber="177" normalizedForm="history" partOfSpeech="NN" capitalization="0" numPosition="0" canonicalForm="history"/>
+    <syntax:WordToken xmi:id="1558" sofa="6" begin="299" end="301" tokenNumber="178" normalizedForm="of" partOfSpeech="IN" capitalization="0" numPosition="0"/>
+    <syntax:WordToken xmi:id="1570" sofa="6" begin="302" end="308" tokenNumber="179" normalizedForm="t2n0m0" partOfSpeech="NN" capitalization="2" numPosition="3" canonicalForm="t2n0m0"/>
+    <syntax:WordToken xmi:id="1582" sofa="6" begin="309" end="313" tokenNumber="180" normalizedForm="left" partOfSpeech="JJ" capitalization="0" numPosition="0" canonicalForm="left"/>
+    <syntax:WordToken xmi:id="1594" sofa="6" begin="314" end="320" tokenNumber="181" normalizedForm="breast" partOfSpeech="NN" capitalization="0" numPosition="0" canonicalForm="breast"/>
+    <syntax:WordToken xmi:id="1606" sofa="6" begin="321" end="327" tokenNumber="182" normalizedForm="cancer" partOfSpeech="NN" capitalization="0" numPosition="0" canonicalForm="cancer"/>
+    <syntax:WordToken xmi:id="1618" sofa="6" begin="328" end="330" tokenNumber="183" normalizedForm="er" partOfSpeech="NN" capitalization="3" numPosition="0" canonicalForm="er"/>
+    <syntax:WordToken xmi:id="1638" sofa="6" begin="331" end="334" tokenNumber="185" normalizedForm="neg" partOfSpeech="JJ" capitalization="0" numPosition="0" canonicalForm="neg"/>
+    <syntax:WordToken xmi:id="1658" sofa="6" begin="336" end="338" tokenNumber="187" normalizedForm="pr" partOfSpeech="NN" capitalization="3" numPosition="0" canonicalForm="pr"/>
+    <syntax:WordToken xmi:id="1678" sofa="6" begin="339" end="342" tokenNumber="189" normalizedForm="neg" partOfSpeech="JJ" capitalization="0" numPosition="0" canonicalForm="neg"/>
+    <syntax:WordToken xmi:id="1698" sofa="6" begin="344" end="348" tokenNumber="191" normalizedForm="her2" partOfSpeech="NN" capitalization="2" numPosition="3" canonicalForm="her2"/>
+    <syntax:WordToken xmi:id="1726" sofa="6" begin="351" end="354" tokenNumber="194" normalizedForm="now" partOfSpeech="RB" capitalization="0" numPosition="0" canonicalForm="now"/>
+    <syntax:WordToken xmi:id="1738" sofa="6" begin="355" end="365" tokenNumber="195" normalizedForm="undergo" partOfSpeech="VBG" capitalization="0" numPosition="0" canonicalForm="undergo"/>
+    <syntax:WordToken xmi:id="1750" sofa="6" begin="366" end="377" tokenNumber="196" normalizedForm="neoadjuvant" partOfSpeech="JJ" capitalization="0" numPosition="0" canonicalForm="neoadjuvant"/>
+    <syntax:WordToken xmi:id="1762" sofa="6" begin="378" end="383" tokenNumber="197" normalizedForm="chemo" partOfSpeech="NN" capitalization="0" numPosition="0" canonicalForm="chemo"/>
+    <syntax:WordToken xmi:id="1774" sofa="6" begin="384" end="388" tokenNumber="198" normalizedForm="with" partOfSpeech="IN" capitalization="0" numPosition="0"/>
+    <syntax:WordToken xmi:id="1786" sofa="6" begin="389" end="397" tokenNumber="199" normalizedForm="taxotere" partOfSpeech="NN" capitalization="0" numPosition="0" canonicalForm="taxotere"/>
+    <syntax:WordToken xmi:id="1806" sofa="6" begin="399" end="410" tokenNumber="201" normalizedForm="carboplatin" partOfSpeech="NN" capitalization="0" numPosition="0" canonicalForm="carboplatin"/>
+    <syntax:WordToken xmi:id="1826" sofa="6" begin="412" end="421" tokenNumber="203" normalizedForm="herceptin" partOfSpeech="NNP" capitalization="1" numPosition="0" canonicalForm="herceptin"/>
+    <syntax:WordToken xmi:id="1846" sofa="6" begin="423" end="426" tokenNumber="205" normalizedForm="and" partOfSpeech="CC" capitalization="0" numPosition="0"/>
+    <syntax:WordToken xmi:id="1858" sofa="6" begin="427" end="437" tokenNumber="206" normalizedForm="pertuzumab" partOfSpeech="NN" capitalization="0" numPosition="0" canonicalForm="pertuzumab"/>
+    <syntax:PunctuationToken xmi:id="671" sofa="6" begin="80" end="83" tokenNumber="70" normalizedForm="..." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="679" sofa="6" begin="83" end="86" tokenNumber="71" normalizedForm="..." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="687" sofa="6" begin="86" end="89" tokenNumber="72" normalizedForm="..." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="695" sofa="6" begin="89" end="92" tokenNumber="73" normalizedForm="..." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="703" sofa="6" begin="92" end="95" tokenNumber="74" normalizedForm="..." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="711" sofa="6" begin="95" end="98" tokenNumber="75" normalizedForm="..." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="767" sofa="6" begin="121" end="124" tokenNumber="81" normalizedForm="..." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="775" sofa="6" begin="124" end="127" tokenNumber="82" normalizedForm="..." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="783" sofa="6" begin="127" end="130" tokenNumber="83" normalizedForm="..." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="791" sofa="6" begin="130" end="133" tokenNumber="84" normalizedForm="..." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="799" sofa="6" begin="133" end="136" tokenNumber="85" normalizedForm="..." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="849" sofa="6" begin="162" end="165" tokenNumber="91" normalizedForm="..." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="857" sofa="6" begin="165" end="168" tokenNumber="92" normalizedForm="..." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="865" sofa="6" begin="168" end="171" tokenNumber="93" normalizedForm="..." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="873" sofa="6" begin="171" end="174" tokenNumber="94" normalizedForm="..." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="881" sofa="6" begin="174" end="177" tokenNumber="95" normalizedForm="..." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="889" sofa="6" begin="177" end="180" tokenNumber="96" normalizedForm="..." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="897" sofa="6" begin="180" end="181" tokenNumber="97" normalizedForm="." partOfSpeech="."/>
+    <syntax:PunctuationToken xmi:id="1630" sofa="6" begin="330" end="331" tokenNumber="184" normalizedForm="-" partOfSpeech="HYPH"/>
+    <syntax:PunctuationToken xmi:id="1650" sofa="6" begin="334" end="335" tokenNumber="186" normalizedForm="," partOfSpeech=","/>
+    <syntax:PunctuationToken xmi:id="1670" sofa="6" begin="338" end="339" tokenNumber="188" normalizedForm="-" partOfSpeech="HYPH"/>
+    <syntax:PunctuationToken xmi:id="1690" sofa="6" begin="342" end="343" tokenNumber="190" normalizedForm="," partOfSpeech=","/>
+    <syntax:PunctuationToken xmi:id="1718" sofa="6" begin="349" end="350" tokenNumber="193" normalizedForm="," partOfSpeech=","/>
+    <syntax:PunctuationToken xmi:id="1798" sofa="6" begin="397" end="398" tokenNumber="200" normalizedForm="," partOfSpeech=","/>
+    <syntax:PunctuationToken xmi:id="1818" sofa="6" begin="410" end="411" tokenNumber="202" normalizedForm="," partOfSpeech=","/>
+    <syntax:PunctuationToken xmi:id="1838" sofa="6" begin="421" end="422" tokenNumber="204" normalizedForm="," partOfSpeech=","/>
+    <syntax:PunctuationToken xmi:id="1870" sofa="6" begin="437" end="438" tokenNumber="207" normalizedForm="." partOfSpeech="."/>
+    <syntax:NumToken xmi:id="807" sofa="6" begin="136" end="145" tokenNumber="86" normalizedForm=".20130424" partOfSpeech="." numType="2"/>
+    <syntax:NumToken xmi:id="816" sofa="6" begin="146" end="150" tokenNumber="87" normalizedForm="1130" partOfSpeech="CD" numType="1"/>
+    <syntax:NumToken xmi:id="1489" sofa="6" begin="267" end="269" tokenNumber="172" normalizedForm="54" partOfSpeech="CD" numType="1"/>
+    <textsem:FractionAnnotation xmi:id="1878" sofa="6" begin="136" end="145" id="2" typeID="0" segmentID="SIMPLE_SEGMENT" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" generic="false" historyOf="0"/>
+    <syntax:O xmi:id="1896" sofa="6" begin="0" end="1" chunkType="O"/>
+    <syntax:O xmi:id="1906" sofa="6" begin="2" end="3" chunkType="O"/>
+    <syntax:O xmi:id="1916" sofa="6" begin="4" end="5" chunkType="O"/>
+    <syntax:O xmi:id="1926" sofa="6" begin="6" end="7" chunkType="O"/>
+    <syntax:O xmi:id="1936" sofa="6" begin="8" end="9" chunkType="O"/>
+    <syntax:O xmi:id="1946" sofa="6" begin="10" end="11" chunkType="O"/>
+    <syntax:O xmi:id="1956" sofa="6" begin="12" end="13" chunkType="O"/>
+    <syntax:O xmi:id="1966" sofa="6" begin="14" end="15" chunkType="O"/>
+    <syntax:O xmi:id="1976" sofa="6" begin="16" end="17" chunkType="O"/>
+    <syntax:O xmi:id="1986" sofa="6" begin="18" end="19" chunkType="O"/>
+    <syntax:O xmi:id="1996" sofa="6" begin="20" end="21" chunkType="O"/>
+    <syntax:O xmi:id="2006" sofa="6" begin="22" end="23" chunkType="O"/>
+    <syntax:O xmi:id="2016" sofa="6" begin="24" end="25" chunkType="O"/>
+    <syntax:O xmi:id="2026" sofa="6" begin="26" end="27" chunkType="O"/>
+    <syntax:O xmi:id="2036" sofa="6" begin="28" end="29" chunkType="O"/>
+    <syntax:O xmi:id="2046" sofa="6" begin="30" end="31" chunkType="O"/>
+    <syntax:O xmi:id="2056" sofa="6" begin="32" end="33" chunkType="O"/>
+    <syntax:O xmi:id="2066" sofa="6" begin="34" end="35" chunkType="O"/>
+    <syntax:O xmi:id="2076" sofa="6" begin="36" end="37" chunkType="O"/>
+    <syntax:O xmi:id="2086" sofa="6" begin="38" end="39" chunkType="O"/>
+    <syntax:O xmi:id="2096" sofa="6" begin="40" end="41" chunkType="O"/>
+    <syntax:O xmi:id="2106" sofa="6" begin="42" end="43" chunkType="O"/>
+    <syntax:O xmi:id="2116" sofa="6" begin="44" end="45" chunkType="O"/>
+    <syntax:O xmi:id="2126" sofa="6" begin="46" end="47" chunkType="O"/>
+    <syntax:O xmi:id="2136" sofa="6" begin="48" end="49" chunkType="O"/>
+    <syntax:O xmi:id="2146" sofa="6" begin="50" end="51" chunkType="O"/>
+    <syntax:O xmi:id="2156" sofa="6" begin="52" end="53" chunkType="O"/>
+    <syntax:O xmi:id="2166" sofa="6" begin="54" end="55" chunkType="O"/>
+    <syntax:O xmi:id="2176" sofa="6" begin="56" end="57" chunkType="O"/>
+    <syntax:O xmi:id="2186" sofa="6" begin="58" end="59" chunkType="O"/>
+    <syntax:O xmi:id="2196" sofa="6" begin="60" end="61" chunkType="O"/>
+    <syntax:O xmi:id="2206" sofa="6" begin="62" end="63" chunkType="O"/>
+    <syntax:O xmi:id="2216" sofa="6" begin="64" end="65" chunkType="O"/>
+    <syntax:O xmi:id="2231" sofa="6" begin="80" end="83" chunkType="O"/>
+    <syntax:O xmi:id="2236" sofa="6" begin="83" end="86" chunkType="O"/>
+    <syntax:O xmi:id="2241" sofa="6" begin="86" end="89" chunkType="O"/>
+    <syntax:O xmi:id="2246" sofa="6" begin="89" end="92" chunkType="O"/>
+    <syntax:O xmi:id="2251" sofa="6" begin="92" end="95" chunkType="O"/>
+    <syntax:O xmi:id="2256" sofa="6" begin="95" end="98" chunkType="O"/>
+    <syntax:O xmi:id="2271" sofa="6" begin="121" end="124" chunkType="O"/>
+    <syntax:O xmi:id="2276" sofa="6" begin="124" end="127" chunkType="O"/>
+    <syntax:O xmi:id="2281" sofa="6" begin="127" end="130" chunkType="O"/>
+    <syntax:O xmi:id="2286" sofa="6" begin="130" end="133" chunkType="O"/>
+    <syntax:O xmi:id="2291" sofa="6" begin="133" end="136" chunkType="O"/>
+    <syntax:O xmi:id="2296" sofa="6" begin="136" end="145" chunkType="O"/>
+    <syntax:O xmi:id="2306" sofa="6" begin="162" end="165" chunkType="O"/>
+    <syntax:O xmi:id="2311" sofa="6" begin="165" end="168" chunkType="O"/>
+    <syntax:O xmi:id="2316" sofa="6" begin="168" end="171" chunkType="O"/>
+    <syntax:O xmi:id="2321" sofa="6" begin="171" end="174" chunkType="O"/>
+    <syntax:O xmi:id="2326" sofa="6" begin="174" end="177" chunkType="O"/>
+    <syntax:O xmi:id="2331" sofa="6" begin="177" end="180" chunkType="O"/>
+    <syntax:O xmi:id="2336" sofa="6" begin="180" end="181" chunkType="O"/>
+    <syntax:O xmi:id="2341" sofa="6" begin="185" end="186" chunkType="O"/>
+    <syntax:O xmi:id="2351" sofa="6" begin="187" end="188" chunkType="O"/>
+    <syntax:O xmi:id="2361" sofa="6" begin="189" end="190" chunkType="O"/>
+    <syntax:O xmi:id="2371" sofa="6" begin="191" end="192" chunkType="O"/>
+    <syntax:O xmi:id="2381" sofa="6" begin="193" end="194" chunkType="O"/>
+    <syntax:O xmi:id="2391" sofa="6" begin="195" end="196" chunkType="O"/>
+    <syntax:O xmi:id="2401" sofa="6" begin="197" end="198" chunkType="O"/>
+    <syntax:O xmi:id="2411" sofa="6" begin="199" end="200" chunkType="O"/>
+    <syntax:O xmi:id="2421" sofa="6" begin="201" end="202" chunkType="O"/>
+    <syntax:O xmi:id="2431" sofa="6" begin="203" end="204" chunkType="O"/>
+    <syntax:O xmi:id="2441" sofa="6" begin="205" end="206" chunkType="O"/>
+    <syntax:O xmi:id="2451" sofa="6" begin="207" end="208" chunkType="O"/>
+    <syntax:O xmi:id="2461" sofa="6" begin="209" end="210" chunkType="O"/>
+    <syntax:O xmi:id="2471" sofa="6" begin="211" end="212" chunkType="O"/>
+    <syntax:O xmi:id="2481" sofa="6" begin="213" end="214" chunkType="O"/>
+    <syntax:O xmi:id="2491" sofa="6" begin="215" end="216" chunkType="O"/>
+    <syntax:O xmi:id="2501" sofa="6" begin="217" end="218" chunkType="O"/>
+    <syntax:O xmi:id="2511" sofa="6" begin="219" end="220" chunkType="O"/>
+    <syntax:O xmi:id="2521" sofa="6" begin="221" end="222" chunkType="O"/>
+    <syntax:O xmi:id="2531" sofa="6" begin="223" end="224" chunkType="O"/>
+    <syntax:O xmi:id="2541" sofa="6" begin="225" end="226" chunkType="O"/>
+    <syntax:O xmi:id="2551" sofa="6" begin="227" end="228" chunkType="O"/>
+    <syntax:O xmi:id="2561" sofa="6" begin="229" end="230" chunkType="O"/>
+    <syntax:O xmi:id="2571" sofa="6" begin="231" end="232" chunkType="O"/>
+    <syntax:O xmi:id="2581" sofa="6" begin="233" end="234" chunkType="O"/>
+    <syntax:O xmi:id="2591" sofa="6" begin="235" end="236" chunkType="O"/>
+    <syntax:O xmi:id="2601" sofa="6" begin="237" end="238" chunkType="O"/>
+    <syntax:O xmi:id="2611" sofa="6" begin="239" end="240" chunkType="O"/>
+    <syntax:O xmi:id="2621" sofa="6" begin="241" end="242" chunkType="O"/>
+    <syntax:O xmi:id="2631" sofa="6" begin="243" end="244" chunkType="O"/>
+    <syntax:O xmi:id="2641" sofa="6" begin="245" end="246" chunkType="O"/>
+    <syntax:O xmi:id="2651" sofa="6" begin="247" end="248" chunkType="O"/>
+    <syntax:O xmi:id="2661" sofa="6" begin="249" end="250" chunkType="O"/>
+    <syntax:O xmi:id="2711" sofa="6" begin="342" end="343" chunkType="O"/>
+    <syntax:O xmi:id="2721" sofa="6" begin="349" end="350" chunkType="O"/>
+    <syntax:O xmi:id="2746" sofa="6" begin="397" end="398" chunkType="O"/>
+    <syntax:O xmi:id="2756" sofa="6" begin="410" end="411" chunkType="O"/>
+    <syntax:O xmi:id="2766" sofa="6" begin="421" end="422" chunkType="O"/>
+    <syntax:O xmi:id="2771" sofa="6" begin="423" end="426" chunkType="O"/>
+    <syntax:NP xmi:id="1901" sofa="6" begin="1" end="2" chunkType="NP"/>
+    <syntax:NP xmi:id="1911" sofa="6" begin="3" end="4" chunkType="NP"/>
+    <syntax:NP xmi:id="1921" sofa="6" begin="5" end="6" chunkType="NP"/>
+    <syntax:NP xmi:id="1931" sofa="6" begin="7" end="8" chunkType="NP"/>
+    <syntax:NP xmi:id="1941" sofa="6" begin="9" end="10" chunkType="NP"/>
+    <syntax:NP xmi:id="1951" sofa="6" begin="11" end="12" chunkType="NP"/>
+    <syntax:NP xmi:id="1961" sofa="6" begin="13" end="14" chunkType="NP"/>
+    <syntax:NP xmi:id="1971" sofa="6" begin="15" end="16" chunkType="NP"/>
+    <syntax:NP xmi:id="1981" sofa="6" begin="17" end="18" chunkType="NP"/>
+    <syntax:NP xmi:id="1991" sofa="6" begin="19" end="20" chunkType="NP"/>
+    <syntax:NP xmi:id="2001" sofa="6" begin="21" end="22" chunkType="NP"/>
+    <syntax:NP xmi:id="2011" sofa="6" begin="23" end="24" chunkType="NP"/>
+    <syntax:NP xmi:id="2021" sofa="6" begin="25" end="26" chunkType="NP"/>
+    <syntax:NP xmi:id="2031" sofa="6" begin="27" end="28" chunkType="NP"/>
+    <syntax:NP xmi:id="2041" sofa="6" begin="29" end="30" chunkType="NP"/>
+    <syntax:NP xmi:id="2051" sofa="6" begin="31" end="32" chunkType="NP"/>
+    <syntax:NP xmi:id="2061" sofa="6" begin="33" end="34" chunkType="NP"/>
+    <syntax:NP xmi:id="2071" sofa="6" begin="35" end="36" chunkType="NP"/>
+    <syntax:NP xmi:id="2081" sofa="6" begin="37" end="38" chunkType="NP"/>
+    <syntax:NP xmi:id="2091" sofa="6" begin="39" end="40" chunkType="NP"/>
+    <syntax:NP xmi:id="2101" sofa="6" begin="41" end="42" chunkType="NP"/>
+    <syntax:NP xmi:id="2111" sofa="6" begin="43" end="44" chunkType="NP"/>
+    <syntax:NP xmi:id="2121" sofa="6" begin="45" end="46" chunkType="NP"/>
+    <syntax:NP xmi:id="2131" sofa="6" begin="47" end="48" chunkType="NP"/>
+    <syntax:NP xmi:id="2141" sofa="6" begin="49" end="50" chunkType="NP"/>
+    <syntax:NP xmi:id="2151" sofa="6" begin="51" end="52" chunkType="NP"/>
+    <syntax:NP xmi:id="2161" sofa="6" begin="53" end="54" chunkType="NP"/>
+    <syntax:NP xmi:id="2171" sofa="6" begin="55" end="56" chunkType="NP"/>
+    <syntax:NP xmi:id="2181" sofa="6" begin="57" end="58" chunkType="NP"/>
+    <syntax:NP xmi:id="2191" sofa="6" begin="59" end="60" chunkType="NP"/>
+    <syntax:NP xmi:id="2201" sofa="6" begin="61" end="62" chunkType="NP"/>
+    <syntax:NP xmi:id="2211" sofa="6" begin="63" end="64" chunkType="NP"/>
+    <syntax:NP xmi:id="2221" sofa="6" begin="65" end="66" chunkType="NP"/>
+    <syntax:NP xmi:id="2226" sofa="6" begin="68" end="80" chunkType="NP"/>
+    <syntax:NP xmi:id="2261" sofa="6" begin="98" end="106" chunkType="NP"/>
+    <syntax:NP xmi:id="2266" sofa="6" begin="107" end="121" chunkType="NP"/>
+    <syntax:NP xmi:id="2301" sofa="6" begin="151" end="162" chunkType="NP"/>
+    <syntax:NP xmi:id="2346" sofa="6" begin="186" end="187" chunkType="NP"/>
+    <syntax:NP xmi:id="2356" sofa="6" begin="188" end="189" chunkType="NP"/>
+    <syntax:NP xmi:id="2366" sofa="6" begin="190" end="191" chunkType="NP"/>
+    <syntax:NP xmi:id="2376" sofa="6" begin="192" end="193" chunkType="NP"/>
+    <syntax:NP xmi:id="2386" sofa="6" begin="194" end="195" chunkType="NP"/>
+    <syntax:NP xmi:id="2396" sofa="6" begin="196" end="197" chunkType="NP"/>
+    <syntax:NP xmi:id="2406" sofa="6" begin="198" end="199" chunkType="NP"/>
+    <syntax:NP xmi:id="2416" sofa="6" begin="200" end="201" chunkType="NP"/>
+    <syntax:NP xmi:id="2426" sofa="6" begin="202" end="203" chunkType="NP"/>
+    <syntax:NP xmi:id="2436" sofa="6" begin="204" end="205" chunkType="NP"/>
+    <syntax:NP xmi:id="2446" sofa="6" begin="206" end="207" chunkType="NP"/>
+    <syntax:NP xmi:id="2456" sofa="6" begin="208" end="209" chunkType="NP"/>
+    <syntax:NP xmi:id="2466" sofa="6" begin="210" end="211" chunkType="NP"/>
+    <syntax:NP xmi:id="2476" sofa="6" begin="212" end="213" chunkType="NP"/>
+    <syntax:NP xmi:id="2486" sofa="6" begin="214" end="215" chunkType="NP"/>
+    <syntax:NP xmi:id="2496" sofa="6" begin="216" end="217" chunkType="NP"/>
+    <syntax:NP xmi:id="2506" sofa="6" begin="218" end="219" chunkType="NP"/>
+    <syntax:NP xmi:id="2516" sofa="6" begin="220" end="221" chunkType="NP"/>
+    <syntax:NP xmi:id="2526" sofa="6" begin="222" end="223" chunkType="NP"/>
+    <syntax:NP xmi:id="2536" sofa="6" begin="224" end="225" chunkType="NP"/>
+    <syntax:NP xmi:id="2546" sofa="6" begin="226" end="227" chunkType="NP"/>
+    <syntax:NP xmi:id="2556" sofa="6" begin="228" end="229" chunkType="NP"/>
+    <syntax:NP xmi:id="2566" sofa="6" begin="230" end="231" chunkType="NP"/>
+    <syntax:NP xmi:id="2576" sofa="6" begin="232" end="233" chunkType="NP"/>
+    <syntax:NP xmi:id="2586" sofa="6" begin="234" end="235" chunkType="NP"/>
+    <syntax:NP xmi:id="2596" sofa="6" begin="236" end="237" chunkType="NP"/>
+    <syntax:NP xmi:id="2606" sofa="6" begin="238" end="239" chunkType="NP"/>
+    <syntax:NP xmi:id="2616" sofa="6" begin="240" end="241" chunkType="NP"/>
+    <syntax:NP xmi:id="2626" sofa="6" begin="242" end="243" chunkType="NP"/>
+    <syntax:NP xmi:id="2636" sofa="6" begin="244" end="245" chunkType="NP"/>
+    <syntax:NP xmi:id="2646" sofa="6" begin="246" end="247" chunkType="NP"/>
+    <syntax:NP xmi:id="2656" sofa="6" begin="248" end="249" chunkType="NP"/>
+    <syntax:NP xmi:id="2666" sofa="6" begin="250" end="251" chunkType="NP"/>
+    <syntax:NP xmi:id="2671" sofa="6" begin="254" end="261" chunkType="NP"/>
+    <syntax:NP xmi:id="2681" sofa="6" begin="265" end="342" chunkType="NP"/>
+    <syntax:NP xmi:id="2691" sofa="6" begin="291" end="298" chunkType="NP"/>
+    <syntax:NP xmi:id="2701" sofa="6" begin="302" end="342" chunkType="NP"/>
+    <syntax:NP xmi:id="2706" sofa="6" begin="330" end="342" chunkType="NP"/>
+    <syntax:NP xmi:id="2716" sofa="6" begin="344" end="349" chunkType="NP"/>
+    <syntax:NP xmi:id="2731" sofa="6" begin="366" end="397" chunkType="NP"/>
+    <syntax:NP xmi:id="2741" sofa="6" begin="389" end="397" chunkType="NP"/>
+    <syntax:NP xmi:id="2751" sofa="6" begin="399" end="410" chunkType="NP"/>
+    <syntax:NP xmi:id="2761" sofa="6" begin="412" end="421" chunkType="NP"/>
+    <syntax:NP xmi:id="2776" sofa="6" begin="427" end="437" chunkType="NP"/>
+    <syntax:VP xmi:id="2676" sofa="6" begin="262" end="264" chunkType="VP"/>
+    <syntax:VP xmi:id="2726" sofa="6" begin="351" end="365" chunkType="VP"/>
+    <syntax:PP xmi:id="2686" sofa="6" begin="286" end="290" chunkType="PP"/>
+    <syntax:PP xmi:id="2696" sofa="6" begin="299" end="301" chunkType="PP"/>
+    <syntax:PP xmi:id="2736" sofa="6" begin="384" end="388" chunkType="PP"/>
+    <textsem:MedicationMention xmi:id="2816" sofa="6" begin="412" end="421" id="13" ontologyConceptArr="2781 2801 2791" typeID="1" segmentID="SIMPLE_SEGMENT" discoveryTechnique="1" confidence="0.05" polarity="1" uncertainty="0" conditional="false" generic="false" subject="patient" historyOf="0" medicationStatusChange="4243"/>
+    <textsem:MedicationMention xmi:id="2914" sofa="6" begin="399" end="410" id="12" ontologyConceptArr="2896 2886 2866 2876 2846 2856" typeID="1" segmentID="SIMPLE_SEGMENT" discoveryTechnique="1" confidence="0.05" polarity="1" uncertainty="0" conditional="false" generic="false" subject="patient" historyOf="0" medicationStatusChange="4102"/>
+    <textsem:MedicationMention xmi:id="2968" sofa="6" begin="389" end="397" id="11" ontologyConceptArr="2954 2944" typeID="1" segmentID="SIMPLE_SEGMENT" discoveryTechnique="1" confidence="0.05" polarity="1" uncertainty="0" conditional="false" generic="false" subject="patient" historyOf="0" medicationStatusChange="3961"/>
+    <textsem:DiseaseDisorderMention xmi:id="3176" sofa="6" begin="321" end="327" id="9" ontologyConceptArr="3018 3048 3098 3088 3008 3118 3038 3068 2998 3058 3028 3078 3108 3148 3128 3138" typeID="2" segmentID="SIMPLE_SEGMENT" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" subject="patient" historyOf="0"/>
+    <textsem:DiseaseDisorderMention xmi:id="3286" sofa="6" begin="314" end="327" id="7" ontologyConceptArr="3217 3207 3227 3267 3237 3257 3247" typeID="2" segmentID="SIMPLE_SEGMENT" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" subject="patient" historyOf="0"/>
+    <textsem:SignSymptomMention xmi:id="3352" sofa="6" begin="103" end="106" id="1" ontologyConceptArr="3337 3317 3327" typeID="3" segmentID="SIMPLE_SEGMENT" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" subject="patient" historyOf="0"/>
+    <textsem:SignSymptomMention xmi:id="3395" sofa="6" begin="291" end="298" id="5" ontologyConceptArr="3382" typeID="3" segmentID="SIMPLE_SEGMENT" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" subject="patient" historyOf="0"/>
+    <textsem:SignSymptomMention xmi:id="3438" sofa="6" begin="291" end="301" id="4" ontologyConceptArr="3425" typeID="3" segmentID="SIMPLE_SEGMENT" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" subject="patient" historyOf="0"/>
+    <textsem:SignSymptomMention xmi:id="3481" sofa="6" begin="68" end="80" id="0" ontologyConceptArr="3468" typeID="3" segmentID="SIMPLE_SEGMENT" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" subject="patient" historyOf="0"/>
+    <textsem:SignSymptomMention xmi:id="3557" sofa="6" begin="279" end="285" id="3" ontologyConceptArr="3541 3521 3511 3531" typeID="3" segmentID="SIMPLE_SEGMENT" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" subject="patient" historyOf="0"/>
+    <textsem:ProcedureMention xmi:id="3655" sofa="6" begin="378" end="383" id="10" ontologyConceptArr="3597 3627 3637 3607 3617 3587" typeID="5" segmentID="SIMPLE_SEGMENT" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" subject="patient" historyOf="0"/>
+    <textsem:AnatomicalSiteMention xmi:id="3729" sofa="6" begin="314" end="320" id="8" ontologyConceptArr="3693 3683 3703 3713" typeID="6" segmentID="SIMPLE_SEGMENT" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" subject="patient" historyOf="0"/>
+    <textsem:AnatomicalSiteMention xmi:id="3763" sofa="6" begin="309" end="320" id="6" ontologyConceptArr="3750" typeID="6" segmentID="SIMPLE_SEGMENT" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" subject="patient" historyOf="0"/>
+    <syntax:ConllDependencyNode xmi:id="4276" sofa="6" begin="0" end="67" id="0"/>
+    <syntax:ConllDependencyNode xmi:id="4290" sofa="6" begin="0" end="1" id="1" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4304" sofa="6" begin="1" end="2" id="2" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4318" sofa="6" begin="2" end="3" id="3" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4332" sofa="6" begin="3" end="4" id="4" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4346" sofa="6" begin="4" end="5" id="5" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4360" sofa="6" begin="5" end="6" id="6" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4374" sofa="6" begin="6" end="7" id="7" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4388" sofa="6" begin="7" end="8" id="8" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4402" sofa="6" begin="8" end="9" id="9" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4416" sofa="6" begin="9" end="10" id="10" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4430" sofa="6" begin="10" end="11" id="11" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4444" sofa="6" begin="11" end="12" id="12" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4458" sofa="6" begin="12" end="13" id="13" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4472" sofa="6" begin="13" end="14" id="14" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4486" sofa="6" begin="14" end="15" id="15" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4500" sofa="6" begin="15" end="16" id="16" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4514" sofa="6" begin="16" end="17" id="17" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4528" sofa="6" begin="17" end="18" id="18" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4542" sofa="6" begin="18" end="19" id="19" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4556" sofa="6" begin="19" end="20" id="20" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4570" sofa="6" begin="20" end="21" id="21" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4584" sofa="6" begin="21" end="22" id="22" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4598" sofa="6" begin="22" end="23" id="23" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4612" sofa="6" begin="23" end="24" id="24" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4626" sofa="6" begin="24" end="25" id="25" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4640" sofa="6" begin="25" end="26" id="26" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4654" sofa="6" begin="26" end="27" id="27" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4668" sofa="6" begin="27" end="28" id="28" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4682" sofa="6" begin="28" end="29" id="29" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4696" sofa="6" begin="29" end="30" id="30" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4710" sofa="6" begin="30" end="31" id="31" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4724" sofa="6" begin="31" end="32" id="32" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4738" sofa="6" begin="32" end="33" id="33" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4752" sofa="6" begin="33" end="34" id="34" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4766" sofa="6" begin="34" end="35" id="35" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4780" sofa="6" begin="35" end="36" id="36" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4794" sofa="6" begin="36" end="37" id="37" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4808" sofa="6" begin="37" end="38" id="38" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4822" sofa="6" begin="38" end="39" id="39" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4836" sofa="6" begin="39" end="40" id="40" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4850" sofa="6" begin="40" end="41" id="41" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4864" sofa="6" begin="41" end="42" id="42" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4878" sofa="6" begin="42" end="43" id="43" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4892" sofa="6" begin="43" end="44" id="44" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4906" sofa="6" begin="44" end="45" id="45" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4920" sofa="6" begin="45" end="46" id="46" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4934" sofa="6" begin="46" end="47" id="47" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4948" sofa="6" begin="47" end="48" id="48" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4962" sofa="6" begin="48" end="49" id="49" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4976" sofa="6" begin="49" end="50" id="50" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="4990" sofa="6" begin="50" end="51" id="51" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5004" sofa="6" begin="51" end="52" id="52" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5018" sofa="6" begin="52" end="53" id="53" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5032" sofa="6" begin="53" end="54" id="54" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5046" sofa="6" begin="54" end="55" id="55" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5060" sofa="6" begin="55" end="56" id="56" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5074" sofa="6" begin="56" end="57" id="57" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5088" sofa="6" begin="57" end="58" id="58" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5102" sofa="6" begin="58" end="59" id="59" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5116" sofa="6" begin="59" end="60" id="60" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5130" sofa="6" begin="60" end="61" id="61" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5144" sofa="6" begin="61" end="62" id="62" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5158" sofa="6" begin="62" end="63" id="63" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5172" sofa="6" begin="63" end="64" id="64" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5186" sofa="6" begin="64" end="65" id="65" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5200" sofa="6" begin="65" end="66" id="66" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5214" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5214" sofa="6" begin="66" end="67" id="67" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="4276" deprel="root" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5228" sofa="6" begin="68" end="106" id="0"/>
+    <syntax:ConllDependencyNode xmi:id="5242" sofa="6" begin="68" end="75" id="1" form="Patient" lemma="patient" cpostag="NN" postag="NN" feats="_" head="5256" deprel="nn" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5256" sofa="6" begin="76" end="80" id="2" form="Name" lemma="name" cpostag="NN" postag="NN" feats="_" head="5228" deprel="root" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5270" sofa="6" begin="80" end="83" id="3" form="..." lemma=".." cpostag="." postag="." feats="_" head="5256" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5284" sofa="6" begin="83" end="86" id="4" form="..." lemma=".." cpostag="." postag="." feats="_" head="5256" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5298" sofa="6" begin="86" end="89" id="5" form="..." lemma=".." cpostag="." postag="." feats="_" head="5256" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5312" sofa="6" begin="89" end="92" id="6" form="..." lemma=".." cpostag="." postag="." feats="_" head="5256" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5326" sofa="6" begin="92" end="95" id="7" form="..." lemma=".." cpostag="." postag="." feats="_" head="5256" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5340" sofa="6" begin="95" end="98" id="8" form="..." lemma=".." cpostag="." postag="." feats="_" head="5368" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5354" sofa="6" begin="98" end="102" id="9" form="Jane" lemma="jane" cpostag="NNP" postag="NNP" feats="_" head="5368" deprel="nn" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5368" sofa="6" begin="103" end="106" id="10" form="Doe" lemma="doe" cpostag="NNP" postag="NNP" feats="_" head="5228" deprel="root" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5382" sofa="6" begin="107" end="150" id="0"/>
+    <syntax:ConllDependencyNode xmi:id="5396" sofa="6" begin="107" end="116" id="1" form="Principal" lemma="principal" cpostag="NN" postag="NN" feats="_" head="5410" deprel="nn" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5410" sofa="6" begin="117" end="121" id="2" form="Date" lemma="date" cpostag="NN" postag="NN" feats="_" head="5382" deprel="root" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5424" sofa="6" begin="121" end="124" id="3" form="..." lemma=".." cpostag="." postag="." feats="_" head="5410" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5438" sofa="6" begin="124" end="127" id="4" form="..." lemma=".." cpostag="." postag="." feats="_" head="5410" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5452" sofa="6" begin="127" end="130" id="5" form="..." lemma=".." cpostag="." postag="." feats="_" head="5410" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5466" sofa="6" begin="130" end="133" id="6" form="..." lemma=".." cpostag="." postag="." feats="_" head="5410" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5480" sofa="6" begin="133" end="136" id="7" form="..." lemma=".." cpostag="." postag="." feats="_" head="5410" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5494" sofa="6" begin="136" end="145" id="8" form=".20130424" lemma="0" cpostag="." postag="." feats="_" head="5508" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5508" sofa="6" begin="146" end="150" id="9" form="1130" lemma="0" cpostag="CD" postag="CD" feats="_" head="5410" deprel="npadvmod" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5522" sofa="6" begin="151" end="184" id="0"/>
+    <syntax:ConllDependencyNode xmi:id="5536" sofa="6" begin="151" end="157" id="1" form="Record" lemma="record" cpostag="NN" postag="NN" feats="_" head="5550" deprel="nn" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5550" sofa="6" begin="158" end="162" id="2" form="Type" lemma="type" cpostag="NN" postag="NN" feats="_" head="5662" deprel="dep" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5564" sofa="6" begin="162" end="165" id="3" form="..." lemma=".." cpostag="." postag="." feats="_" head="5550" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5578" sofa="6" begin="165" end="168" id="4" form="..." lemma=".." cpostag="." postag="." feats="_" head="5550" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5592" sofa="6" begin="168" end="171" id="5" form="..." lemma=".." cpostag="." postag="." feats="_" head="5550" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5606" sofa="6" begin="171" end="174" id="6" form="..." lemma=".." cpostag="." postag="." feats="_" head="5550" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5620" sofa="6" begin="174" end="177" id="7" form="..." lemma=".." cpostag="." postag="." feats="_" head="5550" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5634" sofa="6" begin="177" end="180" id="8" form="..." lemma=".." cpostag="." postag="." feats="_" head="5550" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5648" sofa="6" begin="180" end="181" id="9" form="." lemma="." cpostag="." postag="." feats="_" head="5550" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5662" sofa="6" begin="181" end="184" id="10" form="PGN" lemma="pgn" cpostag="NN" postag="NN" feats="_" head="5522" deprel="root" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5676" sofa="6" begin="185" end="252" id="0"/>
+    <syntax:ConllDependencyNode xmi:id="5690" sofa="6" begin="185" end="186" id="1" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5704" sofa="6" begin="186" end="187" id="2" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5718" sofa="6" begin="187" end="188" id="3" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5732" sofa="6" begin="188" end="189" id="4" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5746" sofa="6" begin="189" end="190" id="5" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5760" sofa="6" begin="190" end="191" id="6" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5774" sofa="6" begin="191" end="192" id="7" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5788" sofa="6" begin="192" end="193" id="8" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5802" sofa="6" begin="193" end="194" id="9" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5816" sofa="6" begin="194" end="195" id="10" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5830" sofa="6" begin="195" end="196" id="11" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5844" sofa="6" begin="196" end="197" id="12" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5858" sofa="6" begin="197" end="198" id="13" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5872" sofa="6" begin="198" end="199" id="14" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5886" sofa="6" begin="199" end="200" id="15" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5900" sofa="6" begin="200" end="201" id="16" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5914" sofa="6" begin="201" end="202" id="17" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5928" sofa="6" begin="202" end="203" id="18" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5942" sofa="6" begin="203" end="204" id="19" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5956" sofa="6" begin="204" end="205" id="20" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5970" sofa="6" begin="205" end="206" id="21" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5984" sofa="6" begin="206" end="207" id="22" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="5998" sofa="6" begin="207" end="208" id="23" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6012" sofa="6" begin="208" end="209" id="24" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6026" sofa="6" begin="209" end="210" id="25" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6040" sofa="6" begin="210" end="211" id="26" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6054" sofa="6" begin="211" end="212" id="27" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6068" sofa="6" begin="212" end="213" id="28" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6082" sofa="6" begin="213" end="214" id="29" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6096" sofa="6" begin="214" end="215" id="30" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6110" sofa="6" begin="215" end="216" id="31" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6124" sofa="6" begin="216" end="217" id="32" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6138" sofa="6" begin="217" end="218" id="33" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6152" sofa="6" begin="218" end="219" id="34" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6166" sofa="6" begin="219" end="220" id="35" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6180" sofa="6" begin="220" end="221" id="36" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6194" sofa="6" begin="221" end="222" id="37" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6208" sofa="6" begin="222" end="223" id="38" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6222" sofa="6" begin="223" end="224" id="39" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6236" sofa="6" begin="224" end="225" id="40" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6250" sofa="6" begin="225" end="226" id="41" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6264" sofa="6" begin="226" end="227" id="42" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6278" sofa="6" begin="227" end="228" id="43" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6292" sofa="6" begin="228" end="229" id="44" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6306" sofa="6" begin="229" end="230" id="45" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6320" sofa="6" begin="230" end="231" id="46" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6334" sofa="6" begin="231" end="232" id="47" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6348" sofa="6" begin="232" end="233" id="48" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6362" sofa="6" begin="233" end="234" id="49" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6376" sofa="6" begin="234" end="235" id="50" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6390" sofa="6" begin="235" end="236" id="51" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6404" sofa="6" begin="236" end="237" id="52" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6418" sofa="6" begin="237" end="238" id="53" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6432" sofa="6" begin="238" end="239" id="54" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6446" sofa="6" begin="239" end="240" id="55" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6460" sofa="6" begin="240" end="241" id="56" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6474" sofa="6" begin="241" end="242" id="57" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6488" sofa="6" begin="242" end="243" id="58" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6502" sofa="6" begin="243" end="244" id="59" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6516" sofa="6" begin="244" end="245" id="60" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6530" sofa="6" begin="245" end="246" id="61" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6544" sofa="6" begin="246" end="247" id="62" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6558" sofa="6" begin="247" end="248" id="63" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6572" sofa="6" begin="248" end="249" id="64" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6586" sofa="6" begin="249" end="250" id="65" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6600" sofa="6" begin="250" end="251" id="66" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="6614" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6614" sofa="6" begin="251" end="252" id="67" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5676" deprel="root" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6628" sofa="6" begin="254" end="438" id="0"/>
+    <syntax:ConllDependencyNode xmi:id="6642" sofa="6" begin="254" end="261" id="1" form="Patient" lemma="patient" cpostag="NN" postag="NN" feats="_" head="6656" deprel="nsubj" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6656" sofa="6" begin="262" end="264" id="2" form="is" lemma="be" cpostag="VBZ" postag="VBZ" feats="_" head="6628" deprel="root" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6670" sofa="6" begin="265" end="266" id="3" form="a" lemma="a" cpostag="DT" postag="DT" feats="_" head="6726" deprel="det" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6684" sofa="6" begin="267" end="269" id="4" form="54" lemma="0" cpostag="CD" postag="CD" feats="_" head="6698" deprel="num" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6698" sofa="6" begin="270" end="274" id="5" form="year" lemma="year" cpostag="NN" postag="NN" feats="_" head="6712" deprel="npadvmod" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6712" sofa="6" begin="275" end="278" id="6" form="old" lemma="old" cpostag="JJ" postag="JJ" feats="_" head="6726" deprel="amod" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6726" sofa="6" begin="279" end="285" id="7" form="female" lemma="female" cpostag="NN" postag="NN" feats="_" head="6656" deprel="attr" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6740" sofa="6" begin="286" end="290" id="8" form="with" lemma="with" cpostag="IN" postag="IN" feats="_" head="6726" deprel="prep" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6754" sofa="6" begin="291" end="298" id="9" form="history" lemma="history" cpostag="NN" postag="NN" feats="_" head="6740" deprel="pobj" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6768" sofa="6" begin="299" end="301" id="10" form="of" lemma="of" cpostag="IN" postag="IN" feats="_" head="6754" deprel="prep" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6782" sofa="6" begin="302" end="308" id="11" form="T2N0M0" lemma="t0n0m0" cpostag="NN" postag="NN" feats="_" head="6768" deprel="pobj" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6796" sofa="6" begin="309" end="313" id="12" form="left" lemma="left" cpostag="JJ" postag="JJ" feats="_" head="6810" deprel="amod" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6810" sofa="6" begin="314" end="320" id="13" form="breast" lemma="breast" cpostag="NN" postag="NN" feats="_" head="6824" deprel="nn" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6824" sofa="6" begin="321" end="327" id="14" form="cancer" lemma="cancer" cpostag="NN" postag="NN" feats="_" head="7006" deprel="dep" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6838" sofa="6" begin="328" end="330" id="15" form="ER" lemma="er" cpostag="NN" postag="NN" feats="_" head="6866" deprel="hmod" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6852" sofa="6" begin="330" end="331" id="16" form="-" lemma="-" cpostag="HYPH" postag="HYPH" feats="_" head="6866" deprel="hyph" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6866" sofa="6" begin="331" end="334" id="17" form="neg" lemma="neg" cpostag="JJ" postag="JJ" feats="_" head="6824" deprel="amod" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6880" sofa="6" begin="334" end="335" id="18" form="," lemma="," cpostag="," postag="," feats="_" head="6894" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6894" sofa="6" begin="336" end="338" id="19" form="PR" lemma="pr" cpostag="NN" postag="NN" feats="_" head="6922" deprel="hmod" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6908" sofa="6" begin="338" end="339" id="20" form="-" lemma="-" cpostag="HYPH" postag="HYPH" feats="_" head="6922" deprel="hyph" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6922" sofa="6" begin="339" end="342" id="21" form="neg" lemma="neg" cpostag="JJ" postag="JJ" feats="_" head="7006" deprel="ccomp" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6936" sofa="6" begin="342" end="343" id="22" form="," lemma="," cpostag="," postag="," feats="_" head="7006" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6950" sofa="6" begin="344" end="348" id="23" form="HER2" lemma="her0" cpostag="NN" postag="NN" feats="_" head="7006" deprel="nsubj" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6964" sofa="6" begin="348" end="349" id="24" form="+" lemma="+" cpostag="SYM" postag="SYM" feats="_" head="6950" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6978" sofa="6" begin="349" end="350" id="25" form="," lemma="," cpostag="," postag="," feats="_" head="7006" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="6992" sofa="6" begin="351" end="354" id="26" form="now" lemma="now" cpostag="RB" postag="RB" feats="_" head="7006" deprel="advmod" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="7006" sofa="6" begin="355" end="365" id="27" form="undergoing" lemma="undergo" cpostag="VBG" postag="VBG" feats="_" head="6726" deprel="partmod" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="7020" sofa="6" begin="366" end="377" id="28" form="neoadjuvant" lemma="neoadjuvant" cpostag="JJ" postag="JJ" feats="_" head="7034" deprel="amod" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="7034" sofa="6" begin="378" end="383" id="29" form="chemo" lemma="chemo" cpostag="NN" postag="NN" feats="_" head="7006" deprel="dobj" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="7048" sofa="6" begin="384" end="388" id="30" form="with" lemma="with" cpostag="IN" postag="IN" feats="_" head="7034" deprel="prep" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="7062" sofa="6" begin="389" end="397" id="31" form="taxotere" lemma="taxotere" cpostag="NN" postag="NN" feats="_" head="7048" deprel="pobj" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="7076" sofa="6" begin="397" end="398" id="32" form="," lemma="," cpostag="," postag="," feats="_" head="7062" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="7090" sofa="6" begin="399" end="410" id="33" form="carboplatin" lemma="carboplatin" cpostag="NN" postag="NN" feats="_" head="7062" deprel="conj" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="7104" sofa="6" begin="410" end="411" id="34" form="," lemma="," cpostag="," postag="," feats="_" head="7090" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="7118" sofa="6" begin="412" end="421" id="35" form="Herceptin" lemma="herceptin" cpostag="NNP" postag="NNP" feats="_" head="7090" deprel="conj" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="7132" sofa="6" begin="421" end="422" id="36" form="," lemma="," cpostag="," postag="," feats="_" head="7118" deprel="punct" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="7146" sofa="6" begin="423" end="426" id="37" form="and" lemma="and" cpostag="CC" postag="CC" feats="_" head="7118" deprel="cc" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="7160" sofa="6" begin="427" end="437" id="38" form="pertuzumab" lemma="pertuzumab" cpostag="NN" postag="NN" feats="_" head="7118" deprel="conj" pdeprel="_"/>
+    <syntax:ConllDependencyNode xmi:id="7174" sofa="6" begin="437" end="438" id="39" form="." lemma="." cpostag="." postag="." feats="_" head="6656" deprel="punct" pdeprel="_"/>
+    <textsem:Predicate xmi:id="7188" sofa="6" begin="262" end="264" relations="7253 7263" frameSet="be.01"/>
+    <textsem:Predicate xmi:id="7195" sofa="6" begin="355" end="365" relations="7226 7236" frameSet="undergo.01"/>
+    <textsem:SemanticArgument xmi:id="7202" sofa="6" begin="254" end="261" relation="7253" label="A1"/>
+    <textsem:SemanticArgument xmi:id="7208" sofa="6" begin="279" end="285" relation="7263" label="A2"/>
+    <textsem:SemanticArgument xmi:id="7214" sofa="6" begin="351" end="354" relation="7226" label="AM-TMP"/>
+    <textsem:SemanticArgument xmi:id="7220" sofa="6" begin="378" end="383" relation="7236" label="A2"/>
+    <textsem:SemanticRoleRelation xmi:id="7226" id="0" category="AM-TMP" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" predicate="7195" argument="7214"/>
+    <textsem:SemanticRoleRelation xmi:id="7236" id="0" category="A2" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" predicate="7195" argument="7220"/>
+    <textsem:SemanticRoleRelation xmi:id="7253" id="0" category="A1" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" predicate="7188" argument="7202"/>
+    <textsem:SemanticRoleRelation xmi:id="7263" id="0" category="A2" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" predicate="7188" argument="7208"/>
+    <cas:NonEmptyFSList xmi:id="7246" head="7226" tail="7249"/>
+    <cas:NonEmptyFSList xmi:id="7249" head="7236" tail="7252"/>
+    <cas:NonEmptyFSList xmi:id="7273" head="7253" tail="7276"/>
+    <cas:NonEmptyFSList xmi:id="7276" head="7263" tail="7279"/>
+    <syntax:TerminalTreebankNode xmi:id="8289" sofa="6" begin="0" end="1" nodeType="SYM" nodeValue="=" leaf="true" parent="9321" headIndex="0" index="0" tokenIndex="0"/>
+    <syntax:TerminalTreebankNode xmi:id="8302" sofa="6" begin="1" end="2" nodeType="SYM" nodeValue="=" leaf="true" parent="9353" headIndex="0" index="1" tokenIndex="1"/>
+    <syntax:TerminalTreebankNode xmi:id="8315" sofa="6" begin="2" end="3" nodeType="SYM" nodeValue="=" leaf="true" parent="9385" headIndex="0" index="2" tokenIndex="2"/>
+    <syntax:TerminalTreebankNode xmi:id="8328" sofa="6" begin="3" end="4" nodeType="SYM" nodeValue="=" leaf="true" parent="9417" headIndex="0" index="3" tokenIndex="3"/>
+    <syntax:TerminalTreebankNode xmi:id="8341" sofa="6" begin="4" end="5" nodeType="SYM" nodeValue="=" leaf="true" parent="9449" headIndex="0" index="4" tokenIndex="4"/>
+    <syntax:TerminalTreebankNode xmi:id="8354" sofa="6" begin="5" end="6" nodeType="SYM" nodeValue="=" leaf="true" parent="9481" headIndex="0" index="5" tokenIndex="5"/>
+    <syntax:TerminalTreebankNode xmi:id="8367" sofa="6" begin="6" end="7" nodeType="SYM" nodeValue="=" leaf="true" parent="9513" headIndex="0" index="6" tokenIndex="6"/>
+    <syntax:TerminalTreebankNode xmi:id="8380" sofa="6" begin="7" end="8" nodeType="SYM" nodeValue="=" leaf="true" parent="9545" headIndex="0" index="7" tokenIndex="7"/>
+    <syntax:TerminalTreebankNode xmi:id="8393" sofa="6" begin="8" end="9" nodeType="SYM" nodeValue="=" leaf="true" parent="9577" headIndex="0" index="8" tokenIndex="8"/>
+    <syntax:TerminalTreebankNode xmi:id="8406" sofa="6" begin="9" end="10" nodeType="SYM" nodeValue="=" leaf="true" parent="9609" headIndex="0" index="9" tokenIndex="9"/>
+    <syntax:TerminalTreebankNode xmi:id="8419" sofa="6" begin="10" end="11" nodeType="SYM" nodeValue="=" leaf="true" parent="9641" headIndex="0" index="10" tokenIndex="10"/>
+    <syntax:TerminalTreebankNode xmi:id="8432" sofa="6" begin="11" end="12" nodeType="SYM" nodeValue="=" leaf="true" parent="9673" headIndex="0" index="11" tokenIndex="11"/>
+    <syntax:TerminalTreebankNode xmi:id="8445" sofa="6" begin="12" end="13" nodeType="SYM" nodeValue="=" leaf="true" parent="9705" headIndex="0" index="12" tokenIndex="12"/>
+    <syntax:TerminalTreebankNode xmi:id="8458" sofa="6" begin="13" end="14" nodeType="SYM" nodeValue="=" leaf="true" parent="9737" headIndex="0" index="13" tokenIndex="13"/>
+    <syntax:TerminalTreebankNode xmi:id="8471" sofa="6" begin="14" end="15" nodeType="SYM" nodeValue="=" leaf="true" parent="9769" headIndex="0" index="14" tokenIndex="14"/>
+    <syntax:TerminalTreebankNode xmi:id="8484" sofa="6" begin="15" end="16" nodeType="SYM" nodeValue="=" leaf="true" parent="9801" headIndex="0" index="15" tokenIndex="15"/>
+    <syntax:TerminalTreebankNode xmi:id="8497" sofa="6" begin="16" end="17" nodeType="SYM" nodeValue="=" leaf="true" parent="9833" headIndex="0" index="16" tokenIndex="16"/>
+    <syntax:TerminalTreebankNode xmi:id="8510" sofa="6" begin="17" end="18" nodeType="SYM" nodeValue="=" leaf="true" parent="9865" headIndex="0" index="17" tokenIndex="17"/>
+    <syntax:TerminalTreebankNode xmi:id="8523" sofa="6" begin="18" end="19" nodeType="SYM" nodeValue="=" leaf="true" parent="9897" headIndex="0" index="18" tokenIndex="18"/>
+    <syntax:TerminalTreebankNode xmi:id="8536" sofa="6" begin="19" end="20" nodeType="SYM" nodeValue="=" leaf="true" parent="9929" headIndex="0" index="19" tokenIndex="19"/>
+    <syntax:TerminalTreebankNode xmi:id="8549" sofa="6" begin="20" end="21" nodeType="SYM" nodeValue="=" leaf="true" parent="9961" headIndex="0" index="20" tokenIndex="20"/>
+    <syntax:TerminalTreebankNode xmi:id="8562" sofa="6" begin="21" end="22" nodeType="SYM" nodeValue="=" leaf="true" parent="9993" headIndex="0" index="21" tokenIndex="21"/>
+    <syntax:TerminalTreebankNode xmi:id="8575" sofa="6" begin="22" end="23" nodeType="SYM" nodeValue="=" leaf="true" parent="10025" headIndex="0" index="22" tokenIndex="22"/>
+    <syntax:TerminalTreebankNode xmi:id="8588" sofa="6" begin="23" end="24" nodeType="SYM" nodeValue="=" leaf="true" parent="10057" headIndex="0" index="23" tokenIndex="23"/>
+    <syntax:TerminalTreebankNode xmi:id="8601" sofa="6" begin="24" end="25" nodeType="SYM" nodeValue="=" leaf="true" parent="10089" headIndex="0" index="24" tokenIndex="24"/>
+    <syntax:TerminalTreebankNode xmi:id="8614" sofa="6" begin="25" end="26" nodeType="SYM" nodeValue="=" leaf="true" parent="10121" headIndex="0" index="25" tokenIndex="25"/>
+    <syntax:TerminalTreebankNode xmi:id="8627" sofa="6" begin="26" end="27" nodeType="SYM" nodeValue="=" leaf="true" parent="10153" headIndex="0" index="26" tokenIndex="26"/>
+    <syntax:TerminalTreebankNode xmi:id="8640" sofa="6" begin="27" end="28" nodeType="SYM" nodeValue="=" leaf="true" parent="10185" headIndex="0" index="27" tokenIndex="27"/>
+    <syntax:TerminalTreebankNode xmi:id="8653" sofa="6" begin="28" end="29" nodeType="SYM" nodeValue="=" leaf="true" parent="10217" headIndex="0" index="28" tokenIndex="28"/>
+    <syntax:TerminalTreebankNode xmi:id="8666" sofa="6" begin="29" end="30" nodeType="SYM" nodeValue="=" leaf="true" parent="10249" headIndex="0" index="29" tokenIndex="29"/>
+    <syntax:TerminalTreebankNode xmi:id="8679" sofa="6" begin="30" end="31" nodeType="SYM" nodeValue="=" leaf="true" parent="10281" headIndex="0" index="30" tokenIndex="30"/>
+    <syntax:TerminalTreebankNode xmi:id="8692" sofa="6" begin="31" end="32" nodeType="SYM" nodeValue="=" leaf="true" parent="10313" headIndex="0" index="31" tokenIndex="31"/>
+    <syntax:TerminalTreebankNode xmi:id="8705" sofa="6" begin="32" end="33" nodeType="SYM" nodeValue="=" leaf="true" parent="10345" headIndex="0" index="32" tokenIndex="32"/>
+    <syntax:TerminalTreebankNode xmi:id="8718" sofa="6" begin="33" end="34" nodeType="SYM" nodeValue="=" leaf="true" parent="10377" headIndex="0" index="33" tokenIndex="33"/>
+    <syntax:TerminalTreebankNode xmi:id="8731" sofa="6" begin="34" end="35" nodeType="SYM" nodeValue="=" leaf="true" parent="10409" headIndex="0" index="34" tokenIndex="34"/>
+    <syntax:TerminalTreebankNode xmi:id="8744" sofa="6" begin="35" end="36" nodeType="SYM" nodeValue="=" leaf="true" parent="10441" headIndex="0" index="35" tokenIndex="35"/>
+    <syntax:TerminalTreebankNode xmi:id="8757" sofa="6" begin="36" end="37" nodeType="SYM" nodeValue="=" leaf="true" parent="10473" headIndex="0" index="36" tokenIndex="36"/>
+    <syntax:TerminalTreebankNode xmi:id="8770" sofa="6" begin="37" end="38" nodeType="SYM" nodeValue="=" leaf="true" parent="10505" headIndex="0" index="37" tokenIndex="37"/>
+    <syntax:TerminalTreebankNode xmi:id="8783" sofa="6" begin="38" end="39" nodeType="SYM" nodeValue="=" leaf="true" parent="10537" headIndex="0" index="38" tokenIndex="38"/>
+    <syntax:TerminalTreebankNode xmi:id="8796" sofa="6" begin="39" end="40" nodeType="SYM" nodeValue="=" leaf="true" parent="10569" headIndex="0" index="39" tokenIndex="39"/>
+    <syntax:TerminalTreebankNode xmi:id="8809" sofa="6" begin="40" end="41" nodeType="SYM" nodeValue="=" leaf="true" parent="10601" headIndex="0" index="40" tokenIndex="40"/>
+    <syntax:TerminalTreebankNode xmi:id="8822" sofa="6" begin="41" end="42" nodeType="SYM" nodeValue="=" leaf="true" parent="10633" headIndex="0" index="41" tokenIndex="41"/>
+    <syntax:TerminalTreebankNode xmi:id="8835" sofa="6" begin="42" end="43" nodeType="SYM" nodeValue="=" leaf="true" parent="10665" headIndex="0" index="42" tokenIndex="42"/>
+    <syntax:TerminalTreebankNode xmi:id="8848" sofa="6" begin="43" end="44" nodeType="SYM" nodeValue="=" leaf="true" parent="10697" headIndex="0" index="43" tokenIndex="43"/>
+    <syntax:TerminalTreebankNode xmi:id="8861" sofa="6" begin="44" end="45" nodeType="SYM" nodeValue="=" leaf="true" parent="10729" headIndex="0" index="44" tokenIndex="44"/>
+    <syntax:TerminalTreebankNode xmi:id="8874" sofa="6" begin="45" end="46" nodeType="SYM" nodeValue="=" leaf="true" parent="10761" headIndex="0" index="45" tokenIndex="45"/>
+    <syntax:TerminalTreebankNode xmi:id="8887" sofa="6" begin="46" end="47" nodeType="SYM" nodeValue="=" leaf="true" parent="10793" headIndex="0" index="46" tokenIndex="46"/>
+    <syntax:TerminalTreebankNode xmi:id="8900" sofa="6" begin="47" end="48" nodeType="SYM" nodeValue="=" leaf="true" parent="10825" headIndex="0" index="47" tokenIndex="47"/>
+    <syntax:TerminalTreebankNode xmi:id="8913" sofa="6" begin="48" end="49" nodeType="SYM" nodeValue="=" leaf="true" parent="10857" headIndex="0" index="48" tokenIndex="48"/>
+    <syntax:TerminalTreebankNode xmi:id="8926" sofa="6" begin="49" end="50" nodeType="SYM" nodeValue="=" leaf="true" parent="10889" headIndex="0" index="49" tokenIndex="49"/>
+    <syntax:TerminalTreebankNode xmi:id="8939" sofa="6" begin="50" end="51" nodeType="SYM" nodeValue="=" leaf="true" parent="10921" headIndex="0" index="50" tokenIndex="50"/>
+    <syntax:TerminalTreebankNode xmi:id="8952" sofa="6" begin="51" end="52" nodeType="SYM" nodeValue="=" leaf="true" parent="10953" headIndex="0" index="51" tokenIndex="51"/>
+    <syntax:TerminalTreebankNode xmi:id="8965" sofa="6" begin="52" end="53" nodeType="SYM" nodeValue="=" leaf="true" parent="10985" headIndex="0" index="52" tokenIndex="52"/>
+    <syntax:TerminalTreebankNode xmi:id="8978" sofa="6" begin="53" end="54" nodeType="SYM" nodeValue="=" leaf="true" parent="11017" headIndex="0" index="53" tokenIndex="53"/>
+    <syntax:TerminalTreebankNode xmi:id="8991" sofa="6" begin="54" end="55" nodeType="SYM" nodeValue="=" leaf="true" parent="11049" headIndex="0" index="54" tokenIndex="54"/>
+    <syntax:TerminalTreebankNode xmi:id="9004" sofa="6" begin="55" end="56" nodeType="SYM" nodeValue="=" leaf="true" parent="11081" headIndex="0" index="55" tokenIndex="55"/>
+    <syntax:TerminalTreebankNode xmi:id="9017" sofa="6" begin="56" end="57" nodeType="SYM" nodeValue="=" leaf="true" parent="11113" headIndex="0" index="56" tokenIndex="56"/>
+    <syntax:TerminalTreebankNode xmi:id="9030" sofa="6" begin="57" end="58" nodeType="SYM" nodeValue="=" leaf="true" parent="11145" headIndex="0" index="57" tokenIndex="57"/>
+    <syntax:TerminalTreebankNode xmi:id="9043" sofa="6" begin="58" end="59" nodeType="SYM" nodeValue="=" leaf="true" parent="11177" headIndex="0" index="58" tokenIndex="58"/>
+    <syntax:TerminalTreebankNode xmi:id="9056" sofa="6" begin="59" end="60" nodeType="SYM" nodeValue="=" leaf="true" parent="11209" headIndex="0" index="59" tokenIndex="59"/>
+    <syntax:TerminalTreebankNode xmi:id="9069" sofa="6" begin="60" end="61" nodeType="SYM" nodeValue="=" leaf="true" parent="11241" headIndex="0" index="60" tokenIndex="60"/>
+    <syntax:TerminalTreebankNode xmi:id="9082" sofa="6" begin="61" end="62" nodeType="SYM" nodeValue="=" leaf="true" parent="11273" headIndex="0" index="61" tokenIndex="61"/>
+    <syntax:TerminalTreebankNode xmi:id="9095" sofa="6" begin="62" end="63" nodeType="SYM" nodeValue="=" leaf="true" parent="11305" headIndex="0" index="62" tokenIndex="62"/>
+    <syntax:TerminalTreebankNode xmi:id="9108" sofa="6" begin="63" end="64" nodeType="SYM" nodeValue="=" leaf="true" parent="11339" headIndex="0" index="63" tokenIndex="63"/>
+    <syntax:TerminalTreebankNode xmi:id="9121" sofa="6" begin="64" end="65" nodeType="SYM" nodeValue="=" leaf="true" parent="11355" headIndex="0" index="64" tokenIndex="64"/>
+    <syntax:TerminalTreebankNode xmi:id="9134" sofa="6" begin="65" end="66" nodeType="SYM" nodeValue="=" leaf="true" parent="11355" headIndex="0" index="65" tokenIndex="65"/>
+    <syntax:TerminalTreebankNode xmi:id="9147" sofa="6" begin="66" end="67" nodeType="SYM" nodeValue="=" leaf="true" parent="11372" headIndex="0" index="66" tokenIndex="66"/>
+    <syntax:TerminalTreebankNode xmi:id="11542" sofa="6" begin="68" end="75" nodeType="NN" nodeValue="Patient" leaf="true" parent="11690" headIndex="0" index="0" tokenIndex="0"/>
+    <syntax:TerminalTreebankNode xmi:id="11555" sofa="6" begin="76" end="80" nodeType="NN" nodeValue="Name" leaf="true" parent="11690" headIndex="0" index="1" tokenIndex="1"/>
+    <syntax:TerminalTreebankNode xmi:id="11568" sofa="6" begin="80" end="83" nodeType="." nodeValue="..." leaf="true" parent="11690" headIndex="0" index="2" tokenIndex="2"/>
+    <syntax:TerminalTreebankNode xmi:id="11581" sofa="6" begin="83" end="86" nodeType="," nodeValue="..." leaf="true" parent="11690" headIndex="0" index="3" tokenIndex="3"/>
+    <syntax:TerminalTreebankNode xmi:id="11594" sofa="6" begin="86" end="89" nodeType="," nodeValue="..." leaf="true" parent="11690" headIndex="0" index="4" tokenIndex="4"/>
+    <syntax:TerminalTreebankNode xmi:id="11607" sofa="6" begin="89" end="92" nodeType="," nodeValue="..." leaf="true" parent="11690" headIndex="0" index="5" tokenIndex="5"/>
+    <syntax:TerminalTreebankNode xmi:id="11620" sofa="6" begin="92" end="95" nodeType="," nodeValue="..." leaf="true" parent="11690" headIndex="0" index="6" tokenIndex="6"/>
+    <syntax:TerminalTreebankNode xmi:id="11633" sofa="6" begin="95" end="98" nodeType="," nodeValue="..." leaf="true" parent="11690" headIndex="0" index="7" tokenIndex="7"/>
+    <syntax:TerminalTreebankNode xmi:id="11646" sofa="6" begin="98" end="102" nodeType="NNP" nodeValue="Jane" leaf="true" parent="11690" headIndex="0" index="8" tokenIndex="8"/>
+    <syntax:TerminalTreebankNode xmi:id="11659" sofa="6" begin="103" end="106" nodeType="NNP" nodeValue="Doe" leaf="true" parent="11690" headIndex="0" index="9" tokenIndex="9"/>
+    <syntax:TerminalTreebankNode xmi:id="11854" sofa="6" begin="107" end="116" nodeType="VBN" nodeValue="Principal" leaf="true" parent="11989" headIndex="0" index="0" tokenIndex="0"/>
+    <syntax:TerminalTreebankNode xmi:id="11867" sofa="6" begin="117" end="121" nodeType="NN" nodeValue="Date" leaf="true" parent="11989" headIndex="0" index="1" tokenIndex="1"/>
+    <syntax:TerminalTreebankNode xmi:id="11880" sofa="6" begin="121" end="124" nodeType="." nodeValue="..." leaf="true" parent="11989" headIndex="0" index="2" tokenIndex="2"/>
+    <syntax:TerminalTreebankNode xmi:id="11893" sofa="6" begin="124" end="127" nodeType="," nodeValue="..." leaf="true" parent="11989" headIndex="0" index="3" tokenIndex="3"/>
+    <syntax:TerminalTreebankNode xmi:id="11906" sofa="6" begin="127" end="130" nodeType="," nodeValue="..." leaf="true" parent="11989" headIndex="0" index="4" tokenIndex="4"/>
+    <syntax:TerminalTreebankNode xmi:id="11919" sofa="6" begin="130" end="133" nodeType="," nodeValue="..." leaf="true" parent="11989" headIndex="0" index="5" tokenIndex="5"/>
+    <syntax:TerminalTreebankNode xmi:id="11932" sofa="6" begin="133" end="136" nodeType="," nodeValue="..." leaf="true" parent="11989" headIndex="0" index="6" tokenIndex="6"/>
+    <syntax:TerminalTreebankNode xmi:id="11945" sofa="6" begin="136" end="145" nodeType="CD" nodeValue=".20130424" leaf="true" parent="11989" headIndex="0" index="7" tokenIndex="7"/>
+    <syntax:TerminalTreebankNode xmi:id="11958" sofa="6" begin="146" end="150" nodeType="CD" nodeValue="1130" leaf="true" parent="11989" headIndex="0" index="8" tokenIndex="8"/>
+    <syntax:TerminalTreebankNode xmi:id="12167" sofa="6" begin="151" end="157" nodeType="NN" nodeValue="Record" leaf="true" parent="12315" headIndex="0" index="0" tokenIndex="0"/>
+    <syntax:TerminalTreebankNode xmi:id="12180" sofa="6" begin="158" end="162" nodeType="NN" nodeValue="Type" leaf="true" parent="12315" headIndex="0" index="1" tokenIndex="1"/>
+    <syntax:TerminalTreebankNode xmi:id="12193" sofa="6" begin="162" end="165" nodeType="." nodeValue="..." leaf="true" parent="12315" headIndex="0" index="2" tokenIndex="2"/>
+    <syntax:TerminalTreebankNode xmi:id="12206" sofa="6" begin="165" end="168" nodeType="." nodeValue="..." leaf="true" parent="12315" headIndex="0" index="3" tokenIndex="3"/>
+    <syntax:TerminalTreebankNode xmi:id="12219" sofa="6" begin="168" end="171" nodeType="." nodeValue="..." leaf="true" parent="12315" headIndex="0" index="4" tokenIndex="4"/>
+    <syntax:TerminalTreebankNode xmi:id="12232" sofa="6" begin="171" end="174" nodeType="." nodeValue="..." leaf="true" parent="12315" headIndex="0" index="5" tokenIndex="5"/>
+    <syntax:TerminalTreebankNode xmi:id="12245" sofa="6" begin="174" end="177" nodeType="." nodeValue="..." leaf="true" parent="12315" headIndex="0" index="6" tokenIndex="6"/>
+    <syntax:TerminalTreebankNode xmi:id="12258" sofa="6" begin="177" end="180" nodeType="." nodeValue="..." leaf="true" parent="12315" headIndex="0" index="7" tokenIndex="7"/>
+    <syntax:TerminalTreebankNode xmi:id="12271" sofa="6" begin="180" end="181" nodeType="." nodeValue="." leaf="true" parent="12315" headIndex="0" index="8" tokenIndex="8"/>
+    <syntax:TerminalTreebankNode xmi:id="12284" sofa="6" begin="181" end="184" nodeType="NN" nodeValue="PGN" leaf="true" parent="12315" headIndex="0" index="9" tokenIndex="9"/>
+    <syntax:TerminalTreebankNode xmi:id="13349" sofa="6" begin="185" end="186" nodeType="SYM" nodeValue="=" leaf="true" parent="14381" headIndex="0" index="0" tokenIndex="0"/>
+    <syntax:TerminalTreebankNode xmi:id="13362" sofa="6" begin="186" end="187" nodeType="SYM" nodeValue="=" leaf="true" parent="14413" headIndex="0" index="1" tokenIndex="1"/>
+    <syntax:TerminalTreebankNode xmi:id="13375" sofa="6" begin="187" end="188" nodeType="SYM" nodeValue="=" leaf="true" parent="14445" headIndex="0" index="2" tokenIndex="2"/>
+    <syntax:TerminalTreebankNode xmi:id="13388" sofa="6" begin="188" end="189" nodeType="SYM" nodeValue="=" leaf="true" parent="14477" headIndex="0" index="3" tokenIndex="3"/>
+    <syntax:TerminalTreebankNode xmi:id="13401" sofa="6" begin="189" end="190" nodeType="SYM" nodeValue="=" leaf="true" parent="14509" headIndex="0" index="4" tokenIndex="4"/>
+    <syntax:TerminalTreebankNode xmi:id="13414" sofa="6" begin="190" end="191" nodeType="SYM" nodeValue="=" leaf="true" parent="14541" headIndex="0" index="5" tokenIndex="5"/>
+    <syntax:TerminalTreebankNode xmi:id="13427" sofa="6" begin="191" end="192" nodeType="SYM" nodeValue="=" leaf="true" parent="14573" headIndex="0" index="6" tokenIndex="6"/>
+    <syntax:TerminalTreebankNode xmi:id="13440" sofa="6" begin="192" end="193" nodeType="SYM" nodeValue="=" leaf="true" parent="14605" headIndex="0" index="7" tokenIndex="7"/>
+    <syntax:TerminalTreebankNode xmi:id="13453" sofa="6" begin="193" end="194" nodeType="SYM" nodeValue="=" leaf="true" parent="14637" headIndex="0" index="8" tokenIndex="8"/>
+    <syntax:TerminalTreebankNode xmi:id="13466" sofa="6" begin="194" end="195" nodeType="SYM" nodeValue="=" leaf="true" parent="14669" headIndex="0" index="9" tokenIndex="9"/>
+    <syntax:TerminalTreebankNode xmi:id="13479" sofa="6" begin="195" end="196" nodeType="SYM" nodeValue="=" leaf="true" parent="14701" headIndex="0" index="10" tokenIndex="10"/>
+    <syntax:TerminalTreebankNode xmi:id="13492" sofa="6" begin="196" end="197" nodeType="SYM" nodeValue="=" leaf="true" parent="14733" headIndex="0" index="11" tokenIndex="11"/>
+    <syntax:TerminalTreebankNode xmi:id="13505" sofa="6" begin="197" end="198" nodeType="SYM" nodeValue="=" leaf="true" parent="14765" headIndex="0" index="12" tokenIndex="12"/>
+    <syntax:TerminalTreebankNode xmi:id="13518" sofa="6" begin="198" end="199" nodeType="SYM" nodeValue="=" leaf="true" parent="14797" headIndex="0" index="13" tokenIndex="13"/>
+    <syntax:TerminalTreebankNode xmi:id="13531" sofa="6" begin="199" end="200" nodeType="SYM" nodeValue="=" leaf="true" parent="14829" headIndex="0" index="14" tokenIndex="14"/>
+    <syntax:TerminalTreebankNode xmi:id="13544" sofa="6" begin="200" end="201" nodeType="SYM" nodeValue="=" leaf="true" parent="14861" headIndex="0" index="15" tokenIndex="15"/>
+    <syntax:TerminalTreebankNode xmi:id="13557" sofa="6" begin="201" end="202" nodeType="SYM" nodeValue="=" leaf="true" parent="14893" headIndex="0" index="16" tokenIndex="16"/>
+    <syntax:TerminalTreebankNode xmi:id="13570" sofa="6" begin="202" end="203" nodeType="SYM" nodeValue="=" leaf="true" parent="14925" headIndex="0" index="17" tokenIndex="17"/>
+    <syntax:TerminalTreebankNode xmi:id="13583" sofa="6" begin="203" end="204" nodeType="SYM" nodeValue="=" leaf="true" parent="14957" headIndex="0" index="18" tokenIndex="18"/>
+    <syntax:TerminalTreebankNode xmi:id="13596" sofa="6" begin="204" end="205" nodeType="SYM" nodeValue="=" leaf="true" parent="14989" headIndex="0" index="19" tokenIndex="19"/>
+    <syntax:TerminalTreebankNode xmi:id="13609" sofa="6" begin="205" end="206" nodeType="SYM" nodeValue="=" leaf="true" parent="15021" headIndex="0" index="20" tokenIndex="20"/>
+    <syntax:TerminalTreebankNode xmi:id="13622" sofa="6" begin="206" end="207" nodeType="SYM" nodeValue="=" leaf="true" parent="15053" headIndex="0" index="21" tokenIndex="21"/>
+    <syntax:TerminalTreebankNode xmi:id="13635" sofa="6" begin="207" end="208" nodeType="SYM" nodeValue="=" leaf="true" parent="15085" headIndex="0" index="22" tokenIndex="22"/>
+    <syntax:TerminalTreebankNode xmi:id="13648" sofa="6" begin="208" end="209" nodeType="SYM" nodeValue="=" leaf="true" parent="15117" headIndex="0" index="23" tokenIndex="23"/>
+    <syntax:TerminalTreebankNode xmi:id="13661" sofa="6" begin="209" end="210" nodeType="SYM" nodeValue="=" leaf="true" parent="15149" headIndex="0" index="24" tokenIndex="24"/>
+    <syntax:TerminalTreebankNode xmi:id="13674" sofa="6" begin="210" end="211" nodeType="SYM" nodeValue="=" leaf="true" parent="15181" headIndex="0" index="25" tokenIndex="25"/>
+    <syntax:TerminalTreebankNode xmi:id="13687" sofa="6" begin="211" end="212" nodeType="SYM" nodeValue="=" leaf="true" parent="15213" headIndex="0" index="26" tokenIndex="26"/>
+    <syntax:TerminalTreebankNode xmi:id="13700" sofa="6" begin="212" end="213" nodeType="SYM" nodeValue="=" leaf="true" parent="15245" headIndex="0" index="27" tokenIndex="27"/>
+    <syntax:TerminalTreebankNode xmi:id="13713" sofa="6" begin="213" end="214" nodeType="SYM" nodeValue="=" leaf="true" parent="15277" headIndex="0" index="28" tokenIndex="28"/>
+    <syntax:TerminalTreebankNode xmi:id="13726" sofa="6" begin="214" end="215" nodeType="SYM" nodeValue="=" leaf="true" parent="15309" headIndex="0" index="29" tokenIndex="29"/>
+    <syntax:TerminalTreebankNode xmi:id="13739" sofa="6" begin="215" end="216" nodeType="SYM" nodeValue="=" leaf="true" parent="15341" headIndex="0" index="30" tokenIndex="30"/>
+    <syntax:TerminalTreebankNode xmi:id="13752" sofa="6" begin="216" end="217" nodeType="SYM" nodeValue="=" leaf="true" parent="15373" headIndex="0" index="31" tokenIndex="31"/>
+    <syntax:TerminalTreebankNode xmi:id="13765" sofa="6" begin="217" end="218" nodeType="SYM" nodeValue="=" leaf="true" parent="15405" headIndex="0" index="32" tokenIndex="32"/>
+    <syntax:TerminalTreebankNode xmi:id="13778" sofa="6" begin="218" end="219" nodeType="SYM" nodeValue="=" leaf="true" parent="15437" headIndex="0" index="33" tokenIndex="33"/>
+    <syntax:TerminalTreebankNode xmi:id="13791" sofa="6" begin="219" end="220" nodeType="SYM" nodeValue="=" leaf="true" parent="15469" headIndex="0" index="34" tokenIndex="34"/>
+    <syntax:TerminalTreebankNode xmi:id="13804" sofa="6" begin="220" end="221" nodeType="SYM" nodeValue="=" leaf="true" parent="15501" headIndex="0" index="35" tokenIndex="35"/>
+    <syntax:TerminalTreebankNode xmi:id="13817" sofa="6" begin="221" end="222" nodeType="SYM" nodeValue="=" leaf="true" parent="15533" headIndex="0" index="36" tokenIndex="36"/>
+    <syntax:TerminalTreebankNode xmi:id="13830" sofa="6" begin="222" end="223" nodeType="SYM" nodeValue="=" leaf="true" parent="15565" headIndex="0" index="37" tokenIndex="37"/>
+    <syntax:TerminalTreebankNode xmi:id="13843" sofa="6" begin="223" end="224" nodeType="SYM" nodeValue="=" leaf="true" parent="15597" headIndex="0" index="38" tokenIndex="38"/>
+    <syntax:TerminalTreebankNode xmi:id="13856" sofa="6" begin="224" end="225" nodeType="SYM" nodeValue="=" leaf="true" parent="15629" headIndex="0" index="39" tokenIndex="39"/>
+    <syntax:TerminalTreebankNode xmi:id="13869" sofa="6" begin="225" end="226" nodeType="SYM" nodeValue="=" leaf="true" parent="15661" headIndex="0" index="40" tokenIndex="40"/>
+    <syntax:TerminalTreebankNode xmi:id="13882" sofa="6" begin="226" end="227" nodeType="SYM" nodeValue="=" leaf="true" parent="15693" headIndex="0" index="41" tokenIndex="41"/>
+    <syntax:TerminalTreebankNode xmi:id="13895" sofa="6" begin="227" end="228" nodeType="SYM" nodeValue="=" leaf="true" parent="15725" headIndex="0" index="42" tokenIndex="42"/>
+    <syntax:TerminalTreebankNode xmi:id="13908" sofa="6" begin="228" end="229" nodeType="SYM" nodeValue="=" leaf="true" parent="15757" headIndex="0" index="43" tokenIndex="43"/>
+    <syntax:TerminalTreebankNode xmi:id="13921" sofa="6" begin="229" end="230" nodeType="SYM" nodeValue="=" leaf="true" parent="15789" headIndex="0" index="44" tokenIndex="44"/>
+    <syntax:TerminalTreebankNode xmi:id="13934" sofa="6" begin="230" end="231" nodeType="SYM" nodeValue="=" leaf="true" parent="15821" headIndex="0" index="45" tokenIndex="45"/>
+    <syntax:TerminalTreebankNode xmi:id="13947" sofa="6" begin="231" end="232" nodeType="SYM" nodeValue="=" leaf="true" parent="15853" headIndex="0" index="46" tokenIndex="46"/>
+    <syntax:TerminalTreebankNode xmi:id="13960" sofa="6" begin="232" end="233" nodeType="SYM" nodeValue="=" leaf="true" parent="15885" headIndex="0" index="47" tokenIndex="47"/>
+    <syntax:TerminalTreebankNode xmi:id="13973" sofa="6" begin="233" end="234" nodeType="SYM" nodeValue="=" leaf="true" parent="15917" headIndex="0" index="48" tokenIndex="48"/>
+    <syntax:TerminalTreebankNode xmi:id="13986" sofa="6" begin="234" end="235" nodeType="SYM" nodeValue="=" leaf="true" parent="15949" headIndex="0" index="49" tokenIndex="49"/>
+    <syntax:TerminalTreebankNode xmi:id="13999" sofa="6" begin="235" end="236" nodeType="SYM" nodeValue="=" leaf="true" parent="15981" headIndex="0" index="50" tokenIndex="50"/>
+    <syntax:TerminalTreebankNode xmi:id="14012" sofa="6" begin="236" end="237" nodeType="SYM" nodeValue="=" leaf="true" parent="16013" headIndex="0" index="51" tokenIndex="51"/>
+    <syntax:TerminalTreebankNode xmi:id="14025" sofa="6" begin="237" end="238" nodeType="SYM" nodeValue="=" leaf="true" parent="16045" headIndex="0" index="52" tokenIndex="52"/>
+    <syntax:TerminalTreebankNode xmi:id="14038" sofa="6" begin="238" end="239" nodeType="SYM" nodeValue="=" leaf="true" parent="16077" headIndex="0" index="53" tokenIndex="53"/>
+    <syntax:TerminalTreebankNode xmi:id="14051" sofa="6" begin="239" end="240" nodeType="SYM" nodeValue="=" leaf="true" parent="16109" headIndex="0" index="54" tokenIndex="54"/>
+    <syntax:TerminalTreebankNode xmi:id="14064" sofa="6" begin="240" end="241" nodeType="SYM" nodeValue="=" leaf="true" parent="16141" headIndex="0" index="55" tokenIndex="55"/>
+    <syntax:TerminalTreebankNode xmi:id="14077" sofa="6" begin="241" end="242" nodeType="SYM" nodeValue="=" leaf="true" parent="16173" headIndex="0" index="56" tokenIndex="56"/>
+    <syntax:TerminalTreebankNode xmi:id="14090" sofa="6" begin="242" end="243" nodeType="SYM" nodeValue="=" leaf="true" parent="16205" headIndex="0" index="57" tokenIndex="57"/>
+    <syntax:TerminalTreebankNode xmi:id="14103" sofa="6" begin="243" end="244" nodeType="SYM" nodeValue="=" leaf="true" parent="16237" headIndex="0" index="58" tokenIndex="58"/>
+    <syntax:TerminalTreebankNode xmi:id="14116" sofa="6" begin="244" end="245" nodeType="SYM" nodeValue="=" leaf="true" parent="16269" headIndex="0" index="59" tokenIndex="59"/>
+    <syntax:TerminalTreebankNode xmi:id="14129" sofa="6" begin="245" end="246" nodeType="SYM" nodeValue="=" leaf="true" parent="16301" headIndex="0" index="60" tokenIndex="60"/>
+    <syntax:TerminalTreebankNode xmi:id="14142" sofa="6" begin="246" end="247" nodeType="SYM" nodeValue="=" leaf="true" parent="16333" headIndex="0" index="61" tokenIndex="61"/>
+    <syntax:TerminalTreebankNode xmi:id="14155" sofa="6" begin="247" end="248" nodeType="SYM" nodeValue="=" leaf="true" parent="16365" headIndex="0" index="62" tokenIndex="62"/>
+    <syntax:TerminalTreebankNode xmi:id="14168" sofa="6" begin="248" end="249" nodeType="SYM" nodeValue="=" leaf="true" parent="16399" headIndex="0" index="63" tokenIndex="63"/>
+    <syntax:TerminalTreebankNode xmi:id="14181" sofa="6" begin="249" end="250" nodeType="SYM" nodeValue="=" leaf="true" parent="16415" headIndex="0" index="64" tokenIndex="64"/>
+    <syntax:TerminalTreebankNode xmi:id="14194" sofa="6" begin="250" end="251" nodeType="SYM" nodeValue="=" leaf="true" parent="16415" headIndex="0" index="65" tokenIndex="65"/>
+    <syntax:TerminalTreebankNode xmi:id="14207" sofa="6" begin="251" end="252" nodeType="SYM" nodeValue="=" leaf="true" parent="16432" headIndex="0" index="66" tokenIndex="66"/>
+    <syntax:TerminalTreebankNode xmi:id="17037" sofa="6" begin="254" end="261" nodeType="NN" nodeValue="Patient" leaf="true" parent="17598" headIndex="0" index="0" tokenIndex="0"/>
+    <syntax:TerminalTreebankNode xmi:id="17050" sofa="6" begin="262" end="264" nodeType="VBZ" nodeValue="is" leaf="true" parent="17615" headIndex="0" index="1" tokenIndex="1"/>
+    <syntax:TerminalTreebankNode xmi:id="17063" sofa="6" begin="265" end="266" nodeType="DT" nodeValue="a" leaf="true" parent="17650" headIndex="0" index="2" tokenIndex="2"/>
+    <syntax:TerminalTreebankNode xmi:id="17076" sofa="6" begin="267" end="269" nodeType="CD" nodeValue="54" leaf="true" parent="17685" headIndex="0" index="3" tokenIndex="3"/>
+    <syntax:TerminalTreebankNode xmi:id="17089" sofa="6" begin="270" end="274" nodeType="NN" nodeValue="year" leaf="true" parent="17685" headIndex="0" index="4" tokenIndex="4"/>
+    <syntax:TerminalTreebankNode xmi:id="17102" sofa="6" begin="275" end="278" nodeType="JJ" nodeValue="old" leaf="true" parent="17668" headIndex="0" index="5" tokenIndex="5"/>
+    <syntax:TerminalTreebankNode xmi:id="17115" sofa="6" begin="279" end="285" nodeType="NN" nodeValue="female" leaf="true" parent="17650" headIndex="0" index="6" tokenIndex="6"/>
+    <syntax:TerminalTreebankNode xmi:id="17128" sofa="6" begin="286" end="290" nodeType="IN" nodeValue="with" leaf="true" parent="17702" headIndex="0" index="7" tokenIndex="7"/>
+    <syntax:TerminalTreebankNode xmi:id="17141" sofa="6" begin="291" end="298" nodeType="NN" nodeValue="history" leaf="true" parent="17736" headIndex="0" index="8" tokenIndex="8"/>
+    <syntax:TerminalTreebankNode xmi:id="17154" sofa="6" begin="299" end="301" nodeType="IN" nodeValue="of" leaf="true" parent="17752" headIndex="0" index="9" tokenIndex="9"/>
+    <syntax:TerminalTreebankNode xmi:id="17167" sofa="6" begin="302" end="308" nodeType="NN" nodeValue="T2N0M0" leaf="true" parent="17788" headIndex="0" index="10" tokenIndex="10"/>
+    <syntax:TerminalTreebankNode xmi:id="17180" sofa="6" begin="309" end="313" nodeType="JJ" nodeValue="left" leaf="true" parent="17838" headIndex="0" index="11" tokenIndex="11"/>
+    <syntax:TerminalTreebankNode xmi:id="17193" sofa="6" begin="314" end="320" nodeType="NN" nodeValue="breast" leaf="true" parent="17838" headIndex="0" index="12" tokenIndex="12"/>
+    <syntax:TerminalTreebankNode xmi:id="17206" sofa="6" begin="321" end="327" nodeType="NN" nodeValue="cancer" leaf="true" parent="17821" headIndex="0" index="13" tokenIndex="13"/>
+    <syntax:TerminalTreebankNode xmi:id="17219" sofa="6" begin="328" end="330" nodeType="NN" nodeValue="ER" leaf="true" parent="17855" headIndex="0" index="14" tokenIndex="14"/>
+    <syntax:TerminalTreebankNode xmi:id="17232" sofa="6" begin="330" end="331" nodeType="HYPH" nodeValue="-" leaf="true" parent="17855" headIndex="0" index="15" tokenIndex="15"/>
+    <syntax:TerminalTreebankNode xmi:id="17245" sofa="6" begin="331" end="334" nodeType="JJ" nodeValue="neg" leaf="true" parent="17855" headIndex="0" index="16" tokenIndex="16"/>
+    <syntax:TerminalTreebankNode xmi:id="17258" sofa="6" begin="334" end="335" nodeType="," nodeValue="," leaf="true" parent="17769" headIndex="0" index="17" tokenIndex="17"/>
+    <syntax:TerminalTreebankNode xmi:id="17271" sofa="6" begin="336" end="338" nodeType="NN" nodeValue="PR" leaf="true" parent="17873" headIndex="0" index="18" tokenIndex="18"/>
+    <syntax:TerminalTreebankNode xmi:id="17284" sofa="6" begin="338" end="339" nodeType="HYPH" nodeValue="-" leaf="true" parent="17873" headIndex="0" index="19" tokenIndex="19"/>
+    <syntax:TerminalTreebankNode xmi:id="17297" sofa="6" begin="339" end="342" nodeType="JJ" nodeValue="neg" leaf="true" parent="17873" headIndex="0" index="20" tokenIndex="20"/>
+    <syntax:TerminalTreebankNode xmi:id="17310" sofa="6" begin="342" end="343" nodeType="," nodeValue="," leaf="true" parent="17562" headIndex="0" index="21" tokenIndex="21"/>
+    <syntax:TerminalTreebankNode xmi:id="17323" sofa="6" begin="344" end="348" nodeType="NN" nodeValue="HER2" leaf="true" parent="17908" headIndex="0" index="22" tokenIndex="22"/>
+    <syntax:TerminalTreebankNode xmi:id="17336" sofa="6" begin="348" end="349" nodeType="SYM" nodeValue="+" leaf="true" parent="17925" headIndex="0" index="23" tokenIndex="23"/>
+    <syntax:TerminalTreebankNode xmi:id="17349" sofa="6" begin="349" end="350" nodeType="," nodeValue="," leaf="true" parent="17925" headIndex="0" index="24" tokenIndex="24"/>
+    <syntax:TerminalTreebankNode xmi:id="17362" sofa="6" begin="351" end="354" nodeType="RB" nodeValue="now" leaf="true" parent="17962" headIndex="0" index="25" tokenIndex="25"/>
+    <syntax:TerminalTreebankNode xmi:id="17375" sofa="6" begin="355" end="365" nodeType="VBG" nodeValue="undergoing" leaf="true" parent="17943" headIndex="0" index="26" tokenIndex="26"/>
+    <syntax:TerminalTreebankNode xmi:id="17388" sofa="6" begin="366" end="377" nodeType="JJ" nodeValue="neoadjuvant" leaf="true" parent="17979" headIndex="0" index="27" tokenIndex="27"/>
+    <syntax:TerminalTreebankNode xmi:id="17401" sofa="6" begin="378" end="383" nodeType="NN" nodeValue="chemo" leaf="true" parent="17979" headIndex="0" index="28" tokenIndex="28"/>
+    <syntax:TerminalTreebankNode xmi:id="17414" sofa="6" begin="384" end="388" nodeType="IN" nodeValue="with" leaf="true" parent="17996" headIndex="0" index="29" tokenIndex="29"/>
+    <syntax:TerminalTreebankNode xmi:id="17427" sofa="6" begin="389" end="397" nodeType="NN" nodeValue="taxotere" leaf="true" parent="18013" headIndex="0" index="30" tokenIndex="30"/>
+    <syntax:TerminalTreebankNode xmi:id="17440" sofa="6" begin="397" end="398" nodeType="," nodeValue="," leaf="true" parent="18013" headIndex="0" index="31" tokenIndex="31"/>
+    <syntax:TerminalTreebankNode xmi:id="17453" sofa="6" begin="399" end="410" nodeType="NN" nodeValue="carboplatin" leaf="true" parent="18013" headIndex="0" index="32" tokenIndex="32"/>
+    <syntax:TerminalTreebankNode xmi:id="17466" sofa="6" begin="410" end="411" nodeType="," nodeValue="," leaf="true" parent="18013" headIndex="0" index="33" tokenIndex="33"/>
+    <syntax:TerminalTreebankNode xmi:id="17479" sofa="6" begin="412" end="421" nodeType="NNP" nodeValue="Herceptin" leaf="true" parent="18013" headIndex="0" index="34" tokenIndex="34"/>
+    <syntax:TerminalTreebankNode xmi:id="17492" sofa="6" begin="421" end="422" nodeType="," nodeValue="," leaf="true" parent="18013" headIndex="0" index="35" tokenIndex="35"/>
+    <syntax:TerminalTreebankNode xmi:id="17505" sofa="6" begin="423" end="426" nodeType="CC" nodeValue="and" leaf="true" parent="18013" headIndex="0" index="36" tokenIndex="36"/>
+    <syntax:TerminalTreebankNode xmi:id="17518" sofa="6" begin="427" end="437" nodeType="NN" nodeValue="pertuzumab" leaf="true" parent="18013" headIndex="0" index="37" tokenIndex="37"/>
+    <syntax:TerminalTreebankNode xmi:id="17531" sofa="6" begin="437" end="438" nodeType="." nodeValue="." leaf="true" parent="17562" headIndex="0" index="38" tokenIndex="38"/>
+    <syntax:TreebankNode xmi:id="9178" sofa="6" begin="0" end="67" nodeType="FRAG" leaf="false" parent="9160" children="9207 10937 10969 11001 11033 11065 11097 11129 11161 11193 11225 11257 11289 11321" headIndex="0"/>
+    <syntax:TreebankNode xmi:id="9207" sofa="6" begin="0" end="51" nodeType="FRAG" leaf="false" parent="9178" children="9240 10393 10425 10457 10489 10521 10553 10585 10617 10649 10681 10713 10745 10777 10809 10841 10873 10905" headIndex="0"/>
+    <syntax:TreebankNode xmi:id="9240" sofa="6" begin="0" end="34" nodeType="FRAG" leaf="false" parent="9207" children="9273 9849 9881 9913 9945 9977 10009 10041 10073 10105 10137 10169 10201 10233 10265 10297 10329 10361" headIndex="0"/>
+    <syntax:TreebankNode xmi:id="9273" sofa="6" begin="0" end="17" nodeType="FRAG" leaf="false" parent="9240" children="9305 9337 9369 9401 9433 9465 9497 9529 9561 9593 9625 9657 9689 9721 9753 9785 9817" headIndex="0"/>
+    <syntax:TreebankNode xmi:id="9305" sofa="6" begin="0" end="1" nodeType="NP" leaf="false" parent="9273" children="9321" headIndex="0"/>
+    <syntax:TreebankNode xmi:id="9321" sofa="6" begin="0" end="1" nodeType="QP" leaf="false" parent="9305" children="8289" headIndex="0"/>
+    <syntax:TreebankNode xmi:id="9337" sofa="6" begin="1" end="2" nodeType="NP" leaf="false" parent="9273" children="9353" headIndex="1"/>
+    <syntax:TreebankNode xmi:id="9353" sofa="6" begin="1" end="2" nodeType="QP" leaf="false" parent="9337" children="8302" headIndex="1"/>
+    <syntax:TreebankNode xmi:id="9369" sofa="6" begin="2" end="3" nodeType="NP" leaf="false" parent="9273" children="9385" headIndex="2"/>
+    <syntax:TreebankNode xmi:id="9385" sofa="6" begin="2" end="3" nodeType="QP" leaf="false" parent="9369" children="8315" headIndex="2"/>
+    <syntax:TreebankNode xmi:id="9401" sofa="6" begin="3" end="4" nodeType="NP" leaf="false" parent="9273" children="9417" headIndex="3"/>
+    <syntax:TreebankNode xmi:id="9417" sofa="6" begin="3" end="4" nodeType="QP" leaf="false" parent="9401" children="8328" headIndex="3"/>
+    <syntax:TreebankNode xmi:id="9433" sofa="6" begin="4" end="5" nodeType="NP" leaf="false" parent="9273" children="9449" headIndex="4"/>
+    <syntax:TreebankNode xmi:id="9449" sofa="6" begin="4" end="5" nodeType="QP" leaf="false" parent="9433" children="8341" headIndex="4"/>
+    <syntax:TreebankNode xmi:id="9465" sofa="6" begin="5" end="6" nodeType="NP" leaf="false" parent="9273" children="9481" headIndex="5"/>
+    <syntax:TreebankNode xmi:id="9481" sofa="6" begin="5" end="6" nodeType="QP" leaf="false" parent="9465" children="8354" headIndex="5"/>
+    <syntax:TreebankNode xmi:id="9497" sofa="6" begin="6" end="7" nodeType="NP" leaf="false" parent="9273" children="9513" headIndex="6"/>
+    <syntax:TreebankNode xmi:id="9513" sofa="6" begin="6" end="7" nodeType="QP" leaf="false" parent="9497" children="8367" headIndex="6"/>
+    <syntax:TreebankNode xmi:id="9529" sofa="6" begin="7" end="8" nodeType="NP" leaf="false" parent="9273" children="9545" headIndex="7"/>
+    <syntax:TreebankNode xmi:id="9545" sofa="6" begin="7" end="8" nodeType="QP" leaf="false" parent="9529" children="8380" headIndex="7"/>
+    <syntax:TreebankNode xmi:id="9561" sofa="6" begin="8" end="9" nodeType="NP" leaf="false" parent="9273" children="9577" headIndex="8"/>
+    <syntax:TreebankNode xmi:id="9577" sofa="6" begin="8" end="9" nodeType="QP" leaf="false" parent="9561" children="8393" headIndex="8"/>
+    <syntax:TreebankNode xmi:id="9593" sofa="6" begin="9" end="10" nodeType="NP" leaf="false" parent="9273" children="9609" headIndex="9"/>
+    <syntax:TreebankNode xmi:id="9609" sofa="6" begin="9" end="10" nodeType="QP" leaf="false" parent="9593" children="8406" headIndex="9"/>
+    <syntax:TreebankNode xmi:id="9625" sofa="6" begin="10" end="11" nodeType="NP" leaf="false" parent="9273" children="9641" headIndex="10"/>
+    <syntax:TreebankNode xmi:id="9641" sofa="6" begin="10" end="11" nodeType="QP" leaf="false" parent="9625" children="8419" headIndex="10"/>
+    <syntax:TreebankNode xmi:id="9657" sofa="6" begin="11" end="12" nodeType="NP" leaf="false" parent="9273" children="9673" headIndex="11"/>
+    <syntax:TreebankNode xmi:id="9673" sofa="6" begin="11" end="12" nodeType="QP" leaf="false" parent="9657" children="8432" headIndex="11"/>
+    <syntax:TreebankNode xmi:id="9689" sofa="6" begin="12" end="13" nodeType="NP" leaf="false" parent="9273" children="9705" headIndex="12"/>
+    <syntax:TreebankNode xmi:id="9705" sofa="6" begin="12" end="13" nodeType="QP" leaf="false" parent="9689" children="8445" headIndex="12"/>
+    <syntax:TreebankNode xmi:id="9721" sofa="6" begin="13" end="14" nodeType="NP" leaf="false" parent="9273" children="9737" headIndex="13"/>
+    <syntax:TreebankNode xmi:id="9737" sofa="6" begin="13" end="14" nodeType="QP" leaf="false" parent="9721" children="8458" headIndex="13"/>
+    <syntax:TreebankNode xmi:id="9753" sofa="6" begin="14" end="15" nodeType="NP" leaf="false" parent="9273" children="9769" headIndex="14"/>
+    <syntax:TreebankNode xmi:id="9769" sofa="6" begin="14" end="15" nodeType="QP" leaf="false" parent="9753" children="8471" headIndex="14"/>
+    <syntax:TreebankNode xmi:id="9785" sofa="6" begin="15" end="16" nodeType="NP" leaf="false" parent="9273" children="9801" headIndex="15"/>
+    <syntax:TreebankNode xmi:id="9801" sofa="6" begin="15" end="16" nodeType="QP" leaf="false" parent="9785" children="8484" headIndex="15"/>
+    <syntax:TreebankNode xmi:id="9817" sofa="6" begin="16" end="17" nodeType="NP" leaf="false" parent="9273" children="9833" headIndex="16"/>
+    <syntax:TreebankNode xmi:id="9833" sofa="6" begin="16" end="17" nodeType="QP" leaf="false" parent="9817" children="8497" headIndex="16"/>
+    <syntax:TreebankNode xmi:id="9849" sofa="6" begin="17" end="18" nodeType="NP" leaf="false" parent="9240" children="9865" headIndex="17"/>
+    <syntax:TreebankNode xmi:id="9865" sofa="6" begin="17" end="18" nodeType="QP" leaf="false" parent="9849" children="8510" headIndex="17"/>
+    <syntax:TreebankNode xmi:id="9881" sofa="6" begin="18" end="19" nodeType="NP" leaf="false" parent="9240" children="9897" headIndex="18"/>
+    <syntax:TreebankNode xmi:id="9897" sofa="6" begin="18" end="19" nodeType="QP" leaf="false" parent="9881" children="8523" headIndex="18"/>
+    <syntax:TreebankNode xmi:id="9913" sofa="6" begin="19" end="20" nodeType="NP" leaf="false" parent="9240" children="9929" headIndex="19"/>
+    <syntax:TreebankNode xmi:id="9929" sofa="6" begin="19" end="20" nodeType="QP" leaf="false" parent="9913" children="8536" headIndex="19"/>
+    <syntax:TreebankNode xmi:id="9945" sofa="6" begin="20" end="21" nodeType="NP" leaf="false" parent="9240" children="9961" headIndex="20"/>
+    <syntax:TreebankNode xmi:id="9961" sofa="6" begin="20" end="21" nodeType="QP" leaf="false" parent="9945" children="8549" headIndex="20"/>
+    <syntax:TreebankNode xmi:id="9977" sofa="6" begin="21" end="22" nodeType="NP" leaf="false" parent="9240" children="9993" headIndex="21"/>
+    <syntax:TreebankNode xmi:id="9993" sofa="6" begin="21" end="22" nodeType="QP" leaf="false" parent="9977" children="8562" headIndex="21"/>
+    <syntax:TreebankNode xmi:id="10009" sofa="6" begin="22" end="23" nodeType="NP" leaf="false" parent="9240" children="10025" headIndex="22"/>
+    <syntax:TreebankNode xmi:id="10025" sofa="6" begin="22" end="23" nodeType="QP" leaf="false" parent="10009" children="8575" headIndex="22"/>
+    <syntax:TreebankNode xmi:id="10041" sofa="6" begin="23" end="24" nodeType="NP" leaf="false" parent="9240" children="10057" headIndex="23"/>
+    <syntax:TreebankNode xmi:id="10057" sofa="6" begin="23" end="24" nodeType="QP" leaf="false" parent="10041" children="8588" headIndex="23"/>
+    <syntax:TreebankNode xmi:id="10073" sofa="6" begin="24" end="25" nodeType="NP" leaf="false" parent="9240" children="10089" headIndex="24"/>
+    <syntax:TreebankNode xmi:id="10089" sofa="6" begin="24" end="25" nodeType="QP" leaf="false" parent="10073" children="8601" headIndex="24"/>
+    <syntax:TreebankNode xmi:id="10105" sofa="6" begin="25" end="26" nodeType="NP" leaf="false" parent="9240" children="10121" headIndex="25"/>
+    <syntax:TreebankNode xmi:id="10121" sofa="6" begin="25" end="26" nodeType="QP" leaf="false" parent="10105" children="8614" headIndex="25"/>
+    <syntax:TreebankNode xmi:id="10137" sofa="6" begin="26" end="27" nodeType="NP" leaf="false" parent="9240" children="10153" headIndex="26"/>
+    <syntax:TreebankNode xmi:id="10153" sofa="6" begin="26" end="27" nodeType="QP" leaf="false" parent="10137" children="8627" headIndex="26"/>
+    <syntax:TreebankNode xmi:id="10169" sofa="6" begin="27" end="28" nodeType="NP" leaf="false" parent="9240" children="10185" headIndex="27"/>
+    <syntax:TreebankNode xmi:id="10185" sofa="6" begin="27" end="28" nodeType="QP" leaf="false" parent="10169" children="8640" headIndex="27"/>
+    <syntax:TreebankNode xmi:id="10201" sofa="6" begin="28" end="29" nodeType="NP" leaf="false" parent="9240" children="10217" headIndex="28"/>
+    <syntax:TreebankNode xmi:id="10217" sofa="6" begin="28" end="29" nodeType="QP" leaf="false" parent="10201" children="8653" headIndex="28"/>
+    <syntax:TreebankNode xmi:id="10233" sofa="6" begin="29" end="30" nodeType="NP" leaf="false" parent="9240" children="10249" headIndex="29"/>
+    <syntax:TreebankNode xmi:id="10249" sofa="6" begin="29" end="30" nodeType="QP" leaf="false" parent="10233" children="8666" headIndex="29"/>
+    <syntax:TreebankNode xmi:id="10265" sofa="6" begin="30" end="31" nodeType="NP" leaf="false" parent="9240" children="10281" headIndex="30"/>
+    <syntax:TreebankNode xmi:id="10281" sofa="6" begin="30" end="31" nodeType="QP" leaf="false" parent="10265" children="8679" headIndex="30"/>
+    <syntax:TreebankNode xmi:id="10297" sofa="6" begin="31" end="32" nodeType="NP" leaf="false" parent="9240" children="10313" headIndex="31"/>
+    <syntax:TreebankNode xmi:id="10313" sofa="6" begin="31" end="32" nodeType="QP" leaf="false" parent="10297" children="8692" headIndex="31"/>
+    <syntax:TreebankNode xmi:id="10329" sofa="6" begin="32" end="33" nodeType="NP" leaf="false" parent="9240" children="10345" headIndex="32"/>
+    <syntax:TreebankNode xmi:id="10345" sofa="6" begin="32" end="33" nodeType="QP" leaf="false" parent="10329" children="8705" headIndex="32"/>
+    <syntax:TreebankNode xmi:id="10361" sofa="6" begin="33" end="34" nodeType="NP" leaf="false" parent="9240" children="10377" headIndex="33"/>
+    <syntax:TreebankNode xmi:id="10377" sofa="6" begin="33" end="34" nodeType="QP" leaf="false" parent="10361" children="8718" headIndex="33"/>
+    <syntax:TreebankNode xmi:id="10393" sofa="6" begin="34" end="35" nodeType="NP" leaf="false" parent="9207" children="10409" headIndex="34"/>
+    <syntax:TreebankNode xmi:id="10409" sofa="6" begin="34" end="35" nodeType="QP" leaf="false" parent="10393" children="8731" headIndex="34"/>
+    <syntax:TreebankNode xmi:id="10425" sofa="6" begin="35" end="36" nodeType="NP" leaf="false" parent="9207" children="10441" headIndex="35"/>
+    <syntax:TreebankNode xmi:id="10441" sofa="6" begin="35" end="36" nodeType="QP" leaf="false" parent="10425" children="8744" headIndex="35"/>
+    <syntax:TreebankNode xmi:id="10457" sofa="6" begin="36" end="37" nodeType="NP" leaf="false" parent="9207" children="10473" headIndex="36"/>
+    <syntax:TreebankNode xmi:id="10473" sofa="6" begin="36" end="37" nodeType="QP" leaf="false" parent="10457" children="8757" headIndex="36"/>
+    <syntax:TreebankNode xmi:id="10489" sofa="6" begin="37" end="38" nodeType="NP" leaf="false" parent="9207" children="10505" headIndex="37"/>
+    <syntax:TreebankNode xmi:id="10505" sofa="6" begin="37" end="38" nodeType="QP" leaf="false" parent="10489" children="8770" headIndex="37"/>
+    <syntax:TreebankNode xmi:id="10521" sofa="6" begin="38" end="39" nodeType="NP" leaf="false" parent="9207" children="10537" headIndex="38"/>
+    <syntax:TreebankNode xmi:id="10537" sofa="6" begin="38" end="39" nodeType="QP" leaf="false" parent="10521" children="8783" headIndex="38"/>
+    <syntax:TreebankNode xmi:id="10553" sofa="6" begin="39" end="40" nodeType="NP" leaf="false" parent="9207" children="10569" headIndex="39"/>
+    <syntax:TreebankNode xmi:id="10569" sofa="6" begin="39" end="40" nodeType="QP" leaf="false" parent="10553" children="8796" headIndex="39"/>
+    <syntax:TreebankNode xmi:id="10585" sofa="6" begin="40" end="41" nodeType="NP" leaf="false" parent="9207" children="10601" headIndex="40"/>
+    <syntax:TreebankNode xmi:id="10601" sofa="6" begin="40" end="41" nodeType="QP" leaf="false" parent="10585" children="8809" headIndex="40"/>
+    <syntax:TreebankNode xmi:id="10617" sofa="6" begin="41" end="42" nodeType="NP" leaf="false" parent="9207" children="10633" headIndex="41"/>
+    <syntax:TreebankNode xmi:id="10633" sofa="6" begin="41" end="42" nodeType="QP" leaf="false" parent="10617" children="8822" headIndex="41"/>
+    <syntax:TreebankNode xmi:id="10649" sofa="6" begin="42" end="43" nodeType="NP" leaf="false" parent="9207" children="10665" headIndex="42"/>
+    <syntax:TreebankNode xmi:id="10665" sofa="6" begin="42" end="43" nodeType="QP" leaf="false" parent="10649" children="8835" headIndex="42"/>
+    <syntax:TreebankNode xmi:id="10681" sofa="6" begin="43" end="44" nodeType="NP" leaf="false" parent="9207" children="10697" headIndex="43"/>
+    <syntax:TreebankNode xmi:id="10697" sofa="6" begin="43" end="44" nodeType="QP" leaf="false" parent="10681" children="8848" headIndex="43"/>
+    <syntax:TreebankNode xmi:id="10713" sofa="6" begin="44" end="45" nodeType="NP" leaf="false" parent="9207" children="10729" headIndex="44"/>
+    <syntax:TreebankNode xmi:id="10729" sofa="6" begin="44" end="45" nodeType="QP" leaf="false" parent="10713" children="8861" headIndex="44"/>
+    <syntax:TreebankNode xmi:id="10745" sofa="6" begin="45" end="46" nodeType="NP" leaf="false" parent="9207" children="10761" headIndex="45"/>
+    <syntax:TreebankNode xmi:id="10761" sofa="6" begin="45" end="46" nodeType="QP" leaf="false" parent="10745" children="8874" headIndex="45"/>
+    <syntax:TreebankNode xmi:id="10777" sofa="6" begin="46" end="47" nodeType="NP" leaf="false" parent="9207" children="10793" headIndex="46"/>
+    <syntax:TreebankNode xmi:id="10793" sofa="6" begin="46" end="47" nodeType="QP" leaf="false" parent="10777" children="8887" headIndex="46"/>
+    <syntax:TreebankNode xmi:id="10809" sofa="6" begin="47" end="48" nodeType="NP" leaf="false" parent="9207" children="10825" headIndex="47"/>
+    <syntax:TreebankNode xmi:id="10825" sofa="6" begin="47" end="48" nodeType="QP" leaf="false" parent="10809" children="8900" headIndex="47"/>
+    <syntax:TreebankNode xmi:id="10841" sofa="6" begin="48" end="49" nodeType="NP" leaf="false" parent="9207" children="10857" headIndex="48"/>
+    <syntax:TreebankNode xmi:id="10857" sofa="6" begin="48" end="49" nodeType="QP" leaf="false" parent="10841" children="8913" headIndex="48"/>
+    <syntax:TreebankNode xmi:id="10873" sofa="6" begin="49" end="50" nodeType="NP" leaf="false" parent="9207" children="10889" headIndex="49"/>
+    <syntax:TreebankNode xmi:id="10889" sofa="6" begin="49" end="50" nodeType="QP" leaf="false" parent="10873" children="8926" headIndex="49"/>
+    <syntax:TreebankNode xmi:id="10905" sofa="6" begin="50" end="51" nodeType="NP" leaf="false" parent="9207" children="10921" headIndex="50"/>
+    <syntax:TreebankNode xmi:id="10921" sofa="6" begin="50" end="51" nodeType="QP" leaf="false" parent="10905" children="8939" headIndex="50"/>
+    <syntax:TreebankNode xmi:id="10937" sofa="6" begin="51" end="52" nodeType="NP" leaf="false" parent="9178" children="10953" headIndex="51"/>
+    <syntax:TreebankNode xmi:id="10953" sofa="6" begin="51" end="52" nodeType="QP" leaf="false" parent="10937" children="8952" headIndex="51"/>
+    <syntax:TreebankNode xmi:id="10969" sofa="6" begin="52" end="53" nodeType="NP" leaf="false" parent="9178" children="10985" headIndex="52"/>
+    <syntax:TreebankNode xmi:id="10985" sofa="6" begin="52" end="53" nodeType="QP" leaf="false" parent="10969" children="8965" headIndex="52"/>
+    <syntax:TreebankNode xmi:id="11001" sofa="6" begin="53" end="54" nodeType="NP" leaf="false" parent="9178" children="11017" headIndex="53"/>
+    <syntax:TreebankNode xmi:id="11017" sofa="6" begin="53" end="54" nodeType="QP" leaf="false" parent="11001" children="8978" headIndex="53"/>
+    <syntax:TreebankNode xmi:id="11033" sofa="6" begin="54" end="55" nodeType="NP" leaf="false" parent="9178" children="11049" headIndex="54"/>
+    <syntax:TreebankNode xmi:id="11049" sofa="6" begin="54" end="55" nodeType="QP" leaf="false" parent="11033" children="8991" headIndex="54"/>
+    <syntax:TreebankNode xmi:id="11065" sofa="6" begin="55" end="56" nodeType="NP" leaf="false" parent="9178" children="11081" headIndex="55"/>
+    <syntax:TreebankNode xmi:id="11081" sofa="6" begin="55" end="56" nodeType="QP" leaf="false" parent="11065" children="9004" headIndex="55"/>
+    <syntax:TreebankNode xmi:id="11097" sofa="6" begin="56" end="57" nodeType="NP" leaf="false" parent="9178" children="11113" headIndex="56"/>
+    <syntax:TreebankNode xmi:id="11113" sofa="6" begin="56" end="57" nodeType="QP" leaf="false" parent="11097" children="9017" headIndex="56"/>
+    <syntax:TreebankNode xmi:id="11129" sofa="6" begin="57" end="58" nodeType="NP" leaf="false" parent="9178" children="11145" headIndex="57"/>
+    <syntax:TreebankNode xmi:id="11145" sofa="6" begin="57" end="58" nodeType="QP" leaf="false" parent="11129" children="9030" headIndex="57"/>
+    <syntax:TreebankNode xmi:id="11161" sofa="6" begin="58" end="59" nodeType="NP" leaf="false" parent="9178" children="11177" headIndex="58"/>
+    <syntax:TreebankNode xmi:id="11177" sofa="6" begin="58" end="59" nodeType="QP" leaf="false" parent="11161" children="9043" headIndex="58"/>
+    <syntax:TreebankNode xmi:id="11193" sofa="6" begin="59" end="60" nodeType="NP" leaf="false" parent="9178" children="11209" headIndex="59"/>
+    <syntax:TreebankNode xmi:id="11209" sofa="6" begin="59" end="60" nodeType="QP" leaf="false" parent="11193" children="9056" headIndex="59"/>
+    <syntax:TreebankNode xmi:id="11225" sofa="6" begin="60" end="61" nodeType="NP" leaf="false" parent="9178" children="11241" headIndex="60"/>
+    <syntax:TreebankNode xmi:id="11241" sofa="6" begin="60" end="61" nodeType="QP" leaf="false" parent="11225" children="9069" headIndex="60"/>
+    <syntax:TreebankNode xmi:id="11257" sofa="6" begin="61" end="62" nodeType="NP" leaf="false" parent="9178" children="11273" headIndex="61"/>
+    <syntax:TreebankNode xmi:id="11273" sofa="6" begin="61" end="62" nodeType="QP" leaf="false" parent="11257" children="9082" headIndex="61"/>
+    <syntax:TreebankNode xmi:id="11289" sofa="6" begin="62" end="63" nodeType="NP" leaf="false" parent="9178" children="11305" headIndex="62"/>
+    <syntax:TreebankNode xmi:id="11305" sofa="6" begin="62" end="63" nodeType="QP" leaf="false" parent="11289" children="9095" headIndex="62"/>
+    <syntax:TreebankNode xmi:id="11321" sofa="6" begin="63" end="67" nodeType="NP" leaf="false" parent="9178" children="11339 11355 11372" headIndex="65"/>
+    <syntax:TreebankNode xmi:id="11339" sofa="6" begin="63" end="64" nodeType="QP" leaf="false" parent="11321" children="9108" headIndex="63"/>
+    <syntax:TreebankNode xmi:id="11355" sofa="6" begin="64" end="66" nodeType="QP" leaf="false" parent="11321" children="9121 9134" headIndex="65"/>
+    <syntax:TreebankNode xmi:id="11372" sofa="6" begin="66" end="67" nodeType="FRAG" leaf="false" parent="11321" children="9147" headIndex="66"/>
+    <syntax:TreebankNode xmi:id="11690" sofa="6" begin="68" end="106" nodeType="NP" leaf="false" parent="11672" children="11542 11555 11568 11581 11594 11607 11620 11633 11646 11659" headIndex="9"/>
+    <syntax:TreebankNode xmi:id="11989" sofa="6" begin="107" end="150" nodeType="NP" leaf="false" parent="11971" children="11854 11867 11880 11893 11906 11919 11932 11945 11958" headIndex="1"/>
+    <syntax:TreebankNode xmi:id="12315" sofa="6" begin="151" end="184" nodeType="NP" leaf="false" parent="12297" children="12167 12180 12193 12206 12219 12232 12245 12258 12271 12284" headIndex="9"/>
+    <syntax:TreebankNode xmi:id="14238" sofa="6" begin="185" end="252" nodeType="FRAG" leaf="false" parent="14220" children="14267 15997 16029 16061 16093 16125 16157 16189 16221 16253 16285 16317 16349 16381" headIndex="0"/>
+    <syntax:TreebankNode xmi:id="14267" sofa="6" begin="185" end="236" nodeType="FRAG" leaf="false" parent="14238" children="14300 15453 15485 15517 15549 15581 15613 15645 15677 15709 15741 15773 15805 15837 15869 15901 15933 15965" headIndex="0"/>
+    <syntax:TreebankNode xmi:id="14300" sofa="6" begin="185" end="219" nodeType="FRAG" leaf="false" parent="14267" children="14333 14909 14941 14973 15005 15037 15069 15101 15133 15165 15197 15229 15261 15293 15325 15357 15389 15421" headIndex="0"/>
+    <syntax:TreebankNode xmi:id="14333" sofa="6" begin="185" end="202" nodeType="FRAG" leaf="false" parent="14300" children="14365 14397 14429 14461 14493 14525 14557 14589 14621 14653 14685 14717 14749 14781 14813 14845 14877" headIndex="0"/>
+    <syntax:TreebankNode xmi:id="14365" sofa="6" begin="185" end="186" nodeType="NP" leaf="false" parent="14333" children="14381" headIndex="0"/>
+    <syntax:TreebankNode xmi:id="14381" sofa="6" begin="185" end="186" nodeType="QP" leaf="false" parent="14365" children="13349" headIndex="0"/>
+    <syntax:TreebankNode xmi:id="14397" sofa="6" begin="186" end="187" nodeType="NP" leaf="false" parent="14333" children="14413" headIndex="1"/>
+    <syntax:TreebankNode xmi:id="14413" sofa="6" begin="186" end="187" nodeType="QP" leaf="false" parent="14397" children="13362" headIndex="1"/>
+    <syntax:TreebankNode xmi:id="14429" sofa="6" begin="187" end="188" nodeType="NP" leaf="false" parent="14333" children="14445" headIndex="2"/>
+    <syntax:TreebankNode xmi:id="14445" sofa="6" begin="187" end="188" nodeType="QP" leaf="false" parent="14429" children="13375" headIndex="2"/>
+    <syntax:TreebankNode xmi:id="14461" sofa="6" begin="188" end="189" nodeType="NP" leaf="false" parent="14333" children="14477" headIndex="3"/>
+    <syntax:TreebankNode xmi:id="14477" sofa="6" begin="188" end="189" nodeType="QP" leaf="false" parent="14461" children="13388" headIndex="3"/>
+    <syntax:TreebankNode xmi:id="14493" sofa="6" begin="189" end="190" nodeType="NP" leaf="false" parent="14333" children="14509" headIndex="4"/>
+    <syntax:TreebankNode xmi:id="14509" sofa="6" begin="189" end="190" nodeType="QP" leaf="false" parent="14493" children="13401" headIndex="4"/>
+    <syntax:TreebankNode xmi:id="14525" sofa="6" begin="190" end="191" nodeType="NP" leaf="false" parent="14333" children="14541" headIndex="5"/>
+    <syntax:TreebankNode xmi:id="14541" sofa="6" begin="190" end="191" nodeType="QP" leaf="false" parent="14525" children="13414" headIndex="5"/>
+    <syntax:TreebankNode xmi:id="14557" sofa="6" begin="191" end="192" nodeType="NP" leaf="false" parent="14333" children="14573" headIndex="6"/>
+    <syntax:TreebankNode xmi:id="14573" sofa="6" begin="191" end="192" nodeType="QP" leaf="false" parent="14557" children="13427" headIndex="6"/>
+    <syntax:TreebankNode xmi:id="14589" sofa="6" begin="192" end="193" nodeType="NP" leaf="false" parent="14333" children="14605" headIndex="7"/>
+    <syntax:TreebankNode xmi:id="14605" sofa="6" begin="192" end="193" nodeType="QP" leaf="false" parent="14589" children="13440" headIndex="7"/>
+    <syntax:TreebankNode xmi:id="14621" sofa="6" begin="193" end="194" nodeType="NP" leaf="false" parent="14333" children="14637" headIndex="8"/>
+    <syntax:TreebankNode xmi:id="14637" sofa="6" begin="193" end="194" nodeType="QP" leaf="false" parent="14621" children="13453" headIndex="8"/>
+    <syntax:TreebankNode xmi:id="14653" sofa="6" begin="194" end="195" nodeType="NP" leaf="false" parent="14333" children="14669" headIndex="9"/>
+    <syntax:TreebankNode xmi:id="14669" sofa="6" begin="194" end="195" nodeType="QP" leaf="false" parent="14653" children="13466" headIndex="9"/>
+    <syntax:TreebankNode xmi:id="14685" sofa="6" begin="195" end="196" nodeType="NP" leaf="false" parent="14333" children="14701" headIndex="10"/>
+    <syntax:TreebankNode xmi:id="14701" sofa="6" begin="195" end="196" nodeType="QP" leaf="false" parent="14685" children="13479" headIndex="10"/>
+    <syntax:TreebankNode xmi:id="14717" sofa="6" begin="196" end="197" nodeType="NP" leaf="false" parent="14333" children="14733" headIndex="11"/>
+    <syntax:TreebankNode xmi:id="14733" sofa="6" begin="196" end="197" nodeType="QP" leaf="false" parent="14717" children="13492" headIndex="11"/>
+    <syntax:TreebankNode xmi:id="14749" sofa="6" begin="197" end="198" nodeType="NP" leaf="false" parent="14333" children="14765" headIndex="12"/>
+    <syntax:TreebankNode xmi:id="14765" sofa="6" begin="197" end="198" nodeType="QP" leaf="false" parent="14749" children="13505" headIndex="12"/>
+    <syntax:TreebankNode xmi:id="14781" sofa="6" begin="198" end="199" nodeType="NP" leaf="false" parent="14333" children="14797" headIndex="13"/>
+    <syntax:TreebankNode xmi:id="14797" sofa="6" begin="198" end="199" nodeType="QP" leaf="false" parent="14781" children="13518" headIndex="13"/>
+    <syntax:TreebankNode xmi:id="14813" sofa="6" begin="199" end="200" nodeType="NP" leaf="false" parent="14333" children="14829" headIndex="14"/>
+    <syntax:TreebankNode xmi:id="14829" sofa="6" begin="199" end="200" nodeType="QP" leaf="false" parent="14813" children="13531" headIndex="14"/>
+    <syntax:TreebankNode xmi:id="14845" sofa="6" begin="200" end="201" nodeType="NP" leaf="false" parent="14333" children="14861" headIndex="15"/>
+    <syntax:TreebankNode xmi:id="14861" sofa="6" begin="200" end="201" nodeType="QP" leaf="false" parent="14845" children="13544" headIndex="15"/>
+    <syntax:TreebankNode xmi:id="14877" sofa="6" begin="201" end="202" nodeType="NP" leaf="false" parent="14333" children="14893" headIndex="16"/>
+    <syntax:TreebankNode xmi:id="14893" sofa="6" begin="201" end="202" nodeType="QP" leaf="false" parent="14877" children="13557" headIndex="16"/>
+    <syntax:TreebankNode xmi:id="14909" sofa="6" begin="202" end="203" nodeType="NP" leaf="false" parent="14300" children="14925" headIndex="17"/>
+    <syntax:TreebankNode xmi:id="14925" sofa="6" begin="202" end="203" nodeType="QP" leaf="false" parent="14909" children="13570" headIndex="17"/>
+    <syntax:TreebankNode xmi:id="14941" sofa="6" begin="203" end="204" nodeType="NP" leaf="false" parent="14300" children="14957" headIndex="18"/>
+    <syntax:TreebankNode xmi:id="14957" sofa="6" begin="203" end="204" nodeType="QP" leaf="false" parent="14941" children="13583" headIndex="18"/>
+    <syntax:TreebankNode xmi:id="14973" sofa="6" begin="204" end="205" nodeType="NP" leaf="false" parent="14300" children="14989" headIndex="19"/>
+    <syntax:TreebankNode xmi:id="14989" sofa="6" begin="204" end="205" nodeType="QP" leaf="false" parent="14973" children="13596" headIndex="19"/>
+    <syntax:TreebankNode xmi:id="15005" sofa="6" begin="205" end="206" nodeType="NP" leaf="false" parent="14300" children="15021" headIndex="20"/>
+    <syntax:TreebankNode xmi:id="15021" sofa="6" begin="205" end="206" nodeType="QP" leaf="false" parent="15005" children="13609" headIndex="20"/>
+    <syntax:TreebankNode xmi:id="15037" sofa="6" begin="206" end="207" nodeType="NP" leaf="false" parent="14300" children="15053" headIndex="21"/>
+    <syntax:TreebankNode xmi:id="15053" sofa="6" begin="206" end="207" nodeType="QP" leaf="false" parent="15037" children="13622" headIndex="21"/>
+    <syntax:TreebankNode xmi:id="15069" sofa="6" begin="207" end="208" nodeType="NP" leaf="false" parent="14300" children="15085" headIndex="22"/>
+    <syntax:TreebankNode xmi:id="15085" sofa="6" begin="207" end="208" nodeType="QP" leaf="false" parent="15069" children="13635" headIndex="22"/>
+    <syntax:TreebankNode xmi:id="15101" sofa="6" begin="208" end="209" nodeType="NP" leaf="false" parent="14300" children="15117" headIndex="23"/>
+    <syntax:TreebankNode xmi:id="15117" sofa="6" begin="208" end="209" nodeType="QP" leaf="false" parent="15101" children="13648" headIndex="23"/>
+    <syntax:TreebankNode xmi:id="15133" sofa="6" begin="209" end="210" nodeType="NP" leaf="false" parent="14300" children="15149" headIndex="24"/>
+    <syntax:TreebankNode xmi:id="15149" sofa="6" begin="209" end="210" nodeType="QP" leaf="false" parent="15133" children="13661" headIndex="24"/>
+    <syntax:TreebankNode xmi:id="15165" sofa="6" begin="210" end="211" nodeType="NP" leaf="false" parent="14300" children="15181" headIndex="25"/>
+    <syntax:TreebankNode xmi:id="15181" sofa="6" begin="210" end="211" nodeType="QP" leaf="false" parent="15165" children="13674" headIndex="25"/>
+    <syntax:TreebankNode xmi:id="15197" sofa="6" begin="211" end="212" nodeType="NP" leaf="false" parent="14300" children="15213" headIndex="26"/>
+    <syntax:TreebankNode xmi:id="15213" sofa="6" begin="211" end="212" nodeType="QP" leaf="false" parent="15197" children="13687" headIndex="26"/>
+    <syntax:TreebankNode xmi:id="15229" sofa="6" begin="212" end="213" nodeType="NP" leaf="false" parent="14300" children="15245" headIndex="27"/>
+    <syntax:TreebankNode xmi:id="15245" sofa="6" begin="212" end="213" nodeType="QP" leaf="false" parent="15229" children="13700" headIndex="27"/>
+    <syntax:TreebankNode xmi:id="15261" sofa="6" begin="213" end="214" nodeType="NP" leaf="false" parent="14300" children="15277" headIndex="28"/>
+    <syntax:TreebankNode xmi:id="15277" sofa="6" begin="213" end="214" nodeType="QP" leaf="false" parent="15261" children="13713" headIndex="28"/>
+    <syntax:TreebankNode xmi:id="15293" sofa="6" begin="214" end="215" nodeType="NP" leaf="false" parent="14300" children="15309" headIndex="29"/>
+    <syntax:TreebankNode xmi:id="15309" sofa="6" begin="214" end="215" nodeType="QP" leaf="false" parent="15293" children="13726" headIndex="29"/>
+    <syntax:TreebankNode xmi:id="15325" sofa="6" begin="215" end="216" nodeType="NP" leaf="false" parent="14300" children="15341" headIndex="30"/>
+    <syntax:TreebankNode xmi:id="15341" sofa="6" begin="215" end="216" nodeType="QP" leaf="false" parent="15325" children="13739" headIndex="30"/>
+    <syntax:TreebankNode xmi:id="15357" sofa="6" begin="216" end="217" nodeType="NP" leaf="false" parent="14300" children="15373" headIndex="31"/>
+    <syntax:TreebankNode xmi:id="15373" sofa="6" begin="216" end="217" nodeType="QP" leaf="false" parent="15357" children="13752" headIndex="31"/>
+    <syntax:TreebankNode xmi:id="15389" sofa="6" begin="217" end="218" nodeType="NP" leaf="false" parent="14300" children="15405" headIndex="32"/>
+    <syntax:TreebankNode xmi:id="15405" sofa="6" begin="217" end="218" nodeType="QP" leaf="false" parent="15389" children="13765" headIndex="32"/>
+    <syntax:TreebankNode xmi:id="15421" sofa="6" begin="218" end="219" nodeType="NP" leaf="false" parent="14300" children="15437" headIndex="33"/>
+    <syntax:TreebankNode xmi:id="15437" sofa="6" begin="218" end="219" nodeType="QP" leaf="false" parent="15421" children="13778" headIndex="33"/>
+    <syntax:TreebankNode xmi:id="15453" sofa="6" begin="219" end="220" nodeType="NP" leaf="false" parent="14267" children="15469" headIndex="34"/>
+    <syntax:TreebankNode xmi:id="15469" sofa="6" begin="219" end="220" nodeType="QP" leaf="false" parent="15453" children="13791" headIndex="34"/>
+    <syntax:TreebankNode xmi:id="15485" sofa="6" begin="220" end="221" nodeType="NP" leaf="false" parent="14267" children="15501" headIndex="35"/>
+    <syntax:TreebankNode xmi:id="15501" sofa="6" begin="220" end="221" nodeType="QP" leaf="false" parent="15485" children="13804" headIndex="35"/>
+    <syntax:TreebankNode xmi:id="15517" sofa="6" begin="221" end="222" nodeType="NP" leaf="false" parent="14267" children="15533" headIndex="36"/>
+    <syntax:TreebankNode xmi:id="15533" sofa="6" begin="221" end="222" nodeType="QP" leaf="false" parent="15517" children="13817" headIndex="36"/>
+    <syntax:TreebankNode xmi:id="15549" sofa="6" begin="222" end="223" nodeType="NP" leaf="false" parent="14267" children="15565" headIndex="37"/>
+    <syntax:TreebankNode xmi:id="15565" sofa="6" begin="222" end="223" nodeType="QP" leaf="false" parent="15549" children="13830" headIndex="37"/>
+    <syntax:TreebankNode xmi:id="15581" sofa="6" begin="223" end="224" nodeType="NP" leaf="false" parent="14267" children="15597" headIndex="38"/>
+    <syntax:TreebankNode xmi:id="15597" sofa="6" begin="223" end="224" nodeType="QP" leaf="false" parent="15581" children="13843" headIndex="38"/>
+    <syntax:TreebankNode xmi:id="15613" sofa="6" begin="224" end="225" nodeType="NP" leaf="false" parent="14267" children="15629" headIndex="39"/>
+    <syntax:TreebankNode xmi:id="15629" sofa="6" begin="224" end="225" nodeType="QP" leaf="false" parent="15613" children="13856" headIndex="39"/>
+    <syntax:TreebankNode xmi:id="15645" sofa="6" begin="225" end="226" nodeType="NP" leaf="false" parent="14267" children="15661" headIndex="40"/>
+    <syntax:TreebankNode xmi:id="15661" sofa="6" begin="225" end="226" nodeType="QP" leaf="false" parent="15645" children="13869" headIndex="40"/>
+    <syntax:TreebankNode xmi:id="15677" sofa="6" begin="226" end="227" nodeType="NP" leaf="false" parent="14267" children="15693" headIndex="41"/>
+    <syntax:TreebankNode xmi:id="15693" sofa="6" begin="226" end="227" nodeType="QP" leaf="false" parent="15677" children="13882" headIndex="41"/>
+    <syntax:TreebankNode xmi:id="15709" sofa="6" begin="227" end="228" nodeType="NP" leaf="false" parent="14267" children="15725" headIndex="42"/>
+    <syntax:TreebankNode xmi:id="15725" sofa="6" begin="227" end="228" nodeType="QP" leaf="false" parent="15709" children="13895" headIndex="42"/>
+    <syntax:TreebankNode xmi:id="15741" sofa="6" begin="228" end="229" nodeType="NP" leaf="false" parent="14267" children="15757" headIndex="43"/>
+    <syntax:TreebankNode xmi:id="15757" sofa="6" begin="228" end="229" nodeType="QP" leaf="false" parent="15741" children="13908" headIndex="43"/>
+    <syntax:TreebankNode xmi:id="15773" sofa="6" begin="229" end="230" nodeType="NP" leaf="false" parent="14267" children="15789" headIndex="44"/>
+    <syntax:TreebankNode xmi:id="15789" sofa="6" begin="229" end="230" nodeType="QP" leaf="false" parent="15773" children="13921" headIndex="44"/>
+    <syntax:TreebankNode xmi:id="15805" sofa="6" begin="230" end="231" nodeType="NP" leaf="false" parent="14267" children="15821" headIndex="45"/>
+    <syntax:TreebankNode xmi:id="15821" sofa="6" begin="230" end="231" nodeType="QP" leaf="false" parent="15805" children="13934" headIndex="45"/>
+    <syntax:TreebankNode xmi:id="15837" sofa="6" begin="231" end="232" nodeType="NP" leaf="false" parent="14267" children="15853" headIndex="46"/>
+    <syntax:TreebankNode xmi:id="15853" sofa="6" begin="231" end="232" nodeType="QP" leaf="false" parent="15837" children="13947" headIndex="46"/>
+    <syntax:TreebankNode xmi:id="15869" sofa="6" begin="232" end="233" nodeType="NP" leaf="false" parent="14267" children="15885" headIndex="47"/>
+    <syntax:TreebankNode xmi:id="15885" sofa="6" begin="232" end="233" nodeType="QP" leaf="false" parent="15869" children="13960" headIndex="47"/>
+    <syntax:TreebankNode xmi:id="15901" sofa="6" begin="233" end="234" nodeType="NP" leaf="false" parent="14267" children="15917" headIndex="48"/>
+    <syntax:TreebankNode xmi:id="15917" sofa="6" begin="233" end="234" nodeType="QP" leaf="false" parent="15901" children="13973" headIndex="48"/>
+    <syntax:TreebankNode xmi:id="15933" sofa="6" begin="234" end="235" nodeType="NP" leaf="false" parent="14267" children="15949" headIndex="49"/>
+    <syntax:TreebankNode xmi:id="15949" sofa="6" begin="234" end="235" nodeType="QP" leaf="false" parent="15933" children="13986" headIndex="49"/>
+    <syntax:TreebankNode xmi:id="15965" sofa="6" begin="235" end="236" nodeType="NP" leaf="false" parent="14267" children="15981" headIndex="50"/>
+    <syntax:TreebankNode xmi:id="15981" sofa="6" begin="235" end="236" nodeType="QP" leaf="false" parent="15965" children="13999" headIndex="50"/>
+    <syntax:TreebankNode xmi:id="15997" sofa="6" begin="236" end="237" nodeType="NP" leaf="false" parent="14238" children="16013" headIndex="51"/>
+    <syntax:TreebankNode xmi:id="16013" sofa="6" begin="236" end="237" nodeType="QP" leaf="false" parent="15997" children="14012" headIndex="51"/>
+    <syntax:TreebankNode xmi:id="16029" sofa="6" begin="237" end="238" nodeType="NP" leaf="false" parent="14238" children="16045" headIndex="52"/>
+    <syntax:TreebankNode xmi:id="16045" sofa="6" begin="237" end="238" nodeType="QP" leaf="false" parent="16029" children="14025" headIndex="52"/>
+    <syntax:TreebankNode xmi:id="16061" sofa="6" begin="238" end="239" nodeType="NP" leaf="false" parent="14238" children="16077" headIndex="53"/>
+    <syntax:TreebankNode xmi:id="16077" sofa="6" begin="238" end="239" nodeType="QP" leaf="false" parent="16061" children="14038" headIndex="53"/>
+    <syntax:TreebankNode xmi:id="16093" sofa="6" begin="239" end="240" nodeType="NP" leaf="false" parent="14238" children="16109" headIndex="54"/>
+    <syntax:TreebankNode xmi:id="16109" sofa="6" begin="239" end="240" nodeType="QP" leaf="false" parent="16093" children="14051" headIndex="54"/>
+    <syntax:TreebankNode xmi:id="16125" sofa="6" begin="240" end="241" nodeType="NP" leaf="false" parent="14238" children="16141" headIndex="55"/>
+    <syntax:TreebankNode xmi:id="16141" sofa="6" begin="240" end="241" nodeType="QP" leaf="false" parent="16125" children="14064" headIndex="55"/>
+    <syntax:TreebankNode xmi:id="16157" sofa="6" begin="241" end="242" nodeType="NP" leaf="false" parent="14238" children="16173" headIndex="56"/>
+    <syntax:TreebankNode xmi:id="16173" sofa="6" begin="241" end="242" nodeType="QP" leaf="false" parent="16157" children="14077" headIndex="56"/>
+    <syntax:TreebankNode xmi:id="16189" sofa="6" begin="242" end="243" nodeType="NP" leaf="false" parent="14238" children="16205" headIndex="57"/>
+    <syntax:TreebankNode xmi:id="16205" sofa="6" begin="242" end="243" nodeType="QP" leaf="false" parent="16189" children="14090" headIndex="57"/>
+    <syntax:TreebankNode xmi:id="16221" sofa="6" begin="243" end="244" nodeType="NP" leaf="false" parent="14238" children="16237" headIndex="58"/>
+    <syntax:TreebankNode xmi:id="16237" sofa="6" begin="243" end="244" nodeType="QP" leaf="false" parent="16221" children="14103" headIndex="58"/>
+    <syntax:TreebankNode xmi:id="16253" sofa="6" begin="244" end="245" nodeType="NP" leaf="false" parent="14238" children="16269" headIndex="59"/>
+    <syntax:TreebankNode xmi:id="16269" sofa="6" begin="244" end="245" nodeType="QP" leaf="false" parent="16253" children="14116" headIndex="59"/>
+    <syntax:TreebankNode xmi:id="16285" sofa="6" begin="245" end="246" nodeType="NP" leaf="false" parent="14238" children="16301" headIndex="60"/>
+    <syntax:TreebankNode xmi:id="16301" sofa="6" begin="245" end="246" nodeType="QP" leaf="false" parent="16285" children="14129" headIndex="60"/>
+    <syntax:TreebankNode xmi:id="16317" sofa="6" begin="246" end="247" nodeType="NP" leaf="false" parent="14238" children="16333" headIndex="61"/>
+    <syntax:TreebankNode xmi:id="16333" sofa="6" begin="246" end="247" nodeType="QP" leaf="false" parent="16317" children="14142" headIndex="61"/>
+    <syntax:TreebankNode xmi:id="16349" sofa="6" begin="247" end="248" nodeType="NP" leaf="false" parent="14238" children="16365" headIndex="62"/>
+    <syntax:TreebankNode xmi:id="16365" sofa="6" begin="247" end="248" nodeType="QP" leaf="false" parent="16349" children="14155" headIndex="62"/>
+    <syntax:TreebankNode xmi:id="16381" sofa="6" begin="248" end="252" nodeType="NP" leaf="false" parent="14238" children="16399 16415 16432" headIndex="65"/>
+    <syntax:TreebankNode xmi:id="16399" sofa="6" begin="248" end="249" nodeType="QP" leaf="false" parent="16381" children="14168" headIndex="63"/>
+    <syntax:TreebankNode xmi:id="16415" sofa="6" begin="249" end="251" nodeType="QP" leaf="false" parent="16381" children="14181 14194" headIndex="65"/>
+    <syntax:TreebankNode xmi:id="16432" sofa="6" begin="251" end="252" nodeType="FRAG" leaf="false" parent="16381" children="14207" headIndex="66"/>
+    <syntax:TreebankNode xmi:id="17562" sofa="6" begin="254" end="438" nodeType="S" leaf="false" parent="17544" children="17581 17310 17891 17531" headIndex="26"/>
+    <syntax:TreebankNode xmi:id="17581" sofa="6" begin="254" end="342" nodeType="S" leaf="false" parent="17562" children="17598 17615" headIndex="1"/>
+    <syntax:TreebankNode xmi:id="17598" sofa="6" begin="254" end="261" nodeType="NP" leaf="false" parent="17581" children="17037" headIndex="0">
+        <nodeTags>SBJ</nodeTags>
+    </syntax:TreebankNode>
+    <syntax:TreebankNode xmi:id="17615" sofa="6" begin="262" end="342" nodeType="VP" leaf="false" parent="17581" children="17050 17632" headIndex="1"/>
+    <syntax:TreebankNode xmi:id="17632" sofa="6" begin="265" end="342" nodeType="NP" leaf="false" parent="17615" children="17650 17702" headIndex="7">
+        <nodeTags>PRD</nodeTags>
+    </syntax:TreebankNode>
+    <syntax:TreebankNode xmi:id="17650" sofa="6" begin="265" end="285" nodeType="NP" leaf="false" parent="17632" children="17063 17668 17115" headIndex="6"/>
+    <syntax:TreebankNode xmi:id="17668" sofa="6" begin="267" end="278" nodeType="ADJP" leaf="false" parent="17650" children="17685 17102" headIndex="5"/>
+    <syntax:TreebankNode xmi:id="17685" sofa="6" begin="267" end="274" nodeType="NP" leaf="false" parent="17668" children="17076 17089" headIndex="4"/>
+    <syntax:TreebankNode xmi:id="17702" sofa="6" begin="286" end="342" nodeType="PP" leaf="false" parent="17632" children="17128 17719" headIndex="7"/>
+    <syntax:TreebankNode xmi:id="17719" sofa="6" begin="291" end="342" nodeType="NP" leaf="false" parent="17702" children="17736 17752" headIndex="8"/>
+    <syntax:TreebankNode xmi:id="17736" sofa="6" begin="291" end="298" nodeType="NP" leaf="false" parent="17719" children="17141" headIndex="8"/>
+    <syntax:TreebankNode xmi:id="17752" sofa="6" begin="299" end="342" nodeType="PP" leaf="false" parent="17719" children="17154 17769" headIndex="9"/>
+    <syntax:TreebankNode xmi:id="17769" sofa="6" begin="302" end="342" nodeType="NP" leaf="false" parent="17752" children="17788 17804 17258 17873" headIndex="10"/>
+    <syntax:TreebankNode xmi:id="17788" sofa="6" begin="302" end="308" nodeType="NP" leaf="false" parent="17769" children="17167" headIndex="10"/>
+    <syntax:TreebankNode xmi:id="17804" sofa="6" begin="309" end="334" nodeType="NP" leaf="false" parent="17769" children="17821 17855" headIndex="13"/>
+    <syntax:TreebankNode xmi:id="17821" sofa="6" begin="309" end="327" nodeType="NP" leaf="false" parent="17804" children="17838 17206" headIndex="13"/>
+    <syntax:TreebankNode xmi:id="17838" sofa="6" begin="309" end="320" nodeType="NML" leaf="false" parent="17821" children="17180 17193" headIndex="12"/>
+    <syntax:TreebankNode xmi:id="17855" sofa="6" begin="328" end="334" nodeType="ADJP" leaf="false" parent="17804" children="17219 17232 17245" headIndex="14"/>
+    <syntax:TreebankNode xmi:id="17873" sofa="6" begin="336" end="342" nodeType="ADJP" leaf="false" parent="17769" children="17271 17284 17297" headIndex="18"/>
+    <syntax:TreebankNode xmi:id="17891" sofa="6" begin="344" end="437" nodeType="S" leaf="false" parent="17562" children="17908 17925" headIndex="26"/>
+    <syntax:TreebankNode xmi:id="17908" sofa="6" begin="344" end="348" nodeType="NP" leaf="false" parent="17891" children="17323" headIndex="22">
+        <nodeTags>SBJ</nodeTags>
+    </syntax:TreebankNode>
+    <syntax:TreebankNode xmi:id="17925" sofa="6" begin="348" end="437" nodeType="VP" leaf="false" parent="17891" children="17336 17349 17943" headIndex="26"/>
+    <syntax:TreebankNode xmi:id="17943" sofa="6" begin="351" end="437" nodeType="VP" leaf="false" parent="17925" children="17962 17375 17979 17996" headIndex="26"/>
+    <syntax:TreebankNode xmi:id="17962" sofa="6" begin="351" end="354" nodeType="ADVP" leaf="false" parent="17943" children="17362" headIndex="25">
+        <nodeTags>TMP</nodeTags>
+    </syntax:TreebankNode>
+    <syntax:TreebankNode xmi:id="17979" sofa="6" begin="366" end="383" nodeType="NP" leaf="false" parent="17943" children="17388 17401" headIndex="28"/>
+    <syntax:TreebankNode xmi:id="17996" sofa="6" begin="384" end="437" nodeType="PP" leaf="false" parent="17943" children="17414 18013" headIndex="29"/>
+    <syntax:TreebankNode xmi:id="18013" sofa="6" begin="389" end="437" nodeType="NP" leaf="false" parent="17996" children="17427 17440 17453 17466 17479 17492 17505 17518" headIndex="37"/>
+    <syntax:TopTreebankNode xmi:id="9160" sofa="6" begin="0" end="67" nodeType="TOP" leaf="false" children="9178" headIndex="0" treebankParse="(TOP (FRAG (FRAG (FRAG (FRAG (NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =))))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =))))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =))))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =))(QP (SYM =)(SYM =))(FRAG (SYM =)))))" terminals="8289 8302 8315 8328 8341 8354 8367 8380 8393 8406 8419 8432 8445 8458 8471 8484 8497 8510 8523 8536 8549 8562 8575 8588 8601 8614 8627 8640 8653 8666 8679 8692 8705 8718 8731 8744 8757 8770 8783 8796 8809 8822 8835 8848 8861 8874 8887 8900 8913 8926 8939 8952 8965 8978 8991 9004 9017 9030 9043 9056 9069 9082 9095 9108 9121 9134 9147"/>
+    <syntax:TopTreebankNode xmi:id="11672" sofa="6" begin="68" end="106" nodeType="TOP" leaf="false" children="11690" headIndex="0" treebankParse="(TOP (NP (NN Patient) (NN Name)(. ...)(, ...)(, ...)(, ...)(, ...)(, ...)(NNP Jane) (NNP Doe)))" terminals="11542 11555 11568 11581 11594 11607 11620 11633 11646 11659"/>
+    <syntax:TopTreebankNode xmi:id="11971" sofa="6" begin="107" end="150" nodeType="TOP" leaf="false" children="11989" headIndex="0" treebankParse="(TOP (NP (VBN Principal) (NN Date)(. ...)(, ...)(, ...)(, ...)(, ...)(CD .20130424) (CD 1130)))" terminals="11854 11867 11880 11893 11906 11919 11932 11945 11958"/>
+    <syntax:TopTreebankNode xmi:id="12297" sofa="6" begin="151" end="184" nodeType="TOP" leaf="false" children="12315" headIndex="0" treebankParse="(TOP (NP (NN Record) (NN Type)(. ...)(. ...)(. ...)(. ...)(. ...)(. ...)(. .)(NN PGN)))" terminals="12167 12180 12193 12206 12219 12232 12245 12258 12271 12284"/>
+    <syntax:TopTreebankNode xmi:id="14220" sofa="6" begin="185" end="252" nodeType="TOP" leaf="false" children="14238" headIndex="0" treebankParse="(TOP (FRAG (FRAG (FRAG (FRAG (NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =))))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =))))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =))))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =)))(NP (QP (SYM =))(QP (SYM =)(SYM =))(FRAG (SYM =)))))" terminals="13349 13362 13375 13388 13401 13414 13427 13440 13453 13466 13479 13492 13505 13518 13531 13544 13557 13570 13583 13596 13609 13622 13635 13648 13661 13674 13687 13700 13713 13726 13739 13752 13765 13778 13791 13804 13817 13830 13843 13856 13869 13882 13895 13908 13921 13934 13947 13960 13973 13986 13999 14012 14025 14038 14051 14064 14077 14090 14103 14116 14129 14142 14155 14168 14181 14194 14207"/>
+    <syntax:TopTreebankNode xmi:id="17544" sofa="6" begin="254" end="438" nodeType="TOP" leaf="false" children="17562" headIndex="0" treebankParse="(TOP (S (S (NP-SBJ (NN Patient)) (VP (VBZ is) (NP-PRD (NP (DT a) (ADJP (NP (CD 54) (NN year)) (JJ old)) (NN female)) (PP (IN with) (NP (NP (NN history)) (PP (IN of) (NP (NP (NN T2N0M0)) (NP (NP (NML (JJ left) (NN breast)) (NN cancer)) (ADJP (NN ER)(HYPH -)(JJ neg)))(, ,) (ADJP (NN PR)(HYPH -)(JJ neg)))))))))(, ,) (S (NP-SBJ (NN HER2))(VP (SYM +)(, ,) (VP (ADVP-TMP (RB now)) (VBG undergoing) (NP (JJ neoadjuvant) (NN chemo)) (PP (IN with) (NP (NN taxotere)(, ,) (NN carboplatin)(, ,) (NNP Herceptin)(, ,) (CC and) (NN pertuzumab))))))(. .)))" terminals="17037 17050 17063 17076 17089 17102 17115 17128 17141 17154 17167 17180 17193 17206 17219 17232 17245 17258 17271 17284 17297 17310 17323 17336 17349 17362 17375 17388 17401 17414 17427 17440 17453 17466 17479 17492 17505 17518 17531"/>
+    <cas:EmptyFSList xmi:id="7279"/>
+    <cas:EmptyFSList xmi:id="7252"/>
+    <refsem:UmlsConcept xmi:id="3750" codingScheme="SNOMEDCT" code="80248007" oid="80248007#SNOMEDCT" score="0.0" disambiguated="false" cui="C0222601" tui="T023" preferredText="Left breast"/>
+    <refsem:UmlsConcept xmi:id="3713" codingScheme="SNOMEDCT" code="181131000" oid="181131000#SNOMEDCT" score="0.0" disambiguated="false" cui="C1268990" tui="T023" preferredText="Entire breast"/>
+    <refsem:UmlsConcept xmi:id="3703" codingScheme="SNOMEDCT" code="272669003" oid="272669003#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006141" tui="T023" preferredText="Breast"/>
+    <refsem:UmlsConcept xmi:id="3683" codingScheme="SNOMEDCT" code="361079003" oid="361079003#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006141" tui="T023" preferredText="Breast"/>
+    <refsem:UmlsConcept xmi:id="3693" codingScheme="SNOMEDCT" code="76752008" oid="76752008#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006141" tui="T023" preferredText="Breast"/>
+    <refsem:UmlsConcept xmi:id="3587" codingScheme="SNOMEDCT" code="367336001" oid="367336001#SNOMEDCT" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
+    <refsem:UmlsConcept xmi:id="3617" codingScheme="SNOMEDCT" code="182973007" oid="182973007#SNOMEDCT" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
+    <refsem:UmlsConcept xmi:id="3607" codingScheme="SNOMEDCT" code="182974001" oid="182974001#SNOMEDCT" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
+    <refsem:UmlsConcept xmi:id="3637" codingScheme="SNOMEDCT" code="150415003" oid="150415003#SNOMEDCT" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
+    <refsem:UmlsConcept xmi:id="3627" codingScheme="SNOMEDCT" code="69960004" oid="69960004#SNOMEDCT" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
+    <refsem:UmlsConcept xmi:id="3597" codingScheme="SNOMEDCT" code="363688001" oid="363688001#SNOMEDCT" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
+    <refsem:UmlsConcept xmi:id="3531" codingScheme="SNOMEDCT" code="248152002" oid="248152002#SNOMEDCT" score="0.0" disambiguated="false" cui="C0015780" tui="T033" preferredText="Female"/>
+    <refsem:UmlsConcept xmi:id="3511" codingScheme="SNOMEDCT" code="162600001" oid="162600001#SNOMEDCT" score="0.0" disambiguated="false" cui="C0015780" tui="T033" preferredText="Female"/>
+    <refsem:UmlsConcept xmi:id="3521" codingScheme="SNOMEDCT" code="139867007" oid="139867007#SNOMEDCT" score="0.0" disambiguated="false" cui="C0015780" tui="T033" preferredText="Female"/>
+    <refsem:UmlsConcept xmi:id="3541" codingScheme="SNOMEDCT" code="1086007" oid="1086007#SNOMEDCT" score="0.0" disambiguated="false" cui="C0015780" tui="T033" preferredText="Female"/>
+    <refsem:UmlsConcept xmi:id="3468" codingScheme="SNOMEDCT" code="371484003" oid="371484003#SNOMEDCT" score="0.0" disambiguated="false" cui="C1299487" tui="T033" preferredText="Patient name"/>
+    <refsem:UmlsConcept xmi:id="3425" codingScheme="SNOMEDCT" code="392521001" oid="392521001#SNOMEDCT" score="0.0" disambiguated="false" cui="C0262926" tui="T033" preferredText="Medical History"/>
+    <refsem:UmlsConcept xmi:id="3382" codingScheme="SNOMEDCT" code="392521001" oid="392521001#SNOMEDCT" score="0.0" disambiguated="false" cui="C0262926" tui="T033" preferredText="Medical History"/>
+    <refsem:UmlsConcept xmi:id="3327" codingScheme="SNOMEDCT" code="161948001" oid="161948001#SNOMEDCT" score="0.0" disambiguated="false" cui="C0231807" tui="T184" preferredText="Dyspnea on exertion"/>
+    <refsem:UmlsConcept xmi:id="3317" codingScheme="SNOMEDCT" code="139204005" oid="139204005#SNOMEDCT" score="0.0" disambiguated="false" cui="C0231807" tui="T184" preferredText="Dyspnea on exertion"/>
+    <refsem:UmlsConcept xmi:id="3337" codingScheme="SNOMEDCT" code="60845006" oid="60845006#SNOMEDCT" score="0.0" disambiguated="false" cui="C0231807" tui="T184" preferredText="Dyspnea on exertion"/>
+    <refsem:UmlsConcept xmi:id="3247" codingScheme="SNOMEDCT" code="190121004" oid="190121004#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006142" tui="T191" preferredText="Malignant neoplasm of breast"/>
+    <refsem:UmlsConcept xmi:id="3257" codingScheme="SNOMEDCT" code="269595005" oid="269595005#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006142" tui="T191" preferredText="Malignant neoplasm of breast"/>
+    <refsem:UmlsConcept xmi:id="3237" codingScheme="SNOMEDCT" code="154521006" oid="154521006#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006142" tui="T191" preferredText="Malignant neoplasm of breast"/>
+    <refsem:UmlsConcept xmi:id="3267" codingScheme="SNOMEDCT" code="254837009" oid="254837009#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006142" tui="T191" preferredText="Malignant neoplasm of breast"/>
+    <refsem:UmlsConcept xmi:id="3227" codingScheme="SNOMEDCT" code="254838004" oid="254838004#SNOMEDCT" score="0.0" disambiguated="false" cui="C0678222" tui="T191" preferredText="Breast Carcinoma"/>
+    <refsem:UmlsConcept xmi:id="3207" codingScheme="SNOMEDCT" code="154513000" oid="154513000#SNOMEDCT" score="0.0" disambiguated="false" cui="C0678222" tui="T191" preferredText="Breast Carcinoma"/>
+    <refsem:UmlsConcept xmi:id="3217" codingScheme="SNOMEDCT" code="286898006" oid="286898006#SNOMEDCT" score="0.0" disambiguated="false" cui="C0678222" tui="T191" preferredText="Breast Carcinoma"/>
+    <refsem:UmlsConcept xmi:id="3138" codingScheme="SNOMEDCT" code="372087000" oid="372087000#SNOMEDCT" score="0.0" disambiguated="false" cui="C1306459" tui="T191" preferredText="Primary malignant neoplasm"/>
+    <refsem:UmlsConcept xmi:id="3128" codingScheme="SNOMEDCT" code="86049000" oid="86049000#SNOMEDCT" score="0.0" disambiguated="false" cui="C1306459" tui="T191" preferredText="Primary malignant neoplasm"/>
+    <refsem:UmlsConcept xmi:id="3148" codingScheme="SNOMEDCT" code="38807002" oid="38807002#SNOMEDCT" score="0.0" disambiguated="false" cui="C1306459" tui="T191" preferredText="Primary malignant neoplasm"/>
+    <refsem:UmlsConcept xmi:id="3108" codingScheme="SNOMEDCT" code="154433003" oid="154433003#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006826" tui="T191" preferredText="Malignant Neoplasms"/>
+    <refsem:UmlsConcept xmi:id="3078" codingScheme="SNOMEDCT" code="187597000" oid="187597000#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006826" tui="T191" preferredText="Malignant Neoplasms"/>
+    <refsem:UmlsConcept xmi:id="3028" codingScheme="SNOMEDCT" code="269626006" oid="269626006#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006826" tui="T191" preferredText="Malignant Neoplasms"/>
+    <refsem:UmlsConcept xmi:id="3058" codingScheme="SNOMEDCT" code="190150006" oid="190150006#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006826" tui="T191" preferredText="Malignant Neoplasms"/>
+    <refsem:UmlsConcept xmi:id="2998" codingScheme="SNOMEDCT" code="188482002" oid="188482002#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006826" tui="T191" preferredText="Malignant Neoplasms"/>
+    <refsem:UmlsConcept xmi:id="3068" codingScheme="SNOMEDCT" code="154432008" oid="154432008#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006826" tui="T191" preferredText="Malignant Neoplasms"/>
+    <refsem:UmlsConcept xmi:id="3038" codingScheme="SNOMEDCT" code="269623003" oid="269623003#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006826" tui="T191" preferredText="Malignant Neoplasms"/>
+    <refsem:UmlsConcept xmi:id="3118" codingScheme="SNOMEDCT" code="269634000" oid="269634000#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006826" tui="T191" preferredText="Malignant Neoplasms"/>
+    <refsem:UmlsConcept xmi:id="3008" codingScheme="SNOMEDCT" code="154577008" oid="154577008#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006826" tui="T191" preferredText="Malignant Neoplasms"/>
+    <refsem:UmlsConcept xmi:id="3088" codingScheme="SNOMEDCT" code="363346000" oid="363346000#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006826" tui="T191" preferredText="Malignant Neoplasms"/>
+    <refsem:UmlsConcept xmi:id="3098" codingScheme="SNOMEDCT" code="269513004" oid="269513004#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006826" tui="T191" preferredText="Malignant Neoplasms"/>
+    <refsem:UmlsConcept xmi:id="3048" codingScheme="SNOMEDCT" code="38807002" oid="38807002#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006826" tui="T191" preferredText="Malignant Neoplasms"/>
+    <refsem:UmlsConcept xmi:id="3018" codingScheme="SNOMEDCT" code="188475001" oid="188475001#SNOMEDCT" score="0.0" disambiguated="false" cui="C0006826" tui="T191" preferredText="Malignant Neoplasms"/>
+    <refsem:MedicationStatusChange xmi:id="3981" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" value="noChange"/>
+    <textsem:MedicationStatusChangeModifier xmi:id="3961" sofa="6" begin="0" end="0" id="0" typeID="0" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" generic="false" historyOf="0" normalizedForm="3981" category="noChange"/>
+    <refsem:UmlsConcept xmi:id="2944" codingScheme="RXNORM" code="202982" oid="202982#RXNORM" score="0.0" disambiguated="false" cui="C0699967" tui="T109" preferredText="Taxotere"/>
+    <refsem:UmlsConcept xmi:id="2954" codingScheme="RXNORM" code="202982" oid="202982#RXNORM" score="0.0" disambiguated="false" cui="C0699967" tui="T121" preferredText="Taxotere"/>
+    <refsem:MedicationStatusChange xmi:id="4122" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" value="noChange"/>
+    <textsem:MedicationStatusChangeModifier xmi:id="4102" sofa="6" begin="0" end="0" id="0" typeID="0" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" generic="false" historyOf="0" normalizedForm="4122" category="noChange"/>
+    <refsem:UmlsConcept xmi:id="2856" codingScheme="SNOMEDCT" code="108759002" oid="108759002#SNOMEDCT" score="0.0" disambiguated="false" cui="C0079083" tui="T109" preferredText="Carboplatin"/>
+    <refsem:UmlsConcept xmi:id="2846" codingScheme="SNOMEDCT" code="386905002" oid="386905002#SNOMEDCT" score="0.0" disambiguated="false" cui="C0079083" tui="T109" preferredText="Carboplatin"/>
+    <refsem:UmlsConcept xmi:id="2876" codingScheme="SNOMEDCT" code="386905002" oid="386905002#SNOMEDCT" score="0.0" disambiguated="false" cui="C0079083" tui="T121" preferredText="Carboplatin"/>
+    <refsem:UmlsConcept xmi:id="2866" codingScheme="RXNORM" code="40048" oid="40048#RXNORM" score="0.0" disambiguated="false" cui="C0079083" tui="T109" preferredText="Carboplatin"/>
+    <refsem:UmlsConcept xmi:id="2886" codingScheme="SNOMEDCT" code="108759002" oid="108759002#SNOMEDCT" score="0.0" disambiguated="false" cui="C0079083" tui="T121" preferredText="Carboplatin"/>
+    <refsem:UmlsConcept xmi:id="2896" codingScheme="RXNORM" code="40048" oid="40048#RXNORM" score="0.0" disambiguated="false" cui="C0079083" tui="T121" preferredText="Carboplatin"/>
+    <refsem:MedicationStatusChange xmi:id="4263" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" value="noChange"/>
+    <textsem:MedicationStatusChangeModifier xmi:id="4243" sofa="6" begin="0" end="0" id="0" typeID="0" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" generic="false" historyOf="0" normalizedForm="4263" category="noChange"/>
+    <refsem:UmlsConcept xmi:id="2791" codingScheme="RXNORM" code="101306" oid="101306#RXNORM" score="0.0" disambiguated="false" cui="C0338204" tui="T129" preferredText="Herceptin"/>
+    <refsem:UmlsConcept xmi:id="2801" codingScheme="RXNORM" code="101306" oid="101306#RXNORM" score="0.0" disambiguated="false" cui="C0338204" tui="T121" preferredText="Herceptin"/>
+    <refsem:UmlsConcept xmi:id="2781" codingScheme="RXNORM" code="101306" oid="101306#RXNORM" score="0.0" disambiguated="false" cui="C0338204" tui="T116" preferredText="Herceptin"/>
+    <cas:View sofa="6" members="1 13 19 25 31 37 43 49 55 63 71 79 87 95 103 111 119 127 135 143 151 159 167 175 183 191 199 207 215 223 231 239 247 255 263 271 279 287 295 303 311 319 327 335 343 351 359 367 375 383 391 399 407 415 423 431 439 447 455 463 471 479 487 495 503 511 519 527 535 543 551 559 567 575 583 591 599 607 615 623 631 639 917 925 933 941 949 957 965 973 981 989 997 1005 1013 1021 1029 1037 1045 1053 1061 1069 1077 1085 1093 1101 1109 1117 1125 1133 1141 1149 1157 1165 1173 1181 1189 1197 1205 1213 1221 1229 1237 1245 1253 1261 1269 1277 1285 1293 1301 1309 1317 1325 1333 1341 1349 1357 1365 1373 1381 1389 1397 1405 1413 1421 1429 1437 1445 1710 647 659 719 731 743 755 825 837 905 1453 1465 1477 1498 1510 1522 1534 1546 1558 1570 1582 1594 1606 1618 1638 1658 1678 1698 1726 1738 1750 1762 1774 1786 1806 1826 1846 1858 671 679 687 695 703 711 767 775 783 791 799 849 857 865 873 881 889 897 1630 1650 1670 1690 1718 1798 1818 1838 1870 807 816 1489 1878 1896 1906 1916 1926 1936 1946 1956 1966 1976 1986 1996 2006 2016 2026 2036 2046 2056 2066 2076 2086 2096 2106 2116 2126 2136 2146 2156 2166 2176 2186 2196 2206 2216 2231 2236 2241 2246 2251 2256 2271 2276 2281 2286 2291 2296 2306 2311 2316 2321 2326 2331 2336 2341 2351 2361 2371 2381 2391 2401 2411 2421 2431 2441 2451 2461 2471 2481 2491 2501 2511 2521 2531 2541 2551 2561 2571 2581 2591 2601 2611 2621 2631 2641 2651 2661 2711 2721 2746 2756 2766 2771 1901 1911 1921 1931 1941 1951 1961 1971 1981 1991 2001 2011 2021 2031 2041 2051 2061 2071 2081 2091 2101 2111 2121 2131 2141 2151 2161 2171 2181 2191 2201 2211 2221 2226 2261 2266 2301 2346 2356 2366 2376 2386 2396 2406 2416 2426 2436 2446 2456 2466 2476 2486 2496 2506 2516 2526 2536 2546 2556 2566 2576 2586 2596 2606 2616 2626 2636 2646 2656 2666 2671 2681 2691 2701 2706 2716 2731 2741 2751 2761 2776 2676 2726 2686 2696 2736 2816 2914 2968 3176 3286 3352 3395 3438 3481 3557 3655 3729 3763 4276 4290 4304 4318 4332 4346 4360 4374 4388 4402 4416 4430 4444 4458 4472 4486 4500 4514 4528 4542 4556 4570 4584 4598 4612 4626 4640 4654 4668 4682 4696 4710 4724 4738 4752 4766 4780 4794 4808 4822 4836 4850 4864 4878 4892 4906 4920 4934 4948 4962 4976 4990 5004 5018 5032 5046 5060 5074 5088 5102 5116 5130 5144 5158 5172 5186 5200 5214 5228 5242 5256 5270 5284 5298 5312 5326 5340 5354 5368 5382 5396 5410 5424 5438 5452 5466 5480 5494 5508 5522 5536 5550 5564 5578 5592 5606 5620 5634 5648 5662 5676 5690 5704 5718 5732 5746 5760 5774 5788 5802 5816 5830 5844 5858 5872 5886 5900 5914 5928 5942 5956 5970 5984 5998 6012 6026 6040 6054 6068 6082 6096 6110 6124 6138 6152 6166 6180 6194 6208 6222 6236 6250 6264 6278 6292 6306 6320 6334 6348 6362 6376 6390 6404 6418 6432 6446 6460 6474 6488 6502 6516 6530 6544 6558 6572 6586 6600 6614 6628 6642 6656 6670 6684 6698 6712 6726 6740 6754 6768 6782 6796 6810 6824 6838 6852 6866 6880 6894 6908 6922 6936 6950 6964 6978 6992 7006 7020 7034 7048 7062 7076 7090 7104 7118 7132 7146 7160 7174 7188 7195 7202 7208 7214 7220 7226 7236 7253 7263 7246 7249 7273 7276 8289 8302 8315 8328 8341 8354 8367 8380 8393 8406 8419 8432 8445 8458 8471 8484 8497 8510 8523 8536 8549 8562 8575 8588 8601 8614 8627 8640 8653 8666 8679 8692 8705 8718 8731 8744 8757 8770 8783 8796 8809 8822 8835 8848 8861 8874 8887 8900 8913 8926 8939 8952 8965 8978 8991 9004 9017 9030 9043 9056 9069 9082 9095 9108 9121 9134 9147 11542 11555 11568 11581 11594 11607 11620 11633 11646 11659 11854 11867 11880 11893 11906 11919 11932 11945 11958 12167 12180 12193 12206 12219 12232 12245 12258 12271 12284 13349 13362 13375 13388 13401 13414 13427 13440 13453 13466 13479 13492 13505 13518 13531 13544 13557 13570 13583 13596 13609 13622 13635 13648 13661 13674 13687 13700 13713 13726 13739 13752 13765 13778 13791 13804 13817 13830 13843 13856 13869 13882 13895 13908 13921 13934 13947 13960 13973 13986 13999 14012 14025 14038 14051 14064 14077 14090 14103 14116 14129 14142 14155 14168 14181 14194 14207 17037 17050 17063 17076 17089 17102 17115 17128 17141 17154 17167 17180 17193 17206 17219 17232 17245 17258 17271 17284 17297 17310 17323 17336 17349 17362 17375 17388 17401 17414 17427 17440 17453 17466 17479 17492 17505 17518 17531 9178 9207 9240 9273 9305 9321 9337 9353 9369 9385 9401 9417 9433 9449 9465 9481 9497 9513 9529 9545 9561 9577 9593 9609 9625 9641 9657 9673 9689 9705 9721 9737 9753 9769 9785 9801 9817 9833 9849 9865 9881 9897 9913 9929 9945 9961 9977 9993 10009 10025 10041 10057 10073 10089 10105 10121 10137 10153 10169 10185 10201 10217 10233 10249 10265 10281 10297 10313 10329 10345 10361 10377 10393 10409 10425 10441 10457 10473 10489 10505 10521 10537 10553 10569 10585 10601 10617 10633 10649 10665 10681 10697 10713 10729 10745 10761 10777 10793 10809 10825 10841 10857 10873 10889 10905 10921 10937 10953 10969 10985 11001 11017 11033 11049 11065 11081 11097 11113 11129 11145 11161 11177 11193 11209 11225 11241 11257 11273 11289 11305 11321 11339 11355 11372 11690 11989 12315 14238 14267 14300 14333 14365 14381 14397 14413 14429 14445 14461 14477 14493 14509 14525 14541 14557 14573 14589 14605 14621 14637 14653 14669 14685 14701 14717 14733 14749 14765 14781 14797 14813 14829 14845 14861 14877 14893 14909 14925 14941 14957 14973 14989 15005 15021 15037 15053 15069 15085 15101 15117 15133 15149 15165 15181 15197 15213 15229 15245 15261 15277 15293 15309 15325 15341 15357 15373 15389 15405 15421 15437 15453 15469 15485 15501 15517 15533 15549 15565 15581 15597 15613 15629 15645 15661 15677 15693 15709 15725 15741 15757 15773 15789 15805 15821 15837 15853 15869 15885 15901 15917 15933 15949 15965 15981 15997 16013 16029 16045 16061 16077 16093 16109 16125 16141 16157 16173 16189 16205 16221 16237 16253 16269 16285 16301 16317 16333 16349 16365 16381 16399 16415 16432 17562 17581 17598 17615 17632 17650 17668 17685 17702 17719 17736 17752 17769 17788 17804 17821 17838 17855 17873 17891 17908 17925 17943 17962 17979 17996 18013 9160 11672 11971 12297 14220 17544"/>
+</xmi:XMI>

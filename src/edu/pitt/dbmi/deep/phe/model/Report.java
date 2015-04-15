@@ -2,24 +2,15 @@ package edu.pitt.dbmi.deep.phe.model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.xml.crypto.Data;
-
-import org.apache.uima.jcas.tcas.DocumentAnnotation;
-import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Composition;
 import org.hl7.fhir.instance.model.DateAndTime;
-import org.hl7.fhir.instance.model.Encounter;
-import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceReference;
-import org.hl7.fhir.instance.model.Encounter.EncounterClass;
-import org.hl7.fhir.instance.model.Encounter.EncounterState;
 
 /**
  * represents a medical document that contains a set of 
@@ -27,10 +18,9 @@ import org.hl7.fhir.instance.model.Encounter.EncounterState;
  * @author tseytlin
  *
  */
-public class Report extends Composition implements DeepPheModel{
+public class Report extends Composition implements Element{
 	private CompositionEventComponent event;
-	private List<Diagnosis> diagnoses;
-	private List<Procedure> procedures;
+	private List<Element> reportElements;
 	
 	/**
 	 * create a default report object
@@ -97,11 +87,23 @@ public class Report extends Composition implements DeepPheModel{
 			setType(tp);
 	}
 
-	
+	/**
+	 * get report elements
+	 * @return
+	 */
+	public List<Element> getReportElements() {
+		if(reportElements == null)
+			reportElements = new ArrayList<Element>();
+		return reportElements;
+	}
+
+
+	/**
+	 * get procedures
+	 * @return
+	 */
 	public List<Procedure> getProcedures() {
-		if(procedures == null)
-			procedures = new ArrayList<Procedure>();
-		return procedures;
+		return (List<Procedure>) Utils.getSubList(getReportElements(),Procedure.class);
 	}
 
 	/**
@@ -109,55 +111,51 @@ public class Report extends Composition implements DeepPheModel{
 	 * @return
 	 */
 	public List<Diagnosis> getDiagnoses(){
-		if(diagnoses == null)
-			diagnoses = new ArrayList<Diagnosis>();
-		return diagnoses;
+		return (List<Diagnosis>) Utils.getSubList(getReportElements(),Diagnosis.class);
+	}
+	
+	/**
+	 * get a set of defined diagnoses for this report
+	 * @return
+	 */
+	public List<Observation> getObservations(){
+		return (List<Observation>) Utils.getSubList(getReportElements(),Observation.class);
+	}
+	
+	/**
+	 * get a set of defined diagnoses for this report
+	 * @return
+	 */
+	public List<Finding> getFindings(){
+		return (List<Finding>) Utils.getSubList(getReportElements(),Finding.class);
+	}
+
+	/**
+	 * get a set of defined diagnoses for this report
+	 * @return
+	 */
+	public List<Medication> getMedications(){
+		return (List<Medication>) Utils.getSubList(getReportElements(),Medication.class);
 	}
 	
 	/**
 	 * add diagnosis that this report is describing
 	 * @param dx
 	 */
-	public void addDiagnosis(Diagnosis dx){
-		if(getDiagnoses().contains(dx))
+	public void addReportElement(Element el){
+		if(getReportElements().contains(el))
 			return;
 		
 		// add to list of diagnosis
-		getDiagnoses().add(dx);
-		
-		// persist other info
-		Patient p = getPatient();
-		if(p != null){
-			dx.setSubject(Utils.getResourceReference(p));
-			dx.setSubjectTarget(p);
-		}
+		getReportElements().add(el);
+		el.setReport(this);
 			
 		// add reference
 		ResourceReference r = event.addDetail();
-		Utils.getResourceReference(r,dx);
+		Utils.getResourceReference(r,el);
 	}
 
-	/**
-	 * add procedure to this report
-	 * @param pr
-	 */
-	public void addProcedure(Procedure pr) {
-		if(getProcedures().contains(pr))
-			return;
-		
-		getProcedures().add(pr);
-		
-		// persist other info
-		Patient p = getPatient();
-		if(p != null){
-			pr.setSubject(Utils.getResourceReference(p));
-			pr.setSubjectTarget(p);
-		}
-		// add reference
-		ResourceReference r = event.addDetail();
-		Utils.getResourceReference(r,pr);
-
-	}
+	
 
 	public String getDisplaySimple() {
 		return getTextSimple();
@@ -177,6 +175,16 @@ public class Report extends Composition implements DeepPheModel{
 		for(Procedure p: getProcedures()){
 			st.append(p.getSummary()+"\n");
 		}
+		for(Finding dx: getFindings()){
+			st.append(dx.getSummary()+"\n");
+		}
+		for(Observation p: getObservations()){
+			st.append(p.getSummary()+"\n");
+		}
+		for(Medication p: getMedications()){
+			st.append(p.getSummary()+"\n");
+		}
+		
 		return st.toString();
 	}
 
@@ -191,19 +199,20 @@ public class Report extends Composition implements DeepPheModel{
 	 * @throws Exception 
 	 * @throws FileNotFoundException 
 	 */
-	public void saveFHIR(File dir) throws FileNotFoundException, Exception{
+	public void save(File dir) throws Exception{
 		Utils.saveFHIR(this,getIdentifierSimple(),dir);
 		
 		// go over components
 		Patient pt = getPatient();
 		if(pt != null)
-			pt.saveFHIR(dir);
-		for(Diagnosis dx: getDiagnoses())
-			dx.saveFHIR(dir);
-		for(Procedure p: getProcedures()){
-			p.saveFHIR(dir);
+			pt.save(dir);
+		for(Element e: getReportElements()){
+			e.save(dir);
 		}
-		
+	}
+
+
+	public void setReport(Report r) {
 	}
 	
 }

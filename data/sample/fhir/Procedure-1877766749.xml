@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Procedure xmlns="http://hl7.org/fhir">
+  <identifier>
+    <label value="id"/>
+    <system value="local"/>
+    <value value="Procedure-1877766749"/>
+  </identifier>
+  <subject>
+    <reference value="Patient-644590864"/>
+    <display value="Jane Doe"/>
+  </subject>
+  <type>
+    <coding>
+      <system value="http://slidetutor.upmc.edu/deepPhe/BreastCancer.owl"/>
+      <code value="BC:Neoadjuvant_Therapy"/>
+      <display value="Neoadjuvant Therapy"/>
+    </coding>
+    <text value="Neoadjuvant Therapy"/>
+  </type>
+  <bodySite>
+    <coding>
+      <system value="http://slidetutor.upmc.edu/deepPhe/BreastCancer.owl"/>
+      <code value="BC:Left_Breast"/>
+      <display value="Left Breast"/>
+    </coding>
+    <text value="Left Breast"/>
+  </bodySite>
+  <date>
+    <start value="2013-04-24T11:30:00-04:00"/>
+    <end value="2013-04-24T11:30:00-04:00"/>
+  </date>
+</Procedure>

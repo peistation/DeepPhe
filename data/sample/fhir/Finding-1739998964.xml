@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Condition xmlns="http://hl7.org/fhir">
+  <language value="English"/>
+  <identifier>
+    <label value="id"/>
+    <system value="local"/>
+    <value value="Finding-1739998964"/>
+  </identifier>
+  <subject>
+    <reference value="Patient-644590864"/>
+    <display value="Jane Doe"/>
+  </subject>
+  <code>
+    <coding>
+      <system value="http://slidetutor.upmc.edu/deepPhe/BreastCancer.owl"/>
+      <code value="BC:Breast_Cancer_Pathologic_TNM_Finding_v7"/>
+      <display value="Breast Cancer Pathologic TNM Finding"/>
+    </coding>
+    <text value="Breast Cancer Pathologic TNM Finding"/>
+  </code>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/condition-category"/>
+      <code value="finding"/>
+      <display value="Finding"/>
+    </coding>
+    <text value="Finding"/>
+  </category>
+  <status value="confirmed"/>
+</Condition>

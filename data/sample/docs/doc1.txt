@@ -1,0 +1,10 @@
+===================================================================
+Patient Name..................Jane Doe
+Principal Date................20130118 1050
+Record Type...................SP
+===================================================================
+
+BREAST, LEFT, EXCISION
+INVASIVE DUCTAL CARCINOMA, 2.1 CM
+Sentinel Lymph Node Biopsy,
+One LN with no evidence of Carcinoma

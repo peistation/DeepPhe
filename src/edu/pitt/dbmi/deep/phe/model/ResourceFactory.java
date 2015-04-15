@@ -17,12 +17,27 @@ import edu.pitt.dbmi.nlp.noble.terminology.Concept;
  *
  */
 public class ResourceFactory {
+	private static ResourceFactory instance;
 	private IOntology ontology;
 	
 	public ResourceFactory(IOntology ont){
 		ontology = ont;
+		instance = this;
 	}
 	
+	public static ResourceFactory getInstance(){
+		return instance;
+	}
+	
+	
+	public IOntology getOntology() {
+		return ontology;
+	}
+
+	public void setOntology(IOntology ontology) {
+		this.ontology = ontology;
+	}
+
 	/**
 	 * create a Report object from DocumentAnnotation
 	 * @param doc
@@ -38,7 +53,41 @@ public class ResourceFactory {
 	 * @return
 	 */
 	public Report getReport(Document doc) {
-		return getReport(doc.getText());
+		Report r = getReport(doc.getText());
+		r.setTitleSimple(doc.getTitle());
+		
+		// find patient if available
+		Patient patient = getPatient(doc);
+		if(patient != null){
+			r.setPatient(patient);
+		}
+		
+		// now find all observations found in a report
+		for(Observation ob: getObservations(doc)){
+			r.addReportElement(ob);
+		}
+		
+		// now find all observations found in a report
+		for(Finding ob: getFindings(doc)){
+			r.addReportElement(ob);
+		}		
+		
+		// find all procedures mentioned in each report
+		for(Procedure p: getProcedures(doc)){
+			r.addReportElement(p);
+		}
+		
+		// now find all observations found in a report
+		for(Medication ob: getMedications(doc)){
+			r.addReportElement(ob);
+		}		
+		
+		// now find all primary diagnosis that are found in a report
+		for(Diagnosis dx: getDiagnoses(doc)){
+			r.addReportElement(dx);
+		}			
+		
+		return r;
 	}
 
 	/**
@@ -69,7 +118,16 @@ public class ResourceFactory {
 	 * @return
 	 */
 	public Patient getPatient(Document doc) {
-		return getPatient(doc.getText());
+		Patient pt = getPatient(doc.getText());
+		// see if there is a gender anywhere
+		for(Mention m: Utils.getMentionsByType(doc,Utils.AGE,false)){
+			pt.setAge(m);
+		}
+		for(Mention m: Utils.getMentionsByType(doc,Utils.GENDER,false)){
+			pt.setGender(m);
+		}
+		
+		return pt;
 	}
 	
 	/**
@@ -123,39 +181,57 @@ public class ResourceFactory {
 	 * @return
 	 */
 	public List<Diagnosis> getDiagnoses(Document doc) {
-		List<Diagnosis> dxs = new ArrayList<Diagnosis>();
-		for(Mention m: doc.getMentions()){
-			Concept c = m.getConcept();
-			IClass cls = getConceptClass(c);
-			if(cls != null && cls.hasSuperClass(ontology.getClass("DiseaseDisorder"))){
-				// make sure there is no negation 
-				if(!m.isNegated()){
-					Diagnosis  dx = new Diagnosis();
-					dx.initialize(m);
-					dxs.add(dx);
-				}
-			}
+		List<Diagnosis> list = new ArrayList<Diagnosis>();
+		for(Mention m : Utils.getMentionsByType(doc,Utils.DIAGNOSIS)){
+			Diagnosis  dx = new Diagnosis();
+			dx.initialize(m);
+			list.add(dx);
 		}
-		return dxs;
+		return list;
 	}
 
 	
 	public List<Procedure> getProcedures(Document doc) {
-		List<Procedure> dxs = new ArrayList<Procedure>();
-		for(Mention m: doc.getMentions()){
-			Concept c = m.getConcept();
-			IClass cls = getConceptClass(c);
-			if(cls != null && cls.hasSuperClass(ontology.getClass("Procedure"))){
-				// make sure there is no negation 
-				if(!m.isNegated()){
-					Procedure  dx = new Procedure();
-					dx.initialize(m);
-					dxs.add(dx);
-				}
-			}
+		List<Procedure> list = new ArrayList<Procedure>();
+		for(Mention m : Utils.getMentionsByType(doc,Utils.PROCEDURE)){
+			Procedure  dx = new Procedure();
+			dx.initialize(m);
+			list.add(dx);
 		}
-		return dxs;
+		return list;
 	}
+	
+
+	private  List<Finding> getFindings(Document doc) {
+		List<Finding> list = new ArrayList<Finding>();
+		for(Mention m : Utils.getMentionsByType(doc,Utils.FINDING)){
+			Finding  dx = new Finding();
+			dx.initialize(m);
+			list.add(dx);
+		}
+		return list;
+	}
+
+	private List<Observation> getObservations(Document doc) {
+		List<Observation> list = new ArrayList<Observation>();
+		for(Mention m : Utils.getMentionsByType(doc,Utils.OBSERVATION)){
+			Observation  dx = new Observation();
+			dx.initialize(m);
+			list.add(dx);
+		}
+		return list;
+	}
+	
+	private List<Medication> getMedications(Document doc) {
+		List<Medication> list = new ArrayList<Medication>();
+		for(Mention m : Utils.getMentionsByType(doc,Utils.MEDICATION)){
+			Medication  dx = new Medication();
+			dx.initialize(m);
+			list.add(dx);
+		}
+		return list;
+	}
+
 
 	public List<Procedure> getProcedures(JCas cas) {
 		// TODO Auto-generated method stub
@@ -167,5 +243,7 @@ public class ResourceFactory {
 		// TODO Auto-generated method stub
 		return Collections.EMPTY_LIST;
 	}
+	
+	
 	
 }

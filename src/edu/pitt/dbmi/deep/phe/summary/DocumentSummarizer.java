@@ -117,34 +117,7 @@ public class DocumentSummarizer {
 	 * @return
 	 */
 	public Report process(Document doc){
-		Report report = resourceFactory.getReport(doc);
-		if(report == null)
-			return null;
-		// do we have a title?
-		report.setTitleSimple(doc.getTitle());
-		
-		// find patient if available
-		Patient patient = resourceFactory.getPatient(doc);
-		if(patient != null){
-			report.setPatient(patient);
-			patient.assertRelatedData(doc);
-			patient.inferRelatedData();
-		}
-		// now find all primary diagnosis that are found in report
-		for(Diagnosis dx: resourceFactory.getDiagnoses(doc)){
-			report.addDiagnosis(dx);
-			dx.assertRelatedData(doc);
-			dx.inferRelatedData();
-		}
-		
-		// find all procedures mentioned in each report
-		for(Procedure p: resourceFactory.getProcedures(doc)){
-			report.addProcedure(p);
-			p.assertRelatedData(doc);
-			p.inferRelatedData();
-		}
-		
-		return report;
+		return resourceFactory.getReport(doc);
 	}
 	
 	/**
@@ -153,29 +126,7 @@ public class DocumentSummarizer {
 	 * @return
 	 */
 	public Report process(JCas cas){
-		Report report = resourceFactory.getReport(cas);
-		// find patient if available
-		Patient patient = resourceFactory.getPatient(cas);
-		if(patient != null){
-			patient.assertRelatedData(cas);
-			patient.inferRelatedData();
-			report.setPatient(patient);
-		}
-		// now find all primary diagnosis that are found in report
-		for(Diagnosis dx: resourceFactory.getDiagnoses(cas)){
-			dx.assertRelatedData(cas);
-			dx.inferRelatedData();
-			report.addDiagnosis(dx);
-		}
-		
-		// find all procedures mentioned in each report
-		for(Procedure p: resourceFactory.getProcedures(cas)){
-			p.assertRelatedData(cas);
-			p.inferRelatedData();
-			report.addProcedure(p);
-		}
-		
-		return report;
+		return resourceFactory.getReport(cas);
 	}
 	
 	/**
@@ -191,8 +142,8 @@ public class DocumentSummarizer {
 	public static void main(String [] args ) throws Exception{
 		//File ontology = new File("/home/tseytlin/Data/DeepPhe/Model/BreastCancerModel.owl");
 		File project = new File("/home/tseytlin/Work/DeepPhe/");
-		//File ontology = new File(project,"ontologies/breastCAEx.owl");
-		File ontology = new File(project,"data/sample/ontology/BreastCancerModel.owl");
+		File ontology = new File(project,"ontologies/BreastCancer.owl");//breastCAEx.owl
+		//File ontology = new File(project,"data/sample/ontology/BreastCancerModel.owl");
 		File out = new File(project,"data/sample/fhir");
 		File [] docs = new File(project,"data/sample/docs").listFiles();
 		Arrays.sort(docs);
@@ -214,7 +165,7 @@ public class DocumentSummarizer {
 			System.out.println("generating summary ..");
 			Report report = summarizer.process(doc);
 			System.out.println(report.getSummary());
-			report.saveFHIR(out);
+			report.save(out);
 		}
 		
 		

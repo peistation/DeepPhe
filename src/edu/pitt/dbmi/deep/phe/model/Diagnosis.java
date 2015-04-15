@@ -2,41 +2,21 @@ package edu.pitt.dbmi.deep.phe.model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.util.List;
 
-import org.apache.ctakes.typesystem.type.refsem.OntologyConcept;
-import org.apache.ctakes.typesystem.type.refsem.UmlsConcept;
 import org.apache.ctakes.typesystem.type.textsem.AnatomicalSiteMention;
 import org.apache.ctakes.typesystem.type.textsem.DiseaseDisorderMention;
 import org.apache.ctakes.typesystem.type.textsem.TimeMention;
-import org.apache.uima.jcas.JCas;
-import org.hl7.fhir.instance.formats.XmlComposer;
-import org.hl7.fhir.instance.model.CodeableConcept;
-import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Condition;
-import org.hl7.fhir.instance.model.DateType;
+import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.ResourceReference;
-import org.hl7.fhir.instance.model.StringType;
 
-import edu.pitt.dbmi.nlp.noble.coder.model.Document;
 import edu.pitt.dbmi.nlp.noble.coder.model.Mention;
-import edu.pitt.dbmi.nlp.noble.ontology.IClass;
 
 /**
  * This class represents a diagnosis mention in a report
  * @author tseytlin
  */
-public class Diagnosis extends Condition implements DeepPheModel {
-	private IClass cls;
-	private List<BodyLocation> locations;
-	private List<Observation> observations;
-	private List<Finding> findings;
-	private Patient patient;
-	private Stage stage;
-	
-	
+public class Diagnosis extends Condition implements Element {
 	public Diagnosis(){
 		setCategory(Utils.CONDITION_CATEGORY_DIAGNOSIS);
 		setLanguageSimple(Utils.DEFAULT_LANGUAGE); // we only care about English
@@ -65,6 +45,7 @@ public class Diagnosis extends Condition implements DeepPheModel {
 		if(as != null){
 			ConditionLocationComponent location = addLocation();
 			location.setCode(Utils.getCodeableConcept(as));
+			location.setDetailSimple(as.getCoveredText());
 		}
 		
 		// now lets add observations
@@ -72,26 +53,33 @@ public class Diagnosis extends Condition implements DeepPheModel {
 		//addRelatedItem();
 	}
 	
+	
 	/**
-	 * initialize 
+	 * initialize from concept mention
 	 * @param m
 	 */
 	public void initialize(Mention m){
-		setCode(Utils.getCodeableConcept(m.getConcept()));
+		setCode(Utils.getCodeableConcept(m));
+		
+		// find annatomic location
+		Mention al = Utils.getNearestMention(m,m.getSentence().getDocument(),Utils.ANATOMICAL_SITE);
+		if(al != null){
+			ConditionLocationComponent location = addLocation();
+			location.setCode(Utils.getCodeableConcept(al));
+			location.setDetailSimple(al.getText());
+		}
+		
+		// find relevant stage
+		Mention st = Utils.getNearestMention(m,m.getSentence().getDocument(),Utils.STAGE);
+		if(st != null){
+			Stage stage = new Stage();
+			stage.initialize(st);
+			setStage(stage);
+		}
 	}
 	
-	
-	public void assertRelatedData(Document doc) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void assertRelatedData(JCas cas) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void inferRelatedData() {
-		// TODO Auto-generated method stub
-		
+	public Stage getStage(){
+		return (Stage) super.getStage();
 	}
 
 	public String getDisplaySimple() {
@@ -105,14 +93,37 @@ public class Diagnosis extends Condition implements DeepPheModel {
 	public String getSummary() {
 		StringBuffer st = new StringBuffer();
 		st.append("Diagnosis:\t"+getDisplaySimple());
+		for(ConditionLocationComponent l: getLocation()){
+			st.append(" | location: "+l.getCode().getTextSimple());
+		}
+		Stage s = getStage();
+		if(s != null){
+			st.append(" | stage: "+s.getSummary().getTextSimple());
+		}
 		return st.toString();
 	}
+	public void save(File dir) throws Exception {
+		Utils.saveFHIR(this,getIdentifierSimple(),dir);
+		
+	}
+
 	public Resource getResource() {
 		return this;
 	}
 
-	public void saveFHIR(File dir) throws FileNotFoundException, Exception {
-		Utils.saveFHIR(this,getIdentifierSimple(),dir);
-		
+	/**
+	 * assign report instance and add appropriate information from there
+	 */
+	public void setReport(Report r) {
+		Patient p = r.getPatient();
+		if(p != null){
+			setSubject(Utils.getResourceReference(p));
+			setSubjectTarget(p);
+		}
+		// set date
+		DateAndTime d = r.getDateSimple();
+		if( d != null){
+			setDateAssertedSimple(d);
+		}
 	}
 }

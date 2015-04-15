@@ -10,16 +10,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
-
-
-
-//import org.apache.ctakes.typesystem.type.refsem.Date;
 import org.apache.ctakes.typesystem.type.refsem.OntologyConcept;
 import org.apache.ctakes.typesystem.type.refsem.Time;
 import org.apache.ctakes.typesystem.type.refsem.UmlsConcept;
@@ -46,6 +44,10 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 import com.ibm.icu.text.SimpleDateFormat;
 
+import edu.pitt.dbmi.nlp.noble.coder.model.Document;
+import edu.pitt.dbmi.nlp.noble.coder.model.Mention;
+import edu.pitt.dbmi.nlp.noble.ontology.IClass;
+import edu.pitt.dbmi.nlp.noble.ontology.IOntology;
 import edu.pitt.dbmi.nlp.noble.terminology.Concept;
 import edu.pitt.dbmi.nlp.noble.tools.TextTools;
 import edu.pitt.dbmi.nlp.noble.util.DeIDUtils;
@@ -61,6 +63,20 @@ public class Utils {
 	public static final String DOCUMENT_HEADER_REPORT_TYPE = "Record Type";
 	public static final String DOCUMENT_HEADER_PRINCIPAL_DATE = "Principal Date";
 	public static final String DOCUMENT_HEADER_PATIENT_NAME = "Patient Name";
+	
+	
+	public static final String ELEMENT = "Element";
+	public static final String DIAGNOSIS = "Diagnosis";
+	public static final String PROCEDURE = "ProcedureIntervention";
+	public static final String OBSERVATION = "Observation";
+	public static final String FINDING = "Finding";
+	public static final String MEDICATION = "Medicine";
+	public static final String ANATOMICAL_SITE = "AnatomicalSite";
+	public static final String STAGE = "CancerStage";
+	public static final String AGE = "Age";
+	public static final String GENDER = "Gender";
+	
+	public static final long MILLISECONDS_IN_YEAR = (long) 1000 * 60 * 60 * 24 * 365;
 	
 	private static Map<String,CodeableConcept> reportTypes;
 	
@@ -176,10 +192,20 @@ public class Utils {
 	 * @param c
 	 * @return
 	 */
-	public static CodeableConcept getCodeableConcept(Concept c){
+	public static CodeableConcept getCodeableConcept(Mention c){
 		CodeableConcept cc = new CodeableConcept();
+		setCodeableConcept(cc, c);
+		return cc;
+	}
+	
+	/**
+	 * get codeblce concept form OntologyConcept annotation
+	 * @param c
+	 * @return
+	 */
+	public static CodeableConcept setCodeableConcept(CodeableConcept cc,Mention mm){
+		Concept c = mm.getConcept();
 		cc.setTextSimple(c.getName());
-		
 		Coding ccc = cc.addCoding();
 		ccc.setCodeSimple(c.getCode());
 		ccc.setDisplaySimple(c.getName());
@@ -291,11 +317,11 @@ public class Utils {
 		return t;
 	}
 	
-	public static ResourceReference getResourceReference(DeepPheModel model){
+	public static ResourceReference getResourceReference(Element model){
 		return getResourceReference(new ResourceReference(), model);
 	}
 	
-	public static ResourceReference getResourceReference(ResourceReference r,DeepPheModel model){
+	public static ResourceReference getResourceReference(ResourceReference r,Element model){
 		if(r == null)
 			r = new ResourceReference();
 		r.setDisplaySimple(model.getDisplaySimple());
@@ -303,7 +329,7 @@ public class Utils {
 		return r;
 	}
 	
-	public static void saveFHIR(Resource r,String name, File dir) throws FileNotFoundException, Exception{
+	public static void saveFHIR(Resource r,String name, File dir) throws Exception{
 		File file = new File(dir,name+".xml");
 		if(!file.getParentFile().exists())
 			file.getParentFile().mkdirs();
@@ -311,10 +337,146 @@ public class Utils {
 		xml.compose(new FileOutputStream(file),r, true);
 	}
 	
+	/**
+	 * get concept class from a default ontology based on Concept
+	 * @param c
+	 * @return
+	 */
+	public static IClass getConceptClass(IOntology ontology,  Concept c){
+		String code = c.getCode();
+		if(code.contains(":"))
+			code = code.substring(code.indexOf(':')+1);
+		return ontology.getClass(code);
+	}
 	
+	/**
+	 * get concept class from a default ontology based on Concept
+	 * @param c
+	 * @return
+	 */
+	public static IClass getConceptClass(IOntology ontology,  Mention m){
+		return getConceptClass(ontology, m.getConcept());
+	}
+	
+	/**
+	 * get concept class from a default ontology based on Concept
+	 * @param c
+	 * @return
+	 */
+	public static IClass getConceptClass(Mention m){
+		return getConceptClass(ResourceFactory.getInstance().getOntology(), m);
+	}
+	
+	public static boolean isDiagnosis(IClass cls){
+		return (cls != null && cls.hasSuperClass(cls.getOntology().getClass(DIAGNOSIS)));
+	}
+	public static boolean isProcedure(IClass cls){
+		return (cls != null && cls.hasSuperClass(cls.getOntology().getClass(PROCEDURE)));
+	}
+	
+	/**
+	 * get report elements
+	 * @return
+	 */
+	public static List getSubList(List entireList, Class cls) {
+		List list = new ArrayList();
+		for(Object e: entireList){
+			if(cls.isInstance(e))
+				list.add(cls.cast(e));
+		}
+		return list;
+	}
+
+	/**
+	 * get a set of concept by type from the annotated document
+	 * @param doc
+	 * @param type
+	 * @return
+	 */
+	public static List<Mention> getMentionsByType(Document doc, String type){
+		return getMentionsByType(doc,type,true);
+	}
+	/**
+	 * get a set of concept by type from the annotated document
+	 * @param doc
+	 * @param type
+	 * @return
+	 */
+	public static List<Mention> getMentionsByType(Document doc, String type, boolean elementOnly){
+		List<Mention> list = new ArrayList<Mention>();
+		for(Mention m: doc.getMentions()){
+			IClass cls = getConceptClass(m);
+			if(cls != null && (cls.equals(cls.getOntology().getClass(type)) || cls.hasSuperClass(cls.getOntology().getClass(type)))){
+				// skip non-elements
+				if(elementOnly &&  !cls.hasSuperClass(cls.getOntology().getClass(ELEMENT)))
+					continue;
+				// make sure there is no negation 
+				if(!m.isNegated()){
+					list.add(m);
+				}
+			}
+		}
+		return filter(list);
+	}
+	
+	/**
+	 * filter a list of mentions to include the most specific
+	 * @param list
+	 * @return
+	 */
+	public static List<Mention> filter(List<Mention> list){
+		if(list.isEmpty() || list.size() == 1)
+			return list;
+		for(ListIterator<Mention> it = list.listIterator();it.hasNext();){
+			Mention m = it.next();
+			if(hasMoreSpecific(m,list))
+				it.remove();
+		}
+		return list;
+	}
+	
+	/**
+	 * does this mention has another mention that is more specific?
+	 * @param m
+	 * @param list
+	 * @return
+	 */
+	
+	private static boolean hasMoreSpecific(Mention mm, List<Mention> list) {
+		IClass cc = getConceptClass(mm);
+		for(Mention m: list){
+			IClass c = getConceptClass(m);
+			if(cc.hasSubClass(c))
+				return true;
+		}
+		return false;
+	}
+
+	/**
+	 * get nearest mention to a target mention 
+	 * @param m
+	 * @param doc
+	 * @param type
+	 * @return
+	 */
+	public static Mention getNearestMention(Mention target, Document doc, String type){
+		List<Mention> mentions = getMentionsByType(doc, type);
+		Mention nearest = null;
+		for(Mention m: mentions){
+			if(nearest == null)
+				nearest = m;
+			else if(Math.abs(target.getStartPosition()-m.getStartPosition()) < Math.abs(target.getStartPosition()-nearest.getStartPosition())){
+				nearest = m;
+			}
+		}
+		return nearest;
+	}
+	
+
 	public static void main(String [] args) throws Exception{
 		System.out.println(getHeaderValues(TextTools.getText(new FileInputStream(new File("/home/tseytlin/Work/DeepPhe/data/sample/docs/doc1.txt")))));
 	}
 
+	
 	
 }
