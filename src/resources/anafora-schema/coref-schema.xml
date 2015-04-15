@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema>
+<defaultattribute>
+  <required>False</required>
+</defaultattribute>
+<definition>
+<entities type="Coreference" color="d2d2d2">
+	<entity type="Markable" color="d2d2d2" hotkey="m">
+		<properties>
+		</properties>
+	</entity>
+</entities>
+
+<relations type="CorefChains" color="ffff00">
+	<relation type="Identical" color="ffff00" hotkey="i">
+		<properties>
+			<property type="FirstInstance" input="list" maxlink="1" instanceOf="Markable" required="true"/>
+			<property type="Coreferring_String" input="list" maxlink="1000" instanceOf="Markable" required="true"/>
+		</properties>
+	</relation>
+
+	<relation type="Whole/Part" color="87CEEB" hotkey="w">
+		<properties>
+			<property type="Whole" input="list" maxlink="1" instanceOf="Markable" required="true"/>	
+			<property type="Part" input="list" maxlink="1000" instanceOf="Markable" required="true"/>
+		</properties>
+	</relation>
+
+	<relation type="Appositive" color="FFC0CB" hotkey="p">
+		<properties>	
+			<property type="Head" input="list" maxlink="1" instanceOf="Markable" required="true"/>
+			<property type="Attributes" input="list" maxlink="1000" instanceOf="Markable" required="true"/>
+		</properties>
+	</relation>
+
+	<relation type="Set/Subset" color="90EE90" hotkey="u">
+		<properties>	
+			<property type="Set" input="list" maxlink="1" instanceOf="Markable" required="true"/>
+			<property type="Subset" input="list" maxlink="1000" instanceOf="Markable" required="true"/>
+		</properties>
+	</relation>
+
+</relations>
+</definition>
+</schema>
+
+

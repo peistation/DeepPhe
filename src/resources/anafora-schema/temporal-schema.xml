@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema>
+<defaultattribute>
+  <required>True</required>
+</defaultattribute>
+<definition>
+<entities type="TemporalEntities" color="015367">
+        <entity type="EVENT" color="00ccff" hotkey="e">
+                <properties>
+                        <property type="DocTimeRel" input="choice">,BEFORE,OVERLAP,AFTER,BEFORE/OVERLAP</property>
+                        <property type="Type" input="choice">N/A,ASPECTUAL,EVIDENTIAL</property>
+                        <property type="Degree" input="choice">N/A,MOST,LITTLE</property>
+                        <property type="Polarity" input="choice">POS,NEG</property>
+                        <property type="ContextualModality" input="choice">ACTUAL,HYPOTHETICAL,HEDGED,GENERIC</property>
+                        <property type="ContextualAspect" input="choice">N/A,NOVEL,INTERMITTENT</property>
+                        <property type="Permanence" input="choice">UNDETERMINED,FINITE,PERMANENT</property>
+                </properties>
+        </entity>
+
+        <entity type="TIMEX3" color="ffff33" hotkey="t">
+                <properties>
+                        <property type="Class" input="choice">,DATE,TIME,DURATION,QUANTIFIER,PREPOSTEXP,SET</property>
+                </properties>
+        </entity>
+
+        <entity type="DOCTIME" color="ff9900" hotkey="d">
+                <properties>
+                </properties>
+        </entity>
+
+        <entity type="SECTIONTIME" color="ff9900" hotkey="s">
+                <properties>
+                </properties>
+        </entity>
+        <entity type="DUPLICATE" color="E5BFFF" hotkey="p">
+                <properties>
+                </properties>
+        </entity>
+</entities>
+
+<relations type="TemporalRelations" color="0000ff">
+        <relation type="TLINK" color="0000ff" hotkey="l">
+                <properties>
+                        <property type="Source" input="list" maxlink="1" instanceOf="EVENT,TIMEX3"/>
+                        <property type="Type" input="choice">CONTAINS,BEFORE,OVERLAP,BEGINS-ON,ENDS-ON</property>
+                        <property type="Target" input="list" maxlink="1" instanceOf="EVENT,TIMEX3"/>
+                </properties>
+
+        </relation>
+
+        <relation type="ALINK" color="33ff00" hotkey="a">
+                <properties>
+                        <property type="Source" input="list" maxlink="1" instanceOf="EVENT"/>
+                        <property type="Target" input="list" maxlink="1" instanceOf="EVENT"/>
+                        <property type="Type" input="choice">CONTINUES,INITIATES,REINITIATES,TERMINATES</property>
+                </properties>
+        </relation>
+</relations>
+</definition>
+</schema>
+
