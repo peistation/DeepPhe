@@ -2,6 +2,8 @@ package edu.pitt.dbmi.deep.phe.data;
 
 import java.io.*;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import edu.pitt.dbmi.deep.phe.data.model.*;
 import edu.pitt.dbmi.deep.phe.util.TextUtils;
@@ -20,10 +22,14 @@ public class DataReportSampler {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
-		String domain = "Breast";
+		String domain = "Ovarian";
 		File patientDates = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+domain+"/"+domain.toLowerCase()+"_patient_sample+dates.csv");
-		File dataFile = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+domain+"/"+domain.toLowerCase()+"_sample.bar");
-		File outputFile = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+domain+"/"+domain.toLowerCase()+"_sample_filtered.bar");
+		File dataFile = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/CARe_Jacobson_1709_Data_03_31_2015.txt");
+		File outputFile = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+domain+"/"+domain.toLowerCase()+"_sample_filtered.bar");
+		//File dataFile = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+domain+"/"+domain.toLowerCase()+"_sample.bar");
+		//File outputFile = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+domain+"/"+domain.toLowerCase()+"_sample_filtered.bar");
+		if(!outputFile.getParentFile().exists())
+			outputFile.getParentFile().mkdirs();
 		if(outputFile.exists())
 			outputFile.delete();
 		
@@ -32,14 +38,17 @@ public class DataReportSampler {
 		DataReportSampler rs = new DataReportSampler();
 		
 		// load selected patient data into data structure
-		Map<String,Patient> patientMap = ps.loadBARDataset(dataFile);
+		//Map<String,Patient> patientMap = ps.loadBARDataset(dataFile);
+		Map<String,Patient> patientMap = ps.loadDelimitedDataset(dataFile);
 		
 		// load extra date information
 		rs.loadPatientDates(patientMap,patientDates);
 		
 		// now for a given list of patients only write reports that fit the given criteria 
 		for(Patient p: patientMap.values()){
-			rs.saveReportSample(p,outputFile);
+			// skip patients that didn't have extra dates associated with them
+			if(!p.getDates().isEmpty())
+				rs.saveReportSample(p,outputFile);
 		}
 		
 	}
@@ -171,6 +180,12 @@ public class DataReportSampler {
 				String date = p[1].trim();
 				String type = p[2].trim();
 				Patient pt = patientMap.get(mrn);
+				if(pt == null){
+					Matcher m = Pattern.compile("(\\d+)[A-Z]{2,3}").matcher(mrn);
+					if(m.matches()){
+						pt = patientMap.get(m.group(1));
+					}
+				}
 				if(pt != null){
 					pt.addDate(TextUtils.parseDateString(date),type);
 				}

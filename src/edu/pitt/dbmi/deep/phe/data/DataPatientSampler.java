@@ -5,6 +5,7 @@ import java.util.*;
 
 import edu.pitt.dbmi.deep.phe.data.model.*;
 import edu.pitt.dbmi.deep.phe.util.TextUtils;
+import edu.pitt.dbmi.nlp.noble.tools.TextTools;
 
 public class DataPatientSampler {
 	public static int MIN_NUM_DOCS = 18; //8
@@ -56,6 +57,43 @@ public class DataPatientSampler {
 				b.append(l+"\n");
 			}
 			
+		}
+		r.close();
+		return results;
+	}
+	
+	
+	/**
+	 * Load dataset of BAR dataset
+	 * @param dataFile
+	 * @throws IOException 
+	 */
+	public Map<String,Patient> loadDelimitedDataset(File dataFile) throws IOException {
+		Map<String,Patient> results = new HashMap<String, Patient>();
+		
+		BufferedReader r = new BufferedReader(new FileReader(dataFile));
+		List<String> names = null;
+		for(String l=r.readLine();l != null;l=r.readLine()){
+			l = l.trim();
+			if(names == null){
+				names =  TextTools.parseCSVline(l,'|');
+			}else{
+				List<String> values = TextTools.parseCSVline(l,'|');
+				Map<String,String> rmap = new LinkedHashMap<String, String>();
+				for(int i=0;i<values.size();i++){
+					String key = names.get(i);
+					String val = values.get(i).trim();
+					rmap.put(key,val);
+				}
+				
+				Report rp = Report.readMAPformat(rmap);
+				Patient p = results.get(rp.getPatient().getMedicalRecordNumber());
+				if(p == null){
+					p = rp.getPatient();
+					results.put(p.getMedicalRecordNumber(),p);
+				}
+				p.addReport(rp);
+			}
 		}
 		r.close();
 		return results;

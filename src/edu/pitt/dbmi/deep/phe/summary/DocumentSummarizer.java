@@ -157,15 +157,15 @@ public class DocumentSummarizer {
 		
 		System.out.println("loading ontology .."+ontology.getName());
 		IOntology ont = OOntology.loadOntology(ontology);
+		NobleCoder coder = new NobleCoder(new NobleCoderTerminology(ont));
 		DocumentSummarizer summarizer = new DocumentSummarizer(ont);
 		for(File file: docs){
 			System.out.println("coding document .."+file.getName());
-			NobleCoder coder = new NobleCoder(new NobleCoderTerminology(ont));
 			Document doc = coder.process(file);
 			System.out.println("generating summary ..");
 			Report report = summarizer.process(doc);
 			System.out.println(report.getSummary());
-			report.save(out);
+			//report.save(out);
 		}
 		
 		

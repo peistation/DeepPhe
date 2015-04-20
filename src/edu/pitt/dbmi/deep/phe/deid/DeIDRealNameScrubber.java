@@ -84,9 +84,9 @@ public class DeIDRealNameScrubber {
 		}
 		
 		// scrub addresses that are not spelled out
-		m = match(l,".*(\\*{2,3}[A-Z\\-]+.*\\b([Ss][Tt]|[Aa][Vv][Ee]|[Rr][Dd])\\b|\\b([Ss][Tt]|[Aa][Vv][Ee]|[Rr][Dd])\\b.*\\*{2,3}[A-Z\\-]+).*");
+		m = match(l,".*(\\*{2,3}[A-Z\\-]+.{2,20}\\b([Ss][Tt]|[Aa][Vv][Ee]|[Rr][Dd])\\b|\\b([Ss][Tt]|[Aa][Vv][Ee]|[Rr][Dd])\\b.{2,20}\\*{2,3}[A-Z\\-]+).*");
 		if(m.matches()){
-			System.out.println("Warning: Address found -> "+l);
+			System.out.println("Warning: Address pattern found -> "+l);
 			return "**PLACE";
 		}
 		return l;
@@ -123,10 +123,10 @@ public class DeIDRealNameScrubber {
 	 * @param args
 	 */
 	public static void main(String[] args) throws Exception {
-		String type = "Ovarian";
-		File fd = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.deid");
-		File fr = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.bar");
-		File ff = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.deid.fixed");
+		String type = "Melanoma";
+		File fd = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.deid");
+		File fr = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.bar");
+		File ff = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.deid.fixed");
 		/*File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.deid");
 		File fr = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.bar");
 		File ff = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.deid.fixed");*/

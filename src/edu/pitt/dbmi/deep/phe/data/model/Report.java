@@ -3,7 +3,11 @@ package edu.pitt.dbmi.deep.phe.data.model;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import edu.pitt.dbmi.deep.phe.util.TextUtils;
 
@@ -211,6 +215,64 @@ public class Report {
 				body.append(l+"\n");
 			}
 		}
+		return doc;
+	}
+	
+	
+	/**
+	 * read MARS BAR format
+	 * @param text
+	 * @return
+	 * @throws IOException
+	 */
+	public static Report readMAPformat(Map<String,String> map) throws IOException{
+		Report doc = new Report();
+		
+		// set relevant fields					
+		doc.setDocumentType("NOTE");
+		doc.setRecordStatus("FINAL");
+		doc.setEventDate(TextUtils.parseDateString(map.get("CONTACT_DATE")));
+		doc.setRecordId(map.get("NOTE_CSN_ID"));
+		doc.setMedicalRecordNumber(map.get("MEDIPAC_MRN"));
+		//doc.setRace(hd[RACE].trim());
+		//doc.setBirthDate(TextUtils.parseDateString(hd[DOB].trim()));
+		//doc.setGender(hd[SEX].trim());
+		doc.setName(map.get("PAT_NAME"));
+		//doc.setSocialSecurityNumber(hd[SSN].replaceAll("\\D", "").trim());
+	
+		// set body and xml
+		//doc.setBody(body.toString());
+		String txt = map.get("NOTE_TEXT").replaceAll(":(\\s{2,})",":__");
+		txt = txt.replaceAll("  ","\n").replaceAll(":__",":  ");
+		//txt = txt.replaceAll("\n{2,}(\\w{1,20}:)","\n$1");
+		doc.setBody(txt);
+		// create a BAR looking text 
+		
+		final int RECORD_TYPE = 4;
+		final int RECORD_STATUS = 70;
+		final int DATE = 3;
+		final int RECORD_ID = 10;
+		final int ID = 1;
+		final int NAME = 2;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		StringBuffer b = new StringBuffer();
+		b.append("S_O_H\n");
+		for(int i=0;i<=RECORD_STATUS;i++){
+			switch(i){
+			case RECORD_TYPE: 	b.append(doc.getDocumentType()); break;
+			case RECORD_STATUS:	b.append(doc.getRecordStatus()); break;
+			case RECORD_ID:	 	b.append(doc.getRecordId()); break;
+			case ID: 			b.append(doc.getMedicalRecordNumber()); break;
+			case DATE: 			b.append(sdf.format(doc.getEventDate())); break;
+			case NAME: 			b.append(doc.getName()); break;
+			}
+			b.append("|");
+		}
+		b.append("\nE_O_H\n");
+		b.append(doc.getBody()+"\n");
+		b.append("E_O_R\n");
+		doc.setText(b.toString());
+		
 		return doc;
 	}
 }

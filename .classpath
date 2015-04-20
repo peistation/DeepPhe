@@ -12,8 +12,8 @@
 	<classpathentry kind="lib" path="lib/commons-logging-api-1.1.jar"/>
 	<classpathentry kind="lib" path="lib/fhir-0.0.82.jar"/>
 	<classpathentry kind="lib" path="lib/gson-2.2.4.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/nobletools"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/ctakes-clinical-pipeline"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/ctakes-temporal"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/nobletools"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

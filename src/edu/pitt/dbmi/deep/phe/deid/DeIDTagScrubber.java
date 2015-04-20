@@ -279,9 +279,9 @@ public class DeIDTagScrubber {
 	 * @param args
 	 */
 	public static void main(String[] args) throws Exception {
-		String type = "Melanoma";
-		File fd = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.deid.fixed");
-		File fs = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.scrubbed");
+		String type = "Ovarian";
+		File fd = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.deid.fixed");
+		File fs = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.scrubbed");
 		/*File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.deid.fixed");
 		File fs = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.scrubbed");*/
 		

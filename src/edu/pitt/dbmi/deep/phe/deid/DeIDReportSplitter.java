@@ -40,14 +40,14 @@ public class DeIDReportSplitter {
 					// parse existing header
 					/*
 					Report ID.....................2,HuUnE+zzpudA
-					PatientElement ID....................HuUnE+zzpudA
-					PatientElement Name..................**NAME[AAA BBB M]
+					Patient ID....................HuUnE+zzpudA
+					Patient Name..................**NAME[AAA BBB M]
 					Principal Date................20060223 1325
 					Record Subtype................PVS06-2730
 					Record Type...................SP
 					*/
-					currentPatient = getHeaderField(report.toString(),"PatientElement ID");
-					currentReport.setName(getHeaderField(report.toString(),"PatientElement Name"));
+					currentPatient = getHeaderField(report.toString(),"Patient ID");
+					currentReport.setName(getHeaderField(report.toString(),"Patient Name"));
 					currentReport.setEventDate(TextUtils.parseDateString(getHeaderField(report.toString(),"Principal Date")));
 					currentReport.setDocumentType(getHeaderField(report.toString(),"Record Type"));
 				}
@@ -118,8 +118,8 @@ public class DeIDReportSplitter {
 /*		File fs = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_new_sample.bar");
 		File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_new_sample_id");*/
 		
-		File fs = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered."+ver);
-		File fd = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered_"+ver);
+		File fs = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered."+ver);
+		File fd = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered_"+ver);
 		
 		DeIDReportSplitter splitter = new DeIDReportSplitter();
 		splitter.split(fs,fd);

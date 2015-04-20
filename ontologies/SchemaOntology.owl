@@ -136,9 +136,6 @@
         <Class IRI="#HumanName_FHIR"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#I_03074"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#LinguisticAttribute"/>
     </Declaration>
     <Declaration>
@@ -155,6 +152,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#MedicationStrength"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Medicine"/>
     </Declaration>
     <Declaration>
         <Class IRI="#NumericAttribute"/>
@@ -2277,34 +2277,6 @@
         </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#I_03074"/>
-        <Class IRI="#Entity"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#I_03074"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasForm"/>
-            <Class IRI="#MedicationForm"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#I_03074"/>
-        <DataSomeValuesFrom>
-            <DataProperty IRI="#hasKind"/>
-            <DataOneOf>
-                <Literal datatypeIRI="&rdf;PlainLiteral">package</Literal>
-                <Literal datatypeIRI="&rdf;PlainLiteral">product</Literal>
-            </DataOneOf>
-        </DataSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#I_03074"/>
-        <DataSomeValuesFrom>
-            <DataProperty IRI="#isBrand"/>
-            <Datatype abbreviatedIRI="xsd:boolean"/>
-        </DataSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#LinguisticAttribute"/>
         <Class IRI="#Attribute"/>
     </SubClassOf>
@@ -2370,7 +2342,7 @@
         <Class IRI="#MedicationStatement"/>
         <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#hasMedication"/>
-            <Class IRI="#I_03074"/>
+            <Class IRI="#Medicine"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
@@ -2433,6 +2405,34 @@
         <DataSomeValuesFrom>
             <DataProperty IRI="#hasQuantityValue"/>
             <Datatype abbreviatedIRI="xsd:float"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Medicine"/>
+        <Class IRI="#Entity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Medicine"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasForm"/>
+            <Class IRI="#MedicationForm"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Medicine"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasKind"/>
+            <DataOneOf>
+                <Literal datatypeIRI="&rdf;PlainLiteral">package</Literal>
+                <Literal datatypeIRI="&rdf;PlainLiteral">product</Literal>
+            </DataOneOf>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Medicine"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#isBrand"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
         </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
@@ -3610,7 +3610,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasForm"/>
-        <Class IRI="#I_03074"/>
+        <Class IRI="#Medicine"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasHighQuantity"/>
@@ -3902,7 +3902,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasMedication"/>
-        <Class IRI="#I_03074"/>
+        <Class IRI="#Medicine"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasMethod"/>
@@ -4144,7 +4144,7 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasKind"/>
-        <Class IRI="#I_03074"/>
+        <Class IRI="#Medicine"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasLastName"/>
@@ -4614,11 +4614,6 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#I_03074</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Medication</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#LinguisticAttribute</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">Linguistic Attribute</Literal>
     </AnnotationAssertion>
@@ -4651,6 +4646,11 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#MedicationStrength</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">Medication Strength</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Medicine</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Medication</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="#TUI"/>
@@ -5121,5 +5121,5 @@
 
 
 
-<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
 

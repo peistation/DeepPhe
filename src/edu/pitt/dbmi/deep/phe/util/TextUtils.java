@@ -9,6 +9,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+import edu.pitt.dbmi.nlp.noble.tools.TextTools;
+
 public class TextUtils {
 	/**
 	 * This method gets a text file (HTML too) from input stream 
@@ -42,7 +44,8 @@ public class TextUtils {
 	 */
 	
 	public static Date parseDateString(String dateString) {
-		try {
+		return TextTools.parseDate(dateString);
+		/*try {
 			if(dateString == null){
 				return null;
 			}
@@ -67,6 +70,6 @@ public class TextUtils {
 			return df.parse(dateString);
 		} catch (ParseException e) {
 			return null;
-		}
+		}*/
 	}
 }

@@ -99,6 +99,7 @@ public class Diagnosis extends Condition implements Element {
 		Stage s = getStage();
 		if(s != null){
 			st.append(" | stage: "+s.getSummary().getTextSimple());
+			//+" T:"+s.getPrimaryTumorStage()+" N: "+s.getRegionalLymphNodeStage()+" M: "+s.getDistantMetastasisStage());
 		}
 		return st.toString();
 	}

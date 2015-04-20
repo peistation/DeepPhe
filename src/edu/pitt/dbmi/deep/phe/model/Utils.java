@@ -76,6 +76,12 @@ public class Utils {
 	public static final String AGE = "Age";
 	public static final String GENDER = "Gender";
 	
+	public static final String T_STAGE = "Breast_Cancer_Pathologic_Primary_Tumor_TNM_Finding_v7";
+	public static final String M_STAGE = "Breast_Cancer_Pathologic_Distant_Metastasis_TNM_Finding_v7";
+	public static final String N_STAGE = "Breast_Cancer_Pathologic_Regional_Lymph_Nodes_TNM_Finding_v7";
+	
+	public static final String STAGE_REGEX = "p?(T[X0-4a-z]{1,4})(N[X0-4a-z]{1,4})(M[X0-4a-z]{1,4})";
+	
 	public static final long MILLISECONDS_IN_YEAR = (long) 1000 * 60 * 60 * 24 * 365;
 	
 	private static Map<String,CodeableConcept> reportTypes;
