@@ -2,6 +2,8 @@ package org.apache.ctakes.cancer.pipelines;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.ctakes.assertion.medfacts.cleartk.PolarityCleartkAnalysisEngine;
 import org.apache.ctakes.assertion.medfacts.cleartk.UncertaintyCleartkAnalysisEngine;
@@ -11,8 +13,8 @@ import org.apache.ctakes.clinicalpipeline.ClinicalPipelineFactory.CopyNPChunksTo
 import org.apache.ctakes.clinicalpipeline.ClinicalPipelineFactory.RemoveEnclosedLookupWindows;
 import org.apache.ctakes.constituency.parser.ae.ConstituencyParser;
 import org.apache.ctakes.contexttokenizer.ae.ContextDependentTokenizerAnnotator;
+import org.apache.ctakes.core.ae.CDASegmentAnnotator;
 import org.apache.ctakes.core.ae.SentenceDetector;
-import org.apache.ctakes.core.ae.SimpleSegmentAnnotator;
 import org.apache.ctakes.core.ae.TokenizerAnnotatorPTB;
 import org.apache.ctakes.core.cc.XmiWriterCasConsumerCtakes;
 import org.apache.ctakes.core.cr.FilesInDirectoryCollectionReader;
@@ -32,6 +34,7 @@ import org.apache.ctakes.temporal.ae.BackwardsTimeAnnotator;
 import org.apache.ctakes.temporal.ae.DocTimeRelAnnotator;
 import org.apache.ctakes.temporal.ae.EventAnnotator;
 import org.apache.ctakes.typesystem.type.textsem.EventMention;
+import org.apache.ctakes.typesystem.type.textsem.TimeMention;
 import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_engine.AnalysisEngine;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
@@ -88,8 +91,11 @@ public class RunCancerPipeline {
 
 	public static AnalysisEngineDescription getPipelineDescription(CancerPipelineOptions options) throws ResourceInitializationException, InvalidXMLException, IOException {
 	  AggregateBuilder aggregateBuilder = new AggregateBuilder();
-	  // core components, dictionary, dependency parser, polarity, uncertainty 
-	  aggregateBuilder.add(SimpleSegmentAnnotator.createAnnotatorDescription());
+	  aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(PittHeaderAnnotator.class));
+	  // grab segments using known headers from default + what UPMC has given us.
+	  aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(CDASegmentAnnotator.class, CDASegmentAnnotator.PARAM_SECTIONS_FILE, "resources/ccda_sections.txt"));
+//	  aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(UpmcSimpleSegmenter.class));
+    // core components, dictionary, dependency parser, polarity, uncertainty
 	  aggregateBuilder.add(SentenceDetector.createAnnotatorDescription());
 	  aggregateBuilder.add(TokenizerAnnotatorPTB.createAnnotatorDescription());
 	  aggregateBuilder.add(LvgAnnotator.createAnnotatorDescription());
@@ -191,5 +197,24 @@ public class RunCancerPipeline {
 				}
 			}
 		}
+	}
+	
+	public static class PittHeaderAnnotator extends JCasAnnotator_ImplBase {
+
+	  static Pattern datePatt = Pattern.compile(".*Principal Date\\D+(\\d+) (\\d+).*", Pattern.DOTALL);
+    @Override
+    public void process(JCas jcas) throws AnalysisEngineProcessException {
+      // TODO -- use a document creation time type?
+      String docText = jcas.getDocumentText();
+      Matcher m = datePatt.matcher(docText);
+      if(m.matches()){
+        TimeMention docTime = new TimeMention(jcas);
+        docTime.setBegin(m.start(1));
+        docTime.setEnd(m.end(1));
+        docTime.setId(0);
+        docTime.addToIndexes();
+      }
+      
+    }
 	}
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <name>TypeSystem</name>
+    <description/>
+    <version>1.0</version>
+    <vendor/>
+  <imports>
+    <import name="org.apache.ctakes.typesystem.types.TypeSystem"/>
+  </imports>
+  <types>
+    <typeDescription>
+      <name>org.apache.ctakes.cancer.type.relation.MeasurementTextRelation</name>
+      <description/>
+      <supertypeName>org.apache.ctakes.typesystem.type.relation.BinaryTextRelation</supertypeName>
+    </typeDescription>
+  <typeDescription>
+      <name>org.apache.ctakes.cancer.type.textsem.TnmStage</name>
+      <description/>
+      <supertypeName>org.apache.ctakes.typesystem.type.textsem.IdentifiedAnnotation</supertypeName>
+    </typeDescription>
+  <typeDescription>
+      <name>org.apache.ctakes.cancer.type.textsem.ReceptorStatus</name>
+      <description/>
+      <supertypeName>org.apache.ctakes.typesystem.type.util.Pair</supertypeName>
+    </typeDescription>
+  <typeDescription>
+      <name>org.apache.ctakes.cancer.type.relation.TnmStageTextRelation</name>
+      <description/>
+      <supertypeName>org.apache.ctakes.typesystem.type.relation.BinaryTextRelation</supertypeName>
+    </typeDescription>
+  <typeDescription>
+      <name>org.apache.ctakes.cancer.type.relation.ReceptorStatusTextRelation</name>
+      <description/>
+      <supertypeName>org.apache.ctakes.typesystem.type.relation.BinaryTextRelation</supertypeName>
+    </typeDescription>
+  </types>
+</typeSystemDescription>
