@@ -22,10 +22,11 @@ public class DataReportSampler {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
-		String domain = "Ovarian";
-		File patientDates = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+domain+"/"+domain.toLowerCase()+"_patient_sample+dates.csv");
+		String domain = "Melanoma";
+		//File patientDates = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+domain+"/"+domain.toLowerCase()+"_patient_sample+dates.csv");
+		File patientDates = new File("/home/tseytlin/Data/DeepPhe/Samples/Report_Filter_Sample (Dec 2014)/new_sample_patients+dates.who");
 		File dataFile = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/CARe_Jacobson_1709_Data_03_31_2015.txt");
-		File outputFile = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+domain+"/"+domain.toLowerCase()+"_sample_filtered.bar");
+		File outputFile = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+domain+"/"+domain.toLowerCase()+"_sample_filtered_addendum.bar");
 		//File dataFile = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+domain+"/"+domain.toLowerCase()+"_sample.bar");
 		//File outputFile = new File("/home/tseytlin/Data/DeepPhe/Samples/Sample-Jan-2015/"+domain+"/"+domain.toLowerCase()+"_sample_filtered.bar");
 		if(!outputFile.getParentFile().exists())

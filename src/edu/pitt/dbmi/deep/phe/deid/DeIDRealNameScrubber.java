@@ -124,9 +124,9 @@ public class DeIDRealNameScrubber {
 	 */
 	public static void main(String[] args) throws Exception {
 		String type = "Melanoma";
-		File fd = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.deid");
-		File fr = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.bar");
-		File ff = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.deid.fixed");
+		File fd = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered_addendum.deid");
+		File fr = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered_addendum.bar");
+		File ff = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered_addendum.deid.fixed");
 		/*File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.deid");
 		File fr = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.bar");
 		File ff = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.deid.fixed");*/

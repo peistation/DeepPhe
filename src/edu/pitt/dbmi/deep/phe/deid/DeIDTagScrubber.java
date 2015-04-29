@@ -52,12 +52,12 @@ public class DeIDTagScrubber {
 	}
 	
 	private void setupCurrentPatient(String line){
-		Pattern p = Pattern.compile("PatientElement ID\\.+([^\\s]+)");
+		Pattern p = Pattern.compile("Patient ID\\.+([^\\s]+)");
 		Matcher m = p.matcher(line);
 		if(m.matches()){
 			currentPatientID = m.group(1);
 		}
-		p = Pattern.compile("PatientElement Name\\.+([^\\.]+)");
+		p = Pattern.compile("Patient Name\\.+([^\\.]+)");
 		m = p.matcher(line);
 		if(m.matches()){
 			currentPatientName = extractTagParts(m.group(1))[1];
@@ -222,6 +222,19 @@ public class DeIDTagScrubber {
 		deid = deid.substring(1,deid.length()-1).trim();
 		deid = deid.replaceAll("[^A-Z ]\\s*"," ");
 		
+		// find known patient
+		if(deid.contains("AAA") || deid.contains("BBB")){
+			for(String d: nameMap.keySet()){
+				if(d.contains(currentPatientID) && d.contains("AAA")){
+					if(p.length() > 0)
+						deid = d.split("\\|")[1].trim();
+					else
+						deid = d;
+					break;
+				}
+			}
+		}
+		
 		// if we have a mention of name return it
 		if(nameMap.containsKey(p+deid)){
 			return  nameMap.get(p+deid);
@@ -232,12 +245,12 @@ public class DeIDTagScrubber {
 		nameMap.put(p+deid,name);
 		
 		// lets add name without middle name initial
-		if(deid.matches("[A-Z]+ [A-Z]+ [A-Z]+"))
-			nameMap.put(p+deid.substring(0,deid.lastIndexOf(" ")),name);
+		//if(deid.matches("[A-Z]+ [A-Z]+ [A-Z]+"))
+		//	nameMap.put(p+deid.substring(0,deid.lastIndexOf(" ")),name);
 		
 		// lets add just last name
-		if(deid.contains(" ") && name.contains(" "))
-			nameMap.put(p+deid.substring(0,deid.indexOf(" ")),name);
+		//if(deid.contains(" ") && name.contains(" "))
+		//	nameMap.put(p+deid.substring(0,deid.indexOf(" ")),name);
 			//nameMap.put(p+deid.substring(0,deid.indexOf(" ")),name.substring(name.indexOf(" ")+1));
 		
 		return name;
@@ -280,8 +293,8 @@ public class DeIDTagScrubber {
 	 */
 	public static void main(String[] args) throws Exception {
 		String type = "Ovarian";
-		File fd = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.deid.fixed");
-		File fs = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered.scrubbed");
+		File fd = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered_addendum.deid.fixed");
+		File fs = new File("/home/tseytlin/Data/DeepPhe/Samples/CARe_Sample_Apr-2015/"+type+"/"+type.toLowerCase()+"_sample_filtered_addendum.scrubbed");
 		/*File fd = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.deid.fixed");
 		File fs = new File("/home/tseytlin/Data/DeepPhe/"+type+"/"+type.toLowerCase()+"_patient_sample.scrubbed");*/
 		
