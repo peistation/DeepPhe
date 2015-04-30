@@ -61,9 +61,10 @@ public enum TnmStageFinder {
       private final TnmMandatory __mandatory;
       private final int __startOffset;
       private final int __endOffset;
-      private final int __value;
+      private final String __value;
+
       private TnmStage( final TnmPrefix prefix, final TnmMandatory mandatory, final int startOffset, final int endOffset,
-                        final int value ) {
+                        final String value ) {
          __prefix = prefix;
          __mandatory = mandatory;
          __startOffset = startOffset;
@@ -178,7 +179,8 @@ public enum TnmStageFinder {
                startOffset -= 1;
             }
             stages.add( new TnmStage( prefix, tnmMandatory, startOffset, matcher.end(),
-                  getTnmValue( lookupWindow, matcher.start(), matcher.end() ) ) );
+//                  getTnmValue( lookupWindow, matcher.start(), matcher.end() ) ) );
+                  lookupWindow.substring( matcher.start()+1, matcher.end() ) ) );
          }
       }
       return stages;
