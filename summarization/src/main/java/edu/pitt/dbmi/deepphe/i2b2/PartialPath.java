@@ -1,7 +1,11 @@
 package edu.pitt.dbmi.deepphe.i2b2;
 
+import static org.semanticweb.owlapi.search.Searcher.annotations;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import org.semanticweb.owlapi.model.OWLAnnotation;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.reasoner.Node;
 import org.semanticweb.owlapi.reasoner.NodeSet;
@@ -12,12 +16,20 @@ import org.semanticweb.owlapi.reasoner.OWLReasoner;
  * @author kjm84
  */
 public class PartialPath implements Comparable<PartialPath> {
+	
+	private static int baseCodeGenerator = 0;
     
     private String path = "\\DEEPPHE";
     private int level = 0;
+    private boolean isLeaf = true;
+    private String baseCode = null;
     
+    private PreferredCuiExtractor pce = new PreferredCuiExtractor();
     private OWLReasoner reasoner;
     private OWLClass cls;
+    
+    public PartialPath() {
+    }
     
     public boolean isExpandable() {
         if (reasoner == null || cls == null) {
@@ -48,6 +60,9 @@ public class PartialPath implements Comparable<PartialPath> {
             pathExtension.setCls(subCls);
             pathExtension.setPath(path);
             pathExtension.setLevel(level + 1);
+            if (isLeaf()) {
+            	setLeaf(false);
+            }
             extensions.add(pathExtension);
         }
         
@@ -60,6 +75,16 @@ public class PartialPath implements Comparable<PartialPath> {
     
     public void setCls(OWLClass cls) {
         this.cls = cls;
+        for (OWLAnnotation anno : annotations(reasoner.getRootOntology()
+				.getAnnotationAssertionAxioms(cls.getIRI()))) {
+			anno.accept(pce);
+		}
+		if (pce.getResult() != null) {
+			setBaseCode(pce.getResult());
+		} 
+		else {
+			setBaseCode("deepphe:" + String.format("%7d", baseCodeGenerator++).replaceAll("\\s", "0"));
+		}
     }
     
     public String getPath() {
@@ -102,6 +127,21 @@ public class PartialPath implements Comparable<PartialPath> {
             
         }
     }
-    
+
+	public boolean isLeaf() {
+		return isLeaf;
+	}
+
+	public void setLeaf(boolean isLeaf) {
+		this.isLeaf = isLeaf;
+	}
+
+	public String getBaseCode() {
+		return baseCode;	
+	}
+
+	public void setBaseCode(String baseCode) {
+		this.baseCode = baseCode;
+	}
     
 }
