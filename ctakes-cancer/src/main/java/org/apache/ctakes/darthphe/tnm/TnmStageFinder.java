@@ -1,6 +1,13 @@
 package org.apache.ctakes.darthphe.tnm;
 
+import org.apache.ctakes.cancer.type.relation.TnmStageTextRelation;
+import org.apache.ctakes.cancer.type.textsem.*;
+import org.apache.ctakes.typesystem.type.relation.RelationArgument;
+import org.apache.ctakes.typesystem.type.textsem.DiseaseDisorderMention;
 import org.apache.log4j.Logger;
+import org.apache.uima.cas.text.AnnotationFS;
+import org.apache.uima.jcas.JCas;
+import org.apache.uima.jcas.cas.FSArray;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -19,25 +26,26 @@ public enum TnmStageFinder {
    }
 
 
-   static private final Logger LOGGER = Logger.getLogger( "TnmRegexFinder" );
+   static private final Logger LOGGER = Logger.getLogger( "TnmStageFinder" );
 
    static private final Pattern WHITESPACE_PATTERN = Pattern.compile( "\\s+" );
 
-   static private class FullTnmStage {
-      private final Collection<TnmStage> __stages;
-      private final Collection<TnmOption> __optionalParameters;
+   static private class MalignantTumorClassification {
+      private final Map<MalignantClassType,MalignantClass> __malignantClassMap;
+      private final Collection<MalignantClassificationOption> __classificationOptions;
       private final int __startOffset;
       private final int __endOffset;
-      private FullTnmStage( final Collection<TnmStage> stages, final Collection<TnmOption> optionalParameters ) {
-         __stages = new ArrayList<>( stages );
-         __optionalParameters = new ArrayList<>( optionalParameters );
+      private MalignantTumorClassification( final Map<MalignantClassType, MalignantClass> malignantClassMap,
+                                            final Collection<MalignantClassificationOption> classificationOptions ) {
+         __malignantClassMap = malignantClassMap;
+         __classificationOptions = new ArrayList<>( classificationOptions );
          int startOffset = Integer.MAX_VALUE;
          int endOffset = Integer.MIN_VALUE;
-         for ( TnmStage stage : stages ) {
+         for ( MalignantClass stage : malignantClassMap.values() ) {
             startOffset = Math.min( stage.__startOffset, startOffset );
             endOffset = Math.max( stage.__endOffset, endOffset );
          }
-         for ( TnmOption option : optionalParameters ) {
+         for ( MalignantClassificationOption option : classificationOptions ) {
             endOffset = Math.max( option.__endOffset, endOffset );
          }
          __startOffset = startOffset;
@@ -45,10 +53,13 @@ public enum TnmStageFinder {
       }
       public String toString() {
          final StringBuilder sb = new StringBuilder();
-         for ( TnmStage stage : __stages ) {
-            sb.append( stage.toString() ).append( ", " );
+         for ( MalignantClassType classType : MalignantClassType.values() ) {
+            final MalignantClass stage = __malignantClassMap.get( classType );
+            if ( stage != null ) {
+               sb.append( stage.toString() ).append( ", " );
+            }
          }
-         for ( TnmOption option : __optionalParameters ) {
+         for ( MalignantClassificationOption option : __classificationOptions ) {
             sb.append( option.toString() ).append( ", " );
          }
          sb.setLength( sb.length()-1 );
@@ -56,43 +67,47 @@ public enum TnmStageFinder {
       }
    }
 
-   static private class TnmStage {
-      private final TnmPrefix __prefix;
-      private final TnmMandatory __mandatory;
+   static private class MalignantClass {
+      private final MaligantClassPrefixType __classPrefixType;
+      private final MalignantClassType __classType;
       private final int __startOffset;
       private final int __endOffset;
       private final String __value;
 
-      private TnmStage( final TnmPrefix prefix, final TnmMandatory mandatory, final int startOffset, final int endOffset,
-                        final String value ) {
-         __prefix = prefix;
-         __mandatory = mandatory;
+      private MalignantClass( final MaligantClassPrefixType classPrefixType,
+                              final MalignantClassType classType,
+                              final int startOffset,
+                              final int endOffset,
+                              final String value ) {
+         __classPrefixType = classPrefixType;
+         __classType = classType;
          __startOffset = startOffset;
          __endOffset = endOffset;
          __value = value;
       }
       public String toString() {
-         return __mandatory.__title + ": " + __value + " ; " + __prefix.__title;
+         return __classType.__title + ": " + __value + " ; " + __classPrefixType.__title;
       }
    }
 
-   static private class TnmOption {
+   static private class MalignantClassificationOption {
       static private final String CERTAINTY_TITLE = "Certainty of last mentioned parameter";
-      private final OptionalParameter __optionalParameter;
+      private final MalignantOptionType __optionType;
       private final int __startOffset;
       private final int __endOffset;
       private final int __value;
       private final int __certainty;
-      private TnmOption( final OptionalParameter optionalParameter, final int startOffset, final int endOffset,
-                         final int value, final int certainty ) {
-         __optionalParameter = optionalParameter;
+      private MalignantClassificationOption( final MalignantOptionType optionType,
+                                             final int startOffset, final int endOffset,
+                                             final int value, final int certainty ) {
+         __optionType = optionType;
          __startOffset = startOffset;
          __endOffset = endOffset;
          __value = value;
          __certainty = certainty;
       }
       public String toString() {
-         return __optionalParameter.__title +  ": " + __value
+         return __optionType.__title +  ": " + __value
                 + ( __certainty > 0 ? " , " + CERTAINTY_TITLE + ": " + __certainty : "" );
       }
    }
@@ -100,14 +115,14 @@ public enum TnmStageFinder {
    // http://en.wikipedia.org/wiki/TNM_staging_system
    // http://www.cancer.gov/cancertopics/diagnosis-staging/staging/staging-fact-sheet
    // http://cancerstaging.blogspot.it
-   static private enum TnmMandatory {
+   static private enum MalignantClassType {
       T( 0, "Size or direct extent of the primary tumor", "T(x|is|[0-4][a-z]?)(\\((m|\\d+)?,?(is)?\\))?" ),
       N( 1, "Degree of spread to regional lymph nodes", "N(x|[0-3][a-z]?)" ),
       M( 2, "Presence of distant metastasis", "M(x|[0-1][a-z]?)" );
       final private int __order;
       final private String __title;
       final private Pattern __pattern;
-      private TnmMandatory( final int order, final String title, final String regex ) {
+      private MalignantClassType( final int order, final String title, final String regex ) {
          __order = order;
          __title = title;
          __pattern = Pattern.compile( regex );
@@ -117,7 +132,7 @@ public enum TnmStageFinder {
       }
    }
 
-   static private enum TnmPrefix {
+   static private enum MaligantClassPrefixType {
       C( "Stage given by clinical examination", 'c' ),
       P( "Stage given by pathologic examination", 'p' ),
       Y( "Stage assessed after chemotherapy and/or radiation", 'y' ),
@@ -127,16 +142,16 @@ public enum TnmStageFinder {
       UNSPECIFIED( "Stage determination unspecified; assume clinical examination", '-' );
       final private String __title;
       final private char __characterCode;
-      private TnmPrefix( final String title, final char characterCode ) {
+      private MaligantClassPrefixType( final String title, final char characterCode ) {
          __title = title;
          __characterCode = characterCode;
       }
-      static private TnmPrefix getPrefix( final CharSequence lookupWindow, final int stageStartOffset ) {
+      static private MaligantClassPrefixType getPrefix( final CharSequence lookupWindow, final int stageStartOffset ) {
          if ( stageStartOffset <= 0 ) {
             return UNSPECIFIED;
          }
          final char c = lookupWindow.charAt( stageStartOffset-1 );
-         for ( TnmPrefix prefix : values() ) {
+         for ( MaligantClassPrefixType prefix : values() ) {
             if ( c == prefix.__characterCode ) {
                return prefix;
             }
@@ -148,7 +163,7 @@ public enum TnmStageFinder {
 
 
    // http://en.wikipedia.org/wiki/TNM_staging_system
-   static private enum OptionalParameter {
+   static private enum MalignantOptionType {
       G( "Grade of cancer cells", "G[1-4](C[1-5])?" ),
       S( "Elevation of serum tumor markers", "S[0-3](C[1-5])?" ),
       R( "Completeness of the operation", "R[0-2](C[1-5])?" ),
@@ -156,7 +171,7 @@ public enum TnmStageFinder {
       V( "Invasion into vein", "V[0-2](C[1-5])?" );
       final private String __title;
       final private Pattern __pattern;
-      private OptionalParameter( final String title, final String regex ) {
+      private MalignantOptionType( final String title, final String regex ) {
          __title = title;
          __pattern = Pattern.compile( regex );
       }
@@ -168,18 +183,17 @@ public enum TnmStageFinder {
       }
    }
 
-   static private List<TnmStage> getTnmStages( final String lookupWindow ) {
-      final List<TnmStage> stages = new ArrayList<>();
-      for ( TnmMandatory tnmMandatory : TnmMandatory.values() ) {
-         final Matcher matcher = tnmMandatory.getMatcher( lookupWindow );
+   static private List<MalignantClass> getMalignantClasses( final String lookupWindow ) {
+      final List<MalignantClass> stages = new ArrayList<>();
+      for ( MalignantClassType classType : MalignantClassType.values() ) {
+         final Matcher matcher = classType.getMatcher( lookupWindow );
          while ( matcher.find() ) {
             int startOffset = matcher.start();
-            final TnmPrefix prefix = TnmPrefix.getPrefix( lookupWindow, startOffset );
-            if ( prefix != TnmPrefix.UNSPECIFIED ) {
+            final MaligantClassPrefixType prefix = MaligantClassPrefixType.getPrefix( lookupWindow, startOffset );
+            if ( prefix != MaligantClassPrefixType.UNSPECIFIED ) {
                startOffset -= 1;
             }
-            stages.add( new TnmStage( prefix, tnmMandatory, startOffset, matcher.end(),
-//                  getTnmValue( lookupWindow, matcher.start(), matcher.end() ) ) );
+            stages.add( new MalignantClass( prefix, classType, startOffset, matcher.end(),
                   lookupWindow.substring( matcher.start()+1, matcher.end() ) ) );
          }
       }
@@ -187,7 +201,8 @@ public enum TnmStageFinder {
    }
 
 
-   static private Collection<TnmOption> getTnmOptions( final CharSequence lookupWindow, final int stageEndIndex ) {
+   static private Collection<MalignantClassificationOption> getMalignantOptions( final CharSequence lookupWindow,
+                                                                                 final int stageEndIndex ) {
       if ( stageEndIndex >= lookupWindow.length() ) {
          return Collections.emptyList();
       }
@@ -200,14 +215,14 @@ public enum TnmStageFinder {
       if ( splits.length < 1 ) {
          return Collections.emptyList();
       }
-      final Collection<TnmOption> options = new ArrayList<>();
-      for ( OptionalParameter parameter : OptionalParameter.values() ) {
+      final Collection<MalignantClassificationOption> options = new ArrayList<>();
+      for ( MalignantOptionType parameter : MalignantOptionType.values() ) {
          final Matcher matcher = parameter.getMatcher( splits[0] );
          while ( matcher.find() ) {
-            options.add( new TnmOption( parameter,
+            options.add( new MalignantClassificationOption( parameter,
                   stageEndIndex+matcher.start(), stageEndIndex+matcher.end(),
-                  getTnmValue( splits[0], matcher.start(), matcher.end() ),
-                  getOptionCertainty( splits[0], matcher.start(), matcher.end() ) ) );
+                  getIntValue( splits[ 0 ], matcher.start(), matcher.end() ),
+                  getOptionCertainty( splits[ 0 ], matcher.start(), matcher.end() ) ) );
          }
       }
       return options;
@@ -217,55 +232,57 @@ public enum TnmStageFinder {
       if ( endOffset - startOffset != 4 ) {
          return -1;
       }
-      return getTnmValue( text, endOffset-2, endOffset );
+      return getIntValue( text, endOffset - 2, endOffset );
    }
 
 
-   static private Collection<FullTnmStage> getFullTnmStages( final String lookupWindow ) {
-      final List<TnmStage> stages = getTnmStages( lookupWindow );
+   static private Collection<MalignantTumorClassification> getMalignantTumorClassifications( final String lookupWindow ) {
+      final List<MalignantClass> stages = getMalignantClasses( lookupWindow );
       if ( stages.isEmpty() ) {
          return Collections.emptyList();
       }
-      Collections.sort( stages, TnmStageOffsetComparator.getInstance() );
-      final Collection<FullTnmStage> fullStages = new ArrayList<>();
-      Collection<TnmStage> currentStages = new ArrayList<>( 3 );
+      Collections.sort( stages, MalignantClassOffsetComparator.getInstance() );
+      final Collection<MalignantTumorClassification> classifications = new ArrayList<>();
+      final EnumMap<MalignantClassType,MalignantClass> malignantClassMap = new EnumMap<>( MalignantClassType.class );
       int currentOrder = -1;
       int currentStart = -1;
       int currentEnd = -1;
-      for ( TnmStage stage : stages ) {
+      for ( MalignantClass stage : stages ) {
          if ( currentStart < 0 ) {
-            currentOrder = stage.__mandatory.__order;
+            currentOrder = stage.__classType.__order;
             currentStart = stage.__startOffset;
-         } else if ( stage.__mandatory.__order <= currentOrder || stage.__startOffset > currentEnd + 1 ) {
+         } else if ( stage.__classType.__order <= currentOrder || stage.__startOffset > currentEnd + 1 ) {
             // Ordering of TNM is set, so if things occur out of order start a new one
             // Or if the next start is more than one space away then start a new one
-            fullStages.add( new FullTnmStage( currentStages, getTnmOptions( lookupWindow, currentEnd ) ) );
-            currentStages.clear();
+            classifications.add( new MalignantTumorClassification( malignantClassMap,
+                  getMalignantOptions( lookupWindow, currentEnd ) ) );
+            malignantClassMap.clear();
             currentStart = stage.__startOffset;
          }
-         currentStages.add( stage );
+         malignantClassMap.put( stage.__classType, stage );
          currentEnd = stage.__endOffset;
       }
-      fullStages.add( new FullTnmStage( currentStages, getTnmOptions( lookupWindow, currentEnd ) ) );
-      return fullStages;
+      classifications.add( new MalignantTumorClassification( malignantClassMap,
+            getMalignantOptions( lookupWindow, currentEnd ) ) );
+      return classifications;
    }
 
-   private enum TnmStageOffsetComparator implements Comparator<TnmStage> {
+   private enum MalignantClassOffsetComparator implements Comparator<MalignantClass> {
       INSTANCE;
-      public static TnmStageOffsetComparator getInstance() {
+      public static MalignantClassOffsetComparator getInstance() {
          return INSTANCE;
       }
       @Override
-      public int compare( final TnmStage stage1, final TnmStage stage2 ) {
+      public int compare( final MalignantClass stage1, final MalignantClass stage2 ) {
          return stage1.__startOffset - stage2.__startOffset;
       }
    }
 
-   static private int getTnmValue( final String text, final int startOffset, final int endOffset ) {
-      return getTnmValue( text.substring( startOffset, endOffset ) );
+   static private int getIntValue( final String text, final int startOffset, final int endOffset ) {
+      return getIntValue( text.substring( startOffset, endOffset ) );
    }
 
-   static private int getTnmValue( final String tnmItem ) {
+   static private int getIntValue( final String tnmItem ) {
       final String tnmNum = tnmItem.substring( 1, 2 );
       try {
          return Integer.parseInt( tnmNum );
@@ -275,20 +292,116 @@ public enum TnmStageFinder {
       return -1;
    }
 
-
-
-
-   public Collection<String> getMalignantTumorClasses( final String lookupWindow ) {
-      System.out.println( lookupWindow );
-      final Collection<FullTnmStage> fullTnmStages = getFullTnmStages( lookupWindow );
-      final Collection<String> tumorClasses = new ArrayList<>();
-      for ( FullTnmStage fullTnmStage : fullTnmStages ) {
-         final String tumorClass = lookupWindow.substring( fullTnmStage.__startOffset, fullTnmStage.__endOffset );
-         System.out.println( "\t" + tumorClass + "\n\t" + fullTnmStage.toString().replace( ',', '\n' ) );
-         tumorClasses.add( tumorClass );
+   public void addMalignantTumorClasses( final JCas jcas, final AnnotationFS lookupWindow,
+                                         final Iterable<DiseaseDisorderMention> lookupWindowT191s ) {
+      final Collection<MalignantTumorClassification> malignantTumorClassifications
+            = getMalignantTumorClassifications( lookupWindow.getCoveredText() );
+      if ( malignantTumorClassifications.isEmpty() ) {
+         return;
       }
-      return tumorClasses;
+      for ( MalignantTumorClassification classification : malignantTumorClassifications ) {
+         final DiseaseDisorderMention closestMention = getClosestEventMention( classification, lookupWindowT191s );
+         final TnmClassification tnmAnnotation = createTnmAnnotation( jcas, classification );
+         addTnmRelationToCas( jcas, tnmAnnotation, closestMention );
+      }
    }
 
+   static private DiseaseDisorderMention getClosestEventMention( final MalignantTumorClassification classification,
+                                                       final Iterable<DiseaseDisorderMention> lookupWindowT191s ) {
+      DiseaseDisorderMention closestMention = null;
+      int smallestGap = Integer.MAX_VALUE;
+      for ( DiseaseDisorderMention disorderMention : lookupWindowT191s ) {
+         final int gap = Math.min( disorderMention.getBegin() - classification.__endOffset,
+               classification.__startOffset - disorderMention.getEnd() );
+         if ( gap < smallestGap ) {
+            closestMention = disorderMention;
+            smallestGap = gap;
+         }
+      }
+      return closestMention;
+   }
+
+   static private TnmClassification createTnmAnnotation( final JCas jcas, final MalignantTumorClassification classification ) {
+      final TnmClassification tnmClassificationType = new TnmClassification( jcas,
+            classification.__startOffset, classification.__endOffset );
+      final MalignantClass sizeClass = classification.__malignantClassMap.get( MalignantClassType.T );
+      if ( sizeClass != null ) {
+         final TnmSize tnmSizeFeature = new TnmSize( jcas );
+         populateTnmStageFeature( jcas, tnmSizeFeature, sizeClass );
+         tnmClassificationType.setSize( tnmSizeFeature );
+      }
+      final MalignantClass nodeSpreadClass = classification.__malignantClassMap.get( MalignantClassType.N );
+      if ( nodeSpreadClass != null ) {
+         final TnmNodeSpread tnmNodeFeature = new TnmNodeSpread( jcas );
+         populateTnmStageFeature( jcas, tnmNodeFeature, nodeSpreadClass );
+         tnmClassificationType.setNodeSpread( tnmNodeFeature );
+      }
+      final MalignantClass metastasisClass = classification.__malignantClassMap.get( MalignantClassType.M );
+      if ( metastasisClass != null ) {
+         final TnmMetastasis tnmMetastasisFeature = new TnmMetastasis( jcas );
+         populateTnmStageFeature( jcas, tnmMetastasisFeature, metastasisClass );
+         tnmClassificationType.setMetastasis( tnmMetastasisFeature );
+      }
+      if ( !classification.__classificationOptions.isEmpty() ) {
+         final FSArray optionFeatures = new FSArray( jcas, classification.__classificationOptions.size() );
+         int arrIdx = 0;   // outdated variable name for outdated collection type
+         for ( MalignantClassificationOption option : classification.__classificationOptions ) {
+            final TnmOption tnmOptionFeature = new TnmOption( jcas );
+            tnmOptionFeature.setCode( option.__optionType.name() );
+            tnmOptionFeature.setDescription( option.__optionType.getTitle() );
+            tnmOptionFeature.setValue( option.__value );
+            tnmOptionFeature.setCertainty( option.__certainty );
+            optionFeatures.set( arrIdx, tnmOptionFeature );
+            arrIdx++;
+         }
+         tnmClassificationType.setOptions( optionFeatures );
+      }
+      tnmClassificationType.addToIndexes();
+      return tnmClassificationType;
+   }
+
+   static private TnmStagePrefix createTnmStagePrefix( final JCas jcas, final MalignantClass malignantClass ) {
+      final MaligantClassPrefixType prefixType = malignantClass.__classPrefixType;
+      final TnmStagePrefix tnmStagePrefix = new TnmStagePrefix( jcas );
+      tnmStagePrefix.setCode( prefixType.__characterCode + "" );
+      tnmStagePrefix.setDescription( prefixType.__title );
+      return tnmStagePrefix;
+   }
+
+   static private void populateTnmStageFeature( final JCas jcas,
+                                                    final TnmStage tnmStageFeature, final MalignantClass malignantClass ) {
+      tnmStageFeature.setPrefix( createTnmStagePrefix( jcas, malignantClass ) );
+      tnmStageFeature.setCode( malignantClass.__classType.name() );
+      tnmStageFeature.setDescription( malignantClass.__classType.__title );
+      tnmStageFeature.setValue( malignantClass.__value );
+   }
+
+   /**
+    * Create a UIMA relation type based on arguments and the relation label. This
+    * allows subclasses to create/define their own types: e.g. coreference can
+    * create CoreferenceRelation instead of BinaryTextRelation
+    *
+    * @param jCas - JCas object, needed to create new UIMA types
+    * @param tnmClassification - First argument to relation
+    * @param disorderMention - Second argument to relation
+    */
+   static private void addTnmRelationToCas( final JCas jCas,
+                                            final TnmClassification tnmClassification,
+                                            final DiseaseDisorderMention disorderMention ) {
+      // add the relation to the CAS
+      final RelationArgument tnmClassificationArgument = new RelationArgument( jCas );
+      tnmClassificationArgument.setArgument( tnmClassification );
+      tnmClassificationArgument.setRole( "Argument" );
+      tnmClassificationArgument.addToIndexes();
+      final RelationArgument disorderMentionArgument = new RelationArgument( jCas );
+      disorderMentionArgument.setArgument( disorderMention );
+      disorderMentionArgument.setRole( "Related_to" );
+      disorderMentionArgument.addToIndexes();
+      final TnmStageTextRelation tnmStageTextRelation = new TnmStageTextRelation( jCas );
+      tnmStageTextRelation.setArg1( tnmClassificationArgument );
+      tnmStageTextRelation.setArg2( disorderMentionArgument );
+      tnmStageTextRelation.setCategory( "TNM_Stage" );
+      tnmStageTextRelation.addToIndexes();
+   }
 
 }
