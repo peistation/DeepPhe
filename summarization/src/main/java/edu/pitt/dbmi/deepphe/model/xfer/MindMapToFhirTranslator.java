@@ -280,6 +280,7 @@ public class MindMapToFhirTranslator {
 		return fhirTargetElement;
 	}
 
+	@SuppressWarnings("unused")
 	private void displayFhirVisited() {
 		for (String key : fhirVisited.keySet()) {
 			Element complexType = fhirVisited.get(key);
