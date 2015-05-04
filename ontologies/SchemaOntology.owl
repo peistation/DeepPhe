@@ -21,7 +21,6 @@
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Import>http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl</Import>
     <Annotation>
         <AnnotationProperty IRI="#author"/>
         <Literal datatypeIRI="&rdf;PlainLiteral">Melissa Tharp</Literal>
@@ -44,6 +43,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#AnatomicalSite"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Annotation"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Attribute"/>
@@ -76,9 +78,6 @@
         <Class IRI="#Course"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Datatypes"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Date"/>
     </Declaration>
     <Declaration>
@@ -86,6 +85,12 @@
     </Declaration>
     <Declaration>
         <Class IRI="#DeltaFlag"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DimensionalMeasurement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DiseaseDisorder"/>
     </Declaration>
     <Declaration>
         <Class IRI="#DocTimeRel"/>
@@ -127,6 +132,9 @@
         <Class IRI="#Experiencer"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Finding"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Frequency"/>
     </Declaration>
     <Declaration>
@@ -139,7 +147,7 @@
         <Class IRI="#LinguisticAttribute"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Medication"/>
+        <Class IRI="#MaritalStatus"/>
     </Declaration>
     <Declaration>
         <Class IRI="#MedicationForm"/>
@@ -154,7 +162,13 @@
         <Class IRI="#MedicationStrength"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Medicine"/>
+        <Class IRI="#Medication_FHIR"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mstage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Nstage"/>
     </Declaration>
     <Declaration>
         <Class IRI="#NumericAttribute"/>
@@ -226,7 +240,7 @@
         <Class IRI="#ReferenceRange"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#RegulationLaw"/>
+        <Class IRI="#Schedule"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Schedule_FHIR"/>
@@ -241,7 +255,7 @@
         <Class IRI="#Severity"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#SocialRiskFactor"/>
+        <Class IRI="#SignSymptom"/>
     </Declaration>
     <Declaration>
         <Class IRI="#SocialRiskQualifier"/>
@@ -274,10 +288,10 @@
         <Class IRI="#Time"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Unit"/>
+        <Class IRI="#Tstage"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#VitalSign"/>
+        <Class IRI="#Unit"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#adjacent_to"/>
@@ -361,6 +375,15 @@
         <ObjectProperty IRI="#functionally_related_to"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#has1dimension"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#has2dimension"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#has3dimension"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasAgeAbatement"/>
     </Declaration>
     <Declaration>
@@ -377,6 +400,12 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasBodyLocation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasBodyQualifier"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasBodySide"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasCertainty"/>
@@ -448,6 +477,9 @@
         <ObjectProperty IRI="#hasForm"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasGender"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasHighQuantity"/>
     </Declaration>
     <Declaration>
@@ -463,6 +495,9 @@
         <ObjectProperty IRI="#hasMStage"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasMaritalStatus"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasMedication"/>
     </Declaration>
     <Declaration>
@@ -470,6 +505,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasNStage"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasName"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasNumAttribute"/>
@@ -490,13 +528,22 @@
         <ObjectProperty IRI="#hasPolarity"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasQuantity"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasRange"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasRate"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasReferenceRange"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasRelation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasRoute"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasSection"/>
@@ -529,6 +576,9 @@
         <ObjectProperty IRI="#hasStageValue"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasStatusChange"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasSubject"/>
     </Declaration>
     <Declaration>
@@ -542,6 +592,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasTemporality"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTiming"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasUnit"/>
@@ -632,6 +685,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#uses"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#asNeededBoolean"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasAbatementBoolean"/>
@@ -742,6 +798,9 @@
         <DataProperty IRI="#isBrand"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#isDeceased"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#wasNotGiven"/>
     </Declaration>
     <Declaration>
@@ -773,6 +832,9 @@
     </Declaration>
     <Declaration>
         <AnnotationProperty IRI="#prefLabel"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#regEx"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty IRI="#subjExpLabel"/>
@@ -1807,7 +1869,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#AllergyIntolerance"/>
-        <Class IRI="#Event"/>
+        <Class IRI="#Entity"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#AllergyIntolerance"/>
@@ -1841,16 +1903,20 @@
     <SubClassOf>
         <Class IRI="#AnatomicalSite"/>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasSemAttribute"/>
+            <ObjectProperty IRI="#hasBodyQualifier"/>
             <Class IRI="#BodyQualifier"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#AnatomicalSite"/>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasSemAttribute"/>
+            <ObjectProperty IRI="#hasBodySide"/>
             <Class IRI="#BodySide"/>
         </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Annotation"/>
+        <Class abbreviatedIRI="owl:Thing"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#BodyQualifier"/>
@@ -1863,6 +1929,45 @@
     <SubClassOf>
         <Class IRI="#Certainty"/>
         <Class IRI="#LinguisticAttribute"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Composition"/>
+        <Class IRI="#Annotation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Composition"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasDocType"/>
+            <Class IRI="#DocumentOntology"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Composition"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasEvent"/>
+            <Class IRI="#CompositionEvent"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Composition"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasConfidentiality"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Composition"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasDateOfComposition"/>
+            <Datatype abbreviatedIRI="xsd:dateTime"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Composition"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasTitle"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#CompositionAttribute"/>
@@ -2026,6 +2131,35 @@
         <Class IRI="#SemanticAttribute"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#DimensionalMeasurement"/>
+        <Class IRI="#NumericAttribute"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DimensionalMeasurement"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#has1dimension"/>
+            <Class IRI="#Quantity_FHIR"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DimensionalMeasurement"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#has2dimension"/>
+            <Class IRI="#Quantity_FHIR"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DimensionalMeasurement"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#has3dimension"/>
+            <Class IRI="#Quantity_FHIR"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DiseaseDisorder"/>
+        <Class IRI="#Condition"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#DocTimeRel"/>
         <Class IRI="#LinguisticAttribute"/>
     </SubClassOf>
@@ -2058,6 +2192,48 @@
     <SubClassOf>
         <Class IRI="#Dosage"/>
         <Class IRI="#SemanticAttribute"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dosage"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasBodyLocation"/>
+            <Class IRI="#AnatomicalSite"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dosage"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasQuantity"/>
+            <Class IRI="#Quantity_FHIR"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dosage"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasRate"/>
+            <Class IRI="#Ratio_FHIR"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dosage"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasRoute"/>
+            <Class IRI="#MedicationRoute"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dosage"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasTiming"/>
+            <Class IRI="#Schedule"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dosage"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#asNeededBoolean"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
+        </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#DosageQuantity"/>
@@ -2127,7 +2303,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Element"/>
-        <Class abbreviatedIRI="owl:Thing"/>
+        <Class IRI="#Annotation"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Encounter"/>
@@ -2209,6 +2385,10 @@
         <Class IRI="#LinguisticAttribute"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Finding"/>
+        <Class IRI="#Condition"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Frequency"/>
         <Class IRI="#TemporalElement"/>
     </SubClassOf>
@@ -2232,7 +2412,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#HumanName_FHIR"/>
-        <Class IRI="#Datatypes"/>
+        <Class IRI="#SemanticAttribute"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#HumanName_FHIR"/>
@@ -2281,43 +2461,8 @@
         <Class IRI="#Attribute"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Medication"/>
-        <Class IRI="#Event"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Medication"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasSemAttribute"/>
-            <Class IRI="#DosageQuantity"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Medication"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasSemAttribute"/>
-            <Class IRI="#MedicationForm"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Medication"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasSemAttribute"/>
-            <Class IRI="#MedicationRoute"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Medication"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasSemAttribute"/>
-            <Class IRI="#MedicationStrength"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Medication"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasSemAttribute"/>
-            <Class IRI="#StatusChange"/>
-        </ObjectSomeValuesFrom>
+        <Class IRI="#MaritalStatus"/>
+        <Class IRI="#SemanticAttribute"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#MedicationForm"/>
@@ -2341,8 +2486,22 @@
     <SubClassOf>
         <Class IRI="#MedicationStatement"/>
         <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasDosage"/>
+            <Class IRI="#Dosage"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MedicationStatement"/>
+        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#hasMedication"/>
-            <Class IRI="#Medicine"/>
+            <Class IRI="#Medication_FHIR"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MedicationStatement"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasStatusChange"/>
+            <Class IRI="#StatusChange"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
@@ -2408,18 +2567,18 @@
         </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Medicine"/>
+        <Class IRI="#Medication_FHIR"/>
         <Class IRI="#Entity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Medicine"/>
+        <Class IRI="#Medication_FHIR"/>
         <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#hasForm"/>
             <Class IRI="#MedicationForm"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Medicine"/>
+        <Class IRI="#Medication_FHIR"/>
         <DataSomeValuesFrom>
             <DataProperty IRI="#hasKind"/>
             <DataOneOf>
@@ -2429,11 +2588,19 @@
         </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Medicine"/>
+        <Class IRI="#Medication_FHIR"/>
         <DataSomeValuesFrom>
             <DataProperty IRI="#isBrand"/>
             <Datatype abbreviatedIRI="xsd:boolean"/>
         </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mstage"/>
+        <Class IRI="#SemanticAttribute"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nstage"/>
+        <Class IRI="#SemanticAttribute"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#NumericAttribute"/>
@@ -2558,15 +2725,22 @@
     <SubClassOf>
         <Class IRI="#Patient"/>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasSemAttribute"/>
-            <Class IRI="#Age"/>
+            <ObjectProperty IRI="#hasGender"/>
+            <Class IRI="#Gender"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Patient"/>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasSemAttribute"/>
-            <Class IRI="#Gender"/>
+            <ObjectProperty IRI="#hasMaritalStatus"/>
+            <Class IRI="#MaritalStatus"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Patient"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasName"/>
+            <Class IRI="#HumanName_FHIR"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
@@ -2586,22 +2760,8 @@
     <SubClassOf>
         <Class IRI="#Patient"/>
         <DataSomeValuesFrom>
-            <DataProperty IRI="#hasFirstName"/>
-            <Datatype abbreviatedIRI="xsd:string"/>
-        </DataSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Patient"/>
-        <DataSomeValuesFrom>
-            <DataProperty IRI="#hasLastName"/>
-            <Datatype abbreviatedIRI="xsd:string"/>
-        </DataSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Patient"/>
-        <DataSomeValuesFrom>
-            <DataProperty IRI="#hasMiddleName"/>
-            <Datatype abbreviatedIRI="xsd:string"/>
+            <DataProperty IRI="#isDeceased"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
         </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
@@ -2624,7 +2784,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Period_FHIR"/>
-        <Class IRI="#Datatypes"/>
+        <Class IRI="#TemporalAttribute"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Period_FHIR"/>
@@ -2646,7 +2806,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Phenotype"/>
-        <Class IRI="#Element"/>
+        <Class IRI="#Annotation"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#PhenotypeAttribute"/>
@@ -2841,12 +3001,12 @@
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#RegulationLaw"/>
-        <Class IRI="#Event"/>
+        <Class IRI="#Schedule"/>
+        <Class IRI="#TemporalAttribute"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Schedule_FHIR"/>
-        <Class IRI="#Datatypes"/>
+        <Class IRI="#TemporalAttribute"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#SemanticAttribute"/>
@@ -2857,36 +3017,8 @@
         <Class IRI="#SemanticAttribute"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#SocialRiskFactor"/>
-        <Class IRI="#Event"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#SocialRiskFactor"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasSemAttribute"/>
-            <Class IRI="#DeltaFlag"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#SocialRiskFactor"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasSemAttribute"/>
-            <Class IRI="#SocialRiskQualifier"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#SocialRiskFactor"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasSemAttribute"/>
-            <Class IRI="#SocialRiskQuantity"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#SocialRiskFactor"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasSemAttribute"/>
-            <Class IRI="#SocialRiskStatus"/>
-        </ObjectSomeValuesFrom>
+        <Class IRI="#SignSymptom"/>
+        <Class IRI="#Condition"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#SocialRiskQualifier"/>
@@ -2921,8 +3053,29 @@
     <SubClassOf>
         <Class IRI="#Stage"/>
         <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasMStage"/>
+            <Class IRI="#Finding"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Stage"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasNStage"/>
+            <Class IRI="#Finding"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Stage"/>
+        <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#hasStageAssessment"/>
-            <Class IRI="#Element"/>
+            <Class IRI="#Annotation"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Stage"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasTStage"/>
+            <Class IRI="#Finding"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
@@ -2964,65 +3117,12 @@
         </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Tstage"/>
+        <Class IRI="#SemanticAttribute"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Unit"/>
         <Class IRI="#NumericAttribute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#VitalSign"/>
-        <Class IRI="#Event"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#VitalSign"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasSemAttribute"/>
-            <Class IRI="#DeltaFlag"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#VitalSign"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasSemAttribute"/>
-            <Class IRI="#OrdinalInterpretation"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://www.semanticweb.org/ontologies/2015/1/untitled-ontology-42#Composition"/>
-        <Class IRI="#Element"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://www.semanticweb.org/ontologies/2015/1/untitled-ontology-42#Composition"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasDocType"/>
-            <Class IRI="#DocumentOntology"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://www.semanticweb.org/ontologies/2015/1/untitled-ontology-42#Composition"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasEvent"/>
-            <Class IRI="#CompositionEvent"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://www.semanticweb.org/ontologies/2015/1/untitled-ontology-42#Composition"/>
-        <DataSomeValuesFrom>
-            <DataProperty IRI="#hasConfidentiality"/>
-            <Datatype abbreviatedIRI="xsd:string"/>
-        </DataSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://www.semanticweb.org/ontologies/2015/1/untitled-ontology-42#Composition"/>
-        <DataSomeValuesFrom>
-            <DataProperty IRI="#hasDateOfComposition"/>
-            <Datatype abbreviatedIRI="xsd:dateTime"/>
-        </DataSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://www.semanticweb.org/ontologies/2015/1/untitled-ontology-42#Composition"/>
-        <DataSomeValuesFrom>
-            <DataProperty IRI="#hasTitle"/>
-            <Datatype abbreviatedIRI="xsd:string"/>
-        </DataSomeValuesFrom>
     </SubClassOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#adjacent_to"/>
@@ -3133,6 +3233,18 @@
         <ObjectProperty IRI="#assoicated_with"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#has1dimension"/>
+        <ObjectProperty IRI="#hasNumAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#has2dimension"/>
+        <ObjectProperty IRI="#hasNumAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#has3dimension"/>
+        <ObjectProperty IRI="#hasNumAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasAgeAbatement"/>
         <ObjectProperty IRI="#hasSemAttribute"/>
     </SubObjectPropertyOf>
@@ -3150,6 +3262,14 @@
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasBodyLocation"/>
+        <ObjectProperty IRI="#hasSemAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasBodyQualifier"/>
+        <ObjectProperty IRI="#hasSemAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasBodySide"/>
         <ObjectProperty IRI="#hasSemAttribute"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
@@ -3245,6 +3365,10 @@
         <ObjectProperty IRI="#hasSemAttribute"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasGender"/>
+        <ObjectProperty IRI="#hasSemAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasHighQuantity"/>
         <ObjectProperty IRI="#hasAttribute"/>
     </SubObjectPropertyOf>
@@ -3265,6 +3389,10 @@
         <ObjectProperty IRI="#hasSemAttribute"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMaritalStatus"/>
+        <ObjectProperty IRI="#hasSemAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasMedication"/>
         <ObjectProperty IRI="#hasSemAttribute"/>
     </SubObjectPropertyOf>
@@ -3274,6 +3402,10 @@
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasNStage"/>
+        <ObjectProperty IRI="#hasSemAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasName"/>
         <ObjectProperty IRI="#hasSemAttribute"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
@@ -3297,11 +3429,23 @@
         <ObjectProperty IRI="#hasLingAttribute"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasQuantity"/>
+        <ObjectProperty IRI="#hasNumAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasRange"/>
         <ObjectProperty IRI="#hasNumAttribute"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasRate"/>
+        <ObjectProperty IRI="#hasNumAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasReferenceRange"/>
+        <ObjectProperty IRI="#hasSemAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasRoute"/>
         <ObjectProperty IRI="#hasSemAttribute"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
@@ -3341,6 +3485,10 @@
         <ObjectProperty IRI="#hasSemAttribute"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasStatusChange"/>
+        <ObjectProperty IRI="#hasSemAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasSubject"/>
         <ObjectProperty IRI="#hasSemAttribute"/>
     </SubObjectPropertyOf>
@@ -3355,6 +3503,10 @@
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasTemporality"/>
         <ObjectProperty IRI="#hasLingAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasTiming"/>
+        <ObjectProperty IRI="#hasTempAttribute"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#indicates"/>
@@ -3473,6 +3625,18 @@
         <ObjectProperty IRI="#functionally_related_to"/>
     </SubObjectPropertyOf>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has1dimension"/>
+        <Class IRI="#DimensionalMeasurement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has2dimension"/>
+        <Class IRI="#DimensionalMeasurement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has3dimension"/>
+        <Class IRI="#DimensionalMeasurement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasAgeAbatement"/>
         <Class IRI="#Condition"/>
     </ObjectPropertyDomain>
@@ -3490,11 +3654,15 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasAttribute"/>
-        <Class IRI="#Element"/>
+        <Class IRI="#Annotation"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasBodyLocation"/>
         <Class IRI="#Condition"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasBodyLocation"/>
+        <Class IRI="#Dosage"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasBodyLocation"/>
@@ -3505,16 +3673,24 @@
         <Class IRI="#ProcedureIntervention"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasBodyQualifier"/>
+        <Class IRI="#AnatomicalSite"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasBodySide"/>
+        <Class IRI="#AnatomicalSite"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasCertainty"/>
         <Class IRI="#Event"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasCompAttribute"/>
-        <Class IRI="#CompositionAttribute"/>
+        <Class IRI="#Composition"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasCompAttribute"/>
-        <Class IRI="http://www.semanticweb.org/ontologies/2015/1/untitled-ontology-42#Composition"/>
+        <Class IRI="#CompositionAttribute"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasCompletionStatus"/>
@@ -3522,11 +3698,11 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasContent"/>
-        <Class IRI="#DocumentSection"/>
+        <Class IRI="#Composition"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasContent"/>
-        <Class IRI="http://www.semanticweb.org/ontologies/2015/1/untitled-ontology-42#Composition"/>
+        <Class IRI="#DocumentSection"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasContextualAspect"/>
@@ -3586,7 +3762,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasDocType"/>
-        <Class IRI="http://www.semanticweb.org/ontologies/2015/1/untitled-ontology-42#Composition"/>
+        <Class IRI="#Composition"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasDosage"/>
@@ -3602,7 +3778,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasEvent"/>
-        <Class IRI="http://www.semanticweb.org/ontologies/2015/1/untitled-ontology-42#Composition"/>
+        <Class IRI="#Composition"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasExperiencer"/>
@@ -3610,7 +3786,11 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasForm"/>
-        <Class IRI="#Medicine"/>
+        <Class IRI="#Medication_FHIR"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasGender"/>
+        <Class IRI="#Patient"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasHighQuantity"/>
@@ -3622,11 +3802,19 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasLingAttribute"/>
-        <Class IRI="#Element"/>
+        <Class IRI="#Annotation"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasLowQuantity"/>
         <Class IRI="#Range_FHIR"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMStage"/>
+        <Class IRI="#Stage"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasMaritalStatus"/>
+        <Class IRI="#Patient"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasMedication"/>
@@ -3635,6 +3823,14 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasMethod"/>
         <Class IRI="#Observation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasNStage"/>
+        <Class IRI="#Stage"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasName"/>
+        <Class IRI="#Patient"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasNumValue"/>
@@ -3650,11 +3846,19 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasPolarity"/>
-        <Class IRI="#Element"/>
+        <Class IRI="#Annotation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasQuantity"/>
+        <Class IRI="#Dosage"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasRange"/>
         <Class IRI="#ReferenceRange"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasRate"/>
+        <Class IRI="#Dosage"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasReferenceRange"/>
@@ -3662,19 +3866,23 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasRelation"/>
-        <Class IRI="#Element"/>
+        <Class IRI="#Annotation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasRoute"/>
+        <Class IRI="#Dosage"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSection"/>
+        <Class IRI="#Composition"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasSection"/>
         <Class IRI="#DocumentSection"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSection"/>
-        <Class IRI="http://www.semanticweb.org/ontologies/2015/1/untitled-ontology-42#Composition"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasSectionTag"/>
-        <Class IRI="#Element"/>
+        <Class IRI="#Annotation"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasSectionType"/>
@@ -3682,7 +3890,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasSemAttribute"/>
-        <Class IRI="#Element"/>
+        <Class IRI="#Annotation"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasSensitivityType"/>
@@ -3705,6 +3913,10 @@
         <Class IRI="#Stage"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasStatusChange"/>
+        <Class IRI="#MedicationStatement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasSubject"/>
         <Class IRI="#Condition"/>
     </ObjectPropertyDomain>
@@ -3715,6 +3927,10 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasSubject"/>
         <Class IRI="#ProcedureIntervention"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasTStage"/>
+        <Class IRI="#Stage"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasTempAttribute"/>
@@ -3729,6 +3945,10 @@
         <Class IRI="#Event"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasTiming"/>
+        <Class IRI="#Dosage"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasUnit"/>
         <Class IRI="#NumericAttribute"/>
     </ObjectPropertyDomain>
@@ -3736,6 +3956,18 @@
         <ObjectProperty IRI="#hasUnit"/>
         <Class IRI="#Quantity_FHIR"/>
     </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#has1dimension"/>
+        <Class IRI="#Quantity_FHIR"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#has2dimension"/>
+        <Class IRI="#Quantity_FHIR"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#has3dimension"/>
+        <Class IRI="#Quantity_FHIR"/>
+    </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasAgeAbatement"/>
         <Class IRI="#Age"/>
@@ -3755,6 +3987,18 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasAttribute"/>
         <Class IRI="#Attribute"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasBodyLocation"/>
+        <Class IRI="#AnatomicalSite"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasBodyQualifier"/>
+        <Class IRI="#BodyQualifier"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasBodySide"/>
+        <Class IRI="#BodySide"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasCertainty"/>
@@ -3885,6 +4129,10 @@
         <Class IRI="#MedicationForm"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasGender"/>
+        <Class IRI="#Gender"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasHighQuantity"/>
         <Class IRI="#Quantity_FHIR"/>
     </ObjectPropertyRange>
@@ -3901,12 +4149,28 @@
         <Class IRI="#Quantity_FHIR"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMStage"/>
+        <Class IRI="#Mstage"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasMaritalStatus"/>
+        <Class IRI="#MaritalStatus"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasMedication"/>
-        <Class IRI="#Medicine"/>
+        <Class IRI="#Medication_FHIR"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasMethod"/>
         <Class IRI="#ProcedureIntervention"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasNStage"/>
+        <Class IRI="#Nstage"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasName"/>
+        <Class IRI="#HumanName_FHIR"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasNumValue"/>
@@ -3929,8 +4193,16 @@
         <Class IRI="#Polarity"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasQuantity"/>
+        <Class IRI="#Quantity_FHIR"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasRange"/>
         <Class IRI="#Range_FHIR"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasRate"/>
+        <Class IRI="#Ratio_FHIR"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasReferenceRange"/>
@@ -3938,7 +4210,11 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasRelation"/>
-        <Class IRI="#Element"/>
+        <Class IRI="#Annotation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasRoute"/>
+        <Class IRI="#MedicationRoute"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasSection"/>
@@ -3966,7 +4242,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasStageAssessment"/>
-        <Class IRI="#Element"/>
+        <Class IRI="#Annotation"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasStageValue"/>
@@ -3977,8 +4253,16 @@
         <Class IRI="#Observation"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasStatusChange"/>
+        <Class IRI="#StatusChange"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasSubject"/>
         <Class IRI="#Patient"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasTStage"/>
+        <Class IRI="#Tstage"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasTempAttribute"/>
@@ -3995,6 +4279,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasTemporality"/>
         <Class IRI="#DocTimeRel"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasTiming"/>
+        <Class IRI="#Schedule"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasUnit"/>
@@ -4024,6 +4312,9 @@
         <DataProperty IRI="#hasToLocation"/>
         <DataProperty IRI="#hasLocation"/>
     </SubDataPropertyOf>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#asNeededBoolean"/>
+    </FunctionalDataProperty>
     <FunctionalDataProperty>
         <DataProperty IRI="#hasAbatementBoolean"/>
     </FunctionalDataProperty>
@@ -4064,8 +4355,15 @@
         <DataProperty IRI="#isBrand"/>
     </FunctionalDataProperty>
     <FunctionalDataProperty>
+        <DataProperty IRI="#isDeceased"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
         <DataProperty IRI="#wasNotGiven"/>
     </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="#asNeededBoolean"/>
+        <Class IRI="#Dosage"/>
+    </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasAbatementBoolean"/>
         <Class IRI="#Condition"/>
@@ -4076,11 +4374,11 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasCUI"/>
-        <Class IRI="#Attribute"/>
+        <Class IRI="#Annotation"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasCUI"/>
-        <Class IRI="#Element"/>
+        <Class IRI="#Attribute"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasConditionCategory"/>
@@ -4092,7 +4390,7 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasConfidentiality"/>
-        <Class IRI="http://www.semanticweb.org/ontologies/2015/1/untitled-ontology-42#Composition"/>
+        <Class IRI="#Composition"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasDate"/>
@@ -4104,7 +4402,7 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasDateOfComposition"/>
-        <Class IRI="http://www.semanticweb.org/ontologies/2015/1/untitled-ontology-42#Composition"/>
+        <Class IRI="#Composition"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasDeathDate"/>
@@ -4144,7 +4442,7 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasKind"/>
-        <Class IRI="#Medicine"/>
+        <Class IRI="#Medication_FHIR"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasLastName"/>
@@ -4176,23 +4474,23 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasNumberValue"/>
-        <Class IRI="#Element"/>
+        <Class IRI="#Annotation"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasPrefCui"/>
+        <Class IRI="#Annotation"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasPrefCui"/>
         <Class IRI="#Attribute"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#hasPrefCui"/>
-        <Class IRI="#Element"/>
+        <DataProperty IRI="#hasPrefLabel"/>
+        <Class IRI="#Annotation"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasPrefLabel"/>
         <Class IRI="#Attribute"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasPrefLabel"/>
-        <Class IRI="#Element"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasProcedureCategory"/>
@@ -4204,7 +4502,7 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasReportType"/>
-        <Class IRI="#Element"/>
+        <Class IRI="#Annotation"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasStageSummary"/>
@@ -4224,20 +4522,24 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasTitle"/>
-        <Class IRI="http://www.semanticweb.org/ontologies/2015/1/untitled-ontology-42#Composition"/>
+        <Class IRI="#Composition"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasToLocation"/>
         <Class IRI="#Encounter"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#isBrand"/>
-        <Class IRI="#Medication"/>
+        <DataProperty IRI="#isDeceased"/>
+        <Class IRI="#Patient"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#wasNotGiven"/>
         <Class IRI="#MedicationStatement"/>
     </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#asNeededBoolean"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#hasAbatementBoolean"/>
         <Datatype abbreviatedIRI="xsd:boolean"/>
@@ -4406,6 +4708,10 @@
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#isBrand"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#isDeceased"/>
         <Datatype abbreviatedIRI="xsd:boolean"/>
     </DataPropertyRange>
     <DataPropertyRange>
@@ -4618,21 +4924,6 @@
         <Literal datatypeIRI="&rdf;PlainLiteral">Linguistic Attribute</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="#TUI"/>
-        <IRI>#Medication</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">T103</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="#TUI"/>
-        <IRI>#Medication</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">T130</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Medication</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Medication</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#MedicationForm</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">Medication Form</Literal>
@@ -4649,7 +4940,7 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Medicine</IRI>
+        <IRI>#Medication_FHIR</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Medication</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
@@ -4749,11 +5040,6 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#RegulationLaw</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Regulation/Law</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SemanticAttribute</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">Semantic Attribute</Literal>
     </AnnotationAssertion>
@@ -4761,16 +5047,6 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Severity</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">Severity</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="#TUI"/>
-        <IRI>#SocialRiskFactor</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">T054</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#SocialRiskFactor</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Social Risk Factor</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -4821,16 +5097,6 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Unit</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">Unit</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="#TUI"/>
-        <IRI>#VitalSign</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">T201</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#VitalSign</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Vital Sign</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#source"/>
@@ -5121,5 +5387,5 @@
 
 
 
-<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
 
