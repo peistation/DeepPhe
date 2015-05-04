@@ -10,7 +10,6 @@ import org.apache.ctakes.clinicalpipeline.ClinicalPipelineFactory.RemoveEnclosed
 import org.apache.ctakes.clinicalpipeline.ae.ExtractionPrepAnnotator;
 import org.apache.ctakes.core.resource.FileLocator;
 import org.apache.ctakes.core.resource.FileResourceImpl;
-import org.apache.ctakes.darthphe.ae.JCasTnmAnnotator;
 import org.apache.ctakes.dependency.parser.ae.ClearNLPDependencyParserAE;
 import org.apache.ctakes.dictionary.lookup.ae.UmlsDictionaryLookupAnnotator;
 import org.apache.ctakes.dictionary.lookup2.ae.AbstractJCasTermAnnotator;
@@ -87,7 +86,7 @@ public class CancerPipelineTest {
             "AnnotationVersion", 2,
             "AnnotationVersionPropKey", "ANNOTATION_VERSION" ) );
       // Add the Cancer Stage and Receptor Status Annotator
-      builder.add( AnalysisEngineFactory.createEngineDescription( JCasTnmAnnotator.class ) );
+      builder.add( AnalysisEngineFactory.createEngineDescription( TnmAnnotator.class ) );
 
       //ADD XMI CAS CONSUMER HERE?
 

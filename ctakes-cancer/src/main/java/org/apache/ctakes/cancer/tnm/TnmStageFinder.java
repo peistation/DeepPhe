@@ -1,4 +1,4 @@
-package org.apache.ctakes.darthphe.tnm;
+package org.apache.ctakes.cancer.tnm;
 
 import org.apache.ctakes.cancer.type.relation.TnmStageTextRelation;
 import org.apache.ctakes.cancer.type.textsem.*;

@@ -1,4 +1,4 @@
-package org.apache.ctakes.darthphe.receptor;
+package org.apache.ctakes.cancer.receptor;
 
 import org.apache.ctakes.cancer.type.relation.ReceptorStatusTextRelation;
 import org.apache.ctakes.cancer.type.relation.TnmStageTextRelation;

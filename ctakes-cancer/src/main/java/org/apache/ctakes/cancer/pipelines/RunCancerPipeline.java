@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 import org.apache.ctakes.assertion.medfacts.cleartk.PolarityCleartkAnalysisEngine;
 import org.apache.ctakes.assertion.medfacts.cleartk.UncertaintyCleartkAnalysisEngine;
+import org.apache.ctakes.cancer.ae.TnmAnnotator;
 import org.apache.ctakes.chunker.ae.Chunker;
 import org.apache.ctakes.clinicalpipeline.ClinicalPipelineFactory;
 import org.apache.ctakes.clinicalpipeline.ClinicalPipelineFactory.CopyNPChunksToLookupWindowAnnotations;
@@ -151,6 +152,8 @@ public class RunCancerPipeline {
 	          GenericJarClassifierFactory.PARAM_CLASSIFIER_JAR_PATH,
 	          "/org/apache/ctakes/relationextractor/models/location_of/model.jar"));
 
+	  aggregateBuilder.add(
+	      TnmAnnotator.createAnnotatorDescription());
 	  // coreference?
 	  //	    aggregateBuilder.add(
 	  //	        AnalysisEngineFactory.createEngineDescriptionFromPath("../ctakes/ctakes-coreference/desc/MipacqSvmCoreferenceResolverAggregate.xml"));
