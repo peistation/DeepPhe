@@ -33,22 +33,15 @@ import org.apache.uima.resource.ResourceInitializationException;
  */
 public class TnmAnnotator extends JCasAnnotator_ImplBase {
 
-   static private final Logger LOGGER = Logger.getLogger( "JCasTnmAnnotator" );
+   static private final Logger LOGGER = Logger.getLogger( "TnmAnnotator" );
 
    /**
     * specifies the type of window to use for lookup
     */
    public static final String PARAM_WINDOW_ANNOT_PRP = "tnmWindowAnnotations";
-   @ConfigurationParameter(name=PARAM_WINDOW_ANNOT_PRP)
-   private Class<? extends Annotation> lookupClass = Sentence.class;
+   @ConfigurationParameter( name=PARAM_WINDOW_ANNOT_PRP, mandatory=false )
+   private Class<? extends Annotation> _lookupWindowType = Sentence.class;
    
-   /**
-    * {@inheritDoc}
-    */
-   @Override
-   public void initialize( final UimaContext uimaContext ) throws ResourceInitializationException {
-      super.initialize( uimaContext );
-   }
 
    /**
     * {@inheritDoc}
@@ -59,7 +52,8 @@ public class TnmAnnotator extends JCasAnnotator_ImplBase {
 
       final Collection<DiseaseDisorderMention> disorderMentions = new ArrayList<>();
       final Collection<DiseaseDisorderMention> lookupWindowT191s = new HashSet<>();
-      for ( Annotation lookupWindow : JCasUtil.select(jcas, lookupClass) ) {
+      final Collection<? extends Annotation> lookupWindows = JCasUtil.select(jcas, _lookupWindowType );
+      for ( Annotation lookupWindow : lookupWindows ) {
         disorderMentions.addAll(
             JCasUtil.selectCovered( jcas, DiseaseDisorderMention.class, lookupWindow ) );
         if ( disorderMentions.isEmpty() ) {
@@ -78,7 +72,9 @@ public class TnmAnnotator extends JCasAnnotator_ImplBase {
         ReceptorStatusFinder.getInstance().addReceptorStatuses( jcas, lookupWindow, lookupWindowT191s );
         lookupWindowT191s.clear();
 
-        printCancerFindings( jcas );
+         if ( LOGGER.isDebugEnabled() ) {
+            printCancerFindings( jcas );
+         }
       }
 
       LOGGER.info( "Finished processing" );
@@ -115,22 +111,18 @@ public class TnmAnnotator extends JCasAnnotator_ImplBase {
             = JCasUtil.select( jcas, TnmStageTextRelation.class );
       for ( TnmStageTextRelation relation : tnmStageRelations ) {
          LOGGER.debug( "TNM Relation " + relation.getArg1().getArgument().toString()
-                             + "\n\tRelated To: " + relation.getArg2().getArgument().getCoveredText() );
+                      + "\n\tRelated To: " + relation.getArg2().getArgument().getCoveredText() );
       }
 
       final Collection<ReceptorStatusTextRelation> receptorStatusRelations
             = JCasUtil.select( jcas, ReceptorStatusTextRelation.class );
       for ( ReceptorStatusTextRelation relation : receptorStatusRelations ) {
          LOGGER.debug( "Receptor Status Relation " + relation.getArg1().getArgument().toString()
-                             + "\n\tRelated To: " + relation.getArg2().getArgument().getCoveredText() );
+                      + "\n\tRelated To: " + relation.getArg2().getArgument().getCoveredText() );
       }
    }
 
    public static AnalysisEngineDescription createAnnotatorDescription() throws ResourceInitializationException{
-     AnalysisEngineDescription aed = AnalysisEngineFactory.createEngineDescription(
-         TnmAnnotator.class,
-         TnmAnnotator.PARAM_WINDOW_ANNOT_PRP,
-         Sentence.class);
-     return aed;
+     return AnalysisEngineFactory.createEngineDescription( TnmAnnotator.class );
    }
 }

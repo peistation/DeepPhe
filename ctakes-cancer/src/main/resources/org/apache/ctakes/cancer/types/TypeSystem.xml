@@ -37,8 +37,8 @@
         <description>c (clinical), p (pathologic), y (after chemo/rad), r (recurrent), a (autopsy), u (ultrasound)</description>
         <supertypeName>org.apache.ctakes.cancer.type.textsem.CodedDescribedType</supertypeName>
      </typeDescription>
-      <!--  supertype for the TNM Stages (T,N,M), as a value with prefix and description  -->
-     <typeDescription>
+      <!-- TNM Stages as a value with prefix and description. Values Tx|is|[0-4][a-z]? Nx|[0-3][a-z]? Mx|[0-1][a-z]? -->
+      <typeDescription>
         <name>org.apache.ctakes.cancer.type.textsem.TnmStage</name>
         <description>Value set specific to stage type</description>
         <supertypeName>org.apache.ctakes.cancer.type.textsem.CodedDescribedType</supertypeName>
@@ -78,43 +78,27 @@
            </featureDescription>
         </features>
      </typeDescription>
-      <!--  TNM Size, Node Spread, Metastasis value types with TnmStage as a supertype  -->
-     <typeDescription>
-        <name>org.apache.ctakes.cancer.type.textsem.TnmSize</name>
-        <description>Value set: x, is, [0-4][a-z]</description>
-        <supertypeName>org.apache.ctakes.cancer.type.textsem.TnmStage</supertypeName>
-     </typeDescription>
-     <typeDescription>
-        <name>org.apache.ctakes.cancer.type.textsem.TnmNodeSpread</name>
-        <description>Value set: x, [0-3][a-z]</description>
-        <supertypeName>org.apache.ctakes.cancer.type.textsem.TnmStage</supertypeName>
-     </typeDescription>
-     <typeDescription>
-        <name>org.apache.ctakes.cancer.type.textsem.TnmMetastasis</name>
-        <description>Value set: x, [0-1][a-z]</description>
-        <supertypeName>org.apache.ctakes.cancer.type.textsem.TnmStage</supertypeName>
-     </typeDescription>
 
    <!--  Finally, the full TNM itself  -->
   <typeDescription>
       <name>org.apache.ctakes.cancer.type.textsem.TnmClassification</name>
       <description/>
-      <supertypeName>org.apache.ctakes.typesystem.type.textsem.IdentifiedAnnotation</supertypeName>
+      <supertypeName>org.apache.ctakes.typesystem.type.textsem.SignSymptomMention</supertypeName>
      <features>
         <featureDescription>
            <name>size</name>
            <description/>
-           <rangeTypeName>org.apache.ctakes.cancer.type.textsem.TnmSize</rangeTypeName>
+           <rangeTypeName>org.apache.ctakes.cancer.type.textsem.TnmStage</rangeTypeName>
         </featureDescription>
         <featureDescription>
            <name>nodeSpread</name>
            <description/>
-           <rangeTypeName>org.apache.ctakes.cancer.type.textsem.TnmNodeSpread</rangeTypeName>
+           <rangeTypeName>org.apache.ctakes.cancer.type.textsem.TnmStage</rangeTypeName>
         </featureDescription>
         <featureDescription>
            <name>metastasis</name>
            <description/>
-           <rangeTypeName>org.apache.ctakes.cancer.type.textsem.TnmMetastasis</rangeTypeName>
+           <rangeTypeName>org.apache.ctakes.cancer.type.textsem.TnmStage</rangeTypeName>
         </featureDescription>
         <featureDescription>
            <name>options</name>
@@ -135,7 +119,7 @@
        <typeDescription>
          <name>org.apache.ctakes.cancer.type.textsem.ReceptorStatus</name>
          <description>Some Hormone Receptor Status Annotation for ER, PR, HER2 (/neu)</description>
-         <supertypeName>org.apache.ctakes.typesystem.type.textsem.IdentifiedAnnotation</supertypeName>
+         <supertypeName>org.apache.ctakes.typesystem.type.textsem.SignSymptomMention</supertypeName>
          <features>
             <featureDescription>
                <name>code</name>

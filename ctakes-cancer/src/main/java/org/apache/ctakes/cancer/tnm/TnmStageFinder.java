@@ -2,6 +2,7 @@ package org.apache.ctakes.cancer.tnm;
 
 import org.apache.ctakes.cancer.type.relation.TnmStageTextRelation;
 import org.apache.ctakes.cancer.type.textsem.*;
+import org.apache.ctakes.typesystem.type.refsem.UmlsConcept;
 import org.apache.ctakes.typesystem.type.relation.RelationArgument;
 import org.apache.ctakes.typesystem.type.textsem.DiseaseDisorderMention;
 import org.apache.log4j.Logger;
@@ -13,12 +14,15 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static org.apache.ctakes.typesystem.type.constants.CONST.NE_TYPE_ID_FINDING;
+
 /**
  * @author SPF , chip-nlp
  * @version %I%
  * @since 4/28/2015
  */
 public enum TnmStageFinder {
+   // TODO This will probably become a util class
    INSTANCE;
 
    public static TnmStageFinder getInstance() {
@@ -301,7 +305,7 @@ public enum TnmStageFinder {
       }
       for ( MalignantTumorClassification classification : malignantTumorClassifications ) {
          final DiseaseDisorderMention closestMention = getClosestEventMention( classification, lookupWindowT191s );
-         final TnmClassification tnmAnnotation = createTnmAnnotation( jcas, classification );
+         final TnmClassification tnmAnnotation = createTnmAnnotation( jcas, lookupWindow, classification );
          addTnmRelationToCas( jcas, tnmAnnotation, closestMention );
       }
    }
@@ -321,41 +325,49 @@ public enum TnmStageFinder {
       return closestMention;
    }
 
-   static private TnmClassification createTnmAnnotation( final JCas jcas, final MalignantTumorClassification classification ) {
+   static private TnmClassification createTnmAnnotation( final JCas jcas,
+                                                         final AnnotationFS lookupWindow,
+                                                         final MalignantTumorClassification classification ) {
       final TnmClassification tnmClassificationType = new TnmClassification( jcas,
-            classification.__startOffset, classification.__endOffset );
+            lookupWindow.getBegin()+classification.__startOffset,
+            lookupWindow.getBegin()+classification.__endOffset );
       final MalignantClass sizeClass = classification.__malignantClassMap.get( MalignantClassType.T );
       if ( sizeClass != null ) {
-         final TnmSize tnmSizeFeature = new TnmSize( jcas );
-         populateTnmStageFeature( jcas, tnmSizeFeature, sizeClass );
-         tnmClassificationType.setSize( tnmSizeFeature );
+         tnmClassificationType.setSize( createTnmStageFeature( jcas, sizeClass ) );
       }
       final MalignantClass nodeSpreadClass = classification.__malignantClassMap.get( MalignantClassType.N );
       if ( nodeSpreadClass != null ) {
-         final TnmNodeSpread tnmNodeFeature = new TnmNodeSpread( jcas );
-         populateTnmStageFeature( jcas, tnmNodeFeature, nodeSpreadClass );
-         tnmClassificationType.setNodeSpread( tnmNodeFeature );
+         tnmClassificationType.setNodeSpread( createTnmStageFeature( jcas, nodeSpreadClass ) );
       }
       final MalignantClass metastasisClass = classification.__malignantClassMap.get( MalignantClassType.M );
       if ( metastasisClass != null ) {
-         final TnmMetastasis tnmMetastasisFeature = new TnmMetastasis( jcas );
-         populateTnmStageFeature( jcas, tnmMetastasisFeature, metastasisClass );
-         tnmClassificationType.setMetastasis( tnmMetastasisFeature );
+         tnmClassificationType.setMetastasis( createTnmStageFeature( jcas, metastasisClass ) );
       }
       if ( !classification.__classificationOptions.isEmpty() ) {
          final FSArray optionFeatures = new FSArray( jcas, classification.__classificationOptions.size() );
-         int arrIdx = 0;   // outdated variable name for outdated collection type
+         int optionIndex = 0;
          for ( MalignantClassificationOption option : classification.__classificationOptions ) {
             final TnmOption tnmOptionFeature = new TnmOption( jcas );
             tnmOptionFeature.setCode( option.__optionType.name() );
             tnmOptionFeature.setDescription( option.__optionType.getTitle() );
             tnmOptionFeature.setValue( option.__value );
             tnmOptionFeature.setCertainty( option.__certainty );
-            optionFeatures.set( arrIdx, tnmOptionFeature );
-            arrIdx++;
+            optionFeatures.set( optionIndex, tnmOptionFeature );
+            optionIndex++;
          }
          tnmClassificationType.setOptions( optionFeatures );
       }
+      // Sets the tnm annotation to match the umls concept.  I'm not sure that we want/need this
+      tnmClassificationType.setTypeID( NE_TYPE_ID_FINDING );
+      final UmlsConcept umlsConcept = new UmlsConcept( jcas );
+      umlsConcept.setCui( "C1300492" );
+      umlsConcept.setTui( "T034" );
+      umlsConcept.setCodingScheme( "SNOMED" );
+      umlsConcept.setCode( "385379008" );
+      umlsConcept.setPreferredText( "TNM tumor staging finding" );
+      final FSArray ontologyConcepts = new FSArray( jcas, 1 );
+      ontologyConcepts.set( 0, umlsConcept );
+      tnmClassificationType.setOntologyConceptArr( ontologyConcepts );
       tnmClassificationType.addToIndexes();
       return tnmClassificationType;
    }
@@ -368,12 +380,13 @@ public enum TnmStageFinder {
       return tnmStagePrefix;
    }
 
-   static private void populateTnmStageFeature( final JCas jcas,
-                                                    final TnmStage tnmStageFeature, final MalignantClass malignantClass ) {
+   static private TnmStage createTnmStageFeature( final JCas jcas, final MalignantClass malignantClass ) {
+      final TnmStage tnmStageFeature = new TnmStage( jcas );
       tnmStageFeature.setPrefix( createTnmStagePrefix( jcas, malignantClass ) );
       tnmStageFeature.setCode( malignantClass.__classType.name() );
       tnmStageFeature.setDescription( malignantClass.__classType.__title );
       tnmStageFeature.setValue( malignantClass.__value );
+      return tnmStageFeature;
    }
 
    /**

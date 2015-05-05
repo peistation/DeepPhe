@@ -114,7 +114,7 @@ public class RunCancerPipeline {
 	        JCasTermAnnotator.DICTIONARY_DESCRIPTOR_KEY,
 	        ExternalResourceFactory.createExternalResourceDescription(
 	            FileResourceImpl.class,
-	            FileLocator.locateFile("org/apache/ctakes/dictionary/lookup/fast/cTakesHsql.xml"))
+	            FileLocator.locateFile("org/apache/ctakes/cancer/dictionary/lookup/fast/cancerHsql.xml"))
 	        ));
 	  } catch (FileNotFoundException e) {
 	    e.printStackTrace();
@@ -126,7 +126,10 @@ public class RunCancerPipeline {
 	  aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(ClearNLPSemanticRoleLabelerAE.class));
 	  aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(ConstituencyParser.class));
 
-	  // temporal components:
+      // Cancer deep phe tnm, hormone receptor status annotator.  Do before temporal (but after polarity?)
+      aggregateBuilder.add( TnmAnnotator.createAnnotatorDescription() );
+
+      // temporal components:
 	  aggregateBuilder.add(EventAnnotator.createAnnotatorDescription());
 	  aggregateBuilder.add(AnalysisEngineFactory.createEngineDescription(CopyPropertiesToTemporalEventAnnotator.class));
 	  aggregateBuilder.add(DocTimeRelAnnotator.createAnnotatorDescription("/org/apache/ctakes/temporal/ae/doctimerel/model.jar"));
@@ -152,8 +155,6 @@ public class RunCancerPipeline {
 	          GenericJarClassifierFactory.PARAM_CLASSIFIER_JAR_PATH,
 	          "/org/apache/ctakes/relationextractor/models/location_of/model.jar"));
 
-	  aggregateBuilder.add(
-	      TnmAnnotator.createAnnotatorDescription());
 	  // coreference?
 	  //	    aggregateBuilder.add(
 	  //	        AnalysisEngineFactory.createEngineDescriptionFromPath("../ctakes/ctakes-coreference/desc/MipacqSvmCoreferenceResolverAggregate.xml"));
