@@ -2,6 +2,7 @@ package org.apache.ctakes.cancer.tnm;
 
 import org.apache.ctakes.cancer.type.relation.TnmStageTextRelation;
 import org.apache.ctakes.cancer.type.textsem.*;
+import org.apache.ctakes.cancer.util.FinderUtil;
 import org.apache.ctakes.typesystem.type.refsem.UmlsConcept;
 import org.apache.ctakes.typesystem.type.relation.RelationArgument;
 import org.apache.ctakes.typesystem.type.textsem.DiseaseDisorderMention;
@@ -119,6 +120,7 @@ public enum TnmStageFinder {
    // http://en.wikipedia.org/wiki/TNM_staging_system
    // http://www.cancer.gov/cancertopics/diagnosis-staging/staging/staging-fact-sheet
    // http://cancerstaging.blogspot.it
+   // I think that the specifications are case-sensitive ...
    static private enum MalignantClassType {
       T( 0, "Size or direct extent of the primary tumor", "T(x|is|[0-4][a-z]?)(\\((m|\\d+)?,?(is)?\\))?" ),
       N( 1, "Degree of spread to regional lymph nodes", "N(x|[0-3][a-z]?)" ),
@@ -303,26 +305,14 @@ public enum TnmStageFinder {
       if ( malignantTumorClassifications.isEmpty() ) {
          return;
       }
+      final int windowStartOffset = lookupWindow.getBegin();
       for ( MalignantTumorClassification classification : malignantTumorClassifications ) {
-         final DiseaseDisorderMention closestMention = getClosestEventMention( classification, lookupWindowT191s );
+         final DiseaseDisorderMention closestDiseaseMention
+               = FinderUtil.getClosestEventMention( windowStartOffset + classification.__startOffset,
+               windowStartOffset + classification.__endOffset, lookupWindowT191s );
          final TnmClassification tnmAnnotation = createTnmAnnotation( jcas, lookupWindow, classification );
-         addTnmRelationToCas( jcas, tnmAnnotation, closestMention );
+         addTnmRelationToCas( jcas, tnmAnnotation, closestDiseaseMention );
       }
-   }
-
-   static private DiseaseDisorderMention getClosestEventMention( final MalignantTumorClassification classification,
-                                                       final Iterable<DiseaseDisorderMention> lookupWindowT191s ) {
-      DiseaseDisorderMention closestMention = null;
-      int smallestGap = Integer.MAX_VALUE;
-      for ( DiseaseDisorderMention disorderMention : lookupWindowT191s ) {
-         final int gap = Math.min( disorderMention.getBegin() - classification.__endOffset,
-               classification.__startOffset - disorderMention.getEnd() );
-         if ( gap < smallestGap ) {
-            closestMention = disorderMention;
-            smallestGap = gap;
-         }
-      }
-      return closestMention;
    }
 
    static private TnmClassification createTnmAnnotation( final JCas jcas,

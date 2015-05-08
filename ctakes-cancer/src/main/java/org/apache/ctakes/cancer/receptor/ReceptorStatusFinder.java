@@ -4,6 +4,7 @@ import org.apache.ctakes.cancer.type.relation.ReceptorStatusTextRelation;
 import org.apache.ctakes.cancer.type.relation.TnmStageTextRelation;
 import org.apache.ctakes.cancer.type.textsem.ReceptorStatus;
 import org.apache.ctakes.cancer.type.textsem.TnmClassification;
+import org.apache.ctakes.cancer.util.FinderUtil;
 import org.apache.ctakes.typesystem.type.refsem.UmlsConcept;
 import org.apache.ctakes.typesystem.type.relation.RelationArgument;
 import org.apache.ctakes.typesystem.type.textsem.DiseaseDisorderMention;
@@ -74,6 +75,7 @@ public enum ReceptorStatusFinder {
 
    // http://www.breastcancer.org/symptoms/diagnosis/hormone_status
    // http://www.breastcancer.org/symptoms/diagnosis/hormone_status/read_results
+   // I think that the specifications are case-sensitive ...
    static private enum ReceptorStatusType {
       ER( "Estrogen receptor", "\\bER(\\+(pos)?|-(neg)?)", "T034", "C0279754", "C0279756" ),
       PR( "Progesterone receptor", "(\\b|/)PR(\\+(pos)?|-(neg)?)", "T034", "C0279759", "C0279766" ),
@@ -165,28 +167,14 @@ public enum ReceptorStatusFinder {
       if ( receptorStatuses.isEmpty() ) {
          return;
       }
+      final int windowStartOffset = lookupWindow.getBegin();
       for ( HormoneReceptorStatus receptorStatus : receptorStatuses ) {
-         final DiseaseDisorderMention closestMention = getClosestEventMention( receptorStatus, lookupWindowT191s );
+         final DiseaseDisorderMention closestDiseaseMention
+               = FinderUtil.getClosestEventMention( windowStartOffset + receptorStatus.__startOffset,
+               windowStartOffset + receptorStatus.__endOffset, lookupWindowT191s );
          final ReceptorStatus receptorStatusAnnotation = createReceptorStatusAnnotation( jcas, lookupWindow, receptorStatus );
-         addReceptorRelationToCas( jcas, receptorStatusAnnotation, closestMention );
+         addReceptorRelationToCas( jcas, receptorStatusAnnotation, closestDiseaseMention );
       }
-   }
-
-
-   // TODO create interface with offset get()s for ReceptorStatus and Malignant*, and extract this to a util class
-   static private DiseaseDisorderMention getClosestEventMention( final HormoneReceptorStatus receptorStatus,
-                                                                 final Iterable<DiseaseDisorderMention> lookupWindowT191s ) {
-      DiseaseDisorderMention closestMention = null;
-      int smallestGap = Integer.MAX_VALUE;
-      for ( DiseaseDisorderMention disorderMention : lookupWindowT191s ) {
-         final int gap = Math.min( disorderMention.getBegin() - receptorStatus.__endOffset,
-               receptorStatus.__startOffset - disorderMention.getEnd() );
-         if ( gap < smallestGap ) {
-            closestMention = disorderMention;
-            smallestGap = gap;
-         }
-      }
-      return closestMention;
    }
 
    static private ReceptorStatus createReceptorStatusAnnotation( final JCas jcas,

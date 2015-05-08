@@ -7,7 +7,6 @@
   <imports>
     <import name="org.apache.ctakes.typesystem.types.TypeSystem"/>
   </imports>
-   <!--<rangeTypeName>org.apache.ctakes.cancer.type.textsem.TnmSize</rangeTypeName>-->
    <!--<rangeTypeName>uima.cas.FSArray</rangeTypeName>-->
    <!--<rangeTypeName>uima.cas.Float</rangeTypeName>-->
    <!--<rangeTypeName>uima.cas.Integer</rangeTypeName>-->
@@ -147,8 +146,45 @@
       </typeDescription>
 
 
+
+      <!--  Tumor, Lesion, etc. Size Annotation  -->
+
       <typeDescription>
-         <name>org.apache.ctakes.cancer.type.relation.MeasurementTextRelation</name>
+         <name>org.apache.ctakes.cancer.type.textsem.SizeMeasurement</name>
+         <description>Size measurement feature for size of tumor, lesion, etc.</description>
+         <supertypeName>uima.cas.TOP</supertypeName>
+         <features>
+            <featureDescription>
+               <name>value</name>
+               <description/>
+               <rangeTypeName>uima.cas.Float</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+               <name>unit</name>
+               <description/>
+               <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>
+         </features>
+      </typeDescription>
+
+
+      <typeDescription>
+         <name>org.apache.ctakes.cancer.type.textsem.CancerSize</name>
+         <description>Size measurements for tumor, lesion, etc.  Can have multiple dimensions</description>
+         <supertypeName>org.apache.ctakes.typesystem.type.textsem.MeasurementAnnotation</supertypeName>
+         <features>
+            <featureDescription>
+               <name>measurements</name>
+               <description/>
+               <rangeTypeName>uima.cas.FSArray</rangeTypeName>
+               <elementType>org.apache.ctakes.cancer.type.textsem.SizeMeasurement</elementType>
+            </featureDescription>
+         </features>
+      </typeDescription>
+
+
+      <typeDescription>
+         <name>org.apache.ctakes.cancer.type.relation.CancerSizeTextRelation</name>
          <description/>
          <supertypeName>org.apache.ctakes.typesystem.type.relation.BinaryTextRelation</supertypeName>
       </typeDescription>

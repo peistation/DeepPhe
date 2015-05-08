@@ -40,8 +40,8 @@
             <property key="rareWordTable" value="cui_terms"/>
             <property key="umlsUrl" value="https://uts-ws.nlm.nih.gov/restful/isValidUMLSUser"/>
             <property key="umlsVendor" value="NLM-6515182895"/>
-            <property key="umlsUser" value="seanfinan"/>
-            <property key="umlsPass" value="Qv6vf2jz"/>
+            <property key="umlsUser" value="CHANGEME"/>
+            <property key="umlsPass" value="CHANGEME"/>
          </properties>
       </dictionary>
       <dictionary>
@@ -68,14 +68,14 @@
             <!-- Optional tables for optional term info.
             Uncommenting these lines alone may not persist term information;
             persistence depends upon the TermConsumer.  -->
-            <!--<property key="snomedTable" value="snomedct"/>-->
-            <!--<property key="rxnormTable" value="rxnorm"/>-->
+            <property key="snomedTable" value="snomedct"/>
+            <property key="rxnormTable" value="rxnorm"/>
             <!--<property key="icd9Table" value="icd9cm"/>-->
             <!--<property key="icd10Table" value="icd10pcs"/>-->
             <property key="umlsUrl" value="https://uts-ws.nlm.nih.gov/restful/isValidUMLSUser"/>
             <property key="umlsVendor" value="NLM-6515182895"/>
-            <property key="umlsUser" value="seanfinan"/>
-            <property key="umlsPass" value="Qv6vf2jz"/>
+            <property key="umlsUser" value="CHANGEME"/>
+            <property key="umlsPass" value="CHANGEME"/>
          </properties>
       </conceptFactory>
       <conceptFactory>
