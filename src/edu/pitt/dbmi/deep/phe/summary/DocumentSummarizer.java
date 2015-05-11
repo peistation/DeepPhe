@@ -142,7 +142,7 @@ public class DocumentSummarizer {
 	public static void main(String [] args ) throws Exception{
 		//File ontology = new File("/home/tseytlin/Data/DeepPhe/Model/BreastCancerModel.owl");
 		File project = new File("/home/tseytlin/Work/DeepPhe/");
-		File ontology = new File(project,"ontologies/old/BreastCancer.owl");//breastCAEx.owl
+		File ontology = new File(project,"ontologies/breastCancer.owl");//breastCAEx.owl
 		//File ontology = new File(project,"data/sample/ontology/BreastCancerModel.owl");
 		File out = new File(project,"data/sample/fhir");
 		File [] docs = new File(project,"data/sample/docs").listFiles();
