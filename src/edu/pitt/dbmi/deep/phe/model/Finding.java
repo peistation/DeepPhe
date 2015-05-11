@@ -39,6 +39,8 @@ public class Finding extends Condition  implements Element{
 	public void initialize(Mention m){
 		setCode(Utils.getCodeableConcept(m));
 		//cls = Utils.resolveConcept(m);
+		String dn = getDisplaySimple().replaceAll("\\W+","_");
+		Utils.createIdentifier(addIdentifier(),getClass().getSimpleName()+"-"+dn+"-"+m.getStartPosition());
 	}
 
 	/**

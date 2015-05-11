@@ -17,11 +17,12 @@ import edu.pitt.dbmi.nlp.noble.coder.model.Mention;
  * @author tseytlin
  */
 public class Diagnosis extends Condition implements Element {
+	
 	public Diagnosis(){
 		setCategory(Utils.CONDITION_CATEGORY_DIAGNOSIS);
 		setLanguageSimple(Utils.DEFAULT_LANGUAGE); // we only care about English
 		setStatusSimple(ConditionStatus.confirmed); // here we only deal with 'confirmed' dx
-		Utils.createIdentifier(addIdentifier(),this);
+		//Utils.createIdentifier(addIdentifier(),this);
 	}
 	
 	/**
@@ -33,6 +34,9 @@ public class Diagnosis extends Condition implements Element {
 		setCode(Utils.getCodeableConcept(dm));
 		//setCertainty(); --> dm.getConfidence()
 		//setSeverity(value); -- > dm.getSeverity()???
+		
+		// create identifier
+		//Utils.createIdentifier(addIdentifier(),getClass().getSimpleName()+"-"+);
 		
 		// perhaps have annotation from Document time
 		TimeMention tm = dm.getStartTime();
@@ -61,6 +65,10 @@ public class Diagnosis extends Condition implements Element {
 	public void initialize(Mention m){
 		setCode(Utils.getCodeableConcept(m));
 		
+		// create identifier
+		String dn = getDisplaySimple().replaceAll("\\W+","_");
+		Utils.createIdentifier(addIdentifier(),getClass().getSimpleName()+"-"+dn+"-"+m.getStartPosition());
+		
 		// find annatomic location
 		Mention al = Utils.getNearestMention(m,m.getSentence().getDocument(),Utils.ANATOMICAL_SITE);
 		if(al != null){
@@ -88,6 +96,16 @@ public class Diagnosis extends Condition implements Element {
 
 	public String getIdentifierSimple() {
 		return Utils.getIdentifier(getIdentifier());
+	}
+	
+	public int hashCode() {
+		return getIdentifierSimple().hashCode();
+	}
+
+	public boolean equals(Object obj) {
+		if(obj instanceof Element)
+			return getIdentifierSimple().equals(((Element)obj).getIdentifierSimple());
+		return super.equals(obj);
 	}
 
 	public String getSummary() {

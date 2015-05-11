@@ -165,7 +165,7 @@ public class DocumentSummarizer {
 			System.out.println("generating summary ..");
 			Report report = summarizer.process(doc);
 			System.out.println(report.getSummary());
-			report.save(out);
+			//report.save(out);
 		}
 		
 		

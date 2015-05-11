@@ -66,19 +66,19 @@ public class Utils {
 	
 	
 	public static final String ELEMENT = "Element";
-	public static final String DIAGNOSIS = "Diagnosis";
+	public static final String DIAGNOSIS = "DiseaseDisorder";
 	public static final String PROCEDURE = "ProcedureIntervention";
 	public static final String OBSERVATION = "Observation";
 	public static final String FINDING = "Finding";
-	public static final String MEDICATION = "Medicine";
+	public static final String MEDICATION = "Medication_FHIR";
 	public static final String ANATOMICAL_SITE = "AnatomicalSite";
-	public static final String STAGE = "CancerStage";
+	public static final String STAGE = "Generic_TNM_Finding";
 	public static final String AGE = "Age";
 	public static final String GENDER = "Gender";
 	
-	public static final String T_STAGE = "Breast_Cancer_Pathologic_Primary_Tumor_TNM_Finding_v7";
-	public static final String M_STAGE = "Breast_Cancer_Pathologic_Distant_Metastasis_TNM_Finding_v7";
-	public static final String N_STAGE = "Breast_Cancer_Pathologic_Regional_Lymph_Nodes_TNM_Finding_v7";
+	public static final String T_STAGE = "Generic_Primary_Tumor_TNM_Finding";
+	public static final String M_STAGE = "Generic_Distant_Metastasis_TNM_Finding";
+	public static final String N_STAGE = "Generic_Regional_Lymph_Nodes_TNM_Finding";
 	
 	public static final String STAGE_REGEX = "p?(T[X0-4a-z]{1,4})(N[X0-4a-z]{1,4})(M[X0-4a-z]{1,4})";
 	
@@ -300,14 +300,14 @@ public class Utils {
 		return null;
 	}
 	
-	public static Identifier createIdentifier(Object obj){
-		return createIdentifier(new Identifier(), obj);
+	public static Identifier createIdentifier(String  ident){
+		return createIdentifier(new Identifier(), ident);
 	}
 	
-	public static Identifier createIdentifier(Identifier id, Object obj){
+	public static Identifier createIdentifier(Identifier id, String ident){
 		id.setLabelSimple("id");
 		id.setSystemSimple("local");
-		id.setValueSimple(obj.getClass().getSimpleName()+"-"+Math.abs(obj.hashCode()));
+		id.setValueSimple(ident);
 		return id;
 	}
 	

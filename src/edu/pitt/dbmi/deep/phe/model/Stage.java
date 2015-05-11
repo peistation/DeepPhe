@@ -1,10 +1,12 @@
 package edu.pitt.dbmi.deep.phe.model;
 
+import java.util.ArrayList;
 import java.util.regex.*;
 
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Condition.ConditionStageComponent;
 import org.hl7.fhir.instance.model.Extension;
+import org.hl7.fhir.instance.model.ResourceReference;
 import org.hl7.fhir.instance.model.StringType;
 
 import edu.pitt.dbmi.nlp.noble.coder.model.Mention;
@@ -53,5 +55,14 @@ public class Stage extends ConditionStageComponent{
 		IOntology o = ResourceFactory.getInstance().getOntology();
 		Extension e = getExtension(""+o.getClass(Utils.N_STAGE).getURI());
 		return e != null? ((StringType)e.getValue()).getValue():null;
+	}
+	
+	public Stage copy() {
+		Stage dst = new Stage();
+		dst.summary = ((this.summary == null) ? null : this.summary.copy());
+		dst.assessment = new ArrayList();
+		for (ResourceReference i : this.assessment)
+			dst.assessment.add(i.copy());
+		return dst;
 	}
 }
