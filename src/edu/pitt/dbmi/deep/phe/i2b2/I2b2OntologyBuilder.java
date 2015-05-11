@@ -108,9 +108,12 @@ public class I2b2OntologyBuilder {
 	}
 
 	private void displayPaths(TreeSet<PartialPath> paths) {
-		paths.stream().forEach((path) -> {
+		/*paths.stream().forEach((path) -> {
 			System.out.println(path);
-		});
+		});*/
+		for(PartialPath p: paths){
+			System.out.println(p);
+		}
 	}
 
 	public void setOntologyPath(String ontologyPath) {

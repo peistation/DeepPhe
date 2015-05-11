@@ -57,6 +57,9 @@
         <Class IRI="#BodySide"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Cancer"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Certainty"/>
     </Declaration>
     <Declaration>
@@ -141,6 +144,9 @@
         <Class IRI="#Gender"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#GenomicFactor"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#HumanName_FHIR"/>
     </Declaration>
     <Declaration>
@@ -201,6 +207,9 @@
         <Class IRI="#PhenotypeAttribute"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#PhenotypicFactor"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Polarity"/>
     </Declaration>
     <Declaration>
@@ -238,6 +247,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#ReferenceRange"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RelatedFactor"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Schedule"/>
@@ -288,7 +300,13 @@
         <Class IRI="#Time"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#TreatmentFactor"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Tstage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tumor"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Unit"/>
@@ -480,6 +498,9 @@
         <ObjectProperty IRI="#hasGender"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasGenomicFactor"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasHighQuantity"/>
     </Declaration>
     <Declaration>
@@ -525,6 +546,12 @@
         <ObjectProperty IRI="#hasPermanence"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasPhenotypicAttribute"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPhenotypicFactor"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasPolarity"/>
     </Declaration>
     <Declaration>
@@ -538,6 +565,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasReferenceRange"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasRelatedFactor"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasRelation"/>
@@ -595,6 +625,12 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasTiming"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTreatmentFactor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTumor"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasUnit"/>
@@ -792,6 +828,9 @@
         <DataProperty IRI="#hasToLocation"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#hasTumorType"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#hasVersion"/>
     </Declaration>
     <Declaration>
@@ -926,60 +965,12 @@
         </ObjectSomeValuesFrom>
     </EquivalentClasses>
     <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Abaxial_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Abnormal_AbnormalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Actual_ContextualModality"/>
         <Class IRI="#ContextualModality"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Adaxial_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Adequate_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Adequate_Quality"/>
-        <Class IRI="#Quality"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#AerosolSpray_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Aerosol_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#After_DocTimeRel"/>
         <Class IRI="#DocTimeRel"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Allergy_AllergyIntoleranceType"/>
-        <Class IRI="#AllergyIntoleranceType"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Anterior_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Anterolateral_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Apical_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Axial_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Before-Overlap_DocTimeRel"/>
@@ -990,76 +981,8 @@
         <Class IRI="#DocTimeRel"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Bilateral_BodySide"/>
-        <Class IRI="#BodySide"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Brittle_Course"/>
-        <Class IRI="#Course"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Buccal_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Buccal_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Capsule_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Caudal_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Changed_Course"/>
-        <Class IRI="#Course"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Changed_DeltaFlag"/>
-        <Class IRI="#DeltaFlag"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Changed_StatusChange"/>
-        <Class IRI="#StatusChange"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Chronic_Course"/>
-        <Class IRI="#Course"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#ClinicalCourseWithShortDuration_Course"/>
-        <Class IRI="#Course"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Completed_ProcedureCompletion"/>
-        <Class IRI="#ProcedureCompletion"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Continues_ContextualAspect"/>
         <Class IRI="#ContextualAspect"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Contralateral_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Cream_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Cyclic_Course"/>
-        <Class IRI="#Course"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Deep_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Deficiency_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#DefiniteExistence_Certainty"/>
@@ -1070,22 +993,6 @@
         <Class IRI="#Certainty"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Detected_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Distal_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Distobuccal_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Distolingual_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#DonorFamilyMember_Experiencer"/>
         <Class IRI="#Experiencer"/>
     </SubClassOf>
@@ -1094,296 +1001,44 @@
         <Class IRI="#Experiencer"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Dorsal_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Dorsolateral_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Dorsoventral_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Elixir_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Emulsion_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Enema_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Excessive_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#EyeDrop_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#FamilyMember_Experiencer"/>
         <Class IRI="#Experiencer"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Fatal_Severity"/>
-        <Class IRI="#Severity"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Female_Gender"/>
-        <Class IRI="#Gender"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Finite_Permanence"/>
         <Class IRI="#Permanence"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#FormerRisk-StoppedLessThan1YearAgo_SocialRiskStatus"/>
-        <Class IRI="#SocialRiskStatus"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#FormerRisk-StoppedMoreThan1YearAgo_SocialRiskStatus"/>
-        <Class IRI="#SocialRiskStatus"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#FourPlus_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Frequent_SocialRiskQualifier"/>
-        <Class IRI="#SocialRiskQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Gastric_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Gel_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Generic_ContextualModality"/>
         <Class IRI="#ContextualModality"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#GradualOnset_Course"/>
-        <Class IRI="#Course"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Heavy_SocialRiskQualifier"/>
-        <Class IRI="#SocialRiskQualifier"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Hedged_ContextualModality"/>
         <Class IRI="#ContextualModality"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#High_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Hypothetical_ContextualModality"/>
         <Class IRI="#ContextualModality"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Implant_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Implant_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Inaccurate_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Inadequate_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Incomplete_ProcedureCompletion"/>
-        <Class IRI="#ProcedureCompletion"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Inconclusive_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Indeterminate_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Inferior_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Inhalant_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Inhalation_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Initiates_ContextualAspect"/>
         <Class IRI="#ContextualAspect"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Injection_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Intermediate_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Intermittent_ContextualAspect"/>
         <Class IRI="#ContextualAspect"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Intolerance_AllergyIntoleranceType"/>
-        <Class IRI="#AllergyIntoleranceType"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Intra-arterial_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Intracardiac_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Intradermal_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Intramuscular_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Intraperiotoneal_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Intrathecal_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Intravenous_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Ipsilateral_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Labial_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Lateral_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Left_BodySide"/>
-        <Class IRI="#BodySide"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#LifeThreatening_Severity"/>
-        <Class IRI="#Severity"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Light_SocialRiskQualifier"/>
-        <Class IRI="#SocialRiskQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Lingual_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Liquid_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Little_Degree"/>
         <Class IRI="#Degree"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Lotion_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Low_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Lozenge_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Male_Gender"/>
-        <Class IRI="#Gender"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Marginate_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Medial_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Mesial_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#MildToModerate_Severity"/>
-        <Class IRI="#Severity"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Mild_Severity"/>
-        <Class IRI="#Severity"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#ModerateToSevere_Severity"/>
-        <Class IRI="#Severity"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Moderate_Severity"/>
-        <Class IRI="#Severity"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Most_Degree"/>
         <Class IRI="#Degree"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Nebulizer_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Negative_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Negative_Polarity"/>
         <Class IRI="#Polarity"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Normal_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#NotAbnormal_AbnormalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#NotAdequate_Quality"/>
-        <Class IRI="#Quality"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#NotApplicable_ContextualAspect"/>
@@ -1394,36 +1049,8 @@
         <Class IRI="#Degree"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#NotAvailable_ProcedureCompletion"/>
-        <Class IRI="#ProcedureCompletion"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#NotAvailable_Quality"/>
-        <Class IRI="#Quality"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#NotDetected_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Novel_ContextualAspect"/>
         <Class IRI="#ContextualAspect"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Occasional_SocialRiskQualifier"/>
-        <Class IRI="#SocialRiskQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Ointment_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#OnePlus_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Oral_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#OtherMember_Experiencer"/>
@@ -1434,60 +1061,16 @@
         <Class IRI="#DocTimeRel"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Parietal_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Paste_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Patch_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#PatientHasDoneRiskWithinPast30Days_SocialRiskStatus"/>
-        <Class IRI="#SocialRiskStatus"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#PatientHasNeverDoneRisk_SocialRiskStatus"/>
-        <Class IRI="#SocialRiskStatus"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#PatientTooIllForRiskAssessment_SocialRiskStatus"/>
-        <Class IRI="#SocialRiskStatus"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Patient_Experiencer"/>
         <Class IRI="#Experiencer"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Pellet_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Permanent_Permanence"/>
         <Class IRI="#Permanence"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Pill_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Positive_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Positive_Polarity"/>
         <Class IRI="#Polarity"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Posterior_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Powder_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#ProbableExistence_Certainty"/>
@@ -1498,148 +1081,16 @@
         <Class IRI="#Certainty"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Proximal_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Rectal_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Reinitiates_ContextualAspect"/>
         <Class IRI="#ContextualAspect"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Resistant_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Right_BodySide"/>
-        <Class IRI="#BodySide"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Rostral_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Severe_Severity"/>
-        <Class IRI="#Severity"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Shampoo_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Significant_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Significant_SocialRiskQualifier"/>
-        <Class IRI="#SocialRiskQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Soap_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Social_SocialRiskQualifier"/>
-        <Class IRI="#SocialRiskQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Solution_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Spray_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#SubacuteOnset_Course"/>
-        <Class IRI="#Course"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Subacute_Course"/>
-        <Class IRI="#Course"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Subcutaneous_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Sublingual_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#SuddenOnset_Course"/>
-        <Class IRI="#Course"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Superficial_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Superior_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Suppository_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Susceptible_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Syrup_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Tablet_MedicationForm"/>
-        <Class IRI="#MedicationForm"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Terminates_ContextualAspect"/>
         <Class IRI="#ContextualAspect"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#ThreePlus_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Topical_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Trace_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Transdermal_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Transmucosal_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#TwoPlus_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Uncertain_Certainty"/>
         <Class IRI="#Certainty"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Unchanged_Course"/>
-        <Class IRI="#Course"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Unchanged_DeltaFlag"/>
-        <Class IRI="#DeltaFlag"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Unchanged_StatusChange"/>
-        <Class IRI="#StatusChange"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Undetermined_Permanence"/>
@@ -1786,42 +1237,6 @@
         <Class IRI="#Unit"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Unknown_AllergyIntoleranceType"/>
-        <Class IRI="#AllergyIntoleranceType"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Unrecordable_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Unstable_Course"/>
-        <Class IRI="#Course"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Vaginal_MedicationRoute"/>
-        <Class IRI="#MedicationRoute"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Ventral_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#VeryAbnormal_AbnormalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Vestibular_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Visceral_BodyLaterality"/>
-        <Class IRI="#BodyQualifier"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#Weak_OrdinalInterpretation"/>
-        <Class IRI="#OrdinalInterpretation"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="http://blulab.chpc.utah.edu/ontologies/ModifierOntology.owl#days_Unit"/>
         <Class IRI="#TemporalUnit"/>
     </SubClassOf>
@@ -1925,6 +1340,124 @@
     <SubClassOf>
         <Class IRI="#BodySide"/>
         <Class IRI="#SemanticAttribute"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cancer"/>
+        <Class IRI="#Phenotype"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cancer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasAgeAbatement"/>
+            <Class IRI="#Age"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cancer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasAgeOnset"/>
+            <Class IRI="#Age"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cancer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasBodyLocation"/>
+            <Class IRI="#AnatomicalSite"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cancer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasDateAbatement"/>
+            <ObjectUnionOf>
+                <Class IRI="#Date"/>
+                <Class IRI="#Time"/>
+            </ObjectUnionOf>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cancer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasDateAsserted"/>
+            <ObjectUnionOf>
+                <Class IRI="#Date"/>
+                <Class IRI="#Time"/>
+            </ObjectUnionOf>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cancer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasDateOnset"/>
+            <ObjectUnionOf>
+                <Class IRI="#Date"/>
+                <Class IRI="#Time"/>
+            </ObjectUnionOf>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cancer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasEncounter"/>
+            <Class IRI="#Encounter"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cancer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSeverity"/>
+            <Class IRI="#Severity"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cancer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasStage"/>
+            <Class IRI="#Stage"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cancer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSubject"/>
+            <Class IRI="#Patient"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cancer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasTumor"/>
+            <Class IRI="#Tumor"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cancer"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasAbatementBoolean"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cancer"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasCUI"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cancer"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasConditionCategory"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cancer"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasConditionStatus"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Certainty"/>
@@ -2411,6 +1944,10 @@
         <Class IRI="#SemanticAttribute"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#GenomicFactor"/>
+        <Class IRI="#PhenotypeAttribute"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#HumanName_FHIR"/>
         <Class IRI="#SemanticAttribute"/>
     </SubClassOf>
@@ -2813,6 +2350,10 @@
         <Class IRI="#Attribute"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#PhenotypicFactor"/>
+        <Class IRI="#PhenotypeAttribute"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Polarity"/>
         <Class IRI="#LinguisticAttribute"/>
     </SubClassOf>
@@ -3001,6 +2542,10 @@
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#RelatedFactor"/>
+        <Class IRI="#PhenotypeAttribute"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Schedule"/>
         <Class IRI="#TemporalAttribute"/>
     </SubClassOf>
@@ -3117,8 +2662,51 @@
         </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#TreatmentFactor"/>
+        <Class IRI="#PhenotypeAttribute"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Tstage"/>
         <Class IRI="#SemanticAttribute"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tumor"/>
+        <Class IRI="#PhenotypeAttribute"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tumor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasGenomicFactor"/>
+            <Class IRI="#GenomicFactor"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tumor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPhenotypicFactor"/>
+            <Class IRI="#PhenotypicFactor"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tumor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasRelatedFactor"/>
+            <Class IRI="#RelatedFactor"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tumor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasTreatmentFactor"/>
+            <Class IRI="#TreatmentFactor"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tumor"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasTumorType"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Unit"/>
@@ -3369,6 +2957,10 @@
         <ObjectProperty IRI="#hasSemAttribute"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasGenomicFactor"/>
+        <ObjectProperty IRI="#hasPhenotypicAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasHighQuantity"/>
         <ObjectProperty IRI="#hasAttribute"/>
     </SubObjectPropertyOf>
@@ -3425,6 +3017,14 @@
         <ObjectProperty IRI="#hasLingAttribute"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasPhenotypicAttribute"/>
+        <ObjectProperty IRI="#hasAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasPhenotypicFactor"/>
+        <ObjectProperty IRI="#hasPhenotypicAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasPolarity"/>
         <ObjectProperty IRI="#hasLingAttribute"/>
     </SubObjectPropertyOf>
@@ -3443,6 +3043,10 @@
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasReferenceRange"/>
         <ObjectProperty IRI="#hasSemAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasRelatedFactor"/>
+        <ObjectProperty IRI="#hasPhenotypicAttribute"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasRoute"/>
@@ -3507,6 +3111,14 @@
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasTiming"/>
         <ObjectProperty IRI="#hasTempAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasTreatmentFactor"/>
+        <ObjectProperty IRI="#hasPhenotypicAttribute"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasTumor"/>
+        <ObjectProperty IRI="#hasPhenotypicAttribute"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#indicates"/>
@@ -3793,6 +3405,10 @@
         <Class IRI="#Patient"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasGenomicFactor"/>
+        <Class IRI="#Phenotype"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasHighQuantity"/>
         <Class IRI="#Range_FHIR"/>
     </ObjectPropertyDomain>
@@ -3845,6 +3461,10 @@
         <Class IRI="#Event"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPhenotypicFactor"/>
+        <Class IRI="#Phenotype"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasPolarity"/>
         <Class IRI="#Annotation"/>
     </ObjectPropertyDomain>
@@ -3863,6 +3483,10 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasReferenceRange"/>
         <Class IRI="#Observation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasRelatedFactor"/>
+        <Class IRI="#Phenotype"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasRelation"/>
@@ -3947,6 +3571,10 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasTiming"/>
         <Class IRI="#Dosage"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasTreatmentFactor"/>
+        <Class IRI="#Phenotype"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasUnit"/>
@@ -4133,6 +3761,10 @@
         <Class IRI="#Gender"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasGenomicFactor"/>
+        <Class IRI="#GenomicFactor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasHighQuantity"/>
         <Class IRI="#Quantity_FHIR"/>
     </ObjectPropertyRange>
@@ -4189,6 +3821,10 @@
         <Class IRI="#Permanence"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPhenotypicFactor"/>
+        <Class IRI="#PhenotypicFactor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasPolarity"/>
         <Class IRI="#Polarity"/>
     </ObjectPropertyRange>
@@ -4207,6 +3843,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasReferenceRange"/>
         <Class IRI="#ReferenceRange"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasRelatedFactor"/>
+        <Class IRI="#RelatedFactor"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasRelation"/>
@@ -4285,6 +3925,10 @@
         <Class IRI="#Schedule"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasTreatmentFactor"/>
+        <Class IRI="#TreatmentFactor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasUnit"/>
         <Class IRI="#Unit"/>
     </ObjectPropertyRange>
@@ -4350,6 +3994,9 @@
     </FunctionalDataProperty>
     <FunctionalDataProperty>
         <DataProperty IRI="#hasTitle"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasTumorType"/>
     </FunctionalDataProperty>
     <FunctionalDataProperty>
         <DataProperty IRI="#isBrand"/>
@@ -4529,6 +4176,10 @@
         <Class IRI="#Encounter"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
+        <DataProperty IRI="#hasTumorType"/>
+        <Class IRI="#Tumor"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
         <DataProperty IRI="#isDeceased"/>
         <Class IRI="#Patient"/>
     </DataPropertyDomain>
@@ -4701,6 +4352,14 @@
     <DataPropertyRange>
         <DataProperty IRI="#hasToLocation"/>
         <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasTumorType"/>
+        <DataOneOf>
+            <Literal datatypeIRI="&rdf;PlainLiteral">metastasis</Literal>
+            <Literal datatypeIRI="&rdf;PlainLiteral">primary</Literal>
+            <Literal datatypeIRI="&rdf;PlainLiteral">recurrence</Literal>
+        </DataOneOf>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#hasVersion"/>

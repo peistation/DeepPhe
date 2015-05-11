@@ -1,17 +1,20 @@
 package edu.pitt.dbmi.deep.phe.i2b2;
 
-import static org.semanticweb.owlapi.search.Searcher.annotations;
+//import static org.semanticweb.owlapi.search.Searcher.annotations;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.io.StringDocumentSource;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
+import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLOntology;
@@ -97,10 +100,13 @@ public class OwlOntologyInspector {
 				System.out.println("Class: " + cls.getIRI().toString());
 				System.out.println("rdfs:Label " + labelFor(o, cls));
 				System.out.println(("prefCui " + prefCuiFor(o, cls)));
-				reasoner.getSubClasses(cls, true).getFlattened().stream()
+				/*reasoner.getSubClasses(cls, true).getFlattened().stream()
 						.forEach((subCls) -> {
 							clsQueue.add(subCls);
-						});
+						});*/
+				for(OWLClass subCls: reasoner.getSubClasses(cls, true).getFlattened()){
+					clsQueue.add(subCls);
+				}
 			}
 		}
 	}
@@ -121,10 +127,13 @@ public class OwlOntologyInspector {
 			} else {
 				System.out.println("Class: " + cls.getIRI().toString());
 				System.out.println("rdfs:Label " + labelFor(o, cls));
-				reasoner.getSuperClasses(cls, true).getFlattened().stream()
+				/*reasoner.getSuperClasses(cls, true).getFlattened().stream()
 						.forEach((superCls) -> {
 							clsQueue.add(superCls);
-						});
+						});*/
+				for(OWLClass superCls: reasoner.getSuperClasses(cls, true).getFlattened()){
+					clsQueue.add(superCls);
+				}
 			}
 		}
 	}
@@ -162,4 +171,11 @@ public class OwlOntologyInspector {
 			return cls.getIRI().toString();
 		}
 	}
+	private Set<OWLAnnotation> annotations(Set<OWLAnnotationAssertionAxiom> axioms){
+    	Set<OWLAnnotation> aa = new LinkedHashSet<OWLAnnotation>();
+    	for(OWLAnnotationAssertionAxiom a: axioms){
+    		aa.add(a.getAnnotation());
+    	}
+    	return aa;
+    }
 }

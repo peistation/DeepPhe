@@ -1,11 +1,14 @@
 package edu.pitt.dbmi.deep.phe.i2b2;
 
-import static org.semanticweb.owlapi.search.Searcher.annotations;
+//import static org.semanticweb.owlapi.search.Searcher.annotations;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.semanticweb.owlapi.model.OWLAnnotation;
+import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.reasoner.Node;
 import org.semanticweb.owlapi.reasoner.NodeSet;
@@ -73,8 +76,16 @@ public class PartialPath implements Comparable<PartialPath> {
         this.reasoner = reasoner;
     }
     
+    private Set<OWLAnnotation> annotations(Set<OWLAnnotationAssertionAxiom> axioms){
+    	Set<OWLAnnotation> aa = new LinkedHashSet<OWLAnnotation>();
+    	for(OWLAnnotationAssertionAxiom a: axioms){
+    		aa.add(a.getAnnotation());
+    	}
+    	return aa;
+    }
+    
     public void setCls(OWLClass cls) {
-        this.cls = cls;
+    	this.cls = cls;
         for (OWLAnnotation anno : annotations(reasoner.getRootOntology()
 				.getAnnotationAssertionAxioms(cls.getIRI()))) {
 			anno.accept(pce);

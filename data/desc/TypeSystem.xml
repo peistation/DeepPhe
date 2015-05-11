@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <name>TypeSystem</name>
+    <description/>
+    <version>1.0</version>
+    <vendor/>
+  <imports>
+    <import name="org.apache.ctakes.typesystem.types.TypeSystem"/>
+  </imports>
+   <!--<rangeTypeName>uima.cas.FSArray</rangeTypeName>-->
+   <!--<rangeTypeName>uima.cas.Float</rangeTypeName>-->
+   <!--<rangeTypeName>uima.cas.Integer</rangeTypeName>-->
+   <!--<rangeTypeName>uima.cas.String</rangeTypeName>-->
+   <types>
+      <typeDescription>
+         <name>org.apache.ctakes.cancer.type.textsem.CodedDescribedType</name>
+         <description>A (super)type that has a String code and a String description</description>
+         <supertypeName>uima.cas.TOP</supertypeName>
+         <features>
+            <featureDescription>
+               <name>code</name>
+               <description/>
+               <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+               <name>description</name>
+               <description/>
+               <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>
+         </features>
+      </typeDescription>
+
+      <!--  TNM prefixes as a value with a description  -->
+     <typeDescription>
+        <name>org.apache.ctakes.cancer.type.textsem.TnmStagePrefix</name>
+        <description>c (clinical), p (pathologic), y (after chemo/rad), r (recurrent), a (autopsy), u (ultrasound)</description>
+        <supertypeName>org.apache.ctakes.cancer.type.textsem.CodedDescribedType</supertypeName>
+     </typeDescription>
+      <!-- TNM Stages as a value with prefix and description. Values Tx|is|[0-4][a-z]? Nx|[0-3][a-z]? Mx|[0-1][a-z]? -->
+      <typeDescription>
+        <name>org.apache.ctakes.cancer.type.textsem.TnmStage</name>
+        <description>Value set specific to stage type</description>
+        <supertypeName>org.apache.ctakes.cancer.type.textsem.CodedDescribedType</supertypeName>
+        <features>
+           <featureDescription>
+              <name>prefix</name>
+              <description/>
+              <rangeTypeName>org.apache.ctakes.cancer.type.textsem.TnmStagePrefix</rangeTypeName>
+           </featureDescription>
+           <featureDescription>
+              <name>value</name>
+              <description/>
+              <rangeTypeName>uima.cas.String</rangeTypeName>
+           </featureDescription>
+        </features>
+     </typeDescription>
+      <!--  TNM full stage optional parameters, value with abbreviation, description, certainty  -->
+      <!--G( "Grade of cancer cells", "G[1-4](C[1-5])?" ),-->
+      <!--S( "Elevation of serum tumor markers", "S[0-3](C[1-5])?" ),-->
+      <!--R( "Completeness of the operation", "R[0-2](C[1-5])?" ),-->
+      <!--L( "Invasion into lymphatic vessels", "L[0-1](C[1-5])?" ),-->
+      <!--V( "Invasion into vein", "V[0-2](C[1-5])?" );-->
+      <typeDescription>
+        <name>org.apache.ctakes.cancer.type.textsem.TnmOption</name>
+        <description>Value set</description>
+        <supertypeName>org.apache.ctakes.cancer.type.textsem.CodedDescribedType</supertypeName>
+        <features>
+           <featureDescription>
+              <name>value</name>
+              <description/>
+              <rangeTypeName>uima.cas.Integer</rangeTypeName>
+           </featureDescription>
+           <featureDescription>
+              <name>certainty</name>
+              <description/>
+              <rangeTypeName>uima.cas.Integer</rangeTypeName>
+           </featureDescription>
+        </features>
+     </typeDescription>
+
+   <!--  Finally, the full TNM itself  -->
+  <typeDescription>
+      <name>org.apache.ctakes.cancer.type.textsem.TnmClassification</name>
+      <description/>
+      <supertypeName>org.apache.ctakes.typesystem.type.textsem.SignSymptomMention</supertypeName>
+     <features>
+        <featureDescription>
+           <name>size</name>
+           <description/>
+           <rangeTypeName>org.apache.ctakes.cancer.type.textsem.TnmStage</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+           <name>nodeSpread</name>
+           <description/>
+           <rangeTypeName>org.apache.ctakes.cancer.type.textsem.TnmStage</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+           <name>metastasis</name>
+           <description/>
+           <rangeTypeName>org.apache.ctakes.cancer.type.textsem.TnmStage</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+           <name>options</name>
+           <description/>
+           <rangeTypeName>uima.cas.FSArray</rangeTypeName>
+           <elementType>org.apache.ctakes.cancer.type.textsem.TnmOption</elementType>
+        </featureDescription>
+     </features>
+    </typeDescription>
+      <!--  Relation of TNM (Argument) to Cancer (Related_to) with category "TNM_Stage"  -->
+      <typeDescription>
+         <name>org.apache.ctakes.cancer.type.relation.TnmStageTextRelation</name>
+         <description/>
+         <supertypeName>org.apache.ctakes.typesystem.type.relation.BinaryTextRelation</supertypeName>
+      </typeDescription>
+
+      <!--  Receptor Status Annotation  -->
+       <typeDescription>
+         <name>org.apache.ctakes.cancer.type.textsem.ReceptorStatus</name>
+         <description>Some Hormone Receptor Status Annotation for ER, PR, HER2 (/neu)</description>
+         <supertypeName>org.apache.ctakes.typesystem.type.textsem.SignSymptomMention</supertypeName>
+         <features>
+            <featureDescription>
+               <name>code</name>
+               <description/>
+               <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+               <name>description</name>
+               <description/>
+               <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+               <name>value</name>
+               <description/>
+               <rangeTypeName>uima.cas.Boolean</rangeTypeName>
+            </featureDescription>
+         </features>
+      </typeDescription>
+
+      <!--  Relation of Receptor Status (Argument) to Cancer (Related_to) with category "Receptor_status"  -->
+      <typeDescription>
+         <name>org.apache.ctakes.cancer.type.relation.ReceptorStatusTextRelation</name>
+         <description/>
+         <supertypeName>org.apache.ctakes.typesystem.type.relation.BinaryTextRelation</supertypeName>
+      </typeDescription>
+
+
+
+      <!--  Tumor, Lesion, etc. Size Annotation  -->
+
+      <typeDescription>
+         <name>org.apache.ctakes.cancer.type.textsem.SizeMeasurement</name>
+         <description>Size measurement feature for size of tumor, lesion, etc.</description>
+         <supertypeName>uima.cas.TOP</supertypeName>
+         <features>
+            <featureDescription>
+               <name>value</name>
+               <description/>
+               <rangeTypeName>uima.cas.Float</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+               <name>unit</name>
+               <description/>
+               <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>
+         </features>
+      </typeDescription>
+
+
+      <typeDescription>
+         <name>org.apache.ctakes.cancer.type.textsem.CancerSize</name>
+         <description>Size measurements for tumor, lesion, etc.  Can have multiple dimensions</description>
+         <supertypeName>org.apache.ctakes.typesystem.type.textsem.MeasurementAnnotation</supertypeName>
+         <features>
+            <featureDescription>
+               <name>measurements</name>
+               <description/>
+               <rangeTypeName>uima.cas.FSArray</rangeTypeName>
+               <elementType>org.apache.ctakes.cancer.type.textsem.SizeMeasurement</elementType>
+            </featureDescription>
+         </features>
+      </typeDescription>
+
+
+      <typeDescription>
+         <name>org.apache.ctakes.cancer.type.relation.CancerSizeTextRelation</name>
+         <description/>
+         <supertypeName>org.apache.ctakes.typesystem.type.relation.BinaryTextRelation</supertypeName>
+      </typeDescription>
+  </types>
+</typeSystemDescription>
