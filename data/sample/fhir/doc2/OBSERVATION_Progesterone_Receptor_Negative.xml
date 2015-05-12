@@ -5,7 +5,12 @@
   <name>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-      <code value="C:Progesterone_Receptor_Negative"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Progesterone_Receptor_Negative"/>
+      <display value="Progesterone Receptor Negative"/>
+    </coding>
+    <coding>
+      <system value="UMLS"/>
+      <code value="C0279766"/>
       <display value="Progesterone Receptor Negative"/>
     </coding>
     <text value="Progesterone Receptor Negative"/>

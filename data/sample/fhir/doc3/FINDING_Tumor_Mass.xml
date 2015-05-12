@@ -14,7 +14,12 @@
   <code>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-      <code value="C:Tumor_Mass"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Tumor_Mass"/>
+      <display value="Tumor Mass"/>
+    </coding>
+    <coding>
+      <system value="UMLS"/>
+      <code value="C3273930"/>
       <display value="Tumor Mass"/>
     </coding>
     <text value="Tumor Mass"/>

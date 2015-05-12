@@ -5,7 +5,12 @@
   <name>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-      <code value="C:HER2_Neu_Positive"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#HER2_Neu_Positive"/>
+      <display value="HER2/Neu Positive"/>
+    </coding>
+    <coding>
+      <system value="UMLS"/>
+      <code value="C2348909"/>
       <display value="HER2/Neu Positive"/>
     </coding>
     <text value="HER2/Neu Positive"/>

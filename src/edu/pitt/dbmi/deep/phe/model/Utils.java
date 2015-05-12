@@ -212,10 +212,24 @@ public class Utils {
 	public static CodeableConcept setCodeableConcept(CodeableConcept cc,Mention mm){
 		Concept c = mm.getConcept();
 		cc.setTextSimple(c.getName());
-		Coding ccc = cc.addCoding();
-		ccc.setCodeSimple(c.getCode());
-		ccc.setDisplaySimple(c.getName());
-		ccc.setSystemSimple(c.getTerminology().getURI().toString());
+		
+		// add coding for class
+		IClass cls = getConceptClass(mm);
+		if(cls != null){
+			Coding ccc = cc.addCoding();
+			ccc.setCodeSimple(cls.getURI().toString());
+			ccc.setDisplaySimple(c.getName());
+			ccc.setSystemSimple(c.getTerminology().getURI().toString());
+		}
+		// add CUI
+		String cui = getUMLS_CUI(c);
+		if(cui != null){
+			Coding cc2 = cc.addCoding();
+			cc2.setCodeSimple(cui);
+			cc2.setDisplaySimple(c.getName());
+			cc2.setSystemSimple(DEFAULT_UMLS);
+		}
+		
 		
 		return cc;
 	}
@@ -372,6 +386,23 @@ public class Utils {
 	 */
 	public static IClass getConceptClass(IOntology ontology,  Mention m){
 		return getConceptClass(ontology, m.getConcept());
+	}
+	
+	/**
+	 * get concept class from a default ontology based on Concept
+	 * @param c
+	 * @return
+	 */
+	public static String getUMLS_CUI(Concept c){
+		String cui = null;
+		for(Object cc : c.getCodes().values()){
+			Matcher m = Pattern.compile("(CL?\\d{6,7})( .+)?").matcher(cc.toString());
+			if(m.matches()){
+				cui = m.group(1);
+				break;
+			}
+		}
+		return cui;
 	}
 	
 	/**

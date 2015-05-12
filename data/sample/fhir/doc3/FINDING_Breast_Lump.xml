@@ -14,7 +14,12 @@
   <code>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-      <code value="C:Breast_Lump"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Breast_Lump"/>
+      <display value="Breast Lump"/>
+    </coding>
+    <coding>
+      <system value="UMLS"/>
+      <code value="C0024103"/>
       <display value="Breast Lump"/>
     </coding>
     <text value="Breast Lump"/>

@@ -13,7 +13,12 @@
   <type>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-      <code value="C:Magnetic_Resonance_Imaging"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Magnetic_Resonance_Imaging"/>
+      <display value="Magnetic Resonance Imaging"/>
+    </coding>
+    <coding>
+      <system value="UMLS"/>
+      <code value="C1552358"/>
       <display value="Magnetic Resonance Imaging"/>
     </coding>
     <text value="Magnetic Resonance Imaging"/>
@@ -21,7 +26,12 @@
   <bodySite>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-      <code value="C:Parietal_Lobe"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Parietal_Lobe"/>
+      <display value="Parietal Lobe"/>
+    </coding>
+    <coding>
+      <system value="UMLS"/>
+      <code value="C0030560"/>
       <display value="Parietal Lobe"/>
     </coding>
     <text value="Parietal Lobe"/>

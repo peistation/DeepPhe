@@ -15,7 +15,12 @@
   <code>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-      <code value="C:Female_Breast_Carcinoma"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Female_Breast_Carcinoma"/>
+      <display value="Female Breast Carcinoma"/>
+    </coding>
+    <coding>
+      <system value="UMLS"/>
+      <code value="C0007104"/>
       <display value="Female Breast Carcinoma"/>
     </coding>
     <text value="Female Breast Carcinoma"/>
@@ -42,7 +47,12 @@
     <summary>
       <coding>
         <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-        <code value="C:Generic_TNM_Finding"/>
+        <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Generic_TNM_Finding"/>
+        <display value="Cancer stage"/>
+      </coding>
+      <coding>
+        <system value="UMLS"/>
+        <code value="C1711210"/>
         <display value="Cancer stage"/>
       </coding>
       <text value="T2N0M0"/>
@@ -52,7 +62,12 @@
     <code>
       <coding>
         <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-        <code value="C:Left_Breast"/>
+        <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Left_Breast"/>
+        <display value="Left Breast"/>
+      </coding>
+      <coding>
+        <system value="UMLS"/>
+        <code value="C0222601"/>
         <display value="Left Breast"/>
       </coding>
       <text value="Left Breast"/>

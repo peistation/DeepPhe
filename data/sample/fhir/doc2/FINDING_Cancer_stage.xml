@@ -14,7 +14,12 @@
   <code>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-      <code value="C:Generic_TNM_Finding"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Generic_TNM_Finding"/>
+      <display value="Cancer stage"/>
+    </coding>
+    <coding>
+      <system value="UMLS"/>
+      <code value="C1711210"/>
       <display value="Cancer stage"/>
     </coding>
     <text value="Cancer stage"/>

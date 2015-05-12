@@ -6,7 +6,12 @@
   <code>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-      <code value="C:Carboplatin"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Carboplatin"/>
+      <display value="Carboplatin"/>
+    </coding>
+    <coding>
+      <system value="UMLS"/>
+      <code value="C0079083"/>
       <display value="Carboplatin"/>
     </coding>
     <text value="Carboplatin"/>

@@ -13,7 +13,12 @@
   <type>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-      <code value="C:Excisional_Biopsy"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Excisional_Biopsy"/>
+      <display value="Excisional Biopsy"/>
+    </coding>
+    <coding>
+      <system value="UMLS"/>
+      <code value="C0184921"/>
       <display value="Excisional Biopsy"/>
     </coding>
     <text value="Excisional Biopsy"/>
@@ -21,7 +26,12 @@
   <bodySite>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-      <code value="C:Left_Breast"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Left_Breast"/>
+      <display value="Left Breast"/>
+    </coding>
+    <coding>
+      <system value="UMLS"/>
+      <code value="C0222601"/>
       <display value="Left Breast"/>
     </coding>
     <text value="Left Breast"/>

@@ -15,7 +15,12 @@
   <code>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-      <code value="C:Invasive_Ductal_Carcinoma_Not_Otherwise_Specified"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Invasive_Ductal_Carcinoma_Not_Otherwise_Specified"/>
+      <display value="Invasive Ductal Carcinoma, Not Otherwise Specified"/>
+    </coding>
+    <coding>
+      <system value="UMLS"/>
+      <code value="C1134719"/>
       <display value="Invasive Ductal Carcinoma, Not Otherwise Specified"/>
     </coding>
     <text value="Invasive Ductal Carcinoma, Not Otherwise Specified"/>
@@ -33,7 +38,12 @@
     <code>
       <coding>
         <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-        <code value="C:Left_Breast"/>
+        <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Left_Breast"/>
+        <display value="Left Breast"/>
+      </coding>
+      <coding>
+        <system value="UMLS"/>
+        <code value="C0222601"/>
         <display value="Left Breast"/>
       </coding>
       <text value="Left Breast"/>

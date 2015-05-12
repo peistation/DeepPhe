@@ -13,7 +13,7 @@
   <gender>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-      <code value="C:female"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#female"/>
       <display value="female"/>
     </coding>
     <text value="female"/>

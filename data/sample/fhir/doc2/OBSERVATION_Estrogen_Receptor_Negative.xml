@@ -5,7 +5,12 @@
   <name>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-      <code value="C:Estrogen_Receptor_Negative"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Estrogen_Receptor_Negative"/>
+      <display value="Estrogen Receptor Negative"/>
+    </coding>
+    <coding>
+      <system value="UMLS"/>
+      <code value="C0279756"/>
       <display value="Estrogen Receptor Negative"/>
     </coding>
     <text value="Estrogen Receptor Negative"/>

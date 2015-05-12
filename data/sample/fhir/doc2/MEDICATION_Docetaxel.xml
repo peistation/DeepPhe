@@ -6,7 +6,12 @@
   <code>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
-      <code value="C:Docetaxel"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Docetaxel"/>
+      <display value="Docetaxel"/>
+    </coding>
+    <coding>
+      <system value="UMLS"/>
+      <code value="C0246415"/>
       <display value="Docetaxel"/>
     </coding>
     <text value="Docetaxel"/>
