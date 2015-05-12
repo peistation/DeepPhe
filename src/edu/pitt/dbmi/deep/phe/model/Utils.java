@@ -24,8 +24,10 @@ import org.apache.ctakes.typesystem.type.refsem.UmlsConcept;
 import org.apache.ctakes.typesystem.type.relation.BinaryTextRelation;
 import org.apache.ctakes.typesystem.type.relation.ElementRelation;
 import org.apache.ctakes.typesystem.type.relation.Relation;
+import org.apache.ctakes.typesystem.type.textsem.DiseaseDisorderMention;
 import org.apache.ctakes.typesystem.type.textsem.IdentifiedAnnotation;
 import org.apache.ctakes.typesystem.type.textsem.TimeMention;
+import org.apache.uima.cas.Type;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.jcas.tcas.DocumentAnnotation;
@@ -193,6 +195,28 @@ public class Utils {
 		return cc;
 	}
 	
+	
+	/**
+	 * get concept class from a default ontology based on Concept
+	 * @param c
+	 * @return
+	 */
+	public static String getConceptCode(IdentifiedAnnotation ia){
+		String cui = null;
+		for(int i=0;i<ia.getOntologyConceptArr().size();i++){
+			OntologyConcept c = ia.getOntologyConceptArr(i);
+			if(c instanceof UmlsConcept){
+				cui = ((UmlsConcept)c).getCui();
+			}else{
+				cui = c.getCode();
+			}
+			if(cui != null && cui.matches("CL?\\d{6,7}"))
+				break;
+		}
+		return cui;
+	}
+	
+	
 	/**
 	 * get codeblce concept form OntologyConcept annotation
 	 * @param c
@@ -222,7 +246,7 @@ public class Utils {
 			ccc.setSystemSimple(c.getTerminology().getURI().toString());
 		}
 		// add CUI
-		String cui = getUMLS_CUI(c);
+		String cui = getConceptCode(c);
 		if(cui != null){
 			Coding cc2 = cc.addCoding();
 			cc2.setCodeSimple(cui);
@@ -393,7 +417,7 @@ public class Utils {
 	 * @param c
 	 * @return
 	 */
-	public static String getUMLS_CUI(Concept c){
+	public static String getConceptCode(Concept c){
 		String cui = null;
 		for(Object cc : c.getCodes().values()){
 			Matcher m = Pattern.compile("(CL?\\d{6,7})( .+)?").matcher(cc.toString());
@@ -412,6 +436,16 @@ public class Utils {
 	 */
 	public static IClass getConceptClass(Mention m){
 		return getConceptClass(ResourceFactory.getInstance().getOntology(), m);
+	}
+	
+	/**
+	 * get concept class from a default ontology based on Concept
+	 * @param c
+	 * @return
+	 */
+	public static IClass getConceptClass(IdentifiedAnnotation m){
+		String cui = getConceptCode(m);
+		return cui != null?ResourceFactory.getInstance().getOntologyUtils().getClass(cui):null;
 	}
 	
 	public static boolean isDiagnosis(IClass cls){
@@ -519,6 +553,50 @@ public class Utils {
 		return nearest;
 	}
 	
+
+	/**
+	 * get a set of concept by type from the annotated document
+	 * @param doc
+	 * @param type
+	 * @return
+	 */
+	public static List<IdentifiedAnnotation> getAnnotationsByType(JCas cas, int type){
+		List<IdentifiedAnnotation> list = new ArrayList<IdentifiedAnnotation>();
+		Iterator<Annotation> it = cas.getAnnotationIndex(type).iterator();
+		while(it.hasNext()){
+			list.add((IdentifiedAnnotation)it.next());
+		}
+		return filterAnnotations(list);
+	}
+	
+	
+	private static List<IdentifiedAnnotation> filterAnnotations(List<IdentifiedAnnotation> list) {
+		if(list.isEmpty() || list.size() == 1)
+			return list;
+		for(ListIterator<IdentifiedAnnotation> it = list.listIterator();it.hasNext();){
+			IdentifiedAnnotation m = it.next();
+			if(hasMoreSpecific(m,list))
+				it.remove();
+		}
+		return list;
+	}
+	
+	/**
+	 * does this mention has another mention that is more specific?
+	 * @param m
+	 * @param list
+	 * @return
+	 */
+	
+	private static boolean hasMoreSpecific(IdentifiedAnnotation mm, List<IdentifiedAnnotation> list) {
+		IClass cc = getConceptClass(mm);
+		for(IdentifiedAnnotation m: list){
+			IClass c = getConceptClass(m);
+			if(cc.hasSubClass(c))
+				return true;
+		}
+		return false;
+	}
 
 	public static void main(String [] args) throws Exception{
 		System.out.println(getHeaderValues(TextTools.getText(new FileInputStream(new File("/home/tseytlin/Work/DeepPhe/data/sample/docs/doc1.txt")))));

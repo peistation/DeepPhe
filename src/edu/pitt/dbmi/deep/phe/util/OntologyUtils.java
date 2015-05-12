@@ -111,8 +111,8 @@ public class OntologyUtils {
 
 
 	public static void main(String [] args) throws Exception{
-		File f = new File("/home/tseytlin/Work/DeepPhe_ontologies/breastCancer.owl");
-		File of = new File("/home/tseytlin/Work/DeepPhe_ontologies/breastCancer.bsv");
+		File f = new File("/home/tseytlin/Work/DeepPhe/ontologies/breastCancer.owl");
+		File of = new File("/home/tseytlin/Work/DeepPhe/ontologies/breastCancer.bsv");
 		
 		IOntology ont = OOntology.loadOntology(f);
 		//OntologyUtils ou = new OntologyUtils(ont);

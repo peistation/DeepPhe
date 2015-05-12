@@ -2234,9 +2234,6 @@ C0203085|T060|Percutaneous transhepatic cholangiogram
 C0203085|T060|Percutaneous transhepatic cholangiography
 C1334716|T191|Metastatic Carcinoma to the Adrenal Cortex
 C1334716|T191|Metastatic Carcinoma to Adrenal Cortex
-C101267|T034|Estrogen Receptor and/or Progesterone Receptor Positive
-C101267|T034|ER and/or PR Positive
-C101267|T034|ER and/or PR +
 C1882540|T080|Seed Implantation
 C1882540|T080|Seed Implant
 C1882540|T080|{Seed}
@@ -3079,6 +3076,8 @@ C1831994|T061|Selective Internal Radiation Therapy
 C1831994|T061|SIRT
 C1831994|T061|selective internal radiation therapy
 C1711210|T033|Cancer stage
+C1711210|T033|/[pc]?(T[X0-4a-z]{1,4})(N[X0-4a-z]{1,4})(M[X0-4a-z]{1,4})/
+C1711210|T033|/[pc]?T[0-4]N[0-3]M[0-1]/
 C1711210|T033|Generic TNM Finding
 C1708231|T033|Generic Primary Tumor TNM Finding
 C120282|T060|Sentinel Lymph Node Biopsy Followed by Axillary Lymph Node Biopsy
@@ -3387,6 +3386,7 @@ C1879500|T061|AC-T
 C2328406|T017|CA4 Field of the Cornu Ammonis
 C2348909|T034|HER2/Neu Positive
 C2348909|T034|ERBB2 Positive
+C2348909|T034|/HER2+/
 C111241|T061|Laser Ablation
 C111241|T061|Ablation, Laser
 C111241|T061|Laser Tissue Ablation
@@ -6980,6 +6980,7 @@ C0037815|T059|Raman spectroscopy
 C0037815|T059|Spectroscopy, Raman
 C0037815|T059|RAMAN SPECTRUM ANAL
 C0279754|T034|Estrogen Receptor Positive
+C0279754|T034|ER-pos
 C0279754|T034|positive estrogen receptor
 C0279754|T034|estrogen receptor positive
 C0279754|T034|Positive Estrogen Receptor
@@ -8334,6 +8335,7 @@ C1274073|T201|Tumour size, additional dimension
 C1274073|T201|Tumor size, additional dimension (observable entity)
 C2348908|T034|HER2/Neu Negative
 C2348908|T034|ERBB2 Negative
+C2348908|T034|/HER2-/
 CL473795|T191|Stage IIIC Breast Cancer
 CL473795|T191|stage IIIC breast cancer
 CL473795|T191|stage IIIC breast carcinoma
@@ -10577,9 +10579,10 @@ C0851238|T061|Local Excision Mastectomies
 C1335425|T191|Plasma Cell Myeloma Post-Transplant Lymphoproliferative Disorder
 C1335425|T191|Plasma Cell Myeloma PTLD
 C0279759|T034|Progesterone Receptor Positive
-C0279759|T034|PR+
 C0279759|T034|positive progesterone receptor
+C0279759|T034|PR+
 C0279759|T034|progesterone receptor positive
+C0279759|T034|PR-pos
 C2986744|T060|Dynamic Scan
 C0221783|T033|Vaginal Mass
 C0221783|T033|VAGINAL MASS
@@ -11760,6 +11763,7 @@ C0279766|T034|Progesterone Receptor Negative
 C0279766|T034|PR-
 C0279766|T034|negative progesterone receptor
 C0279766|T034|progesterone receptor negative
+C0279766|T034|PR-neg
 CL376186|T191|Recurrent Childhood Non-Hodgkin Lymphoma
 C0144576|T121|Paclitaxel
 C0144576|T121|PACLITAXEL
@@ -14028,6 +14032,7 @@ C0804677|T081|Size:Length:Point in time:Tumor:Quantitative
 C0804677|T081|Tumour size
 C0804677|T081|Size of tumor
 C0804677|T081|Size of tumour
+C0804677|T081|/\d+(\.\d+)? [CcMm]{2}/
 C3273255|T049|Unmutated Immunoglobulin Heavy Chain Variable Region Gene
 C1321870|T191|Childhood Extraocular Retinoblastoma
 C1321870|T191|pediatric extraocular retinoblastoma
@@ -15138,6 +15143,7 @@ C0279756|T034|ER-
 C0279756|T034|estrogen receptor negative
 C0279756|T034|Negative Estrogen Receptor
 C0279756|T034|negative estrogen receptor
+C0279756|T034|ER-neg
 C1280199|T023|Sacral Spinal Nerve Root
 C1280199|T023|Root of sacral spinal nerve
 C1280199|T023|sacral neural root

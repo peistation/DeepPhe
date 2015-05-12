@@ -2,10 +2,13 @@ package edu.pitt.dbmi.deep.phe.model;
 
 import java.util.*;
 
+import org.apache.ctakes.typesystem.type.textsem.DiseaseDisorderMention;
+import org.apache.ctakes.typesystem.type.textsem.IdentifiedAnnotation;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.jcas.tcas.DocumentAnnotation;
 
+import edu.pitt.dbmi.deep.phe.util.OntologyUtils;
 import edu.pitt.dbmi.nlp.noble.coder.model.*;
 import edu.pitt.dbmi.nlp.noble.ontology.IClass;
 import edu.pitt.dbmi.nlp.noble.ontology.IOntology;
@@ -19,6 +22,7 @@ import edu.pitt.dbmi.nlp.noble.terminology.Concept;
 public class ResourceFactory {
 	private static ResourceFactory instance;
 	private IOntology ontology;
+	private OntologyUtils ontologyUtils;
 	
 	public ResourceFactory(IOntology ont){
 		ontology = ont;
@@ -38,13 +42,59 @@ public class ResourceFactory {
 		this.ontology = ontology;
 	}
 
+	public OntologyUtils getOntologyUtils(){
+		if(ontologyUtils == null && ontology != null){
+			ontologyUtils = new OntologyUtils(ontology);
+		}
+		return ontologyUtils;
+	}
+	
 	/**
 	 * create a Report object from DocumentAnnotation
 	 * @param doc
 	 * @return
 	 */
 	public Report getReport(JCas cas) {
-		return getReport(Utils.getDocumentText(cas));
+		Report r = getReport(Utils.getDocumentText(cas));
+		
+		// oh, well no document title available
+		//r.setTitle(value);
+		
+		// find patient if available
+		Patient patient = getPatient(cas);
+		if(patient != null){
+			r.setPatient(patient);
+		}
+		
+		// now find all observations found in a report
+		for(Observation ob: getObservations(cas)){
+			r.addReportElement(ob);
+		}
+		
+		// now find all observations found in a report
+		for(Finding ob: getFindings(cas)){
+			r.addReportElement(ob);
+		}		
+		
+		// find all procedures mentioned in each report
+		for(Procedure p: getProcedures(cas)){
+			r.addReportElement(p);
+		}
+		
+		// now find all observations found in a report
+		for(Medication ob: getMedications(cas)){
+			r.addReportElement(ob);
+		}		
+		
+		// now find all primary diagnosis that are found in a report
+		for(Diagnosis dx: getDiagnoses(cas)){
+			r.addReportElement(dx);
+		}			
+				
+		
+		
+		
+		return r;
 	}
 	
 	/**
@@ -130,6 +180,13 @@ public class ResourceFactory {
 		return pt;
 	}
 	
+	
+	public Patient getPatient(JCas cas) {
+		Patient p =  getPatient(Utils.getDocumentText(cas));
+		// TODO: age and gender
+		return p;
+	}
+	
 	/**
 	 * get patient from the document
 	 * @param doc
@@ -158,10 +215,7 @@ public class ResourceFactory {
 		}
 		return null;
 	}
-	
-	public Patient getPatient(JCas cas) {
-		return getPatient(Utils.getDocumentText(cas));
-	}
+
 
 	/**
 	 * get concept class from a default ontology based on Concept
@@ -180,7 +234,7 @@ public class ResourceFactory {
 	 * @param doc
 	 * @return
 	 */
-	public List<Diagnosis> getDiagnoses(Document doc) {
+	private List<Diagnosis> getDiagnoses(Document doc) {
 		List<Diagnosis> list = new ArrayList<Diagnosis>();
 		for(Mention m : Utils.getMentionsByType(doc,Utils.DIAGNOSIS)){
 			Diagnosis  dx = new Diagnosis();
@@ -191,7 +245,7 @@ public class ResourceFactory {
 	}
 
 	
-	public List<Procedure> getProcedures(Document doc) {
+	private List<Procedure> getProcedures(Document doc) {
 		List<Procedure> list = new ArrayList<Procedure>();
 		for(Mention m : Utils.getMentionsByType(doc,Utils.PROCEDURE)){
 			Procedure  dx = new Procedure();
@@ -233,17 +287,39 @@ public class ResourceFactory {
 	}
 
 
-	public List<Procedure> getProcedures(JCas cas) {
-		// TODO Auto-generated method stub
-		return Collections.EMPTY_LIST;
-	}
-
-
-	public static List<Diagnosis> getDiagnoses(JCas cas) {
+	private List<Procedure> getProcedures(JCas cas) {
 		// TODO Auto-generated method stub
 		return Collections.EMPTY_LIST;
 	}
 	
+	/**
+	 * 
+	 */
+	private List<Diagnosis> getDiagnoses(JCas cas) {
+		List<Diagnosis> list = new ArrayList<Diagnosis>();
+		for(IdentifiedAnnotation m: Utils.getAnnotationsByType(cas, DiseaseDisorderMention.type)){
+			Diagnosis  dx = new Diagnosis();
+			dx.initialize((DiseaseDisorderMention) m);
+			list.add(dx);
+		}
+		return list;
+	}
+	
+	private List<Medication> getMedications(JCas cas) {
+		// TODO Auto-generated method stub
+		return Collections.EMPTY_LIST;
+	}
+
+	private List<Finding> getFindings(JCas cas) {
+		// TODO Auto-generated method stub
+		return Collections.EMPTY_LIST;
+	}
+
+	private List<Observation> getObservations(JCas cas) {
+		// TODO Auto-generated method stub
+		return Collections.EMPTY_LIST;
+	}
+
 	
 	
 }

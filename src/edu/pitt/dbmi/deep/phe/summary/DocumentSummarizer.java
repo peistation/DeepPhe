@@ -39,6 +39,7 @@ import org.hl7.fhir.instance.model.Composition;
 import org.hl7.fhir.instance.model.Resource;
 
 import edu.pitt.dbmi.deep.phe.model.*;
+import edu.pitt.dbmi.deep.phe.util.TextUtils;
 import edu.pitt.dbmi.nlp.noble.coder.NobleCoder;
 import edu.pitt.dbmi.nlp.noble.coder.model.Document;
 import edu.pitt.dbmi.nlp.noble.ontology.IOntology;
@@ -79,37 +80,18 @@ public class DocumentSummarizer {
 		return jcas;
 	}
 	
-	public JCas loadCAS(File document) throws UIMAException, IOException{
-		String ts = "/home/tseytlin/Work/ctakes/ctakes-type-system/src/main/resources/org/apache/ctakes/typesystem/types/TypeSystem.xml";
-		TypeSystemDescription tp = TypeSystemDescriptionFactory.createTypeSystemDescriptionFromPath(ts);
+	/**
+	 * load CAS object from XMO
+	 * @param document
+	 * @param typesystem
+	 * @return
+	 * @throws UIMAException
+	 * @throws IOException
+	 */
+	public JCas loadCAS(File document, File typesystem) throws UIMAException, IOException{
+		TypeSystemDescription tp = TypeSystemDescriptionFactory.createTypeSystemDescriptionFromPath(typesystem.getAbsolutePath());
 		return JCasFactory.createJCas(document.getAbsolutePath(),tp);
 	}
-	
-
-	/**
-	 * processing CAS and build a FHIR object model out of it
-	 * @param cas
-	 * @return
-	 *
-	public Report process(JCas cas){
-		Report report = null;
-		// process given CAS document
-		Iterator<Annotation> it = cas.getAnnotationIndex(DocumentAnnotation.type).iterator();
-		if(it.hasNext()){
-			report = resourceFactory.getReport(it.next());
-			if(report != null){
-				// now examine varies types of annotations and how they can relate
-				Demographics demo = getPrimaryPatient(cas);
-				if(demo != null){
-					//Patient patient = resourceFactory.getPatient(demo);
-					
-				}
-			}
-		}
-		return null;
-	}
-	*/
-	
 	
 	/**
 	 * Create Report object from NobleCoder annotated document
@@ -140,25 +122,32 @@ public class DocumentSummarizer {
 	 */
 	
 	public static void main(String [] args ) throws Exception{
-		//File ontology = new File("/home/tseytlin/Data/DeepPhe/Model/BreastCancerModel.owl");
 		File project = new File("/home/tseytlin/Work/DeepPhe/");
 		File ontology = new File(project,"ontologies/breastCancer.owl");//breastCAEx.owl
-		//File ontology = new File(project,"data/sample/ontology/BreastCancerModel.owl");
-		File out = new File(project,"data/sample/fhir");
-		File [] docs = new File(project,"data/sample/docs").listFiles();
-		Arrays.sort(docs);
+		File sample = new File(project,"data/sample");
+		File out = new File(sample,"fhir");
+		File types = new File(project,"data/desc/TypeSystem.xml");
 		
-		// process reports
-		/*DocumentSummarizer summarizer = new DocumentSummarizer();
-		for(File f: dir.listFiles()){
-			JCas cas = summarizer.process(f);
-			
-		}*/
-		
+		// load ontology
 		System.out.println("loading ontology .."+ontology.getName());
 		IOntology ont = OOntology.loadOntology(ontology);
-		NobleCoder coder = new NobleCoder(new NobleCoderTerminology(ont));
 		DocumentSummarizer summarizer = new DocumentSummarizer(ont);
+		System.out.println("reading XMI files ..");
+		/*File [] docs = new File(sample,"xmi").listFiles();
+		Arrays.sort(docs);
+		// process reports
+		for(File file: docs){
+			JCas cas = summarizer.loadCAS(file,types);
+			Report report = summarizer.process(cas);
+			report.setTitleSimple(TextUtils.stripSuffix(file.getName()));
+			//report.save(out);
+			System.out.println(report.getSummary());
+		}*/
+		
+		
+		NobleCoder coder = new NobleCoder(new NobleCoderTerminology(ont));
+		File [] docs = new File(sample,"docs").listFiles();
+		Arrays.sort(docs);
 		for(File file: docs){
 			System.out.println("coding document .."+file.getName());
 			Document doc = coder.process(file);
@@ -167,17 +156,6 @@ public class DocumentSummarizer {
 			System.out.println(report.getSummary());
 			report.save(out);
 		}
-		
-		
-		
-		
-		//JCas cas = summarizer.loadCAS(file_cas);
-		//DocumentElement doc = summarizer.process(cas);
-		//System.out.println(doc.getText());
-		//summarizer.saveFHIR(doc.getModel(),file_fhir);
-		/*for(DiagnosisElement dx : doc.getDiagnoses()){
-			summarizer.saveFHIR(dx.getModel(),new File(file_fhir.getParentFile(),dx.getName()+".xml"));
-		}*/
 		
 		System.out.println("done");
 	}
