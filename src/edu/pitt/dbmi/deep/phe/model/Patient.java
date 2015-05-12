@@ -30,7 +30,7 @@ public class Patient extends org.hl7.fhir.instance.model.Patient implements Elem
 	
 	public Patient(){
 		setActiveSimple(true);
-		Utils.createIdentifier(addIdentifier(),this);
+		//Utils.createIdentifier(addIdentifier(),this);
 	}
 	
 	/**
@@ -54,6 +54,8 @@ public class Patient extends org.hl7.fhir.instance.model.Patient implements Elem
 		}else{
 			hn.addFamilySimple(name);
 		}
+		String id = getClass().getSimpleName().toUpperCase()+"_"+name.replaceAll("\\W+","_");
+		Utils.createIdentifier(addIdentifier(),id);
 	}
 	/**
 	 * get a simple name for a patient

@@ -66,8 +66,7 @@ public class Diagnosis extends Condition implements Element {
 		setCode(Utils.getCodeableConcept(m));
 		
 		// create identifier
-		String dn = getDisplaySimple().replaceAll("\\W+","_");
-		Utils.createIdentifier(addIdentifier(),getClass().getSimpleName()+"-"+dn+"-"+m.getStartPosition());
+		Utils.createIdentifier(addIdentifier(),this,m);
 		
 		// find annatomic location
 		Mention al = Utils.getNearestMention(m,m.getSentence().getDocument(),Utils.ANATOMICAL_SITE);
@@ -96,16 +95,6 @@ public class Diagnosis extends Condition implements Element {
 
 	public String getIdentifierSimple() {
 		return Utils.getIdentifier(getIdentifier());
-	}
-	
-	public int hashCode() {
-		return getIdentifierSimple().hashCode();
-	}
-
-	public boolean equals(Object obj) {
-		if(obj instanceof Element)
-			return getIdentifierSimple().equals(((Element)obj).getIdentifierSimple());
-		return super.equals(obj);
 	}
 
 	public String getSummary() {

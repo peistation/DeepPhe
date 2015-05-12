@@ -21,6 +21,7 @@
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>http://blulab.chpc.utah.edu/ontologies/Terminology.owl</Import>
     <Annotation>
         <AnnotationProperty IRI="#author"/>
         <Literal datatypeIRI="&rdf;PlainLiteral">Melissa Tharp</Literal>
@@ -2672,6 +2673,13 @@
     <SubClassOf>
         <Class IRI="#Tumor"/>
         <Class IRI="#PhenotypeAttribute"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tumor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasBodyLocation"/>
+            <Class IRI="#AnatomicalSite"/>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Tumor"/>

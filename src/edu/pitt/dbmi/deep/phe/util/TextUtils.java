@@ -72,4 +72,15 @@ public class TextUtils {
 			return null;
 		}*/
 	}
+	
+	/**
+	 * strip suffix
+	 * @param name
+	 * @return
+	 */
+	public static String stripSuffix(String name){
+		int x = name.lastIndexOf('.');
+		return x > -1?name.substring(0,x):name;
+	}
+	
 }

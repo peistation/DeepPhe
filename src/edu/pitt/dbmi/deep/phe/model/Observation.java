@@ -19,7 +19,7 @@ public class Observation extends org.hl7.fhir.instance.model.Observation impleme
 	public Observation(){
 		setStatusSimple(ObservationStatus.final_);
 		setLanguageSimple(Utils.DEFAULT_LANGUAGE); // we only care about English
-		setIdentifier(Utils.createIdentifier(this));
+
 	}
 	
 	public String getDisplaySimple() {
@@ -64,6 +64,10 @@ public class Observation extends org.hl7.fhir.instance.model.Observation impleme
 	public void initialize(Mention m){
 		// set name for this observation
 		setName(Utils.getCodeableConcept(m));
+		
+		// create identifier
+		setIdentifier(Utils.createIdentifier(this,m));
+				
 		
 		//TODO: this should be defined in the ontology
 		// extract value if available

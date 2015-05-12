@@ -12,6 +12,8 @@ import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceReference;
 
+import edu.pitt.dbmi.deep.phe.util.TextUtils;
+
 /**
  * represents a medical document that contains a set of 
  * Diagnosis along with Evidence, Signs and Symptoms
@@ -30,7 +32,7 @@ public class Report extends Composition implements Element{
 		setLanguageSimple(Utils.DEFAULT_LANGUAGE);
 		event = new CompositionEventComponent();
 		setEvent(event);
-		setIdentifier(Utils.createIdentifier(this));
+		
 	}
 
 	
@@ -42,6 +44,12 @@ public class Report extends Composition implements Element{
 		setText(Utils.getNarrative(text));
 	}
 	
+	public Composition setTitleSimple(String value) {
+		setIdentifier(Utils.createIdentifier(getClass().getSimpleName().toUpperCase()+"_"+TextUtils.stripSuffix(value)));
+		return super.setTitleSimple(value);
+	}
+
+
 	public String getTextSimple(){
 		return Utils.getText(getText());
 	}
@@ -200,7 +208,10 @@ public class Report extends Composition implements Element{
 	 * @throws FileNotFoundException 
 	 */
 	public void save(File dir) throws Exception{
-		Utils.saveFHIR(this,getIdentifierSimple(),dir);
+		String id = getIdentifierSimple();
+		
+		dir = new File(dir,TextUtils.stripSuffix(getTitleSimple()));
+		Utils.saveFHIR(this,id,dir);
 		
 		// go over components
 		Patient pt = getPatient();

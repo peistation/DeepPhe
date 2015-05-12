@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Composition xmlns="http://hl7.org/fhir">
+  <language value="English"/>
+  <text>
+    <status value="generated"/>
+    <pre xmlns="http://www.w3.org/1999/xhtml">===================================================================
+Patient Name..................Jane Doe
+Principal Date................20140304 1211
+Record Type...................RAD
+===================================================================
+Brain MRI
+There are three contrast enhancing lesions in the right parietal lobe, the largest measuring 0.9 cm, suggestive of metastatic tumor.
+</pre>
+  </text>
+  <identifier>
+    <label value="id"/>
+    <system value="local"/>
+    <value value="REPORT_doc3"/>
+  </identifier>
+  <date value="2014-03-04T00:11:00-05:00"/>
+  <type>
+    <coding>
+      <system value="UMLS"/>
+      <code value="C1299496"/>
+      <display value="Radiology Report"/>
+    </coding>
+    <text value="Radiology Report"/>
+  </type>
+  <title value="doc3.txt"/>
+  <status value="final"/>
+  <subject>
+    <reference value="PATIENT_Jane_Doe"/>
+    <display value="Jane Doe"/>
+  </subject>
+  <event>
+    <detail>
+      <reference value="OBSERVATION_Tumor_Size"/>
+      <display value="Tumor Size"/>
+    </detail>
+    <detail>
+      <reference value="FINDING_Breast_Lump"/>
+      <display value="Breast Lump"/>
+    </detail>
+    <detail>
+      <reference value="FINDING_Tumor_Mass"/>
+      <display value="Tumor Mass"/>
+    </detail>
+    <detail>
+      <reference value="PROCEDURE_Magnetic_Resonance_Imaging"/>
+      <display value="Magnetic Resonance Imaging"/>
+    </detail>
+  </event>
+</Composition>

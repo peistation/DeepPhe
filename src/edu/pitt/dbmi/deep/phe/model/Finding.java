@@ -14,7 +14,6 @@ public class Finding extends Condition  implements Element{
 		setCategory(Utils.CONDITION_CATEGORY_FINDING);
 		setLanguageSimple(Utils.DEFAULT_LANGUAGE); // we only care about English
 		setStatusSimple(ConditionStatus.confirmed); // here we only deal with 'confirmed' dx
-		Utils.createIdentifier(addIdentifier(),this);
 	}
 	public String getDisplaySimple() {
 		return getCode().getTextSimple();
@@ -38,9 +37,9 @@ public class Finding extends Condition  implements Element{
 	 */
 	public void initialize(Mention m){
 		setCode(Utils.getCodeableConcept(m));
-		//cls = Utils.resolveConcept(m);
-		String dn = getDisplaySimple().replaceAll("\\W+","_");
-		Utils.createIdentifier(addIdentifier(),getClass().getSimpleName()+"-"+dn+"-"+m.getStartPosition());
+		// create identifier
+		Utils.createIdentifier(addIdentifier(),this,m);
+				
 	}
 
 	/**

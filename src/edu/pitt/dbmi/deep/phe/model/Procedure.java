@@ -17,15 +17,14 @@ import edu.pitt.dbmi.nlp.noble.coder.model.Mention;
 import edu.pitt.dbmi.nlp.noble.ontology.IClass;
 
 public class Procedure extends org.hl7.fhir.instance.model.Procedure  implements Element{
-	public Procedure(){
-		Utils.createIdentifier(addIdentifier(),this);
-	}
+	
 	/**
 	 * initialize 
 	 * @param m
 	 */
 	public void initialize(Mention m){
 		setType(Utils.getCodeableConcept(m));
+		Utils.createIdentifier(addIdentifier(),this,m);
 		// find annatomic location
 		Mention al = Utils.getNearestMention(m,m.getSentence().getDocument(),Utils.ANATOMICAL_SITE);
 		if(al != null){

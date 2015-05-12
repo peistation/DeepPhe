@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Medication xmlns="http://hl7.org/fhir">
+  <language value="English"/>
+  <name value="Docetaxel"/>
+  <code>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="C:Docetaxel"/>
+      <display value="Docetaxel"/>
+    </coding>
+    <text value="Docetaxel"/>
+  </code>
+</Medication>

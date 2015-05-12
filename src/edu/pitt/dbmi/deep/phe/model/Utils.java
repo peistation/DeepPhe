@@ -311,6 +311,16 @@ public class Utils {
 		return id;
 	}
 	
+	public static Identifier createIdentifier(Object obj,Mention m){
+		return createIdentifier(new Identifier(), obj,m);
+	}
+
+	public static Identifier createIdentifier(Identifier id, Object obj,Mention m){
+		String dn = m.getConcept().getName().replaceAll("\\W+","_");
+		String ident = obj.getClass().getSimpleName().toUpperCase()+"_"+dn; //+"_"+m.getStartPosition()
+		return createIdentifier(id, ident);
+	}
+	
 	public static String getText(Narrative text) {
 		String t =  text.getDiv().getContent();
 		if(t == null){
