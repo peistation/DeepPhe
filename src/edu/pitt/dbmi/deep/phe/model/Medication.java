@@ -2,6 +2,9 @@ package edu.pitt.dbmi.deep.phe.model;
 
 import java.io.File;
 
+import org.apache.ctakes.typesystem.type.textsem.AnatomicalSiteMention;
+import org.apache.ctakes.typesystem.type.textsem.MedicationMention;
+import org.apache.ctakes.typesystem.type.textsem.ProcedureMention;
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Observation;
 
@@ -48,6 +51,16 @@ public class Medication extends org.hl7.fhir.instance.model.Medication implement
 		setNameSimple(m.getConcept().getName());
 		setCode(Utils.getCodeableConcept(m));
 		setIdentifier(Utils.createIdentifier(this,m));
+	}
+	
+	/**
+	 * Initialize diagnosis from a DiseaseDisorderMention in cTAKES typesystem
+	 * @param dx
+	 */
+	public void initialize(MedicationMention dm){
+		setNameSimple(Utils.getConceptName(dm));
+		setCode(Utils.getCodeableConcept(dm));
+		setIdentifier(Utils.createIdentifier(this,dm));
 	}
 
 	/**

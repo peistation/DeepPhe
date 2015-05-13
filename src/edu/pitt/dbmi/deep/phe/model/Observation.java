@@ -1,10 +1,19 @@
 package edu.pitt.dbmi.deep.phe.model;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.ctakes.cancer.type.textsem.CancerSize;
+import org.apache.ctakes.cancer.type.textsem.ReceptorStatus;
+import org.apache.ctakes.cancer.type.textsem.SizeMeasurement;
+import org.apache.ctakes.typesystem.type.textsem.AnatomicalSiteMention;
+import org.apache.ctakes.typesystem.type.textsem.IdentifiedAnnotation;
+import org.apache.ctakes.typesystem.type.textsem.ProcedureMention;
+import org.apache.uima.jcas.cas.FSArray;
+import org.hibernate.type.FloatType;
 import org.hl7.fhir.instance.model.*;
 
 import edu.pitt.dbmi.nlp.noble.coder.model.Mention;
@@ -33,9 +42,15 @@ public class Observation extends org.hl7.fhir.instance.model.Observation impleme
 	public String getSummary() {
 		StringBuffer st = new StringBuffer();
 		st.append("Observation:\t"+getDisplaySimple());
-		StringType t = getValue();
-		if(t != null)
-			st.append(" | value: "+t.getValue());
+		Type t = getValue();
+		if(t != null){
+			if( t instanceof StringType)
+				st.append(" | value: "+((StringType)t).getValue());
+			else if( t instanceof DecimalType)
+				st.append(" | value: "+String.format("%.3f",((DecimalType)t).getValue()));
+			else if( t instanceof Quantity)
+				st.append(" | value: "+String.format("%.3f",((Quantity)t).getValueSimple())+" "+((Quantity)t).getUnitsSimple());
+		}
 		return st.toString();
 	}
 	public Resource getResource() {
@@ -76,7 +91,7 @@ public class Observation extends org.hl7.fhir.instance.model.Observation impleme
 		Pattern pp = Pattern.compile("(?i)(\\d*\\.\\d+)\\s*([cm]{1,2})");
 		Matcher mm = pp.matcher(text);
 		if(mm.find()){
-			setValue(new StringType(mm.group()));
+			setValue(mm.group(1),mm.group(2));
 		}
 		// set positive/negative
 		for(String st: Arrays.asList("Positive", "Negative","Unknown")){
@@ -87,8 +102,57 @@ public class Observation extends org.hl7.fhir.instance.model.Observation impleme
 		}
 	}
 	
-	public StringType getValue(){
-		return (StringType) super.getValue();
+	/**
+	 * Initialize diagnosis from a DiseaseDisorderMention in cTAKES typesystem
+	 * @param dx
+	 */
+	public void initialize(IdentifiedAnnotation dm){
+		// set some properties
+		setName(Utils.getCodeableConcept(dm));
+		setIdentifier(Utils.createIdentifier(this,dm));
+		
+		// extract value using free text if necessary
+		String text = dm.getCoveredText();
+		Pattern pp = Pattern.compile("(?i)(\\d*\\.\\d+)\\s*([cm]{1,2})");
+		Matcher mm = pp.matcher(text);
+		if(mm.find()){
+			setValue(mm.group(1),mm.group(2));
+		}
+		
+		// set positive/negative
+		for(String st: Arrays.asList("Positive", "Negative","Unknown")){
+			if(Utils.getConceptName(dm).contains(st)){
+				setValue(new StringType(st));
+				break;
+			}
+		}
+		
+		// if cancer size, then use their value
+		if(dm instanceof CancerSize){
+			FSArray arr = ((CancerSize)dm).getMeasurements();
+			if(arr != null){
+				for(int i=0;i<arr.size();i++){
+					SizeMeasurement sm = (SizeMeasurement) arr.get(i);
+					setValue(sm);
+					break;
+				}
+			}
+		}
+	}
+
+	public void setValue(SizeMeasurement num){
+		setValue(num.getValue(),num.getUnit());
+	}
+	
+	public void setValue(String value, String unit){
+		setValue(Double.parseDouble(value),unit);
+	}
+	
+	public void setValue(double value, String unit){
+		Quantity q = new Quantity();
+		q.setValueSimple(new BigDecimal(value));
+		q.setUnitsSimple(unit);
+		setValue(q);
 	}
 	
 	

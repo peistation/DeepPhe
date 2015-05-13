@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
+import org.apache.ctakes.typesystem.type.textsem.AnatomicalSiteMention;
+import org.apache.ctakes.typesystem.type.textsem.DiseaseDisorderMention;
+import org.apache.ctakes.typesystem.type.textsem.ProcedureMention;
+import org.apache.ctakes.typesystem.type.textsem.TimeMention;
 import org.apache.uima.jcas.JCas;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.CodeableConcept;
@@ -32,6 +36,31 @@ public class Procedure extends org.hl7.fhir.instance.model.Procedure  implements
 			Utils.setCodeableConcept(location,al);
 		}
 	}
+	
+	/**
+	 * Initialize diagnosis from a DiseaseDisorderMention in cTAKES typesystem
+	 * @param dx
+	 */
+	public void initialize(ProcedureMention dm){
+		// set some properties
+		setType(Utils.getCodeableConcept(dm));
+		Utils.createIdentifier(addIdentifier(),this,dm);
+		
+	
+			
+		// now lets take a look at the location of this diagnosis
+		AnatomicalSiteMention as = (AnatomicalSiteMention) Utils.getRelatedItem(dm,dm.getBodyLocation());
+		if(as == null)
+			as = Utils.getAnatimicLocation(dm);
+		if(as != null){
+			CodeableConcept location = addBodySite();
+			Utils.setCodeableConcept(location,as);
+		}
+		// now lets add observations
+		//addEvidence();
+		//addRelatedItem();
+	}
+	
 
 	public String getDisplaySimple() {
 		return getType().getTextSimple();

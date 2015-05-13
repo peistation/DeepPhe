@@ -3,6 +3,7 @@ package edu.pitt.dbmi.deep.phe.model;
 import java.util.ArrayList;
 import java.util.regex.*;
 
+import org.apache.ctakes.cancer.type.textsem.TnmClassification;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Condition.ConditionStageComponent;
 import org.hl7.fhir.instance.model.Extension;
@@ -26,6 +27,21 @@ public class Stage extends ConditionStageComponent{
 			setStringExtension(""+o.getClass(Utils.M_STAGE).getURI(),m.group(3));
 		}
 	}
+	
+	public void initialize(TnmClassification st) {
+		CodeableConcept c = Utils.getCodeableConcept(st);
+		c.setTextSimple(st.getCoveredText());
+		setSummary(c);
+		// extract individual Stage levels if values are conflated
+		IOntology o = ResourceFactory.getInstance().getOntology();
+		if(st.getSize() != null)
+			setStringExtension(""+o.getClass(Utils.T_STAGE).getURI(),st.getSize().getCode()+st.getSize().getValue());
+		if(st.getNodeSpread() != null)
+			setStringExtension(""+o.getClass(Utils.N_STAGE).getURI(),st.getNodeSpread().getCode()+st.getNodeSpread().getValue());
+		if(st.getMetastasis() != null)
+			setStringExtension(""+o.getClass(Utils.M_STAGE).getURI(),st.getMetastasis().getCode()+st.getMetastasis().getValue());
+	}
+	
 	
 	/**
 	 * get primary tumor stage

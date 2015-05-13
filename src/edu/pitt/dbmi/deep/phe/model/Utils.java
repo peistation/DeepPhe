@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -18,15 +19,21 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.ctakes.cancer.type.textsem.CancerSize;
 import org.apache.ctakes.typesystem.type.refsem.OntologyConcept;
 import org.apache.ctakes.typesystem.type.refsem.Time;
 import org.apache.ctakes.typesystem.type.refsem.UmlsConcept;
 import org.apache.ctakes.typesystem.type.relation.BinaryTextRelation;
 import org.apache.ctakes.typesystem.type.relation.ElementRelation;
+import org.apache.ctakes.typesystem.type.relation.LocationOfTextRelation;
 import org.apache.ctakes.typesystem.type.relation.Relation;
+import org.apache.ctakes.typesystem.type.textsem.AnatomicalSiteMention;
 import org.apache.ctakes.typesystem.type.textsem.DiseaseDisorderMention;
 import org.apache.ctakes.typesystem.type.textsem.IdentifiedAnnotation;
 import org.apache.ctakes.typesystem.type.textsem.TimeMention;
+import org.apache.uima.cas.CASException;
+import org.apache.uima.cas.FSIndex;
+import org.apache.uima.cas.FeatureStructure;
 import org.apache.uima.cas.Type;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
@@ -39,6 +46,7 @@ import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.ResourceReference;
+import org.hl7.fhir.instance.model.Condition.ConditionLocationComponent;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -74,6 +82,7 @@ public class Utils {
 	public static final String FINDING = "Finding";
 	public static final String MEDICATION = "Medication_FHIR";
 	public static final String ANATOMICAL_SITE = "AnatomicalSite";
+	public static final String TUMOR_SIZE = "Tumor_Size";
 	public static final String STAGE = "Generic_TNM_Finding";
 	public static final String AGE = "Age";
 	public static final String GENDER = "Gender";
@@ -166,32 +175,54 @@ public class Utils {
 	 * @return
 	 */
 	public static CodeableConcept getCodeableConcept(IdentifiedAnnotation ia){
-		CodeableConcept cc = new CodeableConcept();
+		return setCodeableConcept(new CodeableConcept(),ia);
+	}
+	
+	/**
+	 * get codeblce concept form OntologyConcept annotation
+	 * @param c
+	 * @return
+	 */
+	public static CodeableConcept setCodeableConcept(CodeableConcept cc,IdentifiedAnnotation ia){
 		cc.setTextSimple(ia.getCoveredText());
 		
 		// go over mapped concepts (merge them into multiple coding systems)
-		List<String> cuis = new ArrayList<String>();
-		for(int i=0;i<ia.getOntologyConceptArr().size();i++){
-			OntologyConcept c = ia.getOntologyConceptArr(i);
-			// add coding for this concept
-			Coding ccc = cc.addCoding();
-			ccc.setCodeSimple(c.getCode());
-			ccc.setDisplaySimple(ia.getCoveredText());
-			ccc.setSystemSimple(c.getCodingScheme());
-			cuis.add(c.getCode());
-			
-			// add codign for UMLS
-			if(c instanceof UmlsConcept){
-				String cui = ((UmlsConcept)c).getCui();
-				if(!cuis.contains(cui)){
-					Coding cccc = cc.addCoding();
-					cccc.setCodeSimple(cui);
-					cccc.setDisplaySimple(((UmlsConcept)c).getPreferredText());
-					cccc.setSystemSimple(DEFAULT_UMLS);
-					cuis.add(cui);
+		if(ia.getOntologyConceptArr() != null){
+			List<String> cuis = new ArrayList<String>();
+			for(int i=0;i<ia.getOntologyConceptArr().size();i++){
+				OntologyConcept c = ia.getOntologyConceptArr(i);
+				// add coding for this concept
+				Coding ccc = cc.addCoding();
+				ccc.setCodeSimple(c.getCode());
+				ccc.setDisplaySimple(ia.getCoveredText());
+				ccc.setSystemSimple(c.getCodingScheme());
+				cuis.add(c.getCode());
+				
+				// add codign for UMLS
+				if(c instanceof UmlsConcept){
+					String cui = ((UmlsConcept)c).getCui();
+					if(!cuis.contains(cui)){
+						Coding cccc = cc.addCoding();
+						cccc.setCodeSimple(cui);
+						cccc.setDisplaySimple(((UmlsConcept)c).getPreferredText());
+						cccc.setSystemSimple(DEFAULT_UMLS);
+						cuis.add(cui);
+					}
 				}
 			}
 		}
+		
+		// add coding for class
+		IClass cls = getConceptClass(ia);
+		if(cls != null){
+			Coding ccc = cc.addCoding();
+			ccc.setCodeSimple(cls.getURI().toString());
+			ccc.setDisplaySimple(cls.getName());
+			ccc.setSystemSimple(cls.getOntology().getURI().toString());
+			cc.setTextSimple(cls.getConcept().getName());
+		}
+		
+		
 		return cc;
 	}
 	
@@ -216,6 +247,25 @@ public class Utils {
 		return cui;
 	}
 	
+	/**
+	 * get concept class from a default ontology based on Concept
+	 * @param c
+	 * @return
+	 */
+	public static String getConceptName(IdentifiedAnnotation ia){
+		IClass cls = getConceptClass(ia);
+		return cls != null?cls.getConcept().getName():ia.getCoveredText();
+		/*String name = null;
+		for(int i=0;i<ia.getOntologyConceptArr().size();i++){
+			OntologyConcept c = ia.getOntologyConceptArr(i);
+			if(c instanceof UmlsConcept){
+				name = ((UmlsConcept)c).getPreferredText();
+			}
+			if(name != null)
+				break;
+		}
+		return name == null?ia.getCoveredText():name;*/
+	}
 	
 	/**
 	 * get codeblce concept form OntologyConcept annotation
@@ -243,7 +293,7 @@ public class Utils {
 			Coding ccc = cc.addCoding();
 			ccc.setCodeSimple(cls.getURI().toString());
 			ccc.setDisplaySimple(c.getName());
-			ccc.setSystemSimple(c.getTerminology().getURI().toString());
+			ccc.setSystemSimple(cls.getOntology().getURI().toString());
 		}
 		// add CUI
 		String cui = getConceptCode(c);
@@ -352,9 +402,18 @@ public class Utils {
 	public static Identifier createIdentifier(Object obj,Mention m){
 		return createIdentifier(new Identifier(), obj,m);
 	}
+	public static Identifier createIdentifier(Object obj,IdentifiedAnnotation m){
+		return createIdentifier(new Identifier(), obj,m);
+	}
 
 	public static Identifier createIdentifier(Identifier id, Object obj,Mention m){
 		String dn = m.getConcept().getName().replaceAll("\\W+","_");
+		String ident = obj.getClass().getSimpleName().toUpperCase()+"_"+dn; //+"_"+m.getStartPosition()
+		return createIdentifier(id, ident);
+	}
+	
+	public static Identifier createIdentifier(Identifier id, Object obj,IdentifiedAnnotation m){
+		String dn = getConceptName(m).replaceAll("\\W+","_");
 		String ident = obj.getClass().getSimpleName().toUpperCase()+"_"+dn; //+"_"+m.getStartPosition()
 		return createIdentifier(id, ident);
 	}
@@ -444,6 +503,11 @@ public class Utils {
 	 * @return
 	 */
 	public static IClass getConceptClass(IdentifiedAnnotation m){
+		// CancerSize doesn't have a CUI, but can be mapped
+		if(m instanceof CancerSize){
+			return ResourceFactory.getInstance().getOntology().getClass(TUMOR_SIZE);
+		}
+		
 		String cui = getConceptCode(m);
 		return cui != null?ResourceFactory.getInstance().getOntologyUtils().getClass(cui):null;
 	}
@@ -564,23 +628,101 @@ public class Utils {
 		List<IdentifiedAnnotation> list = new ArrayList<IdentifiedAnnotation>();
 		Iterator<Annotation> it = cas.getAnnotationIndex(type).iterator();
 		while(it.hasNext()){
-			list.add((IdentifiedAnnotation)it.next());
+			IdentifiedAnnotation ia = (IdentifiedAnnotation) it.next();
+			// don't add stuff that doesn't have a Class or ontology array
+			if(getConceptClass(ia) != null) 
+				list.add(ia);
 		}
 		return filterAnnotations(list);
 	}
 	
+	/**
+	 * get a set of concept by type from the annotated document
+	 * @param doc
+	 * @param type
+	 * @return
+	 */
+	public static List<Relation> getRelationsByType(JCas cas, Type type){
+		List<Relation> list = new ArrayList<Relation>();
+		Iterator<FeatureStructure> it = cas.getFSIndexRepository().getAllIndexedFS(type);
+		while(it.hasNext()){
+			list.add((Relation)it.next());
+		}
+		return list;
+	}
+	
+	/**
+	 * get a set of concept by type from the annotated document
+	 * @param doc
+	 * @param type
+	 * @return
+	 */
+	public static List<Annotation> getRelatedAnnotationsByType(IdentifiedAnnotation an, Class classType){
+		JCas cas = null;
+		try {
+			cas = an.getCAS().getJCas();
+		} catch (CASException e1) {
+			e1.printStackTrace();
+		}
+		Type type = null;
+		try {
+			type = (Type) classType.getMethod("getType").invoke(classType.getDeclaredConstructor(JCas.class).newInstance(cas));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		List<Annotation> list = new ArrayList<Annotation>();
+		Iterator<FeatureStructure> it = cas.getFSIndexRepository().getAllIndexedFS(type);
+		while(it.hasNext()){
+			BinaryTextRelation br = (BinaryTextRelation)it.next();
+			if(br.getArg1().getArgument().getCoveredText().equals(an)){ 
+				list.add(br.getArg2().getArgument());
+			}else if (br.getArg2().getArgument().equals(an)){
+				list.add(br.getArg1().getArgument());
+			}
+		}
+		return list;
+	}
+	
+	/**
+	 * get anatomic location of an annotation
+	 * @param an
+	 * @return
+	 */
+	public static AnatomicalSiteMention getAnatimicLocation(IdentifiedAnnotation an){
+		JCas cas = null;
+		try {
+			cas = an.getCAS().getJCas();
+		} catch (CASException e) {
+			e.printStackTrace();
+		}
+		for(Relation r: Utils.getRelationsByType(cas,new LocationOfTextRelation(cas).getType())){
+			LocationOfTextRelation lr = (LocationOfTextRelation) r;
+			if(lr.getArg1().getArgument().equals(an) && lr.getArg2().getArgument() instanceof AnatomicalSiteMention){
+				return (AnatomicalSiteMention) lr.getArg2().getArgument();
+			}
+		}
+		return null;
+	}
 	
 	private static List<IdentifiedAnnotation> filterAnnotations(List<IdentifiedAnnotation> list) {
 		if(list.isEmpty() || list.size() == 1)
 			return list;
 		for(ListIterator<IdentifiedAnnotation> it = list.listIterator();it.hasNext();){
 			IdentifiedAnnotation m = it.next();
-			if(hasMoreSpecific(m,list))
+			if(hasMoreSpecific(m,list) || hasIdenticalSpan(m,list))
 				it.remove();
 		}
 		return list;
 	}
 	
+	private static boolean hasIdenticalSpan(IdentifiedAnnotation m, List<IdentifiedAnnotation> list) {
+		for(IdentifiedAnnotation mm: list){
+			if(!mm.equals(m) && mm.getCoveredText().equals(m.getCoveredText()))
+				return true;
+		}
+		return false;
+	}
+
 	/**
 	 * does this mention has another mention that is more specific?
 	 * @param m
@@ -590,9 +732,12 @@ public class Utils {
 	
 	private static boolean hasMoreSpecific(IdentifiedAnnotation mm, List<IdentifiedAnnotation> list) {
 		IClass cc = getConceptClass(mm);
+		if(cc == null)
+			return true;
+		
 		for(IdentifiedAnnotation m: list){
 			IClass c = getConceptClass(m);
-			if(cc.hasSubClass(c))
+			if(c != null && cc.hasSubClass(c))
 				return true;
 		}
 		return false;

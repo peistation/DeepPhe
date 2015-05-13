@@ -2,10 +2,21 @@ package edu.pitt.dbmi.deep.phe.model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
+import org.apache.ctakes.cancer.type.relation.TnmStageTextRelation;
+import org.apache.ctakes.cancer.type.textsem.TnmClassification;
+import org.apache.ctakes.typesystem.type.relation.LocationOfTextRelation;
+import org.apache.ctakes.typesystem.type.relation.LocationOfTextRelation_Type;
+import org.apache.ctakes.typesystem.type.relation.Relation;
 import org.apache.ctakes.typesystem.type.textsem.AnatomicalSiteMention;
 import org.apache.ctakes.typesystem.type.textsem.DiseaseDisorderMention;
+import org.apache.ctakes.typesystem.type.textsem.IdentifiedAnnotation;
 import org.apache.ctakes.typesystem.type.textsem.TimeMention;
+import org.apache.uima.jcas.JCas;
+import org.apache.uima.jcas.tcas.Annotation;
 import org.hl7.fhir.instance.model.Condition;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Resource;
@@ -36,7 +47,8 @@ public class Diagnosis extends Condition implements Element {
 		//setSeverity(value); -- > dm.getSeverity()???
 		
 		// create identifier
-		//Utils.createIdentifier(addIdentifier(),getClass().getSimpleName()+"-"+);
+		Utils.createIdentifier(addIdentifier(),this,dm);
+		
 		
 		// perhaps have annotation from Document time
 		TimeMention tm = dm.getStartTime();
@@ -46,15 +58,21 @@ public class Diagnosis extends Condition implements Element {
 			
 		// now lets take a look at the location of this diagnosis
 		AnatomicalSiteMention as = (AnatomicalSiteMention) Utils.getRelatedItem(dm,dm.getBodyLocation());
+		if(as == null){
+			as = Utils.getAnatimicLocation(dm);
+		}
 		if(as != null){
 			ConditionLocationComponent location = addLocation();
 			location.setCode(Utils.getCodeableConcept(as));
 			location.setDetailSimple(as.getCoveredText());
 		}
-		
-		// now lets add observations
-		//addEvidence();
-		//addRelatedItem();
+	
+		// now lets get the location relationships
+		for(Annotation  a: Utils.getRelatedAnnotationsByType(dm,TnmStageTextRelation.class)){
+			Stage stage = new Stage();
+			stage.initialize((TnmClassification) a);
+			setStage(stage);
+		}
 	}
 	
 	

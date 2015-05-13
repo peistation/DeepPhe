@@ -1,7 +1,9 @@
 package edu.pitt.dbmi.deep.phe.util;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -35,8 +37,7 @@ public class OntologyUtils {
 		if(clsMap == null){
 			clsMap = new HashMap<String, IClass>();
 			for(IClass c: ontology.getRoot().getSubClasses()){
-				String code = getCode(c);
-				if(code != null){
+				for(String code : getCodes(c)){
 					clsMap.put(code,c);
 				}
 			}
@@ -70,18 +71,20 @@ public class OntologyUtils {
 		w.close();
 	}
 	
-	
-	private static String getCode(IClass cls){
+	private static List<String> getCodes(IClass cls){
+		List<String> codes = new ArrayList<String>();
 		// find UMLS CUIS
-		String cui = null;
 		for(Object cc : cls.getConcept().getCodes().values()){
 			Matcher m = Pattern.compile("(CL?\\d{6,7})( .+)?").matcher(cc.toString());
 			if(m.matches()){
-				cui = m.group(1);
-				break;
+				codes.add(m.group(1));
 			}
 		}
-		return cui;
+		return codes;
+	}
+	private static String getCode(IClass cls){
+		List<String> codes = getCodes(cls);
+		return codes == null || codes.isEmpty()?null:codes.get(0);
 	}
 	
 	/**

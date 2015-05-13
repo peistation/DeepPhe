@@ -133,7 +133,7 @@ public class DocumentSummarizer {
 		IOntology ont = OOntology.loadOntology(ontology);
 		DocumentSummarizer summarizer = new DocumentSummarizer(ont);
 		System.out.println("reading XMI files ..");
-		/*File [] docs = new File(sample,"xmi").listFiles();
+		File [] docs = new File(sample,"xmi").listFiles();
 		Arrays.sort(docs);
 		// process reports
 		for(File file: docs){
@@ -142,10 +142,10 @@ public class DocumentSummarizer {
 			report.setTitleSimple(TextUtils.stripSuffix(file.getName()));
 			//report.save(out);
 			System.out.println(report.getSummary());
-		}*/
+		}
 		
 		
-		NobleCoder coder = new NobleCoder(new NobleCoderTerminology(ont));
+		/*NobleCoder coder = new NobleCoder(new NobleCoderTerminology(ont));
 		File [] docs = new File(sample,"docs").listFiles();
 		Arrays.sort(docs);
 		for(File file: docs){
@@ -155,7 +155,7 @@ public class DocumentSummarizer {
 			Report report = summarizer.process(doc);
 			System.out.println(report.getSummary());
 			report.save(out);
-		}
+		}*/
 		
 		System.out.println("done");
 	}
