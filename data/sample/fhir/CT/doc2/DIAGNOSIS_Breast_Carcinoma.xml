@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Condition xmlns="http://hl7.org/fhir">
+  <language value="English"/>
+  <identifier>
+    <label value="id"/>
+    <system value="local"/>
+    <value value="DIAGNOSIS_Breast_Carcinoma"/>
+  </identifier>
+  <subject>
+    <reference value="PATIENT_Jane_Doe"/>
+    <display value="Jane Doe"/>
+  </subject>
+  <dateAsserted value="2013-04-24T11:30:00-04:00"/>
+  <code>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="286898006"/>
+      <display value="breast cancer"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0678222"/>
+      <display value="Breast Carcinoma"/>
+    </coding>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="154513000"/>
+      <display value="breast cancer"/>
+    </coding>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="254838004"/>
+      <display value="breast cancer"/>
+    </coding>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="154521006"/>
+      <display value="breast cancer"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0006142"/>
+      <display value="Malignant neoplasm of breast"/>
+    </coding>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="254837009"/>
+      <display value="breast cancer"/>
+    </coding>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="190121004"/>
+      <display value="breast cancer"/>
+    </coding>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="269595005"/>
+      <display value="breast cancer"/>
+    </coding>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Breast_Carcinoma"/>
+      <display value="Breast_Carcinoma"/>
+    </coding>
+    <text value="Breast Carcinoma"/>
+  </code>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/condition-category"/>
+      <code value="diagnosis"/>
+      <display value="Diagnosis"/>
+    </coding>
+    <text value="Diagnosis"/>
+  </category>
+  <status value="confirmed"/>
+  <stage>
+    <extension url="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Generic_Primary_Tumor_TNM_Finding">
+      <valueString value="T2"/>
+    </extension>
+    <extension url="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Generic_Regional_Lymph_Nodes_TNM_Finding">
+      <valueString value="N0"/>
+    </extension>
+    <extension url="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Generic_Distant_Metastasis_TNM_Finding">
+      <valueString value="M0"/>
+    </extension>
+    <summary>
+      <coding>
+        <system value="SNOMED"/>
+        <code value="385379008"/>
+        <display value="T2N0M0"/>
+      </coding>
+      <coding>
+        <system value="NCI Metathesaurus"/>
+        <code value="C1300492"/>
+        <display value="TNM tumor staging finding"/>
+      </coding>
+      <text value="T2N0M0"/>
+    </summary>
+  </stage>
+  <location>
+    <code>
+      <coding>
+        <system value="SNOMEDCT"/>
+        <code value="80248007"/>
+        <display value="left breast"/>
+      </coding>
+      <coding>
+        <system value="NCI Metathesaurus"/>
+        <code value="C0222601"/>
+        <display value="Left breast"/>
+      </coding>
+      <coding>
+        <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+        <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Left_Breast"/>
+        <display value="Left_Breast"/>
+      </coding>
+      <text value="Left Breast"/>
+    </code>
+    <detail value="left breast"/>
+  </location>
+</Condition>

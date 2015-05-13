@@ -54,18 +54,20 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 import com.ibm.icu.text.SimpleDateFormat;
 
+import edu.pitt.dbmi.deep.phe.util.OntologyUtils;
 import edu.pitt.dbmi.nlp.noble.coder.model.Document;
 import edu.pitt.dbmi.nlp.noble.coder.model.Mention;
 import edu.pitt.dbmi.nlp.noble.ontology.IClass;
 import edu.pitt.dbmi.nlp.noble.ontology.IOntology;
 import edu.pitt.dbmi.nlp.noble.terminology.Concept;
 import edu.pitt.dbmi.nlp.noble.tools.TextTools;
-import edu.pitt.dbmi.nlp.noble.util.DeIDUtils;
+
 
 
 public class Utils {
 	public static final String DEFAULT_LANGUAGE = "English";
-	public static final String DEFAULT_UMLS = "UMLS";
+	public static final String SCHEMA_UMLS = "NCI Metathesaurus";
+	public static final String SCHEMA_RXNORM = "RxNORM";
 	public static final CodeableConcept CONDITION_CATEGORY_DIAGNOSIS = getCodeableConcept("Diagnosis","diagnosis","http://hl7.org/fhir/condition-category");
 	public static final CodeableConcept CONDITION_CATEGORY_FINDING = getCodeableConcept("Finding","finding","http://hl7.org/fhir/condition-category");
 	public static final CodeableConcept CONDITION_CATEGORY_SYMPTOM = getCodeableConcept("Symptom","symptom","http://hl7.org/fhir/condition-category");
@@ -105,9 +107,9 @@ public class Utils {
 	public static CodeableConcept getDocumentType(String type){
 		if(reportTypes == null){
 			reportTypes = new HashMap<String,CodeableConcept>();
-			reportTypes.put("SP",getCodeableConcept("Pathology Report","C0807321",DEFAULT_UMLS));
-			reportTypes.put("RAD",getCodeableConcept("Radiology Report","C1299496",DEFAULT_UMLS));
-			reportTypes.put("PGN",getCodeableConcept("Progress Note","C0747978",DEFAULT_UMLS));
+			reportTypes.put("SP",getCodeableConcept("Pathology Report","C0807321",SCHEMA_UMLS));
+			reportTypes.put("RAD",getCodeableConcept("Radiology Report","C1299496",SCHEMA_UMLS));
+			reportTypes.put("PGN",getCodeableConcept("Progress Note","C0747978",SCHEMA_UMLS));
 		}
 		return reportTypes.get(type);
 	}
@@ -205,7 +207,7 @@ public class Utils {
 						Coding cccc = cc.addCoding();
 						cccc.setCodeSimple(cui);
 						cccc.setDisplaySimple(((UmlsConcept)c).getPreferredText());
-						cccc.setSystemSimple(DEFAULT_UMLS);
+						cccc.setSystemSimple(SCHEMA_UMLS);
 						cuis.add(cui);
 					}
 				}
@@ -215,11 +217,21 @@ public class Utils {
 		// add coding for class
 		IClass cls = getConceptClass(ia);
 		if(cls != null){
+			// add class URI
 			Coding ccc = cc.addCoding();
 			ccc.setCodeSimple(cls.getURI().toString());
 			ccc.setDisplaySimple(cls.getName());
 			ccc.setSystemSimple(cls.getOntology().getURI().toString());
 			cc.setTextSimple(cls.getConcept().getName());
+		
+			// add RxNORM codes
+			for(String rxcode: OntologyUtils.getRXNORM_Codes(cls)){
+				Coding c2 = cc.addCoding();
+				c2.setCodeSimple(rxcode);
+				c2.setDisplaySimple(cls.getName());
+				c2.setSystemSimple(SCHEMA_RXNORM);
+			}
+		
 		}
 		
 		
@@ -301,7 +313,15 @@ public class Utils {
 			Coding cc2 = cc.addCoding();
 			cc2.setCodeSimple(cui);
 			cc2.setDisplaySimple(c.getName());
-			cc2.setSystemSimple(DEFAULT_UMLS);
+			cc2.setSystemSimple(SCHEMA_UMLS);
+		}
+		
+		// add RxNORM codes
+		for(String rxcode: OntologyUtils.getRXNORM_Codes(c)){
+			Coding c2 = cc.addCoding();
+			c2.setCodeSimple(rxcode);
+			c2.setDisplaySimple(cls.getName());
+			c2.setSystemSimple(SCHEMA_RXNORM);
 		}
 		
 		

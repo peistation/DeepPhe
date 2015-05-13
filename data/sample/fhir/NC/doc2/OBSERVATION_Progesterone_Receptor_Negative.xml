@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <language value="English"/>
+  <name>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Progesterone_Receptor_Negative"/>
+      <display value="Progesterone Receptor Negative"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0279766"/>
+      <display value="Progesterone Receptor Negative"/>
+    </coding>
+    <text value="Progesterone Receptor Negative"/>
+  </name>
+  <valueString value="Negative"/>
+  <issued value="2013-04-24T11:30:00-04:00"/>
+  <status value="final"/>
+  <identifier>
+    <label value="id"/>
+    <system value="local"/>
+    <value value="OBSERVATION_Progesterone_Receptor_Negative"/>
+  </identifier>
+  <subject>
+    <reference value="PATIENT_Jane_Doe"/>
+    <display value="Jane Doe"/>
+  </subject>
+</Observation>

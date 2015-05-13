@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Condition xmlns="http://hl7.org/fhir">
+  <language value="English"/>
+  <identifier>
+    <label value="id"/>
+    <system value="local"/>
+    <value value="FINDING_Tumor_Mass"/>
+  </identifier>
+  <subject>
+    <reference value="PATIENT_Jane_Doe"/>
+    <display value="Jane Doe"/>
+  </subject>
+  <code>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Tumor_Mass"/>
+      <display value="Tumor Mass"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C3273930"/>
+      <display value="Tumor Mass"/>
+    </coding>
+    <text value="Tumor Mass"/>
+  </code>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/condition-category"/>
+      <code value="finding"/>
+      <display value="Finding"/>
+    </coding>
+    <text value="Finding"/>
+  </category>
+  <status value="confirmed"/>
+</Condition>

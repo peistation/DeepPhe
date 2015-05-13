@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Medication xmlns="http://hl7.org/fhir">
+  <language value="English"/>
+  <name value="Trastuzumab"/>
+  <code>
+    <coding>
+      <system value="CTAKES"/>
+      <display value="Herceptin"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0728747"/>
+    </coding>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Trastuzumab"/>
+      <display value="Trastuzumab"/>
+    </coding>
+    <text value="Trastuzumab"/>
+  </code>
+</Medication>

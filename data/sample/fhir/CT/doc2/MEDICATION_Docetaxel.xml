@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Medication xmlns="http://hl7.org/fhir">
+  <language value="English"/>
+  <name value="Docetaxel"/>
+  <code>
+    <coding>
+      <system value="CTAKES"/>
+      <display value="taxotere"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0246415"/>
+    </coding>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Docetaxel"/>
+      <display value="Docetaxel"/>
+    </coding>
+    <coding>
+      <system value="RxNORM"/>
+      <code value="202982"/>
+      <display value="Docetaxel"/>
+    </coding>
+    <text value="Docetaxel"/>
+  </code>
+</Medication>

@@ -2,6 +2,7 @@ package edu.pitt.dbmi.deep.phe.model;
 
 import java.io.File;
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -47,9 +48,9 @@ public class Observation extends org.hl7.fhir.instance.model.Observation impleme
 			if( t instanceof StringType)
 				st.append(" | value: "+((StringType)t).getValue());
 			else if( t instanceof DecimalType)
-				st.append(" | value: "+String.format("%.3f",((DecimalType)t).getValue()));
+				st.append(" | value: "+((DecimalType)t).getValue());
 			else if( t instanceof Quantity)
-				st.append(" | value: "+String.format("%.3f",((Quantity)t).getValueSimple())+" "+((Quantity)t).getUnitsSimple());
+				st.append(" | value: "+((Quantity)t).getValueSimple()+" "+((Quantity)t).getUnitsSimple());
 		}
 		return st.toString();
 	}
@@ -150,7 +151,7 @@ public class Observation extends org.hl7.fhir.instance.model.Observation impleme
 	
 	public void setValue(double value, String unit){
 		Quantity q = new Quantity();
-		q.setValueSimple(new BigDecimal(value));
+		q.setValueSimple(new BigDecimal(value,MathContext.DECIMAL32));
 		q.setUnitsSimple(unit);
 		setValue(q);
 	}

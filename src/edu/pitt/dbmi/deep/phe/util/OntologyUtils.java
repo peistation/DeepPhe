@@ -37,7 +37,7 @@ public class OntologyUtils {
 		if(clsMap == null){
 			clsMap = new HashMap<String, IClass>();
 			for(IClass c: ontology.getRoot().getSubClasses()){
-				for(String code : getCodes(c)){
+				for(String code : getUMLS_Codes(c)){
 					clsMap.put(code,c);
 				}
 			}
@@ -71,7 +71,7 @@ public class OntologyUtils {
 		w.close();
 	}
 	
-	private static List<String> getCodes(IClass cls){
+	public static List<String> getUMLS_Codes(IClass cls){
 		List<String> codes = new ArrayList<String>();
 		// find UMLS CUIS
 		for(Object cc : cls.getConcept().getCodes().values()){
@@ -82,8 +82,28 @@ public class OntologyUtils {
 		}
 		return codes;
 	}
-	private static String getCode(IClass cls){
-		List<String> codes = getCodes(cls);
+	
+	public static List<String> getRXNORM_Codes(IClass cls){
+		return getRXNORM_Codes(cls.getConcept());
+	}
+	
+	public static List<String> getRXNORM_Codes(Concept cls){
+		List<String> codes = new ArrayList<String>();
+		// find UMLS CUIS
+		for(Object cc : cls.getCodes().values()){
+			Matcher m = Pattern.compile("(\\d+) \\[RXNORM\\]").matcher(cc.toString());
+			if(m.matches()){
+				codes.add(m.group(1));
+			}
+		}
+		return codes;
+	}
+	
+	
+	
+	
+	public static String getCode(IClass cls){
+		List<String> codes = getUMLS_Codes(cls);
 		return codes == null || codes.isEmpty()?null:codes.get(0);
 	}
 	

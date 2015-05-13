@@ -45,9 +45,7 @@ public class Procedure extends org.hl7.fhir.instance.model.Procedure  implements
 		// set some properties
 		setType(Utils.getCodeableConcept(dm));
 		Utils.createIdentifier(addIdentifier(),this,dm);
-		
-	
-			
+				
 		// now lets take a look at the location of this diagnosis
 		AnatomicalSiteMention as = (AnatomicalSiteMention) Utils.getRelatedItem(dm,dm.getBodyLocation());
 		if(as == null)

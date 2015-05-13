@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Procedure xmlns="http://hl7.org/fhir">
+  <identifier>
+    <label value="id"/>
+    <system value="local"/>
+    <value value="PROCEDURE_Sentinel_Lymph_Node_Biopsy"/>
+  </identifier>
+  <subject>
+    <reference value="PATIENT_Jane_Doe"/>
+    <display value="Jane Doe"/>
+  </subject>
+  <type>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="396487001"/>
+      <display value="Sentinel Lymph Node Biopsy"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0796693"/>
+      <display value="Sentinel Lymph Node Biopsy"/>
+    </coding>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="314505000"/>
+      <display value="Sentinel Lymph Node Biopsy"/>
+    </coding>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Sentinel_Lymph_Node_Biopsy"/>
+      <display value="Sentinel_Lymph_Node_Biopsy"/>
+    </coding>
+    <text value="Sentinel Lymph Node Biopsy"/>
+  </type>
+  <bodySite>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="181756000"/>
+      <display value="Lymph Node"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C1269047"/>
+      <display value="Entire lymph node"/>
+    </coding>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="59441001"/>
+      <display value="Lymph Node"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0024204"/>
+      <display value="lymph nodes"/>
+    </coding>
+    <text value="Lymph Node"/>
+  </bodySite>
+  <date>
+    <start value="2013-01-18T10:50:00-05:00"/>
+    <end value="2013-01-18T10:50:00-05:00"/>
+  </date>
+</Procedure>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Medication xmlns="http://hl7.org/fhir">
+  <language value="English"/>
+  <name value="Pertuzumab"/>
+  <code>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Pertuzumab"/>
+      <display value="Pertuzumab"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C481039"/>
+      <display value="Pertuzumab"/>
+    </coding>
+    <coding>
+      <system value="RxNORM"/>
+      <code value="1298944"/>
+      <display value="Pertuzumab"/>
+    </coding>
+    <text value="Pertuzumab"/>
+  </code>
+</Medication>

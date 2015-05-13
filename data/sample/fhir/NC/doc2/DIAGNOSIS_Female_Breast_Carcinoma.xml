@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Condition xmlns="http://hl7.org/fhir">
+  <language value="English"/>
+  <identifier>
+    <label value="id"/>
+    <system value="local"/>
+    <value value="DIAGNOSIS_Female_Breast_Carcinoma"/>
+  </identifier>
+  <subject>
+    <reference value="PATIENT_Jane_Doe"/>
+    <display value="Jane Doe"/>
+  </subject>
+  <dateAsserted value="2013-04-24T11:30:00-04:00"/>
+  <code>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Female_Breast_Carcinoma"/>
+      <display value="Female Breast Carcinoma"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0007104"/>
+      <display value="Female Breast Carcinoma"/>
+    </coding>
+    <text value="Female Breast Carcinoma"/>
+  </code>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/condition-category"/>
+      <code value="diagnosis"/>
+      <display value="Diagnosis"/>
+    </coding>
+    <text value="Diagnosis"/>
+  </category>
+  <status value="confirmed"/>
+  <stage>
+    <extension url="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Generic_Primary_Tumor_TNM_Finding">
+      <valueString value="T2"/>
+    </extension>
+    <extension url="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Generic_Regional_Lymph_Nodes_TNM_Finding">
+      <valueString value="N0"/>
+    </extension>
+    <extension url="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Generic_Distant_Metastasis_TNM_Finding">
+      <valueString value="M0"/>
+    </extension>
+    <summary>
+      <coding>
+        <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+        <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Generic_TNM_Finding"/>
+        <display value="Cancer stage"/>
+      </coding>
+      <coding>
+        <system value="NCI Metathesaurus"/>
+        <code value="C1711210"/>
+        <display value="Cancer stage"/>
+      </coding>
+      <text value="T2N0M0"/>
+    </summary>
+  </stage>
+  <location>
+    <code>
+      <coding>
+        <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+        <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Left_Breast"/>
+        <display value="Left Breast"/>
+      </coding>
+      <coding>
+        <system value="NCI Metathesaurus"/>
+        <code value="C0222601"/>
+        <display value="Left Breast"/>
+      </coding>
+      <text value="Left Breast"/>
+    </code>
+    <detail value="left breast"/>
+  </location>
+</Condition>
