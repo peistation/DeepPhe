@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Composition xmlns="http://hl7.org/fhir">
+  <language value="English"/>
+  <text>
+    <status value="generated"/>
+    <pre xmlns="http://www.w3.org/1999/xhtml">===================================================================
+Patient Name..................Jane Doe
+Principal Date................20130118 1050
+Record Type...................SP
+===================================================================
+
+BREAST, LEFT, EXCISION
+INVASIVE DUCTAL CARCINOMA, 2.1 CM
+Sentinel Lymph Node Biopsy,
+One LN with no evidence of Carcinoma
+</pre>
+  </text>
+  <identifier>
+    <label value="id"/>
+    <system value="local"/>
+    <value value="REPORT_doc1"/>
+  </identifier>
+  <date value="2013-01-18T10:50:00-05:00"/>
+  <type>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0807321"/>
+      <display value="Pathology Report"/>
+    </coding>
+    <text value="Pathology Report"/>
+  </type>
+  <title value="doc1.txt"/>
+  <status value="final"/>
+  <subject>
+    <reference value="PATIENT_Jane_Doe"/>
+    <display value="Jane Doe"/>
+  </subject>
+  <event>
+    <detail>
+      <reference value="OBSERVATION_Tumor_Size"/>
+      <display value="Tumor Size"/>
+    </detail>
+    <detail>
+      <reference value="PROCEDURE_Excisional_Biopsy"/>
+      <display value="Excisional Biopsy"/>
+    </detail>
+    <detail>
+      <reference value="PROCEDURE_Sentinel_Lymph_Node_Biopsy"/>
+      <display value="Sentinel Lymph Node Biopsy"/>
+    </detail>
+    <detail>
+      <reference value="DIAGNOSIS_Invasive_Ductal_Carcinoma_Not_Otherwise_Specified"/>
+      <display value="Invasive Ductal Carcinoma, Not Otherwise Specified"/>
+    </detail>
+  </event>
+</Composition>

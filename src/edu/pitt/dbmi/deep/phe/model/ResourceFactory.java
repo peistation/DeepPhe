@@ -2,8 +2,12 @@ package edu.pitt.dbmi.deep.phe.model;
 
 import java.util.*;
 
+import org.apache.ctakes.cancer.type.textsem.CancerSize;
+import org.apache.ctakes.cancer.type.textsem.ReceptorStatus;
 import org.apache.ctakes.typesystem.type.textsem.DiseaseDisorderMention;
 import org.apache.ctakes.typesystem.type.textsem.IdentifiedAnnotation;
+import org.apache.ctakes.typesystem.type.textsem.MedicationMention;
+import org.apache.ctakes.typesystem.type.textsem.ProcedureMention;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.jcas.tcas.DocumentAnnotation;
@@ -288,8 +292,13 @@ public class ResourceFactory {
 
 
 	private List<Procedure> getProcedures(JCas cas) {
-		// TODO Auto-generated method stub
-		return Collections.EMPTY_LIST;
+		List<Procedure> list = new ArrayList<Procedure>();
+		for(IdentifiedAnnotation m: Utils.getAnnotationsByType(cas, ProcedureMention.type)){
+			Procedure  dx = new Procedure();
+			dx.initialize((ProcedureMention) m);
+			list.add(dx);
+		}
+		return list;
 	}
 	
 	/**
@@ -306,8 +315,13 @@ public class ResourceFactory {
 	}
 	
 	private List<Medication> getMedications(JCas cas) {
-		// TODO Auto-generated method stub
-		return Collections.EMPTY_LIST;
+		List<Medication> list = new ArrayList<Medication>();
+		for(IdentifiedAnnotation m: Utils.getAnnotationsByType(cas,MedicationMention.type)){
+			Medication  dx = new Medication();
+			dx.initialize((MedicationMention) m);
+			list.add(dx);
+		}
+		return list;
 	}
 
 	private List<Finding> getFindings(JCas cas) {
@@ -316,8 +330,16 @@ public class ResourceFactory {
 	}
 
 	private List<Observation> getObservations(JCas cas) {
-		// TODO Auto-generated method stub
-		return Collections.EMPTY_LIST;
+		List<Observation> list = new ArrayList<Observation>();
+		List<IdentifiedAnnotation> annotations = new ArrayList<IdentifiedAnnotation>();
+		annotations.addAll(Utils.getAnnotationsByType(cas,CancerSize.type));
+		annotations.addAll(Utils.getAnnotationsByType(cas,ReceptorStatus.type));
+		for(IdentifiedAnnotation m: annotations ){
+			Observation  dx = new Observation();
+			dx.initialize(m);
+			list.add(dx);
+		}
+		return list;
 	}
 
 	

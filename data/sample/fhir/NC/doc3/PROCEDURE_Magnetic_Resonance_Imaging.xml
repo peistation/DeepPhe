@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Procedure xmlns="http://hl7.org/fhir">
+  <identifier>
+    <label value="id"/>
+    <system value="local"/>
+    <value value="PROCEDURE_Magnetic_Resonance_Imaging"/>
+  </identifier>
+  <subject>
+    <reference value="PATIENT_Jane_Doe"/>
+    <display value="Jane Doe"/>
+  </subject>
+  <type>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Magnetic_Resonance_Imaging"/>
+      <display value="Magnetic Resonance Imaging"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C1552358"/>
+      <display value="Magnetic Resonance Imaging"/>
+    </coding>
+    <text value="Magnetic Resonance Imaging"/>
+  </type>
+  <bodySite>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Parietal_Lobe"/>
+      <display value="Parietal Lobe"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0030560"/>
+      <display value="Parietal Lobe"/>
+    </coding>
+    <text value="Parietal Lobe"/>
+  </bodySite>
+  <date>
+    <start value="2014-03-04T00:11:00-05:00"/>
+    <end value="2014-03-04T00:11:00-05:00"/>
+  </date>
+</Procedure>

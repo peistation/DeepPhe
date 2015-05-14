@@ -132,21 +132,23 @@ public class DocumentSummarizer {
 		System.out.println("loading ontology .."+ontology.getName());
 		IOntology ont = OOntology.loadOntology(ontology);
 		DocumentSummarizer summarizer = new DocumentSummarizer(ont);
-		System.out.println("reading XMI files ..");
-		/*File [] docs = new File(sample,"xmi").listFiles();
+		
+		File [] docs = new File(sample,"xmi").listFiles();
 		Arrays.sort(docs);
-		// process reports
+		/*// process reports
 		for(File file: docs){
+			System.out.println("reading XMI file .."+file.getName());
 			JCas cas = summarizer.loadCAS(file,types);
+			System.out.println("generating summary ..");;
 			Report report = summarizer.process(cas);
 			report.setTitleSimple(TextUtils.stripSuffix(file.getName()));
-			//report.save(out);
+			report.save(new File(out,"CT"));
 			System.out.println(report.getSummary());
 		}*/
 		
 		
 		NobleCoder coder = new NobleCoder(new NobleCoderTerminology(ont));
-		File [] docs = new File(sample,"docs").listFiles();
+		docs = new File(sample,"docs").listFiles();
 		Arrays.sort(docs);
 		for(File file: docs){
 			System.out.println("coding document .."+file.getName());
@@ -154,7 +156,7 @@ public class DocumentSummarizer {
 			System.out.println("generating summary ..");
 			Report report = summarizer.process(doc);
 			System.out.println(report.getSummary());
-			report.save(out);
+			report.save(new File(out,"NC"));
 		}
 		
 		System.out.println("done");

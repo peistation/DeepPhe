@@ -1,7 +1,9 @@
 package edu.pitt.dbmi.deep.phe.util;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -35,8 +37,7 @@ public class OntologyUtils {
 		if(clsMap == null){
 			clsMap = new HashMap<String, IClass>();
 			for(IClass c: ontology.getRoot().getSubClasses()){
-				String code = getCode(c);
-				if(code != null){
+				for(String code : getUMLS_Codes(c)){
 					clsMap.put(code,c);
 				}
 			}
@@ -70,18 +71,40 @@ public class OntologyUtils {
 		w.close();
 	}
 	
-	
-	private static String getCode(IClass cls){
+	public static List<String> getUMLS_Codes(IClass cls){
+		List<String> codes = new ArrayList<String>();
 		// find UMLS CUIS
-		String cui = null;
 		for(Object cc : cls.getConcept().getCodes().values()){
 			Matcher m = Pattern.compile("(CL?\\d{6,7})( .+)?").matcher(cc.toString());
 			if(m.matches()){
-				cui = m.group(1);
-				break;
+				codes.add(m.group(1));
 			}
 		}
-		return cui;
+		return codes;
+	}
+	
+	public static List<String> getRXNORM_Codes(IClass cls){
+		return getRXNORM_Codes(cls.getConcept());
+	}
+	
+	public static List<String> getRXNORM_Codes(Concept cls){
+		List<String> codes = new ArrayList<String>();
+		// find UMLS CUIS
+		for(Object cc : cls.getCodes().values()){
+			Matcher m = Pattern.compile("(\\d+) \\[RXNORM\\]").matcher(cc.toString());
+			if(m.matches()){
+				codes.add(m.group(1));
+			}
+		}
+		return codes;
+	}
+	
+	
+	
+	
+	public static String getCode(IClass cls){
+		List<String> codes = getUMLS_Codes(cls);
+		return codes == null || codes.isEmpty()?null:codes.get(0);
 	}
 	
 	/**

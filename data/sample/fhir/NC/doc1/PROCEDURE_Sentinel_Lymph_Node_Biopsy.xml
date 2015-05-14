@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Procedure xmlns="http://hl7.org/fhir">
+  <identifier>
+    <label value="id"/>
+    <system value="local"/>
+    <value value="PROCEDURE_Sentinel_Lymph_Node_Biopsy"/>
+  </identifier>
+  <subject>
+    <reference value="PATIENT_Jane_Doe"/>
+    <display value="Jane Doe"/>
+  </subject>
+  <type>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Sentinel_Lymph_Node_Biopsy"/>
+      <display value="Sentinel Lymph Node Biopsy"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0796693"/>
+      <display value="Sentinel Lymph Node Biopsy"/>
+    </coding>
+    <text value="Sentinel Lymph Node Biopsy"/>
+  </type>
+  <bodySite>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Left_Breast"/>
+      <display value="Left Breast"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0222601"/>
+      <display value="Left Breast"/>
+    </coding>
+    <text value="Left Breast"/>
+  </bodySite>
+  <date>
+    <start value="2013-01-18T10:50:00-05:00"/>
+    <end value="2013-01-18T10:50:00-05:00"/>
+  </date>
+</Procedure>
