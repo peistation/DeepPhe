@@ -1,0 +1,454 @@
+When is the patient scheduled for re-evaluation?
+Over what time period did the weakness progress?
+When was an MRI performed?
+When was a adenocarcinoma contained within a tubular adenoma found in the patient's colon?
+How long has the patient had loose stools?
+When was the cecal cancer resected?
+When was the tumor found?
+When was a CT-scan performed?
+How long has the patient been taking medication for her anxiety?
+When did the patient undergo surgery for colon cancer?
+When did the patient go to the ER?
+When will the patient have lab tests again?
+How old is the patient today?
+When did patient have osteonecrosis of the knee?
+When does he start combined therapy?
+When did the patient have a CT scan?
+When was surgery done?
+When did the patient have her tumor resected?
+When was the patient's colon surgery?
+When was a CT-scan done?
+When was the patient's right hemicolectomy?
+When did the patient have a normal CEA?
+When was the patient seen for physical therapy?
+How long ago did the patient develop polio?
+When was a colonoscopy performed?
+When is further evaluation being done?
+When is the patient scheduled for a follow up appointment?
+When was biopsy done?
+When will post-surgical chemotherapy start?
+When does the patient take aspirin?
+When did the patient have orthopaedic and neuro surgeries?
+When did the patient have initial resection of the brain tumor?
+When will the patient get a MRI of the head?
+When did the patient quit smoking?
+When will the patient undergo CT-scan of the abdomen and pelvis?
+When did the patient have cancer?
+When is right colon surgery planned?
+When was the tumor resected?
+When will the patient's cheek ulcer be treated?
+When did patient have abdominal discomfort?
+When was the residual tumor resected?
+After what surgery did the patient develop atrial flutter?
+When did the patient have colon surgery?
+When is her follow up appointment?
+When did the patient undergo hysterectomy?
+Which came first - the cecal or the sigmoid cancer?
+How long was he unresponsive after the seizure?
+When did the patient come for surgical management?
+When was he switched to Dilantin?
+When was the last ECG before the one from June 14, 2010 done?
+When was the patient's CEA level 6.8?
+When was the patient found to have ovarian cancer?
+When did the patient drink alcohol?
+When was the MRI performed?
+When did the patient undergoe urologic procedure?
+When was the patient's INR 1.3?
+When was HNPCC testing performed?
+When will the patient have the next oncology appointment?
+When is the patient's follow up appointment?
+When did the recurrence appear to start?
+When did the patient have left iliac artery stent placement?
+When did her symptoms begin?
+When does the patient have her eye checks for her diabetes?
+When did the physician elect not to perform a biopsy of the colon cancer?
+When did the patient have scarlet fever?
+When did the patient have ankle surgery?
+When did the patient have urological surgery?
+When does the patient take her insulin?
+When should the antibiotics start?
+How old was the patient during the previous ECG?
+How long was he without sense of smell?
+When did the patient have a CT-scan?
+When did the patient had her last intervention for ovarian cancer?
+When was there a recurrence of the tumor?
+When should the blood test be done?
+When did the patient have colonoscopy?
+How long will the patient continue Folfox treatment after surgery?
+When will the patient have abdominal surgery?
+When was the patient found to have a colon cancer?
+When did the patient receive intra-vascular volume replacement?
+When will radiation therapy begin?
+When did the patient have abdominal surgery
+When will the patient has possible follow up at Fairmont?
+When did the patient have surgery of his abdominal aorta?
+When did the patient go to a nursing home?
+When did the patient undergo a second surgery?
+When did the patient have cervical lymph nodes biopsied?
+When did the patient have his aortic aneurysm repaired?
+When was the diagnosis of a T3 colorectal cancer made?
+When did the patient have severe hypertension?
+When did patient have anemia?
+How many days will the patient undergo FOLFOX treatment?
+When did the patient have hemoglobin determination?
+For what time period was the patient quoted a risk of recurrence of her tumor?
+When did the patient have orthopaedic surgeries?
+When did the patient have surgery for her colorectal cancer?
+At which surgical date was no direct colon tumor extension noticed?
+When will the patient be seen in the future?
+When was he started on Decadron?
+When did he start getting pain of the neck?
+In which year did Mrs. Stackhouse have a CT scan?
+When did have his MRI and PET scan?
+When was the patient's rectal cancer diagnosed?
+When was the patient first diagnosed with a brain tumor?
+When is the next MRI scheduled?
+When did the patient use tobacco?
+When was the patient's nutritional status poor?
+When did the patient start his neoadjuvant treatment?
+How long ago did the patient discontinue smoking?
+When did the patient have a seizure?
+When was the repeat surgery done?
+On which dates did cross-sectional imaging show tumor regression?
+When does the patient have colon cancer?
+When did the patient undergo surgery?
+When did Dr. Jesse Wiseman resect hepatic lesions?
+When did he have difficulty walking?
+When will the patient have access port placement?
+When was the resection for recurrent disease performed?
+When was the patient told to have the cancer resected?
+When will the patient return to see the physician?
+When was the last time she was seen with Dr. Taylor?
+When did get the patient get an MRI?
+How long did the patient smoke?
+When did the patient have a CT enterography?
+When did the patient have transfusions?
+When did the patient have the drain removed for the last time?
+When did the patient have a right hemicolectomy?
+When did he experience pain?
+When will possible lung surgery take place?
+When was the tumor diagnosed?
+When was her breast cancer diagnosed?
+When did he have an abcess?
+When was the colon surgery?
+Since when has the right lower pulmonary nodule increased in size?
+When was the patient found to have anemia?
+When will the patient see the stoma therapist?
+When was the hemoglobin 12.4
+When was the patient married?
+When is chemotherapy scheduled?
+When did the patient have a PET scan?
+When was the tumor biopsied?
+When does the patient take her anti-hypertensive?
+When was a metastatic colon cancer of the liver detected?
+When did the patient's father die?
+When did the patient have surgery?
+When was the MRI done?
+When did the patient have pleural effusions?
+When did the patient have right upper quadrant pain?
+When was the last patient CT-scan?
+When did the patient become tired and weak?
+When did the patient have radial artery surgery?
+When did the patient see Dr. Hampton?
+When is the follow up appointment?
+When did the patient have prostate cancer?
+When did the patient finish his radiation therapy?
+When does the patient use nystatin powder?
+When did patient have a CT-scan?
+When will the patient contact the physician?
+When did the patient decline colonoscopy?
+When does the patient use steriods?
+When was the patient trying to quit smoking?
+When did the patient have rectal or vaginal bleeding?
+When did the patient have difficulty breathing?
+When did surgery take place?
+When was the patient's last CT scan?
+When was the patient in the ICU?
+When does the patient drink tea?
+When was the liver scanned for metastatic disease?
+When does the patient drink alcohol?
+What diagnosis preceded the surgical resection in January 2002?
+How old was the patient when he developed polio?
+When was the patient's weight 81.4 kg?
+At which age did the patient's son have polyps?
+When did the patient stop smoking?
+What date did the patient have his colonoscopy?
+When was a cyst of the liver first seen?
+When is he scheduled to have a hematology group?
+When will the patient's adjuvant chemotherapy plan be outlined?
+When is a follow up appointment scheduled?
+When did the patient have a heart attack?
+When will chemotherapy start?
+When did the patient have vericose vein surgery?
+When did he receive radiation therapy?
+When did the patient have an enlarged uterus?
+When did colonoscopy not reveal any polyps or masses?
+Did the patient gain weight since last visit?
+When was biopsy performed?
+When was the patient's hemoglobin abnormal?
+On what date did colonoscopy reveal a mass?
+When was CT-scan done?
+When did the patient receive corticosteroid treatment?
+When will the patient get a venous access port?
+When did the patient have stent placement?
+What lesions overlapped with the colon cancer?
+How bad is the patient's abdominal pain today?
+When will the patient get CT-scans?
+When is the follow up appointment scheduled?
+When was the patient found to have a metastasis of her colorectal cancer?
+When were gall stones found?
+When did the patient have lumbar fusion surgery?
+When did he notice a dramatic worsening of his right sided weakness?
+When did the patient have left mastectomy?
+When did the patient's symptoms begin?
+When did the patient have shoulder surgery?
+When did the patient have surgery for their brain tumor?
+When was the patient's haemoglobin 10.3?
+When will the patient see medical oncologist?
+When did the patient undergo operation for the cancer?
+When will Colorectal Surgery perform colonoscopy?
+When was the patient found to have omental implants?
+When was the sigmoid cancer resected?
+When was the patient on vasodilators?
+When will her final surgical drain be removed?
+When did the patient undergo HNPCC testing?
+what symptoms predated a hemoglobin of 8.7?
+When was the patient receiving capecitabine?
+When were biopsies obtained from the colon mass?
+When will the patient's cancer surgery take place?
+When did the patient develop acute graft disfunction?
+When did the patient have small bowel obstruction?
+When were surgical margins of the colon surgery negative?
+When will her doctor check her morning glucose levels?
+When did the patient have breast surgery?
+When will the patient return for follow-up appointment?
+When did the patient have colorectal surgery?
+When was the first tumor resection done?
+When does he restart chemotherapy?
+When did the patient have an endoscopy?
+When was a resection performed?
+When did the patient have a hemoglobin of 6.6?
+When in the post-operative course did the patient's bowel function return?
+When did the patient start having symptoms?
+When was the patient's postoperative CEA level 1.6?
+When did the patient have dialysis?
+When did the patient have hypertension?
+when was patient found to have colon cancer?
+When did the patient have his last cardiac stress test?
+When did the patient receive chemotherapy?
+When was it decided to perform abdominal and later chest surgery?
+When did the patient have a kidney transplant?
+How long is adjuvant chemotherapy recommended?
+When did the patient have an NG tube in?
+When was his colon cancer staged?
+When will the patient take her anti-hypertensive?
+When was the patient hospitalized?
+When will the patient see Dr. Brown?
+When was the patient diagnosed with osteonecrosis of the knee?
+When did the patient have meningioma?
+When did he have hematuria?
+When was her drain placed?
+How long has the patient been smoking?
+When was radiation therapy completed?
+How long has the patient been taking sleeping medication?
+When was the patient's large-cell lymphoma diagnosed?
+When did the patient have abdominal pain?
+When did the patient abuse alcohol or street drugs?
+When did intermittent bleeding start?
+When will surgery be performed?
+When did the patient have a colonoscopy?
+When could the patient have a colorectal primary?
+How long would the patient have occupational therapy?
+When did the patient have vascular surgeries?
+When was the initial tumor resection?
+When did the patient have liver surgery?
+When did the patient have non-Hodgkin's lymphoma?
+When did the patient have an MRI?
+When was the patient's left kidney removed?
+When did the patient have his colonoscopy?
+When will the patient see radiation oncology?
+When does the patient see the oncologist?
+When did the patient have lower abdominal surgery?
+When was the patient's latest CT-scan done?
+When was patient found to have colon cancer?
+When will the patient have her physical medicine appointment?
+When did the patient have breast cancer surgery?
+When did the patient have a 3mm cecal polyp?
+When will the patient go for care to the Mother Care Center
+When will chemotherapy most likely start?
+Can the patient ambulate today?
+How long did the patient not see a doctor?
+When was the patient's colon cancer diagnosed?
+What is the patient's code status today?
+When was the patient's second colonoscopy?
+When was the MRI done after the second surgery?
+When was the patient diagnosed with "adenocarcinoma"?
+What procedures were performed on January 28, 2003?
+When was a radiofrequency ablation of the liver performed?
+When will the patient see genetics?
+When will the patient go to Michigan?
+When did the patient have his right hemicolectomy?
+When did the patient have low hemoglobin?
+How often does the patient check his blood glucose level?
+When will be the next CT-scan most likely?
+When did the patient request no further cross-sectional imaging studies?
+Does the patient take Metformin in the morning or evening?
+When did the patient undergo colonoscopy?
+When does the patient take her stool softner?
+When was the liver imaged to exclude metastatic disease?
+When did the patient begin having symptoms?
+How long ago was the patient's last surgery?
+When did the patient have abdominal surgery?
+When was the patient's second known colonoscopy?
+When did the patient have her surgery?
+When did she get a CT-scan?
+When did the patient have difficulties with her bowel movement?
+When should cross-sectional imaging of the chest be performed?
+When was the patient diagnosed with colon cancer?
+When was his colon cancer diagnosed?
+When is chemotherapy considered?
+When will the patient undergo a CT-scan of the chest, abdomen and pelvis?
+When did the patient have hypotension?
+When was the lung lesion biopsied?
+When did the patient undergo repeat surgery?
+When was the last dose of temozolomide given?
+When was the follow up MRI done?
+When did the patient undergo non-surgical treatment of his rectal cancer?
+When were her ovaries inspected during surgery?
+When was the patient admitted to a hospital in Reno?
+When did the patient complete her radiation therapy?
+When were the doctors trying to save the patient's kidney?
+When will the patient return for follow-up?
+When did the patient present with bloody stools?
+When will the patient have low anterior resection?
+When did the patient have diarrhea?
+When did she have a seizure?
+In which years was Mrs. Stackhouse diagnosed with colon cancer?
+How frequently would the patient undergo treatment?
+When will the patient get CEAs?
+When was the patient's performance status poor?
+When did the patient have a bowel obstruction?
+When did the patient have cardiac imaging done?
+What side effects can the patient get after starting folfox treatment?
+When did MRSA infections of TKA occur?
+When did the patient undergo endoscopy?
+When did the patient have peripheral neuropathy due to chemotherapy?
+When did her spouse pass away?
+When will the patient get ureteral stents?
+When will the next colonoscopy take place?
+How many hours did the physician spend with the patient?
+When was the surgery performed?
+When did the patient have kidney stones?
+When was the patient dismissed from the hospital?
+How long was he in the neurosurgical ICU?
+When did the patient have his postoperative seizure?
+When will the physician discuss the case with Dr. Smith?
+When did the patient develop seizures?
+When was the patient found to have a colorectal cancer?
+When was the infection discovered?
+Which year did Mrs. Stackhouse visit Belle Amis Memorial Hospital?
+When will adjuvant Chemotherapy start?
+When was the patient's renal function most impaired?
+At what dates was there a TNM staging provided?
+When did patient receive CT of chest, abdomen and pelvis?
+When will a venous access port be placed?
+How long will recommended adjuvant chemotherapy be?
+When did the patient have left subclavian stent placement?
+When did the patient have CA-125 test?
+When will they place a tatoo?
+When was the patient's colorectal surgery done?
+When did the patient have an echocardiogram?
+When will she see colorectal surgery again?
+When was the drain removed?
+When did the patient have rectal bleeding?
+When did the patient have the last upper endoscopy where cystic glad polyps were removed?
+When was a colon cancer found?
+When did the patient get neoadjuvant treatment?
+When was the patient found to have a rectal cancer?
+When did the patient have chronic back pain?
+When is the patient still eligible for adjuvant therapy?
+When did the patient have anemia?
+When was the tumor found to be 1p and 19q deleted?
+When will the patient have staging ultrasound and PET scan?
+When did the patient have normal liver tests?
+When was the patient's last colonoscopy?
+When was the addendum diagnosis done?
+When the current doctor first see the patient?
+When was the patient's CT of the lower abdomen?
+When was patient's colon cancer discovered?
+How long has the patient had headaches?
+When will the patient have a combined abdominal surgery?
+When did the patient have transverse colectomy?
+When did the patient have abdominal surgery related to the colorectal cancer?
+How long was the patient in the hospital for her bowel obstruction?
+When did the patient have sinus arrhythmia?
+When will the patient see a surgeon?
+When did the patient receive radiotherapy?
+When did the patient seek medical attention for jelly-like discharge?
+When is the radiation therapy scheduled to stop?
+For what date is a ventral hernia repair planned?
+When did he have his first MRI?
+Does the patient have colon cancer today?
+When was the tumor recurrence resected?
+When was radiation and chemotherapy performed?
+When will a CEA test be done?
+When are the patient's follow up appointments?
+When did the patient report blood in the stool?
+When does the patient take her anti-hypertensives?
+Give me the list of occurrence of masses and the corresponding dates?
+When did the patient have hepatic flexure polyp?
+When did patient have colon cancer diagnosed?
+When did the patient have abdominal or endoscopic imaging for her colon cancer?
+When did the patient have his brain tumor resected?
+When did the patient have the possible recurrence resected?
+When will the patient have an IV port placed?
+When will external oncologist be contacted?
+At what age did the patient have her last radiation?
+When will the patient have surgery?
+When was residual tumor detected in the patient?
+When was the patient found to have a grade 2 adenocarcinoma?
+When was continuous observation recommended?
+When will the patient get infusion during chemotherapy?
+When does the patient use Lasix?
+How long a chemotherapy regimen was proposed to the patient?
+When did the patient have the flu?
+When will the patient get a Brooke ileostomy?
+On what dates did the patient have cross-sectional imaging?
+When was the patient last echocardiogram?
+When will the patient have white cell counts checked?
+How long was the interaction with the patient?
+When will he have aditional surgery?
+When is potential surgery planned?
+When was the patient asked to come back for a follow-up MRI?
+How long did the patient have diabetes?
+When did she undergo surgery?
+When was cancer of the colon diagnosed?
+How long ago was the patient's colon surgery?
+When was the patient's last radiation treatment?
+When did the patient get chemotherapy?
+When did the patient have a renal allograft rejection?
+When did the patient's symptoms start?
+How much time was spent questioning the patient and doing the physical examination?
+When did the patient have a blood transfusion?
+When was the patient found to have an obstructing mass in the cecum?
+Did the patient abust alcohol in the past?
+When is the patient's treatment going to start?
+When did the patient have orthopaedic  and neuro surgeries?
+Has the patient been using compression stockings in the past?
+Has the patient been using support stockings in the past?
+When did the patient have a biopsy?
+When did the patient pass gas?
+When did this patient have colon cancer?
+When did he get an head MRI?
+When did the patient have a thoracentesis?
+How long should be the antibiotics continued?
+When did the patient have minimum pain and discomfort?
+When did the patient have radiation treatment?
+When was surgery performed?
+When was the patient admitted to the hospital for renal failure?
+When was the patient's lymphoma diagnosed?
+When was the recurrence resected?
+When did the patient undergo biopsy?
+When was the patient's first known colonoscopy?
+Total Created Questions: 802
+Total Unique Questions:  452
