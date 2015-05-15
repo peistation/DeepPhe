@@ -475,22 +475,22 @@
     <textspan:LookupWindowAnnotation xmi:id="3120" sofa="6" begin="399" end="410"/>
     <textspan:LookupWindowAnnotation xmi:id="3124" sofa="6" begin="412" end="421"/>
     <textspan:LookupWindowAnnotation xmi:id="3128" sofa="6" begin="427" end="437"/>
-    <textsem2:MedicationMention xmi:id="3145" sofa="6" begin="412" end="421" id="0" ontologyConceptArr="3132" typeID="1" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="19059"/>
-    <textsem2:MedicationMention xmi:id="3188" sofa="6" begin="399" end="410" id="0" ontologyConceptArr="3175" typeID="1" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="19015"/>
-    <textsem2:MedicationMention xmi:id="3231" sofa="6" begin="427" end="437" id="0" ontologyConceptArr="3218" typeID="1" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="19103"/>
-    <textsem2:MedicationMention xmi:id="3274" sofa="6" begin="389" end="397" id="0" ontologyConceptArr="3261" typeID="1" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18971"/>
-    <textsem2:MedicationMention xmi:id="3544" sofa="6" begin="389" end="397" id="0" ontologyConceptArr="3520 3530" typeID="1" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18993"/>
-    <textsem2:MedicationMention xmi:id="3642" sofa="6" begin="399" end="410" id="0" ontologyConceptArr="3574 3614 3624 3594 3604 3584" typeID="1" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="19037"/>
-    <textsem2:MedicationMention xmi:id="3707" sofa="6" begin="412" end="421" id="0" ontologyConceptArr="3672 3692 3682" typeID="1" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="19081"/>
-    <textsem2:DiseaseDisorderMention xmi:id="3328" sofa="6" begin="314" end="327" id="0" ontologyConceptArr="3304 3314" typeID="2" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18773"/>
-    <textsem2:DiseaseDisorderMention xmi:id="3816" sofa="6" begin="314" end="327" id="0" ontologyConceptArr="3747 3757 3737 3777 3767 3797 3787" typeID="2" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18795"/>
-    <textsem2:SignSymptomMention xmi:id="3372" sofa="6" begin="328" end="334" id="0" ontologyConceptArr="3359" typeID="3" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18839"/>
-    <textsem2:SignSymptomMention xmi:id="3415" sofa="6" begin="336" end="342" id="0" ontologyConceptArr="3402" typeID="3" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18883"/>
-    <textsem2:SignSymptomMention xmi:id="3860" sofa="6" begin="291" end="301" id="0" ontologyConceptArr="3847" typeID="3" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18729"/>
-    <textsem2:SignSymptomMention xmi:id="4044" sofa="6" begin="279" end="285" id="0" ontologyConceptArr="4018 4028 3998 4008" typeID="3" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18707"/>
-    <textsem2:ProcedureMention xmi:id="3458" sofa="6" begin="366" end="377" id="0" ontologyConceptArr="3445" typeID="5" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18927"/>
-    <textsem2:ProcedureMention xmi:id="4142" sofa="6" begin="378" end="383" id="0" ontologyConceptArr="4114 4084 4104 4074 4124 4094" typeID="5" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18949"/>
-    <textsem2:AnatomicalSiteMention xmi:id="3499" sofa="6" begin="309" end="320" id="0" ontologyConceptArr="3486" typeID="6" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0"/>
+    <textsem2:MedicationMention xmi:id="3156" sofa="6" begin="389" end="397" id="0" ontologyConceptArr="3132 3142" typeID="1" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18971"/>
+    <textsem2:MedicationMention xmi:id="3254" sofa="6" begin="399" end="410" id="0" ontologyConceptArr="3216 3196 3236 3206 3226 3186" typeID="1" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="19015"/>
+    <textsem2:MedicationMention xmi:id="3319" sofa="6" begin="412" end="421" id="0" ontologyConceptArr="3284 3294 3304" typeID="1" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="19059"/>
+    <textsem2:MedicationMention xmi:id="3829" sofa="6" begin="412" end="421" id="0" ontologyConceptArr="3816" typeID="1" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="19081"/>
+    <textsem2:MedicationMention xmi:id="3872" sofa="6" begin="399" end="410" id="0" ontologyConceptArr="3859" typeID="1" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="19037"/>
+    <textsem2:MedicationMention xmi:id="3915" sofa="6" begin="427" end="437" id="0" ontologyConceptArr="3902" typeID="1" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="19103"/>
+    <textsem2:MedicationMention xmi:id="3958" sofa="6" begin="389" end="397" id="0" ontologyConceptArr="3945" typeID="1" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18993"/>
+    <textsem2:DiseaseDisorderMention xmi:id="3428" sofa="6" begin="314" end="327" id="0" ontologyConceptArr="3369 3359 3349 3389 3399 3379 3409" typeID="2" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18773"/>
+    <textsem2:DiseaseDisorderMention xmi:id="4012" sofa="6" begin="314" end="327" id="0" ontologyConceptArr="3988 3998" typeID="2" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18795"/>
+    <textsem2:SignSymptomMention xmi:id="3472" sofa="6" begin="291" end="301" id="0" ontologyConceptArr="3459" typeID="3" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18729"/>
+    <textsem2:SignSymptomMention xmi:id="3656" sofa="6" begin="279" end="285" id="0" ontologyConceptArr="3630 3640 3610 3620" typeID="3" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18707"/>
+    <textsem2:SignSymptomMention xmi:id="4056" sofa="6" begin="328" end="334" id="0" ontologyConceptArr="4043" typeID="3" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18839"/>
+    <textsem2:SignSymptomMention xmi:id="4099" sofa="6" begin="336" end="342" id="0" ontologyConceptArr="4086" typeID="3" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18883"/>
+    <textsem2:ProcedureMention xmi:id="3754" sofa="6" begin="378" end="383" id="0" ontologyConceptArr="3716 3706 3726 3696 3736 3686" typeID="5" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18949"/>
+    <textsem2:ProcedureMention xmi:id="4142" sofa="6" begin="366" end="377" id="0" ontologyConceptArr="4129" typeID="5" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18927"/>
+    <textsem2:AnatomicalSiteMention xmi:id="3795" sofa="6" begin="309" end="320" id="0" ontologyConceptArr="3782" typeID="6" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0"/>
     <textsem2:AnatomicalSiteMention xmi:id="4183" sofa="6" begin="309" end="320" id="0" ontologyConceptArr="4170" typeID="6" discoveryTechnique="1" confidence="0.0" polarity="1" uncertainty="0" conditional="false" generic="false" historyOf="0"/>
     <syntax:ConllDependencyNode xmi:id="4204" sofa="6" begin="0" end="67" id="0"/>
     <syntax:ConllDependencyNode xmi:id="4218" sofa="6" begin="0" end="1" id="1" form="=" lemma="=" cpostag="SYM" postag="SYM" feats="_" head="5142" deprel="punct" pdeprel="_"/>
@@ -1230,49 +1230,53 @@
     <syntax:TopTreebankNode xmi:id="17472" sofa="6" begin="254" end="438" nodeType="TOP" leaf="false" children="17490" headIndex="0" treebankParse="(TOP (S (S (NP-SBJ (NN Patient)) (VP (VBZ is) (NP-PRD (NP (DT a) (ADJP (NP (CD 54) (NN year)) (JJ old)) (NN female)) (PP (IN with) (NP (NP (NN history)) (PP (IN of) (NP (NP (NN T2N0M0)) (NP (NP (NML (JJ left) (NN breast)) (NN cancer)) (ADJP (NN ER)(HYPH -)(JJ neg)))(, ,) (ADJP (NN PR)(HYPH -)(JJ neg)))))))))(, ,) (S (NP-SBJ (NN HER2))(VP (SYM +)(, ,) (VP (ADVP-TMP (RB now)) (VBG undergoing) (NP (JJ neoadjuvant) (NN chemo)) (PP (IN with) (NP (NN taxotere)(, ,) (NN carboplatin)(, ,) (NNP Herceptin)(, ,) (CC and) (NN pertuzumab))))))(. .)))" terminals="16965 16978 16991 17004 17017 17030 17043 17056 17069 17082 17095 17108 17121 17134 17147 17160 17173 17186 17199 17212 17225 17238 17251 17264 17277 17290 17303 17316 17329 17342 17355 17368 17381 17394 17407 17420 17433 17446 17459"/>
     <textsem:TnmClassification xmi:id="17964" sofa="6" begin="302" end="308" id="0" ontologyConceptArr="18022" typeID="3" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18751" size="17998" nodeSpread="18006" metastasis="18014"/>
     <relation:RelationArgument xmi:id="18035" id="0" argument="17964" role="Argument"/>
-    <relation:RelationArgument xmi:id="18040" id="0" argument="3328" role="Related_to"/>
+    <relation:RelationArgument xmi:id="18040" id="0" argument="3428" role="Related_to"/>
     <relation:RelationArgument xmi:id="18101" id="0" argument="18055" role="Argument"/>
-    <relation:RelationArgument xmi:id="18106" id="0" argument="3328" role="Related_to"/>
+    <relation:RelationArgument xmi:id="18106" id="0" argument="3428" role="Related_to"/>
     <relation:RelationArgument xmi:id="18167" id="0" argument="18121" role="Argument"/>
-    <relation:RelationArgument xmi:id="18172" id="0" argument="3328" role="Related_to"/>
+    <relation:RelationArgument xmi:id="18172" id="0" argument="3428" role="Related_to"/>
     <relation:RelationArgument xmi:id="18233" id="0" argument="18187" role="Argument"/>
-    <relation:RelationArgument xmi:id="18238" id="0" argument="3328" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19466" id="0" argument="18332" role="Argument"/>
-    <relation:RelationArgument xmi:id="19471" id="0" argument="3499" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19490" id="0" argument="18332" role="Argument"/>
-    <relation:RelationArgument xmi:id="19495" id="0" argument="4183" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19522" id="0" argument="3328" role="Argument"/>
-    <relation:RelationArgument xmi:id="19527" id="0" argument="3499" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19546" id="0" argument="3328" role="Argument"/>
-    <relation:RelationArgument xmi:id="19551" id="0" argument="4183" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19570" id="0" argument="3816" role="Argument"/>
-    <relation:RelationArgument xmi:id="19575" id="0" argument="3499" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19594" id="0" argument="3816" role="Argument"/>
-    <relation:RelationArgument xmi:id="19599" id="0" argument="4183" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19618" id="0" argument="18351" role="Argument"/>
-    <relation:RelationArgument xmi:id="19623" id="0" argument="3499" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19642" id="0" argument="18351" role="Argument"/>
-    <relation:RelationArgument xmi:id="19647" id="0" argument="4183" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19666" id="0" argument="18055" role="Argument"/>
-    <relation:RelationArgument xmi:id="19671" id="0" argument="3499" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19690" id="0" argument="18055" role="Argument"/>
-    <relation:RelationArgument xmi:id="19695" id="0" argument="4183" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19714" id="0" argument="3372" role="Argument"/>
-    <relation:RelationArgument xmi:id="19719" id="0" argument="3499" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19738" id="0" argument="3372" role="Argument"/>
-    <relation:RelationArgument xmi:id="19743" id="0" argument="4183" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19762" id="0" argument="18121" role="Argument"/>
-    <relation:RelationArgument xmi:id="19767" id="0" argument="3499" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19786" id="0" argument="18121" role="Argument"/>
-    <relation:RelationArgument xmi:id="19791" id="0" argument="4183" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19810" id="0" argument="3415" role="Argument"/>
-    <relation:RelationArgument xmi:id="19815" id="0" argument="3499" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19834" id="0" argument="3415" role="Argument"/>
-    <relation:RelationArgument xmi:id="19839" id="0" argument="4183" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19874" id="0" argument="4142" role="Argument"/>
-    <relation:RelationArgument xmi:id="19879" id="0" argument="3499" role="Related_to"/>
-    <relation:RelationArgument xmi:id="19898" id="0" argument="4142" role="Argument"/>
-    <relation:RelationArgument xmi:id="19903" id="0" argument="4183" role="Related_to"/>
+    <relation:RelationArgument xmi:id="18238" id="0" argument="3428" role="Related_to"/>
+    <relation:RelationArgument xmi:id="24001" id="0" argument="19125" role="Arg1"/>
+    <relation:RelationArgument xmi:id="24006" id="0" argument="18370" role="Arg2"/>
+    <relation:RelationArgument xmi:id="27969" id="0" argument="18332" role="Arg1"/>
+    <relation:RelationArgument xmi:id="27974" id="0" argument="18351" role="Arg2"/>
+    <relation:RelationArgument xmi:id="28389" id="0" argument="18332" role="Argument"/>
+    <relation:RelationArgument xmi:id="28394" id="0" argument="3795" role="Related_to"/>
+    <relation:RelationArgument xmi:id="28413" id="0" argument="18332" role="Argument"/>
+    <relation:RelationArgument xmi:id="28418" id="0" argument="4183" role="Related_to"/>
+    <relation:RelationArgument xmi:id="28445" id="0" argument="3428" role="Argument"/>
+    <relation:RelationArgument xmi:id="28450" id="0" argument="3795" role="Related_to"/>
+    <relation:RelationArgument xmi:id="28469" id="0" argument="3428" role="Argument"/>
+    <relation:RelationArgument xmi:id="28474" id="0" argument="4183" role="Related_to"/>
+    <relation:RelationArgument xmi:id="28493" id="0" argument="4012" role="Argument"/>
+    <relation:RelationArgument xmi:id="28498" id="0" argument="3795" role="Related_to"/>
+    <relation:RelationArgument xmi:id="28517" id="0" argument="4012" role="Argument"/>
+    <relation:RelationArgument xmi:id="28522" id="0" argument="4183" role="Related_to"/>
+    <relation:RelationArgument xmi:id="28541" id="0" argument="18351" role="Argument"/>
+    <relation:RelationArgument xmi:id="28546" id="0" argument="3795" role="Related_to"/>
+    <relation:RelationArgument xmi:id="28565" id="0" argument="18351" role="Argument"/>
+    <relation:RelationArgument xmi:id="28570" id="0" argument="4183" role="Related_to"/>
+    <relation:RelationArgument xmi:id="28589" id="0" argument="18055" role="Argument"/>
+    <relation:RelationArgument xmi:id="28594" id="0" argument="3795" role="Related_to"/>
+    <relation:RelationArgument xmi:id="28613" id="0" argument="18055" role="Argument"/>
+    <relation:RelationArgument xmi:id="28618" id="0" argument="4183" role="Related_to"/>
+    <relation:RelationArgument xmi:id="28637" id="0" argument="4056" role="Argument"/>
+    <relation:RelationArgument xmi:id="28642" id="0" argument="3795" role="Related_to"/>
+    <relation:RelationArgument xmi:id="28661" id="0" argument="4056" role="Argument"/>
+    <relation:RelationArgument xmi:id="28666" id="0" argument="4183" role="Related_to"/>
+    <relation:RelationArgument xmi:id="28685" id="0" argument="18121" role="Argument"/>
+    <relation:RelationArgument xmi:id="28690" id="0" argument="3795" role="Related_to"/>
+    <relation:RelationArgument xmi:id="28709" id="0" argument="18121" role="Argument"/>
+    <relation:RelationArgument xmi:id="28714" id="0" argument="4183" role="Related_to"/>
+    <relation:RelationArgument xmi:id="28733" id="0" argument="4099" role="Argument"/>
+    <relation:RelationArgument xmi:id="28738" id="0" argument="3795" role="Related_to"/>
+    <relation:RelationArgument xmi:id="28757" id="0" argument="4099" role="Argument"/>
+    <relation:RelationArgument xmi:id="28762" id="0" argument="4183" role="Related_to"/>
+    <relation:RelationArgument xmi:id="28797" id="0" argument="3754" role="Argument"/>
+    <relation:RelationArgument xmi:id="28802" id="0" argument="3795" role="Related_to"/>
+    <relation:RelationArgument xmi:id="28821" id="0" argument="3754" role="Argument"/>
+    <relation:RelationArgument xmi:id="28826" id="0" argument="4183" role="Related_to"/>
     <relation2:TnmStageTextRelation xmi:id="18045" id="0" category="TNM_Stage" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="18035" arg2="18040"/>
     <textsem:ReceptorStatus xmi:id="18055" sofa="6" begin="328" end="334" id="0" ontologyConceptArr="18088" typeID="3" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18817" code="ER" description="Estrogen receptor" value="false"/>
     <textsem:ReceptorStatus xmi:id="18121" sofa="6" begin="336" end="342" id="0" ontologyConceptArr="18154" typeID="3" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" generic="false" historyOf="0" event="18861" code="PR" description="Progesterone receptor" value="false"/>
@@ -1309,26 +1313,28 @@
     <refsem:Event xmi:id="18597" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="18610"/>
     <refsem:Event xmi:id="18619" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="18632"/>
     <refsem:Event xmi:id="18641" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="18654"/>
-    <textsem2:Modifier xmi:id="19166" sofa="6" begin="254" end="261" id="0" typeID="0" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" generic="false" historyOf="0"/>
-    <textsem2:Modifier xmi:id="19186" sofa="6" begin="309" end="313" id="0" typeID="0" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" generic="false" historyOf="0"/>
-    <relation:LocationOfTextRelation xmi:id="19476" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19466" arg2="19471"/>
-    <relation:LocationOfTextRelation xmi:id="19500" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19490" arg2="19495"/>
-    <relation:LocationOfTextRelation xmi:id="19532" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19522" arg2="19527"/>
-    <relation:LocationOfTextRelation xmi:id="19556" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19546" arg2="19551"/>
-    <relation:LocationOfTextRelation xmi:id="19580" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19570" arg2="19575"/>
-    <relation:LocationOfTextRelation xmi:id="19604" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19594" arg2="19599"/>
-    <relation:LocationOfTextRelation xmi:id="19628" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19618" arg2="19623"/>
-    <relation:LocationOfTextRelation xmi:id="19652" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19642" arg2="19647"/>
-    <relation:LocationOfTextRelation xmi:id="19676" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19666" arg2="19671"/>
-    <relation:LocationOfTextRelation xmi:id="19700" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19690" arg2="19695"/>
-    <relation:LocationOfTextRelation xmi:id="19724" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19714" arg2="19719"/>
-    <relation:LocationOfTextRelation xmi:id="19748" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19738" arg2="19743"/>
-    <relation:LocationOfTextRelation xmi:id="19772" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19762" arg2="19767"/>
-    <relation:LocationOfTextRelation xmi:id="19796" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19786" arg2="19791"/>
-    <relation:LocationOfTextRelation xmi:id="19820" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19810" arg2="19815"/>
-    <relation:LocationOfTextRelation xmi:id="19844" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19834" arg2="19839"/>
-    <relation:LocationOfTextRelation xmi:id="19884" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19874" arg2="19879"/>
-    <relation:LocationOfTextRelation xmi:id="19908" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="19898" arg2="19903"/>
+    <relation:TemporalTextRelation xmi:id="24011" id="0" category="CONTAINS" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="24001" arg2="24006"/>
+    <relation:TemporalTextRelation xmi:id="27979" id="0" category="CONTAINS" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="27969" arg2="27974"/>
+    <textsem2:Modifier xmi:id="28089" sofa="6" begin="254" end="261" id="0" typeID="0" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" generic="false" historyOf="0"/>
+    <textsem2:Modifier xmi:id="28109" sofa="6" begin="309" end="313" id="0" typeID="0" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" generic="false" historyOf="0"/>
+    <relation:LocationOfTextRelation xmi:id="28399" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28389" arg2="28394"/>
+    <relation:LocationOfTextRelation xmi:id="28423" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28413" arg2="28418"/>
+    <relation:LocationOfTextRelation xmi:id="28455" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28445" arg2="28450"/>
+    <relation:LocationOfTextRelation xmi:id="28479" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28469" arg2="28474"/>
+    <relation:LocationOfTextRelation xmi:id="28503" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28493" arg2="28498"/>
+    <relation:LocationOfTextRelation xmi:id="28527" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28517" arg2="28522"/>
+    <relation:LocationOfTextRelation xmi:id="28551" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28541" arg2="28546"/>
+    <relation:LocationOfTextRelation xmi:id="28575" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28565" arg2="28570"/>
+    <relation:LocationOfTextRelation xmi:id="28599" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28589" arg2="28594"/>
+    <relation:LocationOfTextRelation xmi:id="28623" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28613" arg2="28618"/>
+    <relation:LocationOfTextRelation xmi:id="28647" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28637" arg2="28642"/>
+    <relation:LocationOfTextRelation xmi:id="28671" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28661" arg2="28666"/>
+    <relation:LocationOfTextRelation xmi:id="28695" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28685" arg2="28690"/>
+    <relation:LocationOfTextRelation xmi:id="28719" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28709" arg2="28714"/>
+    <relation:LocationOfTextRelation xmi:id="28743" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28733" arg2="28738"/>
+    <relation:LocationOfTextRelation xmi:id="28767" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28757" arg2="28762"/>
+    <relation:LocationOfTextRelation xmi:id="28807" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28797" arg2="28802"/>
+    <relation:LocationOfTextRelation xmi:id="28831" id="0" category="location_of" discoveryTechnique="0" confidence="0.0" polarity="0" uncertainty="0" conditional="false" arg1="28821" arg2="28826"/>
     <refsem:EventProperties xmi:id="18918" docTimeRel="OVERLAP" polarity="0"/>
     <refsem:Event xmi:id="18905" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="18918"/>
     <refsem:UmlsConcept xmi:id="18220" score="0.0" disambiguated="false" cui="C1960398" tui="T191" preferredText="Positive Human epidermal growth factor receptor 2"/>
@@ -1349,75 +1355,75 @@
     <refsem:UmlsConcept xmi:id="18022" codingScheme="SNOMED" code="385379008" score="0.0" disambiguated="false" cui="C1300492" tui="T034" preferredText="TNM tumor staging finding"/>
     <cas:EmptyFSList xmi:id="7207"/>
     <cas:EmptyFSList xmi:id="7180"/>
-    <refsem:UmlsConcept xmi:id="4170" codingScheme="SNOMEDCT" code="80248007" score="0.0" disambiguated="false" cui="C0222601" tui="T023" preferredText="Left breast"/>
-    <refsem:UmlsConcept xmi:id="3486" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0222601" tui="T023"/>
-    <refsem:EventProperties xmi:id="18962" docTimeRel="BEFORE" polarity="0"/>
-    <refsem:Event xmi:id="18949" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="18962"/>
-    <refsem:UmlsConcept xmi:id="4094" codingScheme="SNOMEDCT" code="182974001" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
-    <refsem:UmlsConcept xmi:id="4124" codingScheme="SNOMEDCT" code="150415003" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
-    <refsem:UmlsConcept xmi:id="4074" codingScheme="SNOMEDCT" code="367336001" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
-    <refsem:UmlsConcept xmi:id="4104" codingScheme="SNOMEDCT" code="182973007" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
-    <refsem:UmlsConcept xmi:id="4084" codingScheme="SNOMEDCT" code="363688001" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
-    <refsem:UmlsConcept xmi:id="4114" codingScheme="SNOMEDCT" code="69960004" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
+    <refsem:UmlsConcept xmi:id="4170" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0222601" tui="T023"/>
+    <refsem:UmlsConcept xmi:id="3782" codingScheme="SNOMEDCT" code="80248007" score="0.0" disambiguated="false" cui="C0222601" tui="T023" preferredText="Left breast"/>
     <refsem:EventProperties xmi:id="18940" docTimeRel="OVERLAP" polarity="0"/>
     <refsem:Event xmi:id="18927" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="18940"/>
-    <refsem:UmlsConcept xmi:id="3445" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0600558" tui="T061"/>
-    <refsem:EventProperties xmi:id="18720" docTimeRel="OVERLAP" polarity="0"/>
-    <refsem:Event xmi:id="18707" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="18720"/>
-    <refsem:UmlsConcept xmi:id="4008" codingScheme="SNOMEDCT" code="139867007" score="0.0" disambiguated="false" cui="C0015780" tui="T033" preferredText="Female"/>
-    <refsem:UmlsConcept xmi:id="3998" codingScheme="SNOMEDCT" code="162600001" score="0.0" disambiguated="false" cui="C0015780" tui="T033" preferredText="Female"/>
-    <refsem:UmlsConcept xmi:id="4028" codingScheme="SNOMEDCT" code="1086007" score="0.0" disambiguated="false" cui="C0015780" tui="T033" preferredText="Female"/>
-    <refsem:UmlsConcept xmi:id="4018" codingScheme="SNOMEDCT" code="248152002" score="0.0" disambiguated="false" cui="C0015780" tui="T033" preferredText="Female"/>
-    <refsem:EventProperties xmi:id="18742" docTimeRel="BEFORE/OVERLAP" polarity="0"/>
-    <refsem:Event xmi:id="18729" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="18742"/>
-    <refsem:UmlsConcept xmi:id="3847" codingScheme="SNOMEDCT" code="392521001" score="0.0" disambiguated="false" cui="C0262926" tui="T033" preferredText="Medical History"/>
+    <refsem:UmlsConcept xmi:id="4129" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0600558" tui="T061"/>
+    <refsem:EventProperties xmi:id="18962" docTimeRel="BEFORE" polarity="0"/>
+    <refsem:Event xmi:id="18949" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="18962"/>
+    <refsem:UmlsConcept xmi:id="3686" codingScheme="SNOMEDCT" code="367336001" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
+    <refsem:UmlsConcept xmi:id="3736" codingScheme="SNOMEDCT" code="150415003" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
+    <refsem:UmlsConcept xmi:id="3696" codingScheme="SNOMEDCT" code="363688001" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
+    <refsem:UmlsConcept xmi:id="3726" codingScheme="SNOMEDCT" code="69960004" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
+    <refsem:UmlsConcept xmi:id="3706" codingScheme="SNOMEDCT" code="182974001" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
+    <refsem:UmlsConcept xmi:id="3716" codingScheme="SNOMEDCT" code="182973007" score="0.0" disambiguated="false" cui="C0392920" tui="T061" preferredText="Chemotherapy Regimen"/>
     <refsem:EventProperties xmi:id="18896" docTimeRel="OVERLAP" polarity="0"/>
     <refsem:Event xmi:id="18883" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="18896"/>
-    <refsem:UmlsConcept xmi:id="3402" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0279766" tui="T034"/>
+    <refsem:UmlsConcept xmi:id="4086" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0279766" tui="T034"/>
     <refsem:EventProperties xmi:id="18852" docTimeRel="OVERLAP" polarity="0"/>
     <refsem:Event xmi:id="18839" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="18852"/>
-    <refsem:UmlsConcept xmi:id="3359" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0279756" tui="T034"/>
+    <refsem:UmlsConcept xmi:id="4043" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0279756" tui="T034"/>
+    <refsem:EventProperties xmi:id="18720" docTimeRel="OVERLAP" polarity="0"/>
+    <refsem:Event xmi:id="18707" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="18720"/>
+    <refsem:UmlsConcept xmi:id="3620" codingScheme="SNOMEDCT" code="139867007" score="0.0" disambiguated="false" cui="C0015780" tui="T033" preferredText="Female"/>
+    <refsem:UmlsConcept xmi:id="3610" codingScheme="SNOMEDCT" code="162600001" score="0.0" disambiguated="false" cui="C0015780" tui="T033" preferredText="Female"/>
+    <refsem:UmlsConcept xmi:id="3640" codingScheme="SNOMEDCT" code="1086007" score="0.0" disambiguated="false" cui="C0015780" tui="T033" preferredText="Female"/>
+    <refsem:UmlsConcept xmi:id="3630" codingScheme="SNOMEDCT" code="248152002" score="0.0" disambiguated="false" cui="C0015780" tui="T033" preferredText="Female"/>
+    <refsem:EventProperties xmi:id="18742" docTimeRel="BEFORE/OVERLAP" polarity="0"/>
+    <refsem:Event xmi:id="18729" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="18742"/>
+    <refsem:UmlsConcept xmi:id="3459" codingScheme="SNOMEDCT" code="392521001" score="0.0" disambiguated="false" cui="C0262926" tui="T033" preferredText="Medical History"/>
     <refsem:EventProperties xmi:id="18808" docTimeRel="OVERLAP" polarity="0"/>
     <refsem:Event xmi:id="18795" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="18808"/>
-    <refsem:UmlsConcept xmi:id="3787" codingScheme="SNOMEDCT" code="269595005" score="0.0" disambiguated="false" cui="C0006142" tui="T191" preferredText="Malignant neoplasm of breast"/>
-    <refsem:UmlsConcept xmi:id="3797" codingScheme="SNOMEDCT" code="254837009" score="0.0" disambiguated="false" cui="C0006142" tui="T191" preferredText="Malignant neoplasm of breast"/>
-    <refsem:UmlsConcept xmi:id="3767" codingScheme="SNOMEDCT" code="154521006" score="0.0" disambiguated="false" cui="C0006142" tui="T191" preferredText="Malignant neoplasm of breast"/>
-    <refsem:UmlsConcept xmi:id="3777" codingScheme="SNOMEDCT" code="190121004" score="0.0" disambiguated="false" cui="C0006142" tui="T191" preferredText="Malignant neoplasm of breast"/>
-    <refsem:UmlsConcept xmi:id="3737" codingScheme="SNOMEDCT" code="154513000" score="0.0" disambiguated="false" cui="C0678222" tui="T191" preferredText="Breast Carcinoma"/>
-    <refsem:UmlsConcept xmi:id="3757" codingScheme="SNOMEDCT" code="254838004" score="0.0" disambiguated="false" cui="C0678222" tui="T191" preferredText="Breast Carcinoma"/>
-    <refsem:UmlsConcept xmi:id="3747" codingScheme="SNOMEDCT" code="286898006" score="0.0" disambiguated="false" cui="C0678222" tui="T191" preferredText="Breast Carcinoma"/>
+    <refsem:UmlsConcept xmi:id="3998" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0006142" tui="T191"/>
+    <refsem:UmlsConcept xmi:id="3988" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0007104" tui="T191"/>
     <refsem:EventProperties xmi:id="18786" docTimeRel="OVERLAP" polarity="0"/>
     <refsem:Event xmi:id="18773" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="18786"/>
-    <refsem:UmlsConcept xmi:id="3314" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0006142" tui="T191"/>
-    <refsem:UmlsConcept xmi:id="3304" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0007104" tui="T191"/>
-    <refsem:EventProperties xmi:id="19094" docTimeRel="OVERLAP" polarity="0"/>
-    <refsem:Event xmi:id="19081" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="19094"/>
-    <refsem:UmlsConcept xmi:id="3682" codingScheme="RXNORM" code="101306" score="0.0" disambiguated="false" cui="C0338204" tui="T129" preferredText="Herceptin"/>
-    <refsem:UmlsConcept xmi:id="3692" codingScheme="RXNORM" code="101306" score="0.0" disambiguated="false" cui="C0338204" tui="T121" preferredText="Herceptin"/>
-    <refsem:UmlsConcept xmi:id="3672" codingScheme="RXNORM" code="101306" score="0.0" disambiguated="false" cui="C0338204" tui="T116" preferredText="Herceptin"/>
-    <refsem:EventProperties xmi:id="19050" docTimeRel="OVERLAP" polarity="0"/>
-    <refsem:Event xmi:id="19037" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="19050"/>
-    <refsem:UmlsConcept xmi:id="3584" codingScheme="SNOMEDCT" code="108759002" score="0.0" disambiguated="false" cui="C0079083" tui="T109" preferredText="Carboplatin"/>
-    <refsem:UmlsConcept xmi:id="3604" codingScheme="SNOMEDCT" code="386905002" score="0.0" disambiguated="false" cui="C0079083" tui="T121" preferredText="Carboplatin"/>
-    <refsem:UmlsConcept xmi:id="3594" codingScheme="RXNORM" code="40048" score="0.0" disambiguated="false" cui="C0079083" tui="T109" preferredText="Carboplatin"/>
-    <refsem:UmlsConcept xmi:id="3624" codingScheme="RXNORM" code="40048" score="0.0" disambiguated="false" cui="C0079083" tui="T121" preferredText="Carboplatin"/>
-    <refsem:UmlsConcept xmi:id="3614" codingScheme="SNOMEDCT" code="108759002" score="0.0" disambiguated="false" cui="C0079083" tui="T121" preferredText="Carboplatin"/>
-    <refsem:UmlsConcept xmi:id="3574" codingScheme="SNOMEDCT" code="386905002" score="0.0" disambiguated="false" cui="C0079083" tui="T109" preferredText="Carboplatin"/>
+    <refsem:UmlsConcept xmi:id="3409" codingScheme="SNOMEDCT" code="254837009" score="0.0" disambiguated="false" cui="C0006142" tui="T191" preferredText="Malignant neoplasm of breast"/>
+    <refsem:UmlsConcept xmi:id="3379" codingScheme="SNOMEDCT" code="154521006" score="0.0" disambiguated="false" cui="C0006142" tui="T191" preferredText="Malignant neoplasm of breast"/>
+    <refsem:UmlsConcept xmi:id="3399" codingScheme="SNOMEDCT" code="269595005" score="0.0" disambiguated="false" cui="C0006142" tui="T191" preferredText="Malignant neoplasm of breast"/>
+    <refsem:UmlsConcept xmi:id="3389" codingScheme="SNOMEDCT" code="190121004" score="0.0" disambiguated="false" cui="C0006142" tui="T191" preferredText="Malignant neoplasm of breast"/>
+    <refsem:UmlsConcept xmi:id="3349" codingScheme="SNOMEDCT" code="154513000" score="0.0" disambiguated="false" cui="C0678222" tui="T191" preferredText="Breast Carcinoma"/>
+    <refsem:UmlsConcept xmi:id="3359" codingScheme="SNOMEDCT" code="286898006" score="0.0" disambiguated="false" cui="C0678222" tui="T191" preferredText="Breast Carcinoma"/>
+    <refsem:UmlsConcept xmi:id="3369" codingScheme="SNOMEDCT" code="254838004" score="0.0" disambiguated="false" cui="C0678222" tui="T191" preferredText="Breast Carcinoma"/>
     <refsem:EventProperties xmi:id="19006" docTimeRel="OVERLAP" polarity="0"/>
     <refsem:Event xmi:id="18993" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="19006"/>
-    <refsem:UmlsConcept xmi:id="3530" codingScheme="RXNORM" code="202982" score="0.0" disambiguated="false" cui="C0699967" tui="T121" preferredText="Taxotere"/>
-    <refsem:UmlsConcept xmi:id="3520" codingScheme="RXNORM" code="202982" score="0.0" disambiguated="false" cui="C0699967" tui="T109" preferredText="Taxotere"/>
-    <refsem:EventProperties xmi:id="18984" docTimeRel="OVERLAP" polarity="0"/>
-    <refsem:Event xmi:id="18971" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="18984"/>
-    <refsem:UmlsConcept xmi:id="3261" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0246415" tui="T121"/>
+    <refsem:UmlsConcept xmi:id="3945" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0246415" tui="T121"/>
     <refsem:EventProperties xmi:id="19116" docTimeRel="OVERLAP" polarity="0"/>
     <refsem:Event xmi:id="19103" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="19116"/>
-    <refsem:UmlsConcept xmi:id="3218" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C481039" tui="T116"/>
-    <refsem:EventProperties xmi:id="19028" docTimeRel="OVERLAP" polarity="0"/>
-    <refsem:Event xmi:id="19015" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="19028"/>
-    <refsem:UmlsConcept xmi:id="3175" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0079083" tui="T197"/>
+    <refsem:UmlsConcept xmi:id="3902" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C481039" tui="T116"/>
+    <refsem:EventProperties xmi:id="19050" docTimeRel="OVERLAP" polarity="0"/>
+    <refsem:Event xmi:id="19037" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="19050"/>
+    <refsem:UmlsConcept xmi:id="3859" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0079083" tui="T197"/>
+    <refsem:EventProperties xmi:id="19094" docTimeRel="OVERLAP" polarity="0"/>
+    <refsem:Event xmi:id="19081" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="19094"/>
+    <refsem:UmlsConcept xmi:id="3816" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0728747" tui="T116"/>
     <refsem:EventProperties xmi:id="19072" docTimeRel="OVERLAP" polarity="0"/>
     <refsem:Event xmi:id="19059" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="19072"/>
-    <refsem:UmlsConcept xmi:id="3132" codingScheme="CTAKES" score="0.0" disambiguated="false" cui="C0728747" tui="T116"/>
-    <cas:View sofa="6" members="1 13 19125 40 46 52 58 64 70 76 82 90 98 106 114 122 130 138 146 154 162 170 178 186 194 202 210 218 226 234 242 250 258 266 274 282 290 298 306 314 322 330 338 346 354 362 370 378 386 394 402 410 418 426 434 442 450 458 466 474 482 490 498 506 514 522 530 538 546 554 562 570 578 586 594 602 610 618 626 634 642 650 658 666 944 952 960 968 976 984 992 1000 1008 1016 1024 1032 1040 1048 1056 1064 1072 1080 1088 1096 1104 1112 1120 1128 1136 1144 1152 1160 1168 1176 1184 1192 1200 1208 1216 1224 1232 1240 1248 1256 1264 1272 1280 1288 1296 1304 1312 1320 1328 1336 1344 1352 1360 1368 1376 1384 1392 1400 1408 1416 1424 1432 1440 1448 1456 1464 1472 1737 674 686 746 758 770 782 852 864 932 1480 1492 1504 1525 1537 1549 1561 1573 1585 1597 1609 1621 1633 1645 1665 1685 1705 1725 1753 1765 1777 1789 1801 1813 1833 1853 1873 1885 698 706 714 722 730 738 794 802 810 818 826 876 884 892 900 908 916 924 1657 1677 1697 1717 1745 1825 1845 1865 1897 834 843 1516 1923 1928 1933 1938 1943 1948 1953 1958 1963 1968 1973 1978 1983 1988 1993 1998 2003 2008 2013 2018 2023 2028 2033 2038 2043 2048 2053 2058 2063 2068 2073 2078 2083 2088 2093 2098 2103 2108 2113 2118 2123 2128 2133 2138 2143 2148 2153 2158 2163 2168 2173 2178 2183 2188 2193 2198 2203 2208 2213 2218 2223 2228 2233 2238 2243 2248 2253 2258 2263 2268 2273 2278 2283 2288 2293 2298 2303 2308 2313 2318 2323 2328 2333 2338 2343 2348 2353 2358 2363 2368 2373 2378 2383 2388 2393 2398 2403 2408 2413 2418 2423 2428 2433 2438 2443 2448 2453 2458 2463 2468 2473 2478 2483 2488 2493 2498 2503 2508 2513 2518 2523 2528 2533 2538 2543 2548 2553 2558 2563 2568 2573 2578 2583 2588 2593 2598 2603 2608 2613 2618 2623 2628 2633 2638 2643 2648 2653 2658 2663 2668 2673 2678 2683 2688 2693 2698 2703 2708 2713 2718 2723 2728 2733 2738 2743 2748 2753 2758 2763 2768 2773 2778 2783 2788 2793 2798 2803 2808 2812 2816 2820 2824 2828 2832 2836 2840 2844 2848 2852 2856 2860 2864 2868 2872 2876 2880 2884 2888 2892 2896 2900 2904 2908 2912 2916 2920 2924 2928 2932 2936 2940 2944 2948 2952 2956 2960 2964 2968 2972 2976 2980 2984 2988 2992 2996 3000 3004 3008 3012 3016 3020 3024 3028 3032 3036 3040 3044 3048 3052 3056 3060 3064 3068 3072 3076 3080 3084 3088 3092 3100 3108 3112 3120 3124 3128 3145 3188 3231 3274 3544 3642 3707 3328 3816 3372 3415 3860 4044 3458 4142 3499 4183 4204 4218 4232 4246 4260 4274 4288 4302 4316 4330 4344 4358 4372 4386 4400 4414 4428 4442 4456 4470 4484 4498 4512 4526 4540 4554 4568 4582 4596 4610 4624 4638 4652 4666 4680 4694 4708 4722 4736 4750 4764 4778 4792 4806 4820 4834 4848 4862 4876 4890 4904 4918 4932 4946 4960 4974 4988 5002 5016 5030 5044 5058 5072 5086 5100 5114 5128 5142 5156 5170 5184 5198 5212 5226 5240 5254 5268 5282 5296 5310 5324 5338 5352 5366 5380 5394 5408 5422 5436 5450 5464 5478 5492 5506 5520 5534 5548 5562 5576 5590 5604 5618 5632 5646 5660 5674 5688 5702 5716 5730 5744 5758 5772 5786 5800 5814 5828 5842 5856 5870 5884 5898 5912 5926 5940 5954 5968 5982 5996 6010 6024 6038 6052 6066 6080 6094 6108 6122 6136 6150 6164 6178 6192 6206 6220 6234 6248 6262 6276 6290 6304 6318 6332 6346 6360 6374 6388 6402 6416 6430 6444 6458 6472 6486 6500 6514 6528 6542 6556 6570 6584 6598 6612 6626 6640 6654 6668 6682 6696 6710 6724 6738 6752 6766 6780 6794 6808 6822 6836 6850 6864 6878 6892 6906 6920 6934 6948 6962 6976 6990 7004 7018 7032 7046 7060 7074 7088 7102 7116 7123 7130 7136 7142 7148 7154 7164 7181 7191 7174 7177 7201 7204 8217 8230 8243 8256 8269 8282 8295 8308 8321 8334 8347 8360 8373 8386 8399 8412 8425 8438 8451 8464 8477 8490 8503 8516 8529 8542 8555 8568 8581 8594 8607 8620 8633 8646 8659 8672 8685 8698 8711 8724 8737 8750 8763 8776 8789 8802 8815 8828 8841 8854 8867 8880 8893 8906 8919 8932 8945 8958 8971 8984 8997 9010 9023 9036 9049 9062 9075 11470 11483 11496 11509 11522 11535 11548 11561 11574 11587 11782 11795 11808 11821 11834 11847 11860 11873 11886 12095 12108 12121 12134 12147 12160 12173 12186 12199 12212 13277 13290 13303 13316 13329 13342 13355 13368 13381 13394 13407 13420 13433 13446 13459 13472 13485 13498 13511 13524 13537 13550 13563 13576 13589 13602 13615 13628 13641 13654 13667 13680 13693 13706 13719 13732 13745 13758 13771 13784 13797 13810 13823 13836 13849 13862 13875 13888 13901 13914 13927 13940 13953 13966 13979 13992 14005 14018 14031 14044 14057 14070 14083 14096 14109 14122 14135 16965 16978 16991 17004 17017 17030 17043 17056 17069 17082 17095 17108 17121 17134 17147 17160 17173 17186 17199 17212 17225 17238 17251 17264 17277 17290 17303 17316 17329 17342 17355 17368 17381 17394 17407 17420 17433 17446 17459 9106 9135 9168 9201 9233 9249 9265 9281 9297 9313 9329 9345 9361 9377 9393 9409 9425 9441 9457 9473 9489 9505 9521 9537 9553 9569 9585 9601 9617 9633 9649 9665 9681 9697 9713 9729 9745 9761 9777 9793 9809 9825 9841 9857 9873 9889 9905 9921 9937 9953 9969 9985 10001 10017 10033 10049 10065 10081 10097 10113 10129 10145 10161 10177 10193 10209 10225 10241 10257 10273 10289 10305 10321 10337 10353 10369 10385 10401 10417 10433 10449 10465 10481 10497 10513 10529 10545 10561 10577 10593 10609 10625 10641 10657 10673 10689 10705 10721 10737 10753 10769 10785 10801 10817 10833 10849 10865 10881 10897 10913 10929 10945 10961 10977 10993 11009 11025 11041 11057 11073 11089 11105 11121 11137 11153 11169 11185 11201 11217 11233 11249 11267 11283 11300 11618 11917 12243 14166 14195 14228 14261 14293 14309 14325 14341 14357 14373 14389 14405 14421 14437 14453 14469 14485 14501 14517 14533 14549 14565 14581 14597 14613 14629 14645 14661 14677 14693 14709 14725 14741 14757 14773 14789 14805 14821 14837 14853 14869 14885 14901 14917 14933 14949 14965 14981 14997 15013 15029 15045 15061 15077 15093 15109 15125 15141 15157 15173 15189 15205 15221 15237 15253 15269 15285 15301 15317 15333 15349 15365 15381 15397 15413 15429 15445 15461 15477 15493 15509 15525 15541 15557 15573 15589 15605 15621 15637 15653 15669 15685 15701 15717 15733 15749 15765 15781 15797 15813 15829 15845 15861 15877 15893 15909 15925 15941 15957 15973 15989 16005 16021 16037 16053 16069 16085 16101 16117 16133 16149 16165 16181 16197 16213 16229 16245 16261 16277 16293 16309 16327 16343 16360 17490 17509 17526 17543 17560 17578 17596 17613 17630 17647 17664 17680 17697 17716 17732 17749 17766 17783 17801 17819 17836 17853 17871 17890 17907 17924 17941 9088 11600 11899 12225 14148 17472 17964 18035 18040 18101 18106 18167 18172 18233 18238 19466 19471 19490 19495 19522 19527 19546 19551 19570 19575 19594 19599 19618 19623 19642 19647 19666 19671 19690 19695 19714 19719 19738 19743 19762 19767 19786 19791 19810 19815 19834 19839 19874 19879 19898 19903 18045 18055 18121 18187 18111 18177 18243 18294 18313 18332 18351 18370 18389 18408 18427 18446 18285 18478 18500 18522 18544 18566 18588 18610 18632 18654 18272 18465 18487 18509 18531 18553 18575 18597 18619 18641 19166 19186 19476 19500 19532 19556 19580 19604 19628 19652 19676 19700 19724 19748 19772 19796 19820 19844 19884 19908"/>
+    <refsem:UmlsConcept xmi:id="3304" codingScheme="RXNORM" code="101306" score="0.0" disambiguated="false" cui="C0338204" tui="T121" preferredText="Herceptin"/>
+    <refsem:UmlsConcept xmi:id="3294" codingScheme="RXNORM" code="101306" score="0.0" disambiguated="false" cui="C0338204" tui="T129" preferredText="Herceptin"/>
+    <refsem:UmlsConcept xmi:id="3284" codingScheme="RXNORM" code="101306" score="0.0" disambiguated="false" cui="C0338204" tui="T116" preferredText="Herceptin"/>
+    <refsem:EventProperties xmi:id="19028" docTimeRel="OVERLAP" polarity="0"/>
+    <refsem:Event xmi:id="19015" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="19028"/>
+    <refsem:UmlsConcept xmi:id="3186" codingScheme="SNOMEDCT" code="386905002" score="0.0" disambiguated="false" cui="C0079083" tui="T109" preferredText="Carboplatin"/>
+    <refsem:UmlsConcept xmi:id="3226" codingScheme="SNOMEDCT" code="108759002" score="0.0" disambiguated="false" cui="C0079083" tui="T121" preferredText="Carboplatin"/>
+    <refsem:UmlsConcept xmi:id="3206" codingScheme="RXNORM" code="40048" score="0.0" disambiguated="false" cui="C0079083" tui="T109" preferredText="Carboplatin"/>
+    <refsem:UmlsConcept xmi:id="3236" codingScheme="RXNORM" code="40048" score="0.0" disambiguated="false" cui="C0079083" tui="T121" preferredText="Carboplatin"/>
+    <refsem:UmlsConcept xmi:id="3196" codingScheme="SNOMEDCT" code="108759002" score="0.0" disambiguated="false" cui="C0079083" tui="T109" preferredText="Carboplatin"/>
+    <refsem:UmlsConcept xmi:id="3216" codingScheme="SNOMEDCT" code="386905002" score="0.0" disambiguated="false" cui="C0079083" tui="T121" preferredText="Carboplatin"/>
+    <refsem:EventProperties xmi:id="18984" docTimeRel="OVERLAP" polarity="0"/>
+    <refsem:Event xmi:id="18971" id="0" discoveryTechnique="0" confidence="0.0" conditional="false" generic="false" polarity="0" uncertainty="0" historyOf="0" properties="18984"/>
+    <refsem:UmlsConcept xmi:id="3142" codingScheme="RXNORM" code="202982" score="0.0" disambiguated="false" cui="C0699967" tui="T121" preferredText="Taxotere"/>
+    <refsem:UmlsConcept xmi:id="3132" codingScheme="RXNORM" code="202982" score="0.0" disambiguated="false" cui="C0699967" tui="T109" preferredText="Taxotere"/>
+    <cas:View sofa="6" members="1 13 19125 40 46 52 58 64 70 76 82 90 98 106 114 122 130 138 146 154 162 170 178 186 194 202 210 218 226 234 242 250 258 266 274 282 290 298 306 314 322 330 338 346 354 362 370 378 386 394 402 410 418 426 434 442 450 458 466 474 482 490 498 506 514 522 530 538 546 554 562 570 578 586 594 602 610 618 626 634 642 650 658 666 944 952 960 968 976 984 992 1000 1008 1016 1024 1032 1040 1048 1056 1064 1072 1080 1088 1096 1104 1112 1120 1128 1136 1144 1152 1160 1168 1176 1184 1192 1200 1208 1216 1224 1232 1240 1248 1256 1264 1272 1280 1288 1296 1304 1312 1320 1328 1336 1344 1352 1360 1368 1376 1384 1392 1400 1408 1416 1424 1432 1440 1448 1456 1464 1472 1737 674 686 746 758 770 782 852 864 932 1480 1492 1504 1525 1537 1549 1561 1573 1585 1597 1609 1621 1633 1645 1665 1685 1705 1725 1753 1765 1777 1789 1801 1813 1833 1853 1873 1885 698 706 714 722 730 738 794 802 810 818 826 876 884 892 900 908 916 924 1657 1677 1697 1717 1745 1825 1845 1865 1897 834 843 1516 1923 1928 1933 1938 1943 1948 1953 1958 1963 1968 1973 1978 1983 1988 1993 1998 2003 2008 2013 2018 2023 2028 2033 2038 2043 2048 2053 2058 2063 2068 2073 2078 2083 2088 2093 2098 2103 2108 2113 2118 2123 2128 2133 2138 2143 2148 2153 2158 2163 2168 2173 2178 2183 2188 2193 2198 2203 2208 2213 2218 2223 2228 2233 2238 2243 2248 2253 2258 2263 2268 2273 2278 2283 2288 2293 2298 2303 2308 2313 2318 2323 2328 2333 2338 2343 2348 2353 2358 2363 2368 2373 2378 2383 2388 2393 2398 2403 2408 2413 2418 2423 2428 2433 2438 2443 2448 2453 2458 2463 2468 2473 2478 2483 2488 2493 2498 2503 2508 2513 2518 2523 2528 2533 2538 2543 2548 2553 2558 2563 2568 2573 2578 2583 2588 2593 2598 2603 2608 2613 2618 2623 2628 2633 2638 2643 2648 2653 2658 2663 2668 2673 2678 2683 2688 2693 2698 2703 2708 2713 2718 2723 2728 2733 2738 2743 2748 2753 2758 2763 2768 2773 2778 2783 2788 2793 2798 2803 2808 2812 2816 2820 2824 2828 2832 2836 2840 2844 2848 2852 2856 2860 2864 2868 2872 2876 2880 2884 2888 2892 2896 2900 2904 2908 2912 2916 2920 2924 2928 2932 2936 2940 2944 2948 2952 2956 2960 2964 2968 2972 2976 2980 2984 2988 2992 2996 3000 3004 3008 3012 3016 3020 3024 3028 3032 3036 3040 3044 3048 3052 3056 3060 3064 3068 3072 3076 3080 3084 3088 3092 3100 3108 3112 3120 3124 3128 3156 3254 3319 3829 3872 3915 3958 3428 4012 3472 3656 4056 4099 3754 4142 3795 4183 4204 4218 4232 4246 4260 4274 4288 4302 4316 4330 4344 4358 4372 4386 4400 4414 4428 4442 4456 4470 4484 4498 4512 4526 4540 4554 4568 4582 4596 4610 4624 4638 4652 4666 4680 4694 4708 4722 4736 4750 4764 4778 4792 4806 4820 4834 4848 4862 4876 4890 4904 4918 4932 4946 4960 4974 4988 5002 5016 5030 5044 5058 5072 5086 5100 5114 5128 5142 5156 5170 5184 5198 5212 5226 5240 5254 5268 5282 5296 5310 5324 5338 5352 5366 5380 5394 5408 5422 5436 5450 5464 5478 5492 5506 5520 5534 5548 5562 5576 5590 5604 5618 5632 5646 5660 5674 5688 5702 5716 5730 5744 5758 5772 5786 5800 5814 5828 5842 5856 5870 5884 5898 5912 5926 5940 5954 5968 5982 5996 6010 6024 6038 6052 6066 6080 6094 6108 6122 6136 6150 6164 6178 6192 6206 6220 6234 6248 6262 6276 6290 6304 6318 6332 6346 6360 6374 6388 6402 6416 6430 6444 6458 6472 6486 6500 6514 6528 6542 6556 6570 6584 6598 6612 6626 6640 6654 6668 6682 6696 6710 6724 6738 6752 6766 6780 6794 6808 6822 6836 6850 6864 6878 6892 6906 6920 6934 6948 6962 6976 6990 7004 7018 7032 7046 7060 7074 7088 7102 7116 7123 7130 7136 7142 7148 7154 7164 7181 7191 7174 7177 7201 7204 8217 8230 8243 8256 8269 8282 8295 8308 8321 8334 8347 8360 8373 8386 8399 8412 8425 8438 8451 8464 8477 8490 8503 8516 8529 8542 8555 8568 8581 8594 8607 8620 8633 8646 8659 8672 8685 8698 8711 8724 8737 8750 8763 8776 8789 8802 8815 8828 8841 8854 8867 8880 8893 8906 8919 8932 8945 8958 8971 8984 8997 9010 9023 9036 9049 9062 9075 11470 11483 11496 11509 11522 11535 11548 11561 11574 11587 11782 11795 11808 11821 11834 11847 11860 11873 11886 12095 12108 12121 12134 12147 12160 12173 12186 12199 12212 13277 13290 13303 13316 13329 13342 13355 13368 13381 13394 13407 13420 13433 13446 13459 13472 13485 13498 13511 13524 13537 13550 13563 13576 13589 13602 13615 13628 13641 13654 13667 13680 13693 13706 13719 13732 13745 13758 13771 13784 13797 13810 13823 13836 13849 13862 13875 13888 13901 13914 13927 13940 13953 13966 13979 13992 14005 14018 14031 14044 14057 14070 14083 14096 14109 14122 14135 16965 16978 16991 17004 17017 17030 17043 17056 17069 17082 17095 17108 17121 17134 17147 17160 17173 17186 17199 17212 17225 17238 17251 17264 17277 17290 17303 17316 17329 17342 17355 17368 17381 17394 17407 17420 17433 17446 17459 9106 9135 9168 9201 9233 9249 9265 9281 9297 9313 9329 9345 9361 9377 9393 9409 9425 9441 9457 9473 9489 9505 9521 9537 9553 9569 9585 9601 9617 9633 9649 9665 9681 9697 9713 9729 9745 9761 9777 9793 9809 9825 9841 9857 9873 9889 9905 9921 9937 9953 9969 9985 10001 10017 10033 10049 10065 10081 10097 10113 10129 10145 10161 10177 10193 10209 10225 10241 10257 10273 10289 10305 10321 10337 10353 10369 10385 10401 10417 10433 10449 10465 10481 10497 10513 10529 10545 10561 10577 10593 10609 10625 10641 10657 10673 10689 10705 10721 10737 10753 10769 10785 10801 10817 10833 10849 10865 10881 10897 10913 10929 10945 10961 10977 10993 11009 11025 11041 11057 11073 11089 11105 11121 11137 11153 11169 11185 11201 11217 11233 11249 11267 11283 11300 11618 11917 12243 14166 14195 14228 14261 14293 14309 14325 14341 14357 14373 14389 14405 14421 14437 14453 14469 14485 14501 14517 14533 14549 14565 14581 14597 14613 14629 14645 14661 14677 14693 14709 14725 14741 14757 14773 14789 14805 14821 14837 14853 14869 14885 14901 14917 14933 14949 14965 14981 14997 15013 15029 15045 15061 15077 15093 15109 15125 15141 15157 15173 15189 15205 15221 15237 15253 15269 15285 15301 15317 15333 15349 15365 15381 15397 15413 15429 15445 15461 15477 15493 15509 15525 15541 15557 15573 15589 15605 15621 15637 15653 15669 15685 15701 15717 15733 15749 15765 15781 15797 15813 15829 15845 15861 15877 15893 15909 15925 15941 15957 15973 15989 16005 16021 16037 16053 16069 16085 16101 16117 16133 16149 16165 16181 16197 16213 16229 16245 16261 16277 16293 16309 16327 16343 16360 17490 17509 17526 17543 17560 17578 17596 17613 17630 17647 17664 17680 17697 17716 17732 17749 17766 17783 17801 17819 17836 17853 17871 17890 17907 17924 17941 9088 11600 11899 12225 14148 17472 17964 18035 18040 18101 18106 18167 18172 18233 18238 24001 24006 27969 27974 28389 28394 28413 28418 28445 28450 28469 28474 28493 28498 28517 28522 28541 28546 28565 28570 28589 28594 28613 28618 28637 28642 28661 28666 28685 28690 28709 28714 28733 28738 28757 28762 28797 28802 28821 28826 18045 18055 18121 18187 18111 18177 18243 18294 18313 18332 18351 18370 18389 18408 18427 18446 18285 18478 18500 18522 18544 18566 18588 18610 18632 18654 18272 18465 18487 18509 18531 18553 18575 18597 18619 18641 24011 27979 28089 28109 28399 28423 28455 28479 28503 28527 28551 28575 28599 28623 28647 28671 28695 28719 28743 28767 28807 28831"/>
 </xmi:XMI>

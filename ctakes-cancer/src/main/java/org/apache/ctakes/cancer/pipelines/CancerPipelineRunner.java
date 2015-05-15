@@ -1,7 +1,10 @@
 package org.apache.ctakes.cancer.pipelines;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.regex.Matcher;
@@ -33,9 +36,7 @@ import org.apache.ctakes.postagger.POSTagger;
 import org.apache.ctakes.relationextractor.ae.DegreeOfRelationExtractorAnnotator;
 import org.apache.ctakes.relationextractor.ae.LocationOfRelationExtractorAnnotator;
 import org.apache.ctakes.relationextractor.ae.ModifierExtractorAnnotator;
-import org.apache.ctakes.temporal.ae.BackwardsTimeAnnotator;
-import org.apache.ctakes.temporal.ae.DocTimeRelAnnotator;
-import org.apache.ctakes.temporal.ae.EventAnnotator;
+import org.apache.ctakes.temporal.ae.*;
 import org.apache.ctakes.typesystem.type.textsem.*;
 import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_engine.AnalysisEngine;
@@ -50,7 +51,6 @@ import org.apache.uima.fit.factory.ExternalResourceFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
-import org.apache.uima.jcas.cas.TOP;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.util.InvalidXMLException;
 import org.cleartk.ml.jar.GenericJarClassifierFactory;
@@ -77,9 +77,9 @@ final public class CancerPipelineRunner {
             shortName = "o",
             description = "specify the path to the directory where the output xmi files are to be saved" )
       public String getOutputDirectory();
-
-
    }
+
+   static private final String CTAKES_DIR_PREFIX = "/org/apache/ctakes/";
 
    public static AnalysisEngineDescription getPipelineDescription()
          throws ResourceInitializationException, InvalidXMLException, IOException {
@@ -133,20 +133,23 @@ final public class CancerPipelineRunner {
       aggregateBuilder.add( EventAnnotator.createAnnotatorDescription() );
       aggregateBuilder
             .add( AnalysisEngineFactory.createEngineDescription( CopyPropertiesToTemporalEventAnnotator.class ) );
-      aggregateBuilder.add( DocTimeRelAnnotator
-            .createAnnotatorDescription( "/org/apache/ctakes/temporal/ae/doctimerel/model.jar" ) );
-      aggregateBuilder.add( BackwardsTimeAnnotator
-            .createAnnotatorDescription( "/org/apache/ctakes/temporal/ae/timeannotator/model.jar" ) );
-      //	    aggregateBuilder.add(EventTimeRelationAnnotator.createAnnotatorDescription(options.getEventTimeRelationModelDirectory() + File.separator + "model.jar"));
-      //	      if(options.getEventEventRelationModelDirectory()!=null){
-      //	        aggregateBuilder.add(EventEventRelationAnnotator.createAnnotatorDescription(options.getEventEventRelationModelDirectory() + File.separator + "model.jar"));
-      //	      }
+      aggregateBuilder.add( DocTimeRelAnnotator.createAnnotatorDescription(
+            getStandardModelPath( "temporal/ae/doctimerel" ) ) );
+      aggregateBuilder.add( BackwardsTimeAnnotator.createAnnotatorDescription(
+            getStandardModelPath( "temporal/ae/timeannotator" ) ) );
+      	    aggregateBuilder.add( EventTimeRelationAnnotator.createAnnotatorDescription(
+                   getStandardModelPath( "temporal/ae/eventtime" ) ) );
+//                   options.getEventTimeRelationModelDirectory() + File.separator + "model.jar" ));
+//      	      if( options.getEventEventRelationModelDirectory() != null ) {
+      	        aggregateBuilder.add( EventEventRelationAnnotator.createAnnotatorDescription(
+                       getStandardModelPath( "temporal/ae/eventevent" ) ) );
+//      	      }
       // UMLS relations:
       aggregateBuilder.add(
             AnalysisEngineFactory.createEngineDescription(
                   ModifierExtractorAnnotator.class,
                   GenericJarClassifierFactory.PARAM_CLASSIFIER_JAR_PATH,
-                  "/org/apache/ctakes/relationextractor/models/modifier_extractor/model.jar" ) );
+                  getStandardModelPath( "relationextractor/models/modifier_extractor" ) ) );
 
       // Kludge to clean out unwanted annotations from the pittsburgh header
       aggregateBuilder.add( AnalysisEngineFactory.createEngineDescription( PittHeaderCleaner.class ) );
@@ -155,12 +158,12 @@ final public class CancerPipelineRunner {
             AnalysisEngineFactory.createEngineDescription(
                   DegreeOfRelationExtractorAnnotator.class,
                   GenericJarClassifierFactory.PARAM_CLASSIFIER_JAR_PATH,
-                  "/org/apache/ctakes/relationextractor/models/degree_of/model.jar" ) );
+                  getStandardModelPath( "relationextractor/models/degree_of" ) ) );
       aggregateBuilder.add(
             AnalysisEngineFactory.createEngineDescription(
                   LocationOfRelationExtractorAnnotator.class,
                   GenericJarClassifierFactory.PARAM_CLASSIFIER_JAR_PATH,
-                  "/org/apache/ctakes/relationextractor/models/location_of/model.jar" ) );
+                  getStandardModelPath( "relationextractor/models/location_of" ) ) );
 
       // coreference?
       //	    aggregateBuilder.add(
@@ -200,6 +203,11 @@ final public class CancerPipelineRunner {
             AnalysisEngineFactory.createEngine( analysisEngineDescription ),
             outputWriter );
    }
+
+   static private String getStandardModelPath( final String moduleDirectory ) {
+      return CTAKES_DIR_PREFIX + moduleDirectory + "/model.jar";
+   }
+
 
    public static void main( final String... args ) throws UIMAException, IOException {
       final Options options = CliFactory.parseArguments( Options.class, args );
@@ -270,6 +278,9 @@ final public class CancerPipelineRunner {
       static private final Pattern DIVIDER_PATTERN
             = Pattern.compile( "===================================================================" );
 
+      static private final Collection<Class<? extends IdentifiedAnnotation>> UNWANTED_ANNOTATION_CLASSES
+            = Arrays.asList( EventMention.class, EntityMention.class, Modifier.class, FractionAnnotation.class );
+
       @Override
       public void process( final JCas jcas ) throws AnalysisEngineProcessException {
          final String docText = jcas.getDocumentText();
@@ -282,10 +293,9 @@ final public class CancerPipelineRunner {
          }
          final int endIndex = matcher.end();
          final Collection<IdentifiedAnnotation> unwantedAnnotations = new HashSet<>();
-         unwantedAnnotations.addAll( JCasUtil.selectCovered( jcas, EventMention.class, 0, endIndex ) );
-         unwantedAnnotations.addAll( JCasUtil.selectCovered( jcas, EntityMention.class, 0, endIndex ) );
-         unwantedAnnotations.addAll( JCasUtil.selectCovered( jcas, Modifier.class, 0, endIndex ) );
-         unwantedAnnotations.addAll( JCasUtil.selectCovered( jcas, FractionAnnotation.class, 0, endIndex ) );
+         for ( Class<? extends IdentifiedAnnotation> unwantedClass : UNWANTED_ANNOTATION_CLASSES ) {
+            unwantedAnnotations.addAll( JCasUtil.selectCovered( jcas, unwantedClass, 0, endIndex ) );
+         }
          for ( IdentifiedAnnotation unwantedAnnotation : unwantedAnnotations ) {
             unwantedAnnotation.removeFromIndexes();
          }
