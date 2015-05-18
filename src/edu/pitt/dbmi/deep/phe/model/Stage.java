@@ -11,6 +11,7 @@ import org.hl7.fhir.instance.model.ResourceReference;
 import org.hl7.fhir.instance.model.StringType;
 
 import edu.pitt.dbmi.nlp.noble.coder.model.Mention;
+import edu.pitt.dbmi.nlp.noble.ontology.IClass;
 import edu.pitt.dbmi.nlp.noble.ontology.IOntology;
 
 public class Stage extends ConditionStageComponent{
@@ -51,6 +52,52 @@ public class Stage extends ConditionStageComponent{
 		IOntology o = ResourceFactory.getInstance().getOntology();
 		Extension e = getExtension(""+o.getClass(Utils.T_STAGE).getURI());
 		return e != null? ((StringType)e.getValue()).getValue():null;
+	}
+	
+	/**
+	 * get primary tumor stage
+	 * @return
+	 */
+	public CodeableConcept getPrimaryTumorStageCode(){
+		return getStageValue(Utils.T_STAGE);
+	}
+	
+	
+	/**
+	 * get primary tumor stage
+	 * @return
+	 */
+	public CodeableConcept getDistantMetastasisStageCode(){
+		return getStageValue(Utils.M_STAGE);
+	}
+	
+	/**
+	 * get primary tumor stage
+	 * @return
+	 */
+	public CodeableConcept getRegionalLymphNodeStageCode(){
+		return getStageValue(Utils.N_STAGE);
+	}
+	
+	
+	private CodeableConcept getStageValue(String stage){
+		IOntology o = ResourceFactory.getInstance().getOntology();
+		IClass cls = o.getClass(stage);
+		if(cls == null)
+			return null;
+		Extension e = getExtension(""+cls.getURI());
+		if(e == null)
+			return null;
+		
+		String val = ((StringType)e.getValue()).getValue();
+		for(IClass c : cls.getSubClasses()){
+			for(String s: c.getConcept().getSynonyms()){
+				if(s.matches("\\b"+val+"\\b")){
+					return Utils.getCodeableConcept(c);
+				}
+			}
+		}
+		return null;
 	}
 	
 	/**

@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -41,6 +42,9 @@ import org.hl7.fhir.instance.model.Resource;
 
 import edu.pitt.dbmi.deep.phe.model.*;
 import edu.pitt.dbmi.deep.phe.util.TextUtils;
+import edu.pitt.dbmi.deepphe.summarization.jess.FhirEncounterKnowledgeExtractor;
+import edu.pitt.dbmi.deepphe.summarization.jess.kb.Encounter;
+import edu.pitt.dbmi.deepphe.summarization.jess.kb.Patient;
 import edu.pitt.dbmi.nlp.noble.coder.NobleCoder;
 import edu.pitt.dbmi.nlp.noble.coder.model.Document;
 import edu.pitt.dbmi.nlp.noble.ontology.IOntology;
@@ -137,6 +141,7 @@ public class DocumentSummarizer {
 		File [] docs = new File(sample,"xmi").listFiles();
 		Arrays.sort(docs);
 		// process reports
+		List<Report> reports = new ArrayList<Report>();
 		for(File file: docs){
 			System.out.println("reading XMI file .."+file.getName());
 			JCas cas = summarizer.loadCAS(file,types);
@@ -145,9 +150,11 @@ public class DocumentSummarizer {
 			report.setTitleSimple(TextUtils.stripSuffix(file.getName()));
 			report.save(new File(out,"CT"));
 			System.out.println(report.getSummary());
+			reports.add(report);
 		}
 		
 		
+		// process reports using NobleCoder
 		NobleCoder coder = new NobleCoder(new NobleCoderTerminology(ont));
 		docs = new File(sample,"docs").listFiles();
 		Arrays.sort(docs);
@@ -159,6 +166,20 @@ public class DocumentSummarizer {
 			System.out.println(report.getSummary());
 			report.save(new File(out,"NC"));
 		}
+		
+		
+		// generate the reasoning objects
+		System.out.println("generating reasoning models ..");
+		Patient p = new Patient();
+		FhirEncounterKnowledgeExtractor ext = new FhirEncounterKnowledgeExtractor();
+		ext.setPatient(p);
+		ext.setFHIR_Reports(reports);
+		ext.execute();
+		System.out.println("\tpatient:\t"+p.fetchInfo());
+		for(Encounter e: p.getEncounters()){
+			System.out.println("\tencounter:\t"+e.fetchInfo());
+		}
+		
 		
 		System.out.println("done");
 	}

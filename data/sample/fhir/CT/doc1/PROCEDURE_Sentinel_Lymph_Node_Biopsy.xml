@@ -12,19 +12,12 @@
   </subject>
   <type>
     <coding>
-      <system value="SNOMEDCT"/>
-      <code value="396487001"/>
+      <system value="CTAKES"/>
       <display value="Sentinel Lymph Node Biopsy"/>
     </coding>
     <coding>
       <system value="NCI Metathesaurus"/>
       <code value="C0796693"/>
-      <display value="Sentinel Lymph Node Biopsy"/>
-    </coding>
-    <coding>
-      <system value="SNOMEDCT"/>
-      <code value="314505000"/>
-      <display value="Sentinel Lymph Node Biopsy"/>
     </coding>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>

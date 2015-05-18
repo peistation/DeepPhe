@@ -14,19 +14,12 @@
   <dateAsserted value="2013-01-18T10:50:00-05:00"/>
   <code>
     <coding>
-      <system value="SNOMEDCT"/>
-      <code value="58477004"/>
+      <system value="CTAKES"/>
       <display value="INVASIVE DUCTAL CARCINOMA"/>
     </coding>
     <coding>
       <system value="NCI Metathesaurus"/>
       <code value="C1134719"/>
-      <display value="Invasive Ductal Breast Carcinoma"/>
-    </coding>
-    <coding>
-      <system value="SNOMEDCT"/>
-      <code value="408643008"/>
-      <display value="INVASIVE DUCTAL CARCINOMA"/>
     </coding>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>

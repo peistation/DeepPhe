@@ -11,7 +11,7 @@
     <text value="Tumor Size"/>
   </name>
   <valueQuantity>
-    <value value="2.099999904632568359375"/>
+    <value value="2.100000"/>
     <units value="centimeter"/>
   </valueQuantity>
   <issued value="2013-01-18T10:50:00-05:00"/>

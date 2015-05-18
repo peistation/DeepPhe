@@ -70,9 +70,5 @@ Patient is a 54 year old female with history of T2N0M0 left breast cancer ER-neg
       <reference value="DIAGNOSIS_Breast_Carcinoma"/>
       <display value="Breast Carcinoma"/>
     </detail>
-    <detail>
-      <reference value="DIAGNOSIS_Malignant_Neoplasm"/>
-      <display value="Malignant Neoplasm"/>
-    </detail>
   </event>
 </Composition>

@@ -42,6 +42,10 @@ One LN with no evidence of Carcinoma
       <display value="Tumor Size"/>
     </detail>
     <detail>
+      <reference value="PROCEDURE_Excisional_Biopsy"/>
+      <display value="Excisional Biopsy"/>
+    </detail>
+    <detail>
       <reference value="PROCEDURE_Sentinel_Lymph_Node_Biopsy"/>
       <display value="Sentinel Lymph Node Biopsy"/>
     </detail>

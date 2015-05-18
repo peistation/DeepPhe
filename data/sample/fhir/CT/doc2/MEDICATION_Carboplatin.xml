@@ -5,39 +5,12 @@
   <name value="Carboplatin"/>
   <code>
     <coding>
-      <system value="SNOMEDCT"/>
-      <code value="386905002"/>
+      <system value="CTAKES"/>
       <display value="carboplatin"/>
     </coding>
     <coding>
       <system value="NCI Metathesaurus"/>
       <code value="C0079083"/>
-      <display value="Carboplatin"/>
-    </coding>
-    <coding>
-      <system value="SNOMEDCT"/>
-      <code value="386905002"/>
-      <display value="carboplatin"/>
-    </coding>
-    <coding>
-      <system value="SNOMEDCT"/>
-      <code value="108759002"/>
-      <display value="carboplatin"/>
-    </coding>
-    <coding>
-      <system value="SNOMEDCT"/>
-      <code value="108759002"/>
-      <display value="carboplatin"/>
-    </coding>
-    <coding>
-      <system value="RXNORM"/>
-      <code value="40048"/>
-      <display value="carboplatin"/>
-    </coding>
-    <coding>
-      <system value="RXNORM"/>
-      <code value="40048"/>
-      <display value="carboplatin"/>
     </coding>
     <coding>
       <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>

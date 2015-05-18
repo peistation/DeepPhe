@@ -280,11 +280,53 @@ public class Utils {
 	}
 	
 	/**
+	 * get preferred concept code for a given codable concept
+	 * @param c
+	 * @return
+	 */
+	public static String getConceptCode(CodeableConcept c){
+		for(Coding cc: c.getCoding()){
+			if(SCHEMA_UMLS.equals(cc.getSystemSimple())){
+				return cc.getCodeSimple();
+			}
+		}
+		// else get first code you encouner
+		return c.getCoding().isEmpty()?c.getTextSimple():c.getCoding().get(0).getCodeSimple();
+	}
+	
+	/**
+	 * get preferred concept code for a given codable concept
+	 * @param c
+	 * @return
+	 */
+	public static String getConceptName(CodeableConcept c){
+		for(Coding cc: c.getCoding()){
+			if(SCHEMA_UMLS.equals(cc.getSystemSimple())){
+				return cc.getDisplaySimple();
+			}
+		}
+		// else get first code you encouner
+		return c.getTextSimple();
+	}
+	
+	
+	/**
 	 * get codeblce concept form OntologyConcept annotation
 	 * @param c
 	 * @return
 	 */
 	public static CodeableConcept getCodeableConcept(Mention c){
+		CodeableConcept cc = new CodeableConcept();
+		setCodeableConcept(cc, c);
+		return cc;
+	}
+	
+	/**
+	 * get codeblce concept form OntologyConcept annotation
+	 * @param c
+	 * @return
+	 */
+	public static CodeableConcept getCodeableConcept(IClass c){
 		CodeableConcept cc = new CodeableConcept();
 		setCodeableConcept(cc, c);
 		return cc;
@@ -327,6 +369,44 @@ public class Utils {
 		
 		return cc;
 	}
+	/**
+	 * get codeblce concept form OntologyConcept annotation
+	 * @param c
+	 * @return
+	 */
+	public static CodeableConcept setCodeableConcept(CodeableConcept cc,IClass cls){
+		Concept c = cls.getConcept();
+		cc.setTextSimple(c.getName());
+		
+		// add coding for class
+		if(cls != null){
+			Coding ccc = cc.addCoding();
+			ccc.setCodeSimple(cls.getURI().toString());
+			ccc.setDisplaySimple(c.getName());
+			ccc.setSystemSimple(cls.getOntology().getURI().toString());
+		}
+	
+		// add CUI
+		String cui = getConceptCode(c);
+		if(cui != null){
+			Coding cc2 = cc.addCoding();
+			cc2.setCodeSimple(cui);
+			cc2.setDisplaySimple(c.getName());
+			cc2.setSystemSimple(SCHEMA_UMLS);
+		}
+		
+		// add RxNORM codes
+		for(String rxcode: OntologyUtils.getRXNORM_Codes(c)){
+			Coding c2 = cc.addCoding();
+			c2.setCodeSimple(rxcode);
+			c2.setDisplaySimple(cls.getName());
+			c2.setSystemSimple(SCHEMA_RXNORM);
+		}
+		
+		
+		return cc;
+	}
+	
 	
 	
 	/**
@@ -516,6 +596,8 @@ public class Utils {
 	public static IClass getConceptClass(Mention m){
 		return getConceptClass(ResourceFactory.getInstance().getOntology(), m);
 	}
+	
+	
 	
 	/**
 	 * get concept class from a default ontology based on Concept
@@ -729,6 +811,11 @@ public class Utils {
 			return list;
 		for(ListIterator<IdentifiedAnnotation> it = list.listIterator();it.hasNext();){
 			IdentifiedAnnotation m = it.next();
+			// keep annotation that might be part of relationship
+			if(!getRelatedAnnotationsByType(m, BinaryTextRelation.class).isEmpty())
+				continue;
+			
+			// filter out if something more specific exists
 			if(hasMoreSpecific(m,list) || hasIdenticalSpan(m,list))
 				it.remove();
 		}

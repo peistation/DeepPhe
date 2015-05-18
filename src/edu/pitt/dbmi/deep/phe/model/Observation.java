@@ -41,19 +41,9 @@ public class Observation extends org.hl7.fhir.instance.model.Observation impleme
 	}
 
 	public String getSummary() {
-		StringBuffer st = new StringBuffer();
-		st.append("Observation:\t"+getDisplaySimple());
-		Type t = getValue();
-		if(t != null){
-			if( t instanceof StringType)
-				st.append(" | value: "+((StringType)t).getValue());
-			else if( t instanceof DecimalType)
-				st.append(" | value: "+((DecimalType)t).getValue());
-			else if( t instanceof Quantity)
-				st.append(" | value: "+((Quantity)t).getValueSimple()+" "+((Quantity)t).getUnitsSimple());
-		}
-		return st.toString();
+		return "Observation:\t"+getDisplaySimple()+" | value: "+getValueSimple();
 	}
+	
 	public Resource getResource() {
 		return this;
 	}
@@ -154,6 +144,21 @@ public class Observation extends org.hl7.fhir.instance.model.Observation impleme
 		q.setValueSimple(new BigDecimal(value,MathContext.DECIMAL32));
 		q.setUnitsSimple(unit);
 		setValue(q);
+	}
+	
+	public String getValueSimple(){
+		Type t = getValue();
+		if(t != null){
+			if( t instanceof StringType)
+				return ((StringType)t).getValue();
+			else if( t instanceof DecimalType)
+				return ""+((DecimalType)t).getValue();
+			else if( t instanceof Quantity)
+				return ((Quantity)t).getValueSimple()+" "+((Quantity)t).getUnitsSimple();
+			else
+				return t.toString();
+		}
+		return null;
 	}
 	
 	
