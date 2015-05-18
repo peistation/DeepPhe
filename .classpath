@@ -6,7 +6,9 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="summarization/src/main/java"/>
 	<classpathentry kind="src" path="ctakes-cancer/src/main/java"/>
+	<classpathentry kind="lib" path="lib/commons-io-2.4.jar"/>
 	<classpathentry kind="lib" path="lib/httpclient-4.2.3.jar"/>
 	<classpathentry kind="lib" path="lib/httpcore-4.2.2.jar"/>
 	<classpathentry kind="lib" path="lib/xpp3-1.1.3.4.O.jar"/>
@@ -17,11 +19,6 @@
 	<classpathentry kind="lib" path="lib/fhir-0.0.82.jar"/>
 	<classpathentry kind="lib" path="lib/gson-2.2.4.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/nobletools"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="/home/tseytlin/Technologies/cTAKES/lib/uimaj-core-2.4.0.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/ctakes-clinical-pipeline"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/ctakes-temporal"/>
@@ -29,5 +26,11 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/ctakes-smoking-status"/>
 	<classpathentry kind="lib" path="ctakes-cancer/src/main/resources"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/ctakes-type-system"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ctakes-temporal-res"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java-8-oracle"/>
+	<classpathentry kind="lib" path="lib/guava-14.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/ojdbc5.jar"/>
+	<classpathentry kind="lib" path="lib/jess.jar"/>
+	<classpathentry kind="lib" path="lib/owlapi-distribution-4.0.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

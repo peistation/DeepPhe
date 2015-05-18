@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.ctakes.cancer.pipelines.CancerPipelineRunner;
 import org.apache.ctakes.clinicalpipeline.ClinicalPipelineFactory;
 import org.apache.ctakes.core.cc.XmiWriterCasConsumerCtakes;
 import org.apache.ctakes.core.cr.FilesInDirectoryCollectionReader;
@@ -135,7 +136,7 @@ public class DocumentSummarizer {
 		
 		File [] docs = new File(sample,"xmi").listFiles();
 		Arrays.sort(docs);
-		/*// process reports
+		// process reports
 		for(File file: docs){
 			System.out.println("reading XMI file .."+file.getName());
 			JCas cas = summarizer.loadCAS(file,types);
@@ -144,7 +145,7 @@ public class DocumentSummarizer {
 			report.setTitleSimple(TextUtils.stripSuffix(file.getName()));
 			report.save(new File(out,"CT"));
 			System.out.println(report.getSummary());
-		}*/
+		}
 		
 		
 		NobleCoder coder = new NobleCoder(new NobleCoderTerminology(ont));
