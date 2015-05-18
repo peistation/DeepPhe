@@ -15,7 +15,7 @@
   <code>
     <coding>
       <system value="SNOMEDCT"/>
-      <code value="286898006"/>
+      <code value="254838004"/>
       <display value="breast cancer"/>
     </coding>
     <coding>
@@ -25,17 +25,17 @@
     </coding>
     <coding>
       <system value="SNOMEDCT"/>
+      <code value="286898006"/>
+      <display value="breast cancer"/>
+    </coding>
+    <coding>
+      <system value="SNOMEDCT"/>
       <code value="154513000"/>
       <display value="breast cancer"/>
     </coding>
     <coding>
       <system value="SNOMEDCT"/>
-      <code value="254838004"/>
-      <display value="breast cancer"/>
-    </coding>
-    <coding>
-      <system value="SNOMEDCT"/>
-      <code value="154521006"/>
+      <code value="190121004"/>
       <display value="breast cancer"/>
     </coding>
     <coding>
@@ -45,17 +45,17 @@
     </coding>
     <coding>
       <system value="SNOMEDCT"/>
-      <code value="254837009"/>
-      <display value="breast cancer"/>
-    </coding>
-    <coding>
-      <system value="SNOMEDCT"/>
-      <code value="190121004"/>
-      <display value="breast cancer"/>
-    </coding>
-    <coding>
-      <system value="SNOMEDCT"/>
       <code value="269595005"/>
+      <display value="breast cancer"/>
+    </coding>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="154521006"/>
+      <display value="breast cancer"/>
+    </coding>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="254837009"/>
       <display value="breast cancer"/>
     </coding>
     <coding>

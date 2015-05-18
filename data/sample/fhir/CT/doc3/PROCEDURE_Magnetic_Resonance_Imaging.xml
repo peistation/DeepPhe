@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Procedure xmlns="http://hl7.org/fhir">
+  <identifier>
+    <label value="id"/>
+    <system value="local"/>
+    <value value="PROCEDURE_Magnetic_Resonance_Imaging"/>
+  </identifier>
+  <subject>
+    <reference value="PATIENT_Jane_Doe"/>
+    <display value="Jane Doe"/>
+  </subject>
+  <type>
+    <coding>
+      <system value="CTAKES"/>
+      <display value="MRI"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C1552358"/>
+    </coding>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Magnetic_Resonance_Imaging"/>
+      <display value="Magnetic_Resonance_Imaging"/>
+    </coding>
+    <text value="Magnetic Resonance Imaging"/>
+  </type>
+  <bodySite>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="258335003"/>
+      <display value="Brain"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C1269537"/>
+      <display value="Entire brain"/>
+    </coding>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="12738006"/>
+      <display value="Brain"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0006104"/>
+      <display value="Brain"/>
+    </coding>
+    <text value="Brain"/>
+  </bodySite>
+  <date>
+    <start value="2014-03-04T00:11:00-05:00"/>
+    <end value="2014-03-04T00:11:00-05:00"/>
+  </date>
+</Procedure>

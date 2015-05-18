@@ -1,0 +1,10 @@
+===================================================================
+Patient Name..................Jane Doe
+Principal Date................20140304 1211
+Record Type...................RAD
+===================================================================
+
+FINDINGS:
+
+Brain MRI
+There are three contrast enhancing lesions in the right parietal lobe, the largest measuring 0.9 cm, suggestive of metastatic tumor.

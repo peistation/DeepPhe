@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Procedure xmlns="http://hl7.org/fhir">
+  <identifier>
+    <label value="id"/>
+    <system value="local"/>
+    <value value="PROCEDURE_Excisional_Biopsy"/>
+  </identifier>
+  <subject>
+    <reference value="PATIENT_Jane_Doe"/>
+    <display value="Jane Doe"/>
+  </subject>
+  <type>
+    <coding>
+      <system value="CTAKES"/>
+      <display value="EXCISION"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0184921"/>
+    </coding>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Excisional_Biopsy"/>
+      <display value="Excisional_Biopsy"/>
+    </coding>
+    <text value="Excisional Biopsy"/>
+  </type>
+  <bodySite>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="272669003"/>
+      <display value="BREAST"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0006141"/>
+      <display value="Breast"/>
+    </coding>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="361079003"/>
+      <display value="BREAST"/>
+    </coding>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="76752008"/>
+      <display value="BREAST"/>
+    </coding>
+    <coding>
+      <system value="SNOMEDCT"/>
+      <code value="181131000"/>
+      <display value="BREAST"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C1268990"/>
+      <display value="Entire breast"/>
+    </coding>
+    <text value="BREAST"/>
+  </bodySite>
+  <date>
+    <start value="2013-01-18T10:50:00-05:00"/>
+    <end value="2013-01-18T10:50:00-05:00"/>
+  </date>
+</Procedure>

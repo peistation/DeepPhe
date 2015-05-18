@@ -1,0 +1,9 @@
+===================================================================
+Patient Name..................Jane Doe
+Principal Date................20130424 1130
+Record Type...................PGN
+===================================================================
+
+ASSESSMENT:
+
+Patient is a 54 year old female with history of T2N0M0 left breast cancer ER-neg, PR-neg, HER2+, now undergoing neoadjuvant chemo with taxotere, carboplatin, Herceptin, and pertuzumab.
