@@ -12,7 +12,7 @@
 2.16.840.1.113883.10.20.22.2.6.1,48765-2,Allergies,Adverse Reactions,allergy
 2.16.840.1.113883.10.20.22.2.25,59774-0,Anesthesia Section
 2.16.840.1.113883.10.20.22.2.9,51847-2,ASSESSMENT AND PLAN,IMPRESSION,IMPRESSIONS,ASSESSMENT AND RECOMMENDATIONS,Impression and Plan
-2.16.840.1.113883.10.20.22.2.8,51848-0,Assessments 
+2.16.840.1.113883.10.20.22.2.8,51848-0,Assessments, Assessment
 2.16.840.1.113883.10.20.22.2.13,46239-0,Chief Complaint and Reason for Visit
 1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1,10154-3,CHIEF COMPLAINT,admit diagnosis,principal discharge diagnosis,principal diagnosis,principal diagnoses,secondary diagnosis,other medical issues considered at this time 
 2.16.840.1.113883.10.20.22.2.37,55109-3,Complications
