@@ -105,4 +105,8 @@ public class Procedure extends org.hl7.fhir.instance.model.Procedure  implements
 		}
 	}
 	
+	public IClass getConceptClass(){
+		return Utils.getConceptClass(getType());
+	}
+	
 }

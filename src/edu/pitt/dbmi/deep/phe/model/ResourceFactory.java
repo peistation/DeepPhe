@@ -341,7 +341,5 @@ public class ResourceFactory {
 		}
 		return list;
 	}
-
-	
 	
 }

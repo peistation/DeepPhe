@@ -78,6 +78,8 @@ public class Utils {
 	
 	
 	public static final String ELEMENT = "Element";
+	public static final String COMPOSITION = "Composition";
+	public static final String PATIENT = "Patient";
 	public static final String DIAGNOSIS = "DiseaseDisorder";
 	public static final String PROCEDURE = "ProcedureIntervention";
 	public static final String OBSERVATION = "Observation";
@@ -88,6 +90,11 @@ public class Utils {
 	public static final String STAGE = "Generic_TNM_Finding";
 	public static final String AGE = "Age";
 	public static final String GENDER = "Gender";
+	public static final String PHENOTYPIC_FACTOR = "PhenotypicFactor";
+	public static final String GENOMIC_FACTOR = "GenomicFactor";
+	public static final String TREATMENT_FACTOR = "TreatmentFactor";
+	public static final String RELATED_FACTOR = "RelatedFactor";
+	
 	
 	public static final String T_STAGE = "Generic_Primary_Tumor_TNM_Finding";
 	public static final String M_STAGE = "Generic_Distant_Metastasis_TNM_Finding";
@@ -507,7 +514,14 @@ public class Utils {
 	}
 
 	public static Identifier createIdentifier(Identifier id, Object obj,Mention m){
-		String dn = m.getConcept().getName().replaceAll("\\W+","_");
+		return createIdentifier(id,obj,m.getConcept());
+	}
+	public static Identifier createIdentifier(Identifier id, Object obj,IClass m){
+		return createIdentifier(id,obj,m.getConcept());
+	}
+	
+	public static Identifier createIdentifier(Identifier id, Object obj,Concept c){
+		String dn = c.getName().replaceAll("\\W+","_");
 		String ident = obj.getClass().getSimpleName().toUpperCase()+"_"+dn; //+"_"+m.getStartPosition()
 		return createIdentifier(id, ident);
 	}
@@ -567,6 +581,21 @@ public class Utils {
 	 * @param c
 	 * @return
 	 */
+	public static IClass getConceptClass(IOntology ontology, CodeableConcept c){
+		for(Coding coding : c.getCoding()){
+			if((""+ontology.getURI()).equals(coding.getSystemSimple())){
+				return ontology.getClass(coding.getCodeSimple());
+			}
+		}
+		return null;
+	}
+	
+	
+	/**
+	 * get concept class from a default ontology based on Concept
+	 * @param c
+	 * @return
+	 */
 	public static IClass getConceptClass(IOntology ontology,  Mention m){
 		return getConceptClass(ontology, m.getConcept());
 	}
@@ -596,7 +625,14 @@ public class Utils {
 	public static IClass getConceptClass(Mention m){
 		return getConceptClass(ResourceFactory.getInstance().getOntology(), m);
 	}
-	
+	/**
+	 * get concept class from a default ontology based on Concept
+	 * @param c
+	 * @return
+	 */
+	public static IClass getConceptClass(CodeableConcept m){
+		return getConceptClass(ResourceFactory.getInstance().getOntology(), m);
+	}
 	
 	
 	/**

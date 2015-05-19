@@ -13,6 +13,7 @@ import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceReference;
 
 import edu.pitt.dbmi.deep.phe.util.TextUtils;
+import edu.pitt.dbmi.nlp.noble.ontology.IClass;
 
 /**
  * represents a medical document that contains a set of 
@@ -224,6 +225,10 @@ public class Report extends Composition implements Element{
 
 
 	public void setReport(Report r) {
+	}
+	
+	public IClass getConceptClass(){
+		return ResourceFactory.getInstance().getOntology().getClass(Utils.COMPOSITION);
 	}
 	
 }

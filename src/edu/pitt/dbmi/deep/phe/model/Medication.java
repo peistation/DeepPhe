@@ -10,6 +10,7 @@ import org.hl7.fhir.instance.model.Observation;
 
 import edu.pitt.dbmi.deep.phe.util.TextUtils;
 import edu.pitt.dbmi.nlp.noble.coder.model.Mention;
+import edu.pitt.dbmi.nlp.noble.ontology.IClass;
 
 public class Medication extends org.hl7.fhir.instance.model.Medication implements Element {
 	protected Identifier identifier;
@@ -62,7 +63,9 @@ public class Medication extends org.hl7.fhir.instance.model.Medication implement
 		setCode(Utils.getCodeableConcept(dm));
 		setIdentifier(Utils.createIdentifier(this,dm));
 	}
-
+	public IClass getConceptClass(){
+		return Utils.getConceptClass(getCode());
+	}
 	/**
 	 * assign report instance and add appropriate information from there
 	 */

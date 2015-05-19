@@ -18,6 +18,7 @@ import org.hibernate.type.FloatType;
 import org.hl7.fhir.instance.model.*;
 
 import edu.pitt.dbmi.nlp.noble.coder.model.Mention;
+import edu.pitt.dbmi.nlp.noble.ontology.IClass;
 
 /**
  * Observation object
@@ -145,7 +146,9 @@ public class Observation extends org.hl7.fhir.instance.model.Observation impleme
 		q.setUnitsSimple(unit);
 		setValue(q);
 	}
-	
+	public IClass getConceptClass(){
+		return Utils.getConceptClass(getName());
+	}
 	public String getValueSimple(){
 		Type t = getValue();
 		if(t != null){

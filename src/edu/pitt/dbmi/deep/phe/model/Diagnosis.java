@@ -22,6 +22,7 @@ import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Resource;
 
 import edu.pitt.dbmi.nlp.noble.coder.model.Mention;
+import edu.pitt.dbmi.nlp.noble.ontology.IClass;
 
 /**
  * This class represents a diagnosis mention in a report
@@ -103,6 +104,16 @@ public class Diagnosis extends Condition implements Element {
 		}
 	}
 	
+	/**
+	 * initialize from class in the ontology
+	 * @param cls
+	 */
+	public void initialize(IClass cls){
+		setCode(Utils.getCodeableConcept(cls));
+		Utils.createIdentifier(addIdentifier(),this,cls);
+	}
+	
+	
 	public Stage getStage(){
 		return (Stage) super.getStage();
 	}
@@ -151,5 +162,8 @@ public class Diagnosis extends Condition implements Element {
 		if( d != null){
 			setDateAssertedSimple(d);
 		}
+	}
+	public IClass getConceptClass(){
+		return Utils.getConceptClass(getCode());
 	}
 }

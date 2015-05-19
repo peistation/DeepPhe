@@ -23,6 +23,7 @@ import org.hl7.fhir.instance.model.Patient.PatientLinkComponent;
 
 import edu.pitt.dbmi.nlp.noble.coder.model.Document;
 import edu.pitt.dbmi.nlp.noble.coder.model.Mention;
+import edu.pitt.dbmi.nlp.noble.ontology.IClass;
 import edu.pitt.dbmi.nlp.noble.tools.TextTools;
 
 public class Patient extends org.hl7.fhir.instance.model.Patient implements Element{
@@ -176,6 +177,9 @@ public class Patient extends org.hl7.fhir.instance.model.Patient implements Elem
 
 	public void setGender(Mention m) {
 		setGender(Utils.getCodeableConcept(m));
+	}
+	public IClass getConceptClass(){
+		return ResourceFactory.getInstance().getOntology().getClass(Utils.PATIENT);
 	}
 
 }

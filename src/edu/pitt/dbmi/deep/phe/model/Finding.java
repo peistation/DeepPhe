@@ -7,6 +7,7 @@ import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Condition.ConditionStatus;
 
 import edu.pitt.dbmi.nlp.noble.coder.model.Mention;
+import edu.pitt.dbmi.nlp.noble.ontology.IClass;
 
 public class Finding extends Condition  implements Element{
 
@@ -60,5 +61,7 @@ public class Finding extends Condition  implements Element{
 	public void save(File dir) throws Exception {
 		Utils.saveFHIR(this,getIdentifierSimple(),dir);
 	}
-	
+	public IClass getConceptClass(){
+		return Utils.getConceptClass(getCode());
+	}
 }
