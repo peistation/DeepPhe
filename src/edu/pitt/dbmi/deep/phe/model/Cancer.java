@@ -1,11 +1,17 @@
 package edu.pitt.dbmi.deep.phe.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Condition.ConditionLocationComponent;
 import org.hl7.fhir.instance.model.Condition.ConditionStatus;
+
+import scala.Array;
+import scala.actors.threadpool.Arrays;
+import edu.pitt.dbmi.deep.phe.util.TextUtils;
 
 
 
@@ -129,9 +135,23 @@ public class Cancer extends Diagnosis {
 			}
 			return st.toString();
 		}
+	
+		protected void listChildren(List<Property> childrenList) {
+			super.listChildren(childrenList);
+			childrenList.add(new Property("type", "CodeableConcept","A manifestation or symptom that led to the recording of this condition.", 0, 2147483647,this.type));
+			childrenList.add(new Property("location", "", "The anatomical location where this condition manifests itself.", 0, 2147483647, this.location));
+			childrenList.add(new Property("phenotypicFactors","","Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.",0, 2147483647, this.phenotypicFactors));
+			childrenList.add(new Property("genomicFactors","","Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.",0, 2147483647, this.genomicFactors));
+			childrenList.add(new Property("treatmentFactors","","Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.",0, 2147483647, this.treatmentFactors));
+			childrenList.add(new Property("relatedFactors","","Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.",0, 2147483647, this.relatedFactors));
+		}
+		
 	}
 	
-	
+	protected void listChildren(List<Property> childrenList) {
+		super.listChildren(childrenList);
+		childrenList.add(new Property("tumors","","List of tumors in this Cancer pheonotype",0, 2147483647, this.tumors));
+	}
 	
 	public String getSummary() {
 		StringBuffer st = new StringBuffer();
@@ -150,4 +170,44 @@ public class Cancer extends Diagnosis {
 		return st.toString();
 	}
 	
+	
+	public List<Element> getFactorElements(){
+		List<Element> list = new ArrayList<Element>();
+		for(Tumor t: getTumors()){
+		
+			List<ConditionEvidenceComponent> evidence = new ArrayList<Condition.ConditionEvidenceComponent>();
+			evidence.addAll(t.getPhenotypicFactors());
+			evidence.addAll(t.getTreatmentFactors());
+			evidence.addAll(t.getGenomicFactors());
+			evidence.addAll(t.getRelatedFactors());
+			
+			
+			for(ConditionEvidenceComponent c : evidence){
+				for(Resource r: c.getDetailTarget()){
+					if(r instanceof Element)
+						list.add((Element)r);
+				}
+			}
+			
+		}
+		return list;
+	}
+	
+	/**
+	 * persist this object to a directory
+	 * @param dir
+	 * @throws Exception 
+	 * @throws FileNotFoundException 
+	 */
+	public void save(File dir) throws Exception{
+		super.save(dir);
+		
+		// go over components
+		Patient pt = (Patient) getSubjectTarget();
+		if(pt != null)
+			pt.save(dir);
+		for(Element e: getFactorElements()){
+			e.save(dir);
+		}
+	}
 }

@@ -134,10 +134,14 @@ public class Observation extends org.hl7.fhir.instance.model.Observation impleme
 
 	public void setValue(SizeMeasurement num){
 		setValue(num.getValue(),num.getUnit());
+		String ident = getClass().getSimpleName().toUpperCase()+"_"+getDisplaySimple(); 
+		setIdentifier(Utils.createIdentifier((ident+"_"+getValueSimple()).replaceAll("\\W+","_")));
 	}
 	
 	public void setValue(String value, String unit){
 		setValue(Double.parseDouble(value),unit);
+		String ident = getClass().getSimpleName().toUpperCase()+"_"+getDisplaySimple(); 
+		setIdentifier(Utils.createIdentifier((ident+"_"+getValueSimple()).replaceAll("\\W+","_")));
 	}
 	
 	public void setValue(double value, String unit){
@@ -157,7 +161,7 @@ public class Observation extends org.hl7.fhir.instance.model.Observation impleme
 			else if( t instanceof DecimalType)
 				return ""+((DecimalType)t).getValue();
 			else if( t instanceof Quantity)
-				return ((Quantity)t).getValueSimple()+" "+((Quantity)t).getUnitsSimple();
+				return ((Quantity)t).getValueSimple().doubleValue()+" "+((Quantity)t).getUnitsSimple();
 			else
 				return t.toString();
 		}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <language value="English"/>
+  <name>
+    <coding>
+      <display value="HER2+"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C1960398"/>
+      <display value="Positive Human epidermal growth factor receptor 2"/>
+    </coding>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#HER2_Positive_Breast_Carcinoma"/>
+      <display value="HER2_Positive_Breast_Carcinoma"/>
+    </coding>
+    <text value="HER2 Positive Breast Carcinoma"/>
+  </name>
+  <valueString value="Positive"/>
+  <issued value="2013-04-24T11:30:00-04:00"/>
+  <status value="final"/>
+  <identifier>
+    <label value="id"/>
+    <system value="local"/>
+    <value value="OBSERVATION_HER2_Positive_Breast_Carcinoma"/>
+  </identifier>
+  <subject>
+    <reference value="PATIENT_Jane_Doe"/>
+    <display value="Jane Doe"/>
+  </subject>
+</Observation>

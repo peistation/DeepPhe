@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Medication xmlns="http://hl7.org/fhir">
+  <language value="English"/>
+  <name value="Carboplatin"/>
+  <code>
+    <coding>
+      <system value="CTAKES"/>
+      <display value="carboplatin"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0079083"/>
+    </coding>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Carboplatin"/>
+      <display value="Carboplatin"/>
+    </coding>
+    <text value="Carboplatin"/>
+  </code>
+</Medication>

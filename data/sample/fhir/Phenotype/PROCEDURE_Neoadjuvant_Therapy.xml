@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Procedure xmlns="http://hl7.org/fhir">
+  <identifier>
+    <label value="id"/>
+    <system value="local"/>
+    <value value="PROCEDURE_Neoadjuvant_Therapy"/>
+  </identifier>
+  <subject>
+    <reference value="PATIENT_Jane_Doe"/>
+    <display value="Jane Doe"/>
+  </subject>
+  <type>
+    <coding>
+      <system value="CTAKES"/>
+      <display value="neoadjuvant"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0600558"/>
+    </coding>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Neoadjuvant_Therapy"/>
+      <display value="Neoadjuvant_Therapy"/>
+    </coding>
+    <text value="Neoadjuvant Therapy"/>
+  </type>
+  <date>
+    <start value="2013-04-24T11:30:00-04:00"/>
+    <end value="2013-04-24T11:30:00-04:00"/>
+  </date>
+</Procedure>

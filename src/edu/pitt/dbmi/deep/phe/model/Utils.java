@@ -3,19 +3,14 @@ package edu.pitt.dbmi.deep.phe.model;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,15 +19,12 @@ import org.apache.ctakes.typesystem.type.refsem.OntologyConcept;
 import org.apache.ctakes.typesystem.type.refsem.Time;
 import org.apache.ctakes.typesystem.type.refsem.UmlsConcept;
 import org.apache.ctakes.typesystem.type.relation.BinaryTextRelation;
-import org.apache.ctakes.typesystem.type.relation.ElementRelation;
 import org.apache.ctakes.typesystem.type.relation.LocationOfTextRelation;
 import org.apache.ctakes.typesystem.type.relation.Relation;
 import org.apache.ctakes.typesystem.type.textsem.AnatomicalSiteMention;
-import org.apache.ctakes.typesystem.type.textsem.DiseaseDisorderMention;
 import org.apache.ctakes.typesystem.type.textsem.IdentifiedAnnotation;
 import org.apache.ctakes.typesystem.type.textsem.TimeMention;
 import org.apache.uima.cas.CASException;
-import org.apache.uima.cas.FSIndex;
 import org.apache.uima.cas.FeatureStructure;
 import org.apache.uima.cas.Type;
 import org.apache.uima.jcas.JCas;
@@ -42,18 +34,15 @@ import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.DateAndTime;
-import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.Narrative;
-import org.hl7.fhir.instance.model.ResourceReference;
-import org.hl7.fhir.instance.model.Condition.ConditionLocationComponent;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.ResourceReference;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
-import com.ibm.icu.text.SimpleDateFormat;
-
+import edu.pitt.dbmi.deep.phe.util.FHIRComposer;
 import edu.pitt.dbmi.deep.phe.util.OntologyUtils;
 import edu.pitt.dbmi.nlp.noble.coder.model.Document;
 import edu.pitt.dbmi.nlp.noble.coder.model.Mention;
@@ -556,13 +545,15 @@ public class Utils {
 		return r;
 	}
 	
+	
 	public static void saveFHIR(Resource r,String name, File dir) throws Exception{
 		File file = new File(dir,name+".xml");
 		if(!file.getParentFile().exists())
 			file.getParentFile().mkdirs();
-		XmlComposer xml = new XmlComposer();
+		XmlComposer xml = new FHIRComposer();
 		xml.compose(new FileOutputStream(file),r, true);
 	}
+	
 	
 	/**
 	 * get concept class from a default ontology based on Concept

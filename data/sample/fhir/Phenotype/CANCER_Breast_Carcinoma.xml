@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CancerPhenotype xmlns="http://hl7.org/fhir">
+  <language value="English"/>
+  <identifier>
+    <label value="id"/>
+    <system value="local"/>
+    <value value="CANCER_Breast_Carcinoma"/>
+  </identifier>
+  <subject>
+    <reference value="PATIENT_Jane_Doe"/>
+    <display value="Jane Doe"/>
+  </subject>
+  <code>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Breast_Carcinoma"/>
+      <display value="Breast Carcinoma"/>
+    </coding>
+    <coding>
+      <system value="NCI Metathesaurus"/>
+      <code value="C0006142"/>
+      <display value="Breast Carcinoma"/>
+    </coding>
+    <text value="Breast Carcinoma"/>
+  </code>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/condition-category"/>
+      <code value="diagnosis"/>
+      <display value="Diagnosis"/>
+    </coding>
+    <text value="Diagnosis"/>
+  </category>
+  <status value="confirmed"/>
+  <stage>
+    <extension url="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Generic_Primary_Tumor_TNM_Finding">
+      <valueString value="T2"/>
+    </extension>
+    <extension url="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Generic_Regional_Lymph_Nodes_TNM_Finding">
+      <valueString value="N0"/>
+    </extension>
+    <extension url="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Generic_Distant_Metastasis_TNM_Finding">
+      <valueString value="M0"/>
+    </extension>
+    <summary>
+      <coding>
+        <system value="SNOMED"/>
+        <code value="385379008"/>
+        <display value="T2N0M0"/>
+      </coding>
+      <coding>
+        <system value="NCI Metathesaurus"/>
+        <code value="C1300492"/>
+        <display value="TNM tumor staging finding"/>
+      </coding>
+      <text value="T2N0M0"/>
+    </summary>
+  </stage>
+  <tumor>
+    <type>
+      <coding>
+        <system value="CTAKES"/>
+        <display value="INVASIVE DUCTAL CARCINOMA"/>
+      </coding>
+      <coding>
+        <system value="NCI Metathesaurus"/>
+        <code value="C1134719"/>
+      </coding>
+      <coding>
+        <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+        <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Ductal_Breast_Carcinoma"/>
+        <display value="Ductal_Breast_Carcinoma"/>
+      </coding>
+      <text value="Ductal Breast Carcinoma"/>
+    </type>
+    <phenotypicFactor>
+      <code>
+        <coding>
+          <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+          <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Tumor_Size"/>
+          <display value="Tumor Size"/>
+        </coding>
+        <coding>
+          <system value="NCI Metathesaurus"/>
+          <code value="C0804677"/>
+          <display value="Tumor Size"/>
+        </coding>
+        <text value="Tumor Size: 2.1 centimeter"/>
+      </code>
+      <detail>
+        <reference value="OBSERVATION_Tumor_Size_2_1_centimeter"/>
+        <display value="Tumor Size"/>
+      </detail>
+    </phenotypicFactor>
+    <phenotypicFactor>
+      <code>
+        <coding>
+          <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+          <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Estrogen_Receptor_Negative"/>
+          <display value="Estrogen Receptor Negative"/>
+        </coding>
+        <coding>
+          <system value="NCI Metathesaurus"/>
+          <code value="C0279756"/>
+          <display value="Estrogen Receptor Negative"/>
+        </coding>
+        <text value="Estrogen Receptor Negative"/>
+      </code>
+      <detail>
+        <reference value="OBSERVATION_Estrogen_Receptor_Negative"/>
+        <display value="Estrogen Receptor Negative"/>
+      </detail>
+    </phenotypicFactor>
+    <phenotypicFactor>
+      <code>
+        <coding>
+          <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+          <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Progesterone_Receptor_Negative"/>
+          <display value="Progesterone Receptor Negative"/>
+        </coding>
+        <coding>
+          <system value="NCI Metathesaurus"/>
+          <code value="C0279766"/>
+          <display value="Progesterone Receptor Negative"/>
+        </coding>
+        <text value="Progesterone Receptor Negative"/>
+      </code>
+      <detail>
+        <reference value="OBSERVATION_Progesterone_Receptor_Negative"/>
+        <display value="Progesterone Receptor Negative"/>
+      </detail>
+    </phenotypicFactor>
+    <phenotypicFactor>
+      <code>
+        <coding>
+          <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+          <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#HER2_Positive_Breast_Carcinoma"/>
+          <display value="HER2 Positive Breast Carcinoma"/>
+        </coding>
+        <coding>
+          <system value="NCI Metathesaurus"/>
+          <code value="C1960398"/>
+          <display value="HER2 Positive Breast Carcinoma"/>
+        </coding>
+        <text value="HER2 Positive Breast Carcinoma"/>
+      </code>
+      <detail>
+        <reference value="OBSERVATION_HER2_Positive_Breast_Carcinoma"/>
+        <display value="HER2 Positive Breast Carcinoma"/>
+      </detail>
+    </phenotypicFactor>
+    <phenotypicFactor>
+      <code>
+        <coding>
+          <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+          <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Tumor_Size"/>
+          <display value="Tumor Size"/>
+        </coding>
+        <coding>
+          <system value="NCI Metathesaurus"/>
+          <code value="C0804677"/>
+          <display value="Tumor Size"/>
+        </coding>
+        <text value="Tumor Size: 0.9 centimeter"/>
+      </code>
+      <detail>
+        <reference value="OBSERVATION_Tumor_Size_0_9_centimeter"/>
+        <display value="Tumor Size"/>
+      </detail>
+    </phenotypicFactor>
+    <treatmentFactor>
+      <code>
+        <coding>
+          <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+          <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Neoadjuvant_Therapy"/>
+          <display value="Neoadjuvant Therapy"/>
+        </coding>
+        <coding>
+          <system value="NCI Metathesaurus"/>
+          <code value="C0600558"/>
+          <display value="Neoadjuvant Therapy"/>
+        </coding>
+        <text value="Neoadjuvant Therapy"/>
+      </code>
+      <detail>
+        <reference value="PROCEDURE_Neoadjuvant_Therapy"/>
+        <display value="Neoadjuvant Therapy"/>
+      </detail>
+    </treatmentFactor>
+    <treatmentFactor>
+      <code>
+        <coding>
+          <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+          <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Docetaxel"/>
+          <display value="Docetaxel"/>
+        </coding>
+        <coding>
+          <system value="NCI Metathesaurus"/>
+          <code value="C0246415"/>
+          <display value="Docetaxel"/>
+        </coding>
+        <coding>
+          <system value="RxNORM"/>
+          <code value="202982"/>
+          <display value="Docetaxel"/>
+        </coding>
+        <text value="Docetaxel"/>
+      </code>
+      <detail>
+        <reference value="MEDICATION_Docetaxel"/>
+        <display value="Docetaxel"/>
+      </detail>
+    </treatmentFactor>
+    <treatmentFactor>
+      <code>
+        <coding>
+          <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+          <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Carboplatin"/>
+          <display value="Carboplatin"/>
+        </coding>
+        <coding>
+          <system value="NCI Metathesaurus"/>
+          <code value="C0079083"/>
+          <display value="Carboplatin"/>
+        </coding>
+        <text value="Carboplatin"/>
+      </code>
+      <detail>
+        <reference value="MEDICATION_Carboplatin"/>
+        <display value="Carboplatin"/>
+      </detail>
+    </treatmentFactor>
+    <treatmentFactor>
+      <code>
+        <coding>
+          <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+          <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Trastuzumab"/>
+          <display value="Trastuzumab"/>
+        </coding>
+        <coding>
+          <system value="NCI Metathesaurus"/>
+          <code value="C0728747"/>
+          <display value="Trastuzumab"/>
+        </coding>
+        <text value="Trastuzumab"/>
+      </code>
+      <detail>
+        <reference value="MEDICATION_Trastuzumab"/>
+        <display value="Trastuzumab"/>
+      </detail>
+    </treatmentFactor>
+    <treatmentFactor>
+      <code>
+        <coding>
+          <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+          <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Pertuzumab"/>
+          <display value="Pertuzumab"/>
+        </coding>
+        <coding>
+          <system value="NCI Metathesaurus"/>
+          <code value="C481039"/>
+          <display value="Pertuzumab"/>
+        </coding>
+        <coding>
+          <system value="RxNORM"/>
+          <code value="1298944"/>
+          <display value="Pertuzumab"/>
+        </coding>
+        <text value="Pertuzumab"/>
+      </code>
+      <detail>
+        <reference value="MEDICATION_Pertuzumab"/>
+        <display value="Pertuzumab"/>
+      </detail>
+    </treatmentFactor>
+  </tumor>
+</CancerPhenotype>

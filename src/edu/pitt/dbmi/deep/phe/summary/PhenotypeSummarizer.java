@@ -6,11 +6,16 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.apache.uima.jcas.JCas;
+import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Condition;
+import org.hl7.fhir.instance.model.Quantity;
+import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.ResourceReference;
 
 import edu.pitt.dbmi.deep.phe.model.Cancer;
 import edu.pitt.dbmi.deep.phe.model.Diagnosis;
 import edu.pitt.dbmi.deep.phe.model.Element;
+import edu.pitt.dbmi.deep.phe.model.Observation;
 import edu.pitt.dbmi.deep.phe.model.Patient;
 import edu.pitt.dbmi.deep.phe.model.Report;
 import edu.pitt.dbmi.deep.phe.model.ResourceFactory;
@@ -44,7 +49,7 @@ public class PhenotypeSummarizer {
 			cancer.setStage(stage);
 		}
 		cancer.setSubjectTarget(patient);
-		
+		cancer.setSubject(Utils.getResourceReference(patient));
 	
 		// go over encounter level data
 		Tumor tumor = cancer.addTumor();
@@ -54,14 +59,24 @@ public class PhenotypeSummarizer {
 				IClass dxCls = Utils.getConceptClass(dx.getCode());
 				if(dxCls != null && dxCls.hasSuperClass(primaryDx)){
 					//for now, just set this Dx as the tupy of tumor
-					if(tumor.getType() == null)
+					if(tumor.getType() == null){
 						tumor.setType(dx.getCode());
+					}
+					if(tumor.getLocation().isEmpty()){
+						for(Condition.ConditionLocationComponent location: dx.getLocation()){
+							tumor.getLocation().add(location);
+						}
+					}
 				}
 			}
 			for(Element e : report.getReportElements()){
 				IClass cls = e.getConceptClass();
 				if(cls != null){
 					Condition.ConditionEvidenceComponent factor = null;
+					
+					// skip report elements that we don't care for
+					if(e instanceof Diagnosis)
+						continue;
 					
 					// classify the evidence into several factories
 					if(cls.hasSuperClass(ont.getClass(Utils.PHENOTYPIC_FACTOR))){
@@ -76,7 +91,13 @@ public class PhenotypeSummarizer {
 					//}
 					
 					if(factor != null){
-						factor.setCode(Utils.getCodeableConcept(cls));
+						CodeableConcept code = Utils.getCodeableConcept(cls);
+						if(e instanceof Observation && ((Observation) e).getValue() instanceof Quantity){
+							code.setTextSimple(code.getTextSimple()+": "+((Observation) e).getValueSimple());
+						}
+						factor.setCode(code);
+						factor.getDetailTarget().add((Resource) e);
+						Utils.getResourceReference(factor.addDetail(),e);
 					}
 				}
 			}
@@ -149,7 +170,7 @@ public class PhenotypeSummarizer {
 		}
 		
 		// create a phenotype object form a set of reports
-		System.out.println("generating phenotype summary ..");;
+		System.out.println("generating phenotype summary ..\n");
 		PhenotypeSummarizer phenotypeSummarizer =  new PhenotypeSummarizer();
 		Cancer phenotype = phenotypeSummarizer.getCancerPhenotype(reports);
 		phenotype.save(new File(out,"Phenotype"));
