@@ -1,23 +1,35 @@
 package edu.pitt.dbmi.deepphe.summarization.jess;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.TreeSet;
 
-import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
+import javax.swing.JTabbedPane;
 
-public class SummarizationGui extends JFrame implements ActionListener {
+import jess.JessException;
+import jess.Rete;
+import edu.pitt.dbmi.deepphe.i2b2.I2B2DataDataWriter;
+import edu.pitt.dbmi.deepphe.i2b2.PartialPath;
+import edu.pitt.dbmi.deepphe.summarization.jess.kb.Patient;
+import edu.pitt.dbmi.deepphe.summarization.ontology.OntologyCleaner;
+import edu.pitt.dbmi.deepphe.summarization.orm.i2b2data.I2b2DataDataSourceManager;
+
+public class SummarizationGui extends JFrame implements ActionListener, PropertyChangeListener {
 
 	private static final long serialVersionUID = 1L;
 
@@ -33,45 +45,47 @@ public class SummarizationGui extends JFrame implements ActionListener {
 		new SummarizationGui("DeepPhe Summarization");
 	}
 
-	private final TnmExtractor tmnExtractor = new TnmExtractor();
+	private final TreeSet<PartialPath> partialPathTreeSet = new TreeSet<PartialPath>();
+	private final HashMap<String, PartialPath> partialPathMap = new HashMap<>();
+	private final Rete engine = new Rete();
+	private final PatientKnowledgeExtractor patientKnowledgeExtractor = new JessPatientKnowledgeExtractor();
+	private final JessTextInputer jessInputer = new JessTextInputer();
+	private final JessTextOutputer jessOutputer = new JessTextOutputer();
+	private final PatientListReader patientListReader = new PatientListReader();
+	private final List<Patient> patients = new ArrayList<>();
 
 	private WindowAdapter windowAdapter;
 
-	private JMenuBar mainMenu = new JMenuBar();
-	private JMenu fileMenu = new JMenu("File");
-	private JMenuItem fileMenuLoadJcasItem = new JMenuItem("Load JCas");
-	private JMenuItem fileMenuDisplayTextItem = new JMenuItem("Display Text");
-	private JMenuItem fileMenuExitItem = new JMenuItem("Exit");
-	private JMenu jessMenu = new JMenu("Jess");
-	private JMenuItem jessMenuResetItem = new JMenuItem("Reset");
-	private JMenuItem jessMenuEvalItem = new JMenuItem("Eval");
-	private JMenuItem jessMenuRunItem = new JMenuItem("Run");
-	private JMenu displayMenu = new JMenu("Display");
-	private JMenuItem displayMenuDefTemplatesItem = new JMenuItem("Templates");
-	private JMenuItem displayMenuFactsItem = new JMenuItem("Facts");
-	private JPanel mainPanel = new JPanel();
-	private JPanel fileChooserPanel = new JPanel();
-
-	private JessTextInputer jessInputer;
-	private JessTextOutputer jessOutputer;
-
+	private JPanel mainPanel;
+	private ImageIcon iconOne =  new ImageIcon(
+			SummarizationGui.class.getResource("/images/24/dashboardico.gif"));
+	private JTabbedPane mainTabbedPane = new JTabbedPane();
+	private AnnotationTabPanel annotationTabPanel;
+	
+	private OntologyCleaner ontologyCleaner;
+	private PatientExtractionPipeDialog patientExtractor;
+	
 	public SummarizationGui(String title) {
 		super(title);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		buildMainMenu();
+		
+		SummarizationMenu mainMenu = new SummarizationMenu();
+		mainMenu.setActionListener(this);
+		mainMenu.injectActionListener();
 		setJMenuBar(mainMenu);
-		initFrame();
-		composePanels();
-		establishExtractor();
+		
+		establishWindowControls();
+		
+		buildMainPanel();
 		JPanel mainPanel = getMainPanel();
+		
 		getContentPane().add(mainPanel);
 		pack();
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
 
-	private void initFrame() {
-
+	private void establishWindowControls() {
 		windowAdapter = new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -85,8 +99,6 @@ public class SummarizationGui extends JFrame implements ActionListener {
 					SummarizationGui.this.dispose();
 				}
 			}
-
-			// WINDOW_CLOSED event handler
 			@Override
 			public void windowClosed(WindowEvent e) {
 				super.windowClosed(e);
@@ -97,69 +109,45 @@ public class SummarizationGui extends JFrame implements ActionListener {
 		addWindowListener(windowAdapter);
 	}
 
-	public JMenuBar buildMainMenu() {
-
-		mainMenu.add(fileMenu);
-		mainMenu.add(jessMenu);
-		mainMenu.add(displayMenu);
-
-		fileMenu.add(fileMenuLoadJcasItem);
-		fileMenu.add(fileMenuDisplayTextItem);
-		fileMenu.add(fileMenuExitItem);
-
-		jessMenu.add(jessMenuResetItem);
-		jessMenu.add(jessMenuEvalItem);
-		jessMenu.add(jessMenuRunItem);
-
-		displayMenu.add(displayMenuDefTemplatesItem);
-		displayMenu.add(displayMenuFactsItem);
-
-		fileMenuLoadJcasItem.addActionListener(this);
-		fileMenuDisplayTextItem.addActionListener(this);
-		fileMenuExitItem.addActionListener(this);
-		jessMenuResetItem.addActionListener(this);
-		jessMenuEvalItem.addActionListener(this);
-		jessMenuRunItem.addActionListener(this);
-		displayMenuDefTemplatesItem.addActionListener(this);
-		displayMenuFactsItem.addActionListener(this);
-
-		return mainMenu;
-	}
-
-	private void establishExtractor() {
-		tmnExtractor.execute();
-	}
-
-	public void composePanels() {
-		buildMainPanel();
-
-	}
-
 	private void buildMainPanel() {
-
-		mainPanel.setLayout(new BorderLayout());
-
-		Border border = BorderFactory.createTitledBorder("Reports");
-		ReportChooserPanel fileChooser = new ReportChooserPanel();
-		fileChooser.setGui(this);
-		fileChooser.initialize();
-		fileChooserPanel = fileChooser.getPanel();
-		fileChooserPanel.setBorder(border);
-		mainPanel.add(fileChooserPanel, BorderLayout.WEST);
-
-		jessOutputer = new JessTextOutputer();
-
-		jessInputer = new JessTextInputer();
-
-		tmnExtractor.setJessTextOutputer(jessOutputer);
+		mainPanel = new JPanel();
+		
+		annotationTabPanel = new AnnotationTabPanel();
+		mainTabbedPane.addTab("Annotation", iconOne, annotationTabPanel, "AnnotateTab");
+		mainTabbedPane.setSelectedIndex(0);
+		
+		annotationTabPanel.setPatients(patients);
+		annotationTabPanel.setPatientListReader(patientListReader);
+		annotationTabPanel.build();
+			
+		InferenceTabPanel inferenceTabPanel = new InferenceTabPanel();
+		mainTabbedPane.addTab("Inference", iconOne, inferenceTabPanel, "InferenceTab");
+		
+		establishExtractor();
+		patientKnowledgeExtractor.setJessTextOutputer(jessOutputer);
 		jessInputer.setJessTextOutputer(jessOutputer);
-		jessInputer.setTmnExtractor(tmnExtractor);
-
-		mainPanel.add(jessInputer, BorderLayout.CENTER);
-		mainPanel.add(jessOutputer, BorderLayout.SOUTH);
-
+		jessInputer.setKnowledgeExtractor(patientKnowledgeExtractor);
+		inferenceTabPanel.setJessInputer(jessInputer);
+		inferenceTabPanel.setJessOutputer(jessOutputer);
+		inferenceTabPanel.setKnowledgeExtractor(patientKnowledgeExtractor);
+		inferenceTabPanel.setEngine(engine);
+		inferenceTabPanel.setPatients(patients);
+		inferenceTabPanel.build();
+		
+		mainPanel.setLayout(new GridLayout(1, 1));
+		mainPanel.add(mainTabbedPane);
 		mainPanel.setPreferredSize(new Dimension(1200, 900));
-
+	}
+	
+	private void establishExtractor() {
+		try {
+			engine.reset();
+			patientKnowledgeExtractor.setJessEngine(engine);
+			patientKnowledgeExtractor.loadProductionClipsFiles();
+			patientKnowledgeExtractor.setPatients(patients);	
+		} catch (JessException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void loadReportWiget(ReportWidget fileWidget) {
@@ -178,22 +166,100 @@ public class SummarizationGui extends JFrame implements ActionListener {
 		System.out.println(actionCommand);
 		if (actionCommand.equals("Exit")) {
 			closeWindow();
-		} else if (actionCommand.equals("Load JCas")) {
-			tmnExtractor.loadJCas();
-		} else if (actionCommand.equals("Display Text")) {
-			jessOutputer.appendText("Display Text needs implemented");
+		} else if (actionCommand.equals("Summarize All Patients")) {
+			processExtractPatient();
+		} else if (actionCommand.equals("Load Single Patient To KB")) {
+			processLoadSinglePatientToKb();
+		}  else if (actionCommand.equals("Extract Encounters")) {
+			processExtractEncounters();
+		} else if (actionCommand.equals("Ontology Clean")) {
+			processOntologyClean();
+		} else if (actionCommand.equals("Patient Clean")) {
+			processPatientClean();
 		} else if (actionCommand.equals("Reset")) {
-			tmnExtractor.executeJess("(reset)");
+			patientKnowledgeExtractor.executeJess("(reset)");
 		} else if (actionCommand.equals("Clear")) {
-			tmnExtractor.clearJess();
+			patientKnowledgeExtractor.clearJess();
 		} else if (actionCommand.equals("Eval")) {
-			tmnExtractor.executeJess(jessInputer.geSelectedText());
+			patientKnowledgeExtractor.executeJess(jessInputer.geSelectedText());
 		} else if (actionCommand.equals("Run")) {
-			tmnExtractor.executeJess("(run)");
+			patientKnowledgeExtractor.executeJess("(run)");
 		} else if (e.getActionCommand().equals("Templates")) {
-			tmnExtractor.displayDeftemplates();
+			patientKnowledgeExtractor.displayDeftemplates();
 		} else if (e.getActionCommand().equals("Facts")) {
-			tmnExtractor.displayFacts();
+			patientKnowledgeExtractor.displayFacts();
+		}
+	}
+	
+	private void processExtractEncounters() {
+		EncounterKnowledgeExtractor encounterKnowledgeExtractor = new
+				CtakesEncounterKnowledgeExtractor();
+		for (Patient patient : patients) {
+			encounterKnowledgeExtractor.setPatient(patient);
+			encounterKnowledgeExtractor.execute();
+		}		
+	}
+
+	private void processExtractPatient() {	
+		patientExtractor = new PatientExtractionPipeDialog(this);
+		patientExtractor.setAnnotationTabPanel(annotationTabPanel);
+		patientExtractor.setKnowledgeExtractor(patientKnowledgeExtractor);
+		patientExtractor.setPatients(patients);
+		patientExtractor.setPartialPathTreeSet(partialPathTreeSet);
+		patientExtractor.setPartialPathMap(partialPathMap);
+		patientExtractor.addPropertyChangeListener(this);
+		patientExtractor.setVisible(true);
+		(new Thread(patientExtractor)).start();
+	}
+	
+	private void processLoadSinglePatientToKb() {
+		EncounterKnowledgeExtractor encounterKnowledgeExtractor = EncounterKnowlegeExractorFactory.getEncounterKnowledgeExtractor();
+		for (Patient patient : patients) {
+			encounterKnowledgeExtractor.setPatient(patient);
+			encounterKnowledgeExtractor.execute();
+			break;
+		}
+		patientKnowledgeExtractor.setPatients(patients);
+		patientKnowledgeExtractor.iteratePatients();
+		if (patientKnowledgeExtractor.hasMorePatients()) {
+			patientKnowledgeExtractor.nextPatient();
+			patientKnowledgeExtractor.loadSinglePatient();
+		}
+	}
+
+	private void processPatientClean() {
+		try {
+			final I2b2DataDataSourceManager i2b2DataDataSourceManager = new I2b2DataDataSourceManager();
+			final I2B2DataDataWriter i2b2DataDataWriter = new I2B2DataDataWriter();
+			i2b2DataDataWriter.setDataSourceMgr(i2b2DataDataSourceManager);
+			i2b2DataDataWriter.setSourceSystemCd("DEEPPHE2");
+			i2b2DataDataWriter.execute();
+			i2b2DataDataSourceManager.destroy();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void processOntologyClean() {		
+		partialPathTreeSet.clear();
+		partialPathMap.clear();
+		ontologyCleaner = new OntologyCleaner(this);
+		ontologyCleaner.setPartialPathTreeSet(partialPathTreeSet);
+		ontologyCleaner.setPartialPathMap(partialPathMap);
+		ontologyCleaner.addPropertyChangeListener(this);
+		ontologyCleaner.setVisible(true);
+		(new Thread(ontologyCleaner)).start();
+	}
+	
+	@Override
+	public void propertyChange(PropertyChangeEvent evt) {
+		if (evt.getSource() == ontologyCleaner && evt.getNewValue().equals("Finished")) {
+			ontologyCleaner.dispose();
+		}
+		else if (evt.getSource() == patientExtractor && evt.getNewValue().equals("Finished")) {
+			patientExtractor.dispose();
 		}
 	}
 
@@ -203,5 +269,4 @@ public class SummarizationGui extends JFrame implements ActionListener {
 		Toolkit.getDefaultToolkit().getSystemEventQueue()
 				.postEvent(closingEvent);
 	}
-
 }

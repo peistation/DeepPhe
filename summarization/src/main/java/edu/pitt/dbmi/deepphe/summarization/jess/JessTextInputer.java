@@ -29,7 +29,7 @@ public class JessTextInputer extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
-	private TnmExtractor tmnExtractor;
+	private PatientKnowledgeExtractor tmnExtractor;
 	private JessTextOutputer jessTextOutputer;
 
 	private JScrollPane inputScrollPane;
@@ -129,6 +129,10 @@ public class JessTextInputer extends JPanel implements ActionListener {
 				popup.show(getInputTextPane(), e.getX(), e.getY());
 		}
 	}
+	
+	public void appendText(String content) {
+		inputTextPane.setText(inputTextPane.getText() + "\n" + content);	
+	}
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("Jess Eval")) {
@@ -182,7 +186,10 @@ public class JessTextInputer extends JPanel implements ActionListener {
 	private void establishReadSourceFile() {
 		if (fc == null) {
 			fc = new JFileChooser();
-			fc.setCurrentDirectory(new File(".\\src\\main\\jess"));
+			File workingDirectory = new File(".");
+			System.out.println("The working directory is " + workingDirectory);
+			File fileSearchDirectory = new File(workingDirectory, "src\\main\\jess");
+			fc.setCurrentDirectory(fileSearchDirectory);
 			FileFilter filter = new FileNameExtensionFilter("Clips files",
 					"clp");
 			fc.addChoosableFileFilter(filter);
@@ -231,7 +238,7 @@ public class JessTextInputer extends JPanel implements ActionListener {
 			if (textToSave == null) {
 				textToSave = inputTextPane.getText();
 			}
-			FileUtils.write(saveTargetFile, textToSave, true);
+			FileUtils.write(saveTargetFile, textToSave);
 		} catch (IOException e) {
 			jessTextOutputer.displayException(e);
 		}
@@ -245,7 +252,7 @@ public class JessTextInputer extends JPanel implements ActionListener {
 			if (textToSave == null) {
 				textToSave = inputTextPane.getText();
 			}
-			FileUtils.write(saveTargetFile, textToSave, true);
+			FileUtils.write(saveTargetFile, textToSave);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -283,7 +290,7 @@ public class JessTextInputer extends JPanel implements ActionListener {
 		this.saveTargetFile = saveTargetFile;
 	}
 
-	public void setTmnExtractor(TnmExtractor tmnExtractor) {
+	public void setKnowledgeExtractor(PatientKnowledgeExtractor tmnExtractor) {
 		this.tmnExtractor = tmnExtractor;
 	}
 
