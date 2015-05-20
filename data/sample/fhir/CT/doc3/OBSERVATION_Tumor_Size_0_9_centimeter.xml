@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <language value="English"/>
+  <name>
+    <coding>
+      <system value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl"/>
+      <code value="http://dbmi.pitt.edu/deepphe/ontologies/breastCancer.owl#Tumor_Size"/>
+      <display value="Tumor_Size"/>
+    </coding>
+    <text value="Tumor Size"/>
+  </name>
+  <valueQuantity>
+    <value value="0.9000000"/>
+    <units value="centimeter"/>
+  </valueQuantity>
+  <issued value="2014-03-04T00:11:00-05:00"/>
+  <status value="final"/>
+  <identifier>
+    <label value="id"/>
+    <system value="local"/>
+    <value value="OBSERVATION_Tumor_Size_0_9_centimeter"/>
+  </identifier>
+  <subject>
+    <reference value="PATIENT_Jane_Doe"/>
+    <display value="Jane Doe"/>
+  </subject>
+</Observation>
