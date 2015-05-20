@@ -90,14 +90,34 @@ public class PreferredCuiExtractor implements OWLAnnotationObjectVisitor {
             if (annotationAsString.endsWith("prefCUI")) {
                 OWLLiteral owlLiteral = (OWLLiteral) annotation.getValue();
                 cui = owlLiteral.getLiteral();
-                cui = extractPrefixCui(cui);
+                cui = extractPrefixCuiUmls(cui);
+            }
+    	}
+    	if (cui == null) {
+    		String annotationAsString = annotation.getProperty().getIRI().toString();
+            if (annotationAsString.endsWith("prefCUI")) {
+                OWLLiteral owlLiteral = (OWLLiteral) annotation.getValue();
+                cui = owlLiteral.getLiteral();
+                cui = extractPrefixCuiDeepPhe(cui);
             }
     	}
     	
     }
     
-    private String extractPrefixCui(String cui) {
-        Pattern pattern = Pattern.compile("^(C\\d{7})\\s+.*$");
+    private String extractPrefixCuiUmls(String cui) {
+        Pattern pattern = Pattern.compile("^(C\\d{7})\\D*$");
+        Matcher matcher = pattern.matcher(cui);
+        if (matcher.matches()) {
+        	cui = "umls:" + matcher.group(1);
+        }
+        else {
+        	cui = null;
+        }
+        return cui;
+    }
+    
+    private String extractPrefixCuiDeepPhe(String cui) {
+        Pattern pattern = Pattern.compile("^(C1\\d{5})\\D*$");
         Matcher matcher = pattern.matcher(cui);
         if (matcher.matches()) {
         	cui = "umls:" + matcher.group(1);

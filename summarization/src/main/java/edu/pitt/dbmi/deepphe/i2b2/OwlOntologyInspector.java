@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -44,10 +45,10 @@ public class OwlOntologyInspector {
 		// examineDeepPheOntology();
 		OWLOntologyManager m = OWLManager.createOWLOntologyManager();
 		OWLOntology o = loadDeepPheOntology(m);
-//		System.out.println("\n\nTrace Carboplatin super classes...");
-//		traceSuperClses(
-//				o,
-//				IRI.create("http://slidetutor.upmc.edu/deepPhe/BreastCancer.owl#Carboplatin"));
+		System.out.println("\n\nTrace Carboplatin super classes...");
+		traceSuperClses(
+				o,
+				IRI.create("http://slidetutor.upmc.edu/deepPhe/BreastCancer.owl#Carboplatin"));
 //		System.out.println("\n\nTrace Medication sub classes...");
 //		traceSubClses(
 //				o,
@@ -97,10 +98,10 @@ public class OwlOntologyInspector {
 				System.out.println("Class: " + cls.getIRI().toString());
 				System.out.println("rdfs:Label " + labelFor(o, cls));
 				System.out.println(("prefCui " + prefCuiFor(o, cls)));
-				reasoner.getSubClasses(cls, true).getFlattened().stream()
-						.forEach((subCls) -> {
-							clsQueue.add(subCls);
-						});
+				Set<OWLClass> subClses = reasoner.getSubClasses(cls, true).getFlattened();
+				for (OWLClass subCls : subClses) {
+					clsQueue.add(subCls);
+				}
 			}
 		}
 	}
@@ -121,10 +122,10 @@ public class OwlOntologyInspector {
 			} else {
 				System.out.println("Class: " + cls.getIRI().toString());
 				System.out.println("rdfs:Label " + labelFor(o, cls));
-				reasoner.getSuperClasses(cls, true).getFlattened().stream()
-						.forEach((superCls) -> {
-							clsQueue.add(superCls);
-						});
+				Set<OWLClass> superClses = reasoner.getSuperClasses(cls, true).getFlattened();
+				for (OWLClass superCls : superClses) {
+					clsQueue.add(superCls);
+				}
 			}
 		}
 	}

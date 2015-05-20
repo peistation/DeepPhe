@@ -17,9 +17,9 @@ public class Utilities {
 	
 	  public static void displaySignatureClses(OWLOntology o) {
 	        Set<OWLClass> clses = o.getClassesInSignature();
-	        clses.stream().forEach((cls) -> {
-	            System.out.println(cls.getIRI().toString());
-	        });
+	        for (OWLClass cls : clses) {
+	        	System.out.println(cls.getIRI().toString());
+	        }
 	    }
 	  
 	   public static void examineDeepPheOntology(OWLOntology o) throws IOException, OWLOntologyCreationException {

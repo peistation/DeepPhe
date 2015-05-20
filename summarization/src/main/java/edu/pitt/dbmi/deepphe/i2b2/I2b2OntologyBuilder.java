@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.TreeSet;
 
@@ -31,40 +32,56 @@ public class I2b2OntologyBuilder {
 
 	public static final String CONST_TOP_LEVEL_ENTRY = "http://slidetutor.upmc.edu/deepPhe/BreastCancer.owl#Breast_Cancer_TNM_Finding_v7";
 
-	private String ontologyPath;
+	private List<String> topLevelClses;
+	
 
-	final TreeSet<PartialPath> partialPaths = new TreeSet<PartialPath>();
-	final HashMap<String, PartialPath> partialPathMap = new HashMap<String, PartialPath>();
+	private String ontologyPath;
+	private String sourceSystemCode;
+
+	private TreeSet<PartialPath> partialPathTreeSet;
+	
+	private HashMap<String, PartialPath> partialPathMap;
 
 	public void execute() throws OWLOntologyCreationException, IOException,
 			ClassNotFoundException, SQLException {
-		partialPaths.addAll(extractOntologyPartialPaths());
-		displayPaths(partialPaths);
-		for (PartialPath partialPath : partialPaths) {
+		for (String topLevelCls : topLevelClses) {
+			partialPathTreeSet.addAll(extractOntologyPartialPaths(topLevelCls));
+		}	
+		addTopLevelNode();
+		displayPaths(partialPathTreeSet);
+		for (PartialPath partialPath : partialPathTreeSet) {
 			partialPathMap.put(partialPath.getBaseCode(), partialPath);
 		}
 	}
+	
+	private void addTopLevelNode() {
+		PartialPath topLevel = new PartialPath();
+		topLevel.setPath("\\"+getSourceSystemCode());
+		topLevel.setLevel(0);
+		topLevel.setLeaf(false);
+		partialPathTreeSet.add(topLevel);
+	}
 
-	private TreeSet<PartialPath> extractOntologyPartialPaths()
+	private TreeSet<PartialPath> extractOntologyPartialPaths(String topLevelCls)
 			throws OWLOntologyCreationException, IOException {
 
 		final TreeSet<PartialPath> partialPaths = new TreeSet<PartialPath>();
 
 		OWLOntologyManager m = OWLManager.createOWLOntologyManager();
-		// OWLOntology o = m.loadOntologyFromOntologyDocument(pizza_iri);
 		OWLOntology o = loadDeepPheOntology(m);
 		OWLReasonerFactory reasonerFactory;
 		reasonerFactory = new StructuralReasonerFactory();
 		OWLReasoner reasoner = reasonerFactory.createReasoner(o);
 		OWLDataFactory fac = m.getOWLDataFactory();
 		OWLClass elementConcept = fac.getOWLClass(IRI
-				.create(CONST_TOP_LEVEL_ENTRY));
+				.create(topLevelCls));
 
 		final Queue<PartialPath> partialPathQueue = new LinkedList<PartialPath>();
 		NodeSet<OWLClass> subClses = reasoner.getSubClasses(elementConcept,
 				true);
 		for (Node<OWLClass> subCls : subClses) {
 			PartialPath path = new PartialPath();
+			path.setPath("\\" + getSourceSystemCode());
 			path.setReasoner(reasoner);
 			path.setCls(subCls.getRepresentativeElement());
 			path.setLevel(1);
@@ -82,12 +99,7 @@ public class I2b2OntologyBuilder {
 			partialPaths.add(path);
 		}
 
-		PartialPath topLevel = new PartialPath();
-		topLevel.setPath("\\DEEPPHE");
-		topLevel.setLevel(0);
-		topLevel.setLeaf(false);
-		partialPaths.add(topLevel);
-
+	
 		return partialPaths;
 	}
 
@@ -102,9 +114,9 @@ public class I2b2OntologyBuilder {
 	}
 
 	private void displayPaths(TreeSet<PartialPath> paths) {
-		paths.stream().forEach((path) -> {
+		for (PartialPath path : paths) {
 			System.out.println(path);
-		});
+		}
 	}
 
 	public void setOntologyPath(String ontologyPath) {
@@ -115,5 +127,38 @@ public class I2b2OntologyBuilder {
 	public HashMap<String, PartialPath> getPartialPathMap() {
 		return partialPathMap;
 	}
+	
+	public String getSourceSystemCode() {
+		return sourceSystemCode;
+	}
+
+	public void setSourceSystemCode(String sourceSystemCode) {
+		this.sourceSystemCode = sourceSystemCode;
+	}
+	
+	public List<String> getTopLevelClses() {
+		return topLevelClses;
+	}
+
+	public void setTopLevelClses(List<String> topLevelClses) {
+		this.topLevelClses = topLevelClses;
+	}
+	
+	public TreeSet<PartialPath> getPartialPathTreeSet() {
+		return partialPathTreeSet;
+	}
+
+	public void setPartialPathTreeSet(TreeSet<PartialPath> partialPathTreeSet) {
+		this.partialPathTreeSet = partialPathTreeSet;
+	}
+
+	public String getOntologyPath() {
+		return ontologyPath;
+	}
+
+	public void setPartialPathMap(HashMap<String, PartialPath> partialPathMap) {
+		this.partialPathMap = partialPathMap;
+	}
+
 
 }

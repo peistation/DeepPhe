@@ -19,7 +19,10 @@ public class MetaDataDbManager {
 
 	private Connection connection;
 
-	private TreeSet<PartialPath> nonExpandablePaths;
+	private String ontologyTableName = "DEEPPHE2_ONTOLOGY";
+	private String sourceSystemCode = "DEEPPHE2";
+	
+	private TreeSet<PartialPath> partialPaths;
 
 	public MetaDataDbManager() {
 	}
@@ -44,18 +47,18 @@ public class MetaDataDbManager {
 		PreparedStatement pStmt;
 
 		if (existsOntologyTable()) {
-			sql = "drop table DEEPPHE_ONTOLOGY";
+			sql = "drop table " + getOntologyTableName();
 			pStmt = connection.prepareStatement(sql);
 			pStmt.executeUpdate();
 			pStmt.close();
 		}
 
-		sql = "create table DEEPPHE_ONTOLOGY as select * from COHORT_ONTOLOGY";
+		sql = "create table " + getOntologyTableName() +  " as select * from COHORT_ONTOLOGY";
 		pStmt = connection.prepareStatement(sql);
 		pStmt.executeUpdate();
 		pStmt.close();
 
-		sql = "delete from DEEPPHE_ONTOLOGY";
+		sql = "delete from " + getOntologyTableName();
 		pStmt = connection.prepareStatement(sql);
 		pStmt.executeUpdate();
 		pStmt.close();
@@ -67,7 +70,7 @@ public class MetaDataDbManager {
 		PreparedStatement pStmt;
 		pStmt = connection.prepareStatement(sql);
 		pStmt.setString(1, "I2B2METADATA");
-		pStmt.setString(2, "DEEPPHE_ONTOLOGY");
+		pStmt.setString(2, getOntologyTableName());
 		int count;
 		try (ResultSet rs = pStmt.executeQuery()) {
 			count = 0;
@@ -81,7 +84,7 @@ public class MetaDataDbManager {
 
 	private void populateOntologyTableFromPartialPaths() throws SQLException {
 		String sql;
-		sql = "insert into DEEPPHE_ONTOLOGY (";
+		sql = "insert into " + getOntologyTableName() + " (";
 		sql += "C_HLEVEL,";
 		sql += "C_FULLNAME,";
 		sql += "C_NAME,";
@@ -115,7 +118,7 @@ public class MetaDataDbManager {
 		System.out.println(sql);
 		
 		PreparedStatement pStmt = connection.prepareStatement(sql);
-		for (PartialPath partialPath : nonExpandablePaths) {
+		for (PartialPath partialPath : partialPaths) {
 			pStmt.setInt(1, partialPath.getLevel()); // C_HLEVEL
 			pStmt.setString(2, partialPath.getPath() + "\\"); // C_FULLNAME
 			pStmt.setString(3, extractCname(partialPath)); // C_NAME
@@ -146,7 +149,7 @@ public class MetaDataDbManager {
 			pStmt.setDate(18, new Date(timeNow.getTime())); // UPDATE_DATE
 			pStmt.setDate(19, new Date(timeNow.getTime())); // DOWNLOAD_DATE
 			pStmt.setDate(20, new Date(timeNow.getTime())); // IMPORT_DATE
-			pStmt.setString(21, "DEEPPHE"); // SOURCESYSTEM_CD
+			pStmt.setString(21, getSourceSystemCode()); // SOURCESYSTEM_CD
 			pStmt.setString(22, null); // VALUETYPE_CD
 			pStmt.setString(23, null); // M_EXCLUSION_CD
 			pStmt.setString(24, null); // C_PATH
@@ -159,10 +162,9 @@ public class MetaDataDbManager {
 
 	
 	private void deleteOldTableAccessRecords() throws SQLException {
-		// Delete the old DEEPPHE_ONTOLOGY record from TABLE_ACCESS
 		String sql = "delete from TABLE_ACCESS where C_TABLE_CD = ?";
 		PreparedStatement pStmt = connection.prepareStatement(sql);
-		pStmt.setString(1, "DEEPPHE"); // C_TABLE_CD
+		pStmt.setString(1, getSourceSystemCode()); // C_TABLE_CD
 		pStmt.executeUpdate();
 		pStmt.close();
 	}
@@ -202,12 +204,12 @@ public class MetaDataDbManager {
 		sql += "?)";
 
 		pStmt = connection.prepareStatement(sql);
-		pStmt.setString(1, "DEEPPHE"); // C_TABLE_CD
-		pStmt.setString(2, "DEEPPHE_ONTOLOGY"); // C_TABLE_NAME
+		pStmt.setString(1, getSourceSystemCode()); // C_TABLE_CD
+		pStmt.setString(2, getOntologyTableName()); // C_TABLE_NAME
 		pStmt.setString(3, "N"); // C_PROTECTED_ACCESS
 		pStmt.setInt(4, 1); // C_HLEVEL
-		pStmt.setString(5, "\\DEEPPHE\\"); // C_FULLNAME
-		pStmt.setString(6, "DeepPhe Ontology"); // C_NAME
+		pStmt.setString(5, "\\DEEPPHE2\\"); // C_FULLNAME
+		pStmt.setString(6, "DeepPhe2 Ontology"); // C_NAME
 		pStmt.setString(7, "N"); // C_SYNONYM_CD
 		pStmt.setString(8, "FA "); // C_VISUALATTRIBUTES
 		pStmt.setString(9, null); // C_TOTALNUM
@@ -218,9 +220,9 @@ public class MetaDataDbManager {
 		pStmt.setString(14, "concept_path"); // C_COLUMNNAME
 		pStmt.setString(15, "T"); // C_COLUMNDATATYPE
 		pStmt.setString(16, "LIKE"); // C_OPERATOR
-		pStmt.setString(17, "\\DEEPPHE\\"); // C_DIMCODE
+		pStmt.setString(17, "\\DEEPPHE2\\"); // C_DIMCODE
 		pStmt.setString(18, null); // C_COMMENT
-		pStmt.setString(19, "DeepPhe Ontology"); // C_TOOLTIP
+		pStmt.setString(19, "DeepPhe2 Ontology"); // C_TOOLTIP
 		pStmt.setString(20, null); // C_ENTRY_DATE
 		pStmt.setString(21, null); // C_CHANGE_DATE
 		pStmt.setString(22, null); // C_STATUS_CD
@@ -246,12 +248,28 @@ public class MetaDataDbManager {
 		connection.close();
 	}
 
-	public TreeSet<PartialPath> getNonExpandablePaths() {
-		return nonExpandablePaths;
+	public TreeSet<PartialPath> getPartialPaths() {
+		return partialPaths;
 	}
 
-	public void setNonExpandablePaths(TreeSet<PartialPath> nonExpandablePaths) {
-		this.nonExpandablePaths = nonExpandablePaths;
+	public void setPartialPaths(TreeSet<PartialPath> partialPaths) {
+		this.partialPaths = partialPaths;
+	}
+
+	public String getOntologyTableName() {
+		return ontologyTableName;
+	}
+
+	public void setOntologyTableName(String ontologyTableName) {
+		this.ontologyTableName = ontologyTableName;
+	}
+
+	public String getSourceSystemCode() {
+		return sourceSystemCode;
+	}
+
+	public void setSourceSystemCode(String sourceSystemCode) {
+		this.sourceSystemCode = sourceSystemCode;
 	}
 
 }
