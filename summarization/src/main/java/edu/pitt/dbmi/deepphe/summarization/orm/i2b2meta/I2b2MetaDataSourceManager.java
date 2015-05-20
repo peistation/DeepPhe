@@ -7,6 +7,7 @@ package edu.pitt.dbmi.deepphe.summarization.orm.i2b2meta;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Set;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -14,6 +15,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.google.common.reflect.ClassPath;
+import com.google.common.reflect.ClassPath.ClassInfo;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -91,18 +94,21 @@ public class I2b2MetaDataSourceManager {
             String pkgName = getClass().getPackage().getName();
             ClassPath classPath = ClassPath.from(getClass().getClassLoader());
             final ArrayList<Class<?>> clses = new ArrayList<>();
-            classPath
-                    .getTopLevelClassesRecursive(pkgName).stream().filter((classInfo) -> (!classInfo.getName().equals(getClass().getName()))).forEach((classInfo) -> {
-                        clses.add(classInfo.load());
-                    });
+            Set<ClassInfo> clsInfos = classPath
+            .getTopLevelClassesRecursive(pkgName);
+            for (ClassInfo clsInfo : clsInfos) {
+            	if (!clsInfo.getName().equals(getClass().getName())) {
+            		clses.add(clsInfo.load());
+            	}
+            }
             if (clses.isEmpty()) {
                 logger.error("Failed to load hibernate clses");
             } else {
-                clses.stream().forEach((cls) -> {
-                    System.err.println("Configuring " + cls.getName() + " into Hibernate");
-                    logger.info("Configuring " + cls.getName() + " into Hibernate");
-                    configuration.addAnnotatedClass(cls);
-                });
+            	for (Class<?> cls : clses) {
+            		 System.err.println("Configuring " + cls.getName() + " into Hibernate");
+                     logger.info("Configuring " + cls.getName() + " into Hibernate");
+                     configuration.addAnnotatedClass(cls);
+            	}
             }
         } catch (IOException e) {
         }
@@ -112,7 +118,8 @@ public class I2b2MetaDataSourceManager {
     /*
      * SessionFactory
      */
-    private boolean buildSessionFactory(Configuration configuration) {
+    @SuppressWarnings("deprecation")
+	private boolean buildSessionFactory(Configuration configuration) {
         sessionFactory = configuration.buildSessionFactory();
         return !sessionFactory.isClosed();
     }

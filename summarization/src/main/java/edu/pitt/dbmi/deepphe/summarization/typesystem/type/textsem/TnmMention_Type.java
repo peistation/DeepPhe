@@ -13,8 +13,6 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 import org.apache.ctakes.typesystem.type.textsem.EventMention_Type;
 
-import org.apache.ctakes.typesystem.type.textsem.IdentifiedAnnotation_Type;
-
 /** Tnm Mention at Document Level
  * Updated by JCasGen Fri Feb 27 14:17:10 EST 2015
  * @generated */
@@ -41,11 +39,9 @@ public class TnmMention_Type extends EventMention_Type {
   	  }
     };
   /** @generated */
-  @SuppressWarnings ("hiding")
   public final static int typeIndexID = TnmMention.typeIndexID;
   /** @generated 
      @modifiable */
-  @SuppressWarnings ("hiding")
   public final static boolean featOkTst = JCasRegistry.getFeatOkTst("edu.pitt.dbmi.deepphe.summarization.typesystem.type.textsem.TnmMention");
  
   /** @generated */

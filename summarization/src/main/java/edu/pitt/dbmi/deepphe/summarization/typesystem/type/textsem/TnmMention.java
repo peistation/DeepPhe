@@ -10,9 +10,6 @@ import org.apache.uima.jcas.cas.TOP_Type;
 import org.apache.ctakes.typesystem.type.textsem.EventMention;
 
 
-import org.apache.ctakes.typesystem.type.textsem.IdentifiedAnnotation;
-
-
 /** Tnm Mention at Document Level
  * Updated by JCasGen Fri Feb 27 14:17:10 EST 2015
  * XML source: C:/Users/mitchellkj/git/DeepPhe/desc/types/DeepPheTypes.xml
@@ -21,12 +18,10 @@ public class TnmMention extends EventMention {
   /** @generated
    * @ordered 
    */
-  @SuppressWarnings ("hiding")
   public final static int typeIndexID = JCasRegistry.register(TnmMention.class);
   /** @generated
    * @ordered 
    */
-  @SuppressWarnings ("hiding")
   public final static int type = typeIndexID;
   /** @generated
    * @return index of the type  

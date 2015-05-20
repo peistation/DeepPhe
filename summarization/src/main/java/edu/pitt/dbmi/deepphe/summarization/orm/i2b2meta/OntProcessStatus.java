@@ -21,8 +21,9 @@ import javax.persistence.TemporalType;
 )
 public class OntProcessStatus  implements java.io.Serializable {
 
-
-     private int processId;
+	private static final long serialVersionUID = 1L;
+	
+	private int processId;
      private String processTypeCd;
      private Date startDate;
      private Date endDate;
