@@ -172,7 +172,7 @@ public class PatientExtractionPipeDialog extends JDialog implements Runnable,
 				setMessage("Begin Ontology Slicing");
 				final I2b2OntologyBuilder i2b2OntologyBuilder = new I2b2OntologyBuilder();
 				i2b2OntologyBuilder
-						.setOntologyPath("..\\ontologies\\BreastCancer.owl");
+						.setOntologyPath("/home/tseytlin/Work/DeepPhe/ontologies/breastCancer.owl"); //"..\\ontologies\\breastCancer.owl"
 				i2b2OntologyBuilder.setSourceSystemCode("DEEPPHE2");
 				final List<String> topLevelClses = new ArrayList<String>();
 				topLevelClses

@@ -9,4 +9,7 @@ public class EncounterKnowlegeExractorFactory {
 	public static EncounterKnowledgeExtractor getEncounterKnowledgeExtractor() {
 		return encounterKnowledgeExtractor;
 	}
+	public static void setEncounterKnowledgeExtractor(EncounterKnowledgeExtractor encounterKnowledgeExtractorImpl) {
+		encounterKnowledgeExtractor = encounterKnowledgeExtractorImpl;
+	}
 }

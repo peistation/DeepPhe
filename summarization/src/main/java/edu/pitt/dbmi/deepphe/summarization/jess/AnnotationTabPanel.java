@@ -36,7 +36,8 @@ public class AnnotationTabPanel extends JPanel implements TreeSelectionListener 
 	}
 	
 	public void build() {
-		final File encountersDirectory = new File("src\\main\\resources\\summarization\\raw");
+		String file  = SummarizationGui.PROJECT_LOCATION+File.separator+"summarization/src/main/resources/summarization/raw";//"src\\main\\resources\\summarization\\raw";
+		final File encountersDirectory = new File(file);
 		patientListReader.setInputDirectoryPath(encountersDirectory.getAbsolutePath());
 		patientListReader.setPatients(patients);
 		patientListReader.execute();

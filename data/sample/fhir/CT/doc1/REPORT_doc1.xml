@@ -38,7 +38,7 @@ One LN with no evidence of Carcinoma
   </subject>
   <event>
     <detail>
-      <reference value="OBSERVATION_Tumor_Size"/>
+      <reference value="OBSERVATION_Tumor_Size_2_1_centimeter"/>
       <display value="Tumor Size"/>
     </detail>
     <detail>

@@ -16,8 +16,9 @@ public class PatientListReader {
 	private List<Patient> patients;
 
 	public static void main(String[] args) {
+		//String file  = "/home/tseytlin/Work/DeepPhe/summarization/src/main/resources/summarization/raw";//"src\\main\\resources\\summarization\\raw";
 		PatientListReader reader = new PatientListReader();
-		File reportsDirectory = new File("src\\main\\resources\\summarization\\raw");
+		File reportsDirectory = new File(SummarizationGui.PROJECT_LOCATION+"/data/sample/docs");
 		final List<Patient> patients = new ArrayList<>();
 		reader.setInputDirectoryPath(reportsDirectory.getAbsolutePath());
 		reader.setPatients(patients);

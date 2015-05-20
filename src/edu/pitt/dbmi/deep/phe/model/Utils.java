@@ -296,13 +296,15 @@ public class Utils {
 	 * @return
 	 */
 	public static String getConceptName(CodeableConcept c){
+		String name = c.getTextSimple();
 		for(Coding cc: c.getCoding()){
 			if(SCHEMA_UMLS.equals(cc.getSystemSimple())){
-				return cc.getDisplaySimple();
+				if(cc.getDisplaySimple() != null)
+					name = cc.getDisplaySimple();
 			}
 		}
 		// else get first code you encouner
-		return c.getTextSimple();
+		return name;
 	}
 	
 	

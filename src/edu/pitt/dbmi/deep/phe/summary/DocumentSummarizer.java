@@ -173,7 +173,7 @@ public class DocumentSummarizer {
 		Patient p = new Patient();
 		FhirEncounterKnowledgeExtractor ext = new FhirEncounterKnowledgeExtractor();
 		ext.setPatient(p);
-		ext.setFHIR_Reports(reports);
+		//ext.setFHIR_Reports(reports);
 		ext.execute();
 		System.out.println("\tpatient:\t"+p.fetchInfo());
 		for(Encounter e: p.getEncounters()){

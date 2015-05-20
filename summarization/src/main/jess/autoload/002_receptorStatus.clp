@@ -14,7 +14,7 @@
 (defrule receptor-er-pathology-report "Create phenotype from single value of ER from Pathology Report FD or addendum"
       (declare (salience 1000))
       (Goal (name ?goalName&:(eq ?goalName "extract-receptor-status")) (isActive 1))
-      (Encounter (id ?encounterId) (kind ?kind&:(or (eq ?kind "Pathology") (eq ?kind "Progress"))))
+      (Encounter (id ?encounterId) (kind ?kind&:(or (eq ?kind "Pathology Report") (eq ?kind "Progress Note"))))
       (Er (summarizableId ?encounterId)
           (code ?code)
           (preferredTerm ?preferredTerm)
@@ -41,7 +41,7 @@
 (defrule receptor-pr-pathology-report "Create phenotype from single value of PR from Pathology Report FD or addendum"
       (declare (salience 1000))
       (Goal (name ?goalName&:(eq ?goalName "extract-receptor-status")) (isActive 1))
-      (Encounter (id ?encounterId) (kind ?kind&:(or (eq ?kind "Pathology") (eq ?kind "Progress"))))
+      (Encounter (id ?encounterId) (kind ?kind&:(or (eq ?kind "Pathology Report") (eq ?kind "Progress Note"))))
       (Pr (summarizableId ?encounterId)
           (code ?code)
           (preferredTerm ?preferredTerm)
@@ -68,7 +68,7 @@
 (defrule receptor-her2-pathology-report "Create phenotype from single Pathology Report Her2 FD or addendum"
       (declare (salience 1000))
       (Goal (name ?goalName&:(eq ?goalName "extract-receptor-status")) (isActive 1))
-      (Encounter (id ?encounterId) (kind ?kind&:(or (eq ?kind "Pathology") (eq ?kind "Progress"))))
+      (Encounter (id ?encounterId) (kind ?kind&:(or (eq ?kind "Pathology Report") (eq ?kind "Progress Note"))))
       (Her2 (summarizableId ?encounterId)
           (code ?code)
           (preferredTerm ?preferredTerm)

@@ -35,7 +35,7 @@ There are three contrast enhancing lesions in the right parietal lobe, the large
   </subject>
   <event>
     <detail>
-      <reference value="OBSERVATION_Tumor_Size"/>
+      <reference value="OBSERVATION_Tumor_Size_0_9_cm"/>
       <display value="Tumor Size"/>
     </detail>
     <detail>
