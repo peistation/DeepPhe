@@ -1,0 +1,4 @@
+Patient is a 54 year old female with history of 
+left breast cancer, ER-neg, PR-neg, HER2+, now 
+undergoing neoadjuvant chemo with taxotere, carboplatin,
+Herceptin, and pertuzumab.  Patient also has cancer history of T2N0M0
