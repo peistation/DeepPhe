@@ -30,10 +30,12 @@ import edu.pitt.dbmi.deepphe.summarization.ontology.OntologyCleaner;
 import edu.pitt.dbmi.deepphe.summarization.orm.i2b2data.I2b2DataDataSourceManager;
 
 public class SummarizationGui extends JFrame implements ActionListener, PropertyChangeListener {
-	public static final String PROJECT_LOCATION = "/home/tseytlin/Work/DeepPhe/";
+	public static String PROJECT_LOCATION = "/home/tseytlin/Work/DeepPhe/";
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) {
+		if(args.length > 0)
+			PROJECT_LOCATION = args[0];
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				createAndShowGUI();
