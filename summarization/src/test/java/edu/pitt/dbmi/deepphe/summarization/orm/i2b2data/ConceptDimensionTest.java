@@ -8,10 +8,12 @@ package edu.pitt.dbmi.deepphe.summarization.orm.i2b2data;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.junit.After;
 import org.junit.Before;
+
 import static org.junit.Assert.*;
 
 /**
@@ -33,7 +35,8 @@ public class ConceptDimensionTest {
         i2b2DataDataSourceManager = null;
     }
 
-    @org.junit.Test
+    @SuppressWarnings("unchecked")
+	@org.junit.Test
     public void testConceptDimensionCRUD() {
         System.out.println("testCreate");
         Session session = i2b2DataDataSourceManager.getSession();

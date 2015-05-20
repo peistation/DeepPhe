@@ -10,11 +10,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
@@ -39,7 +41,8 @@ public class ObservationFactTest {
         i2b2DataDataSourceManager = null;
     }
 
-    @Test
+    @SuppressWarnings("unchecked")
+	@Test
     public void testObservationFactCRUD() {
 
         final List<PatientDimension> patients = createPatients();
@@ -59,9 +62,11 @@ public class ObservationFactTest {
         for (int odx = 0; odx < 100; odx++) {
             PatientDimension patient = patients.get(generator.nextInt(patients.size()));
             List<VisitDimension> patientVisits = new ArrayList<>();
-            visits.stream().filter((visit) -> (patient.getPatientNum() == visit.getId().getPatientNum())).forEach((visit) -> {
-                patientVisits.add(visit);
-            });
+            for (VisitDimension visit : patientVisits) {
+            	if (patient.getPatientNum() == visit.getId().getPatientNum()) {
+            		patientVisits.add(visit);
+            	}
+            }
             VisitDimension patientVisit = patientVisits.get(generator.nextInt(patientVisits.size()));
             ProviderDimension provider = providers.get(generator.nextInt(providers.size()));
             ConceptDimension concept = concepts.get(generator.nextInt(concepts.size()));
@@ -169,19 +174,19 @@ public class ObservationFactTest {
             session.delete(observationFact);
         }
         
-        patients.stream().forEach((patientDimension) -> {
-            session.delete(patientDimension);
-        });
-        visits.stream().forEach((visitDimension) -> {
-            session.delete(visitDimension);
-        });
-        providers.stream().forEach((providerDimension) -> {
-            session.delete(providerDimension);
-        });
-        concepts.stream().forEach((conceptDimension) -> {
-            session.delete(conceptDimension);
-        });
-
+        for (PatientDimension patientDimension : patients) {
+        	session.delete(patientDimension);
+        }
+        for (VisitDimension visitDimension : visits) {
+        	session.delete(visitDimension);
+        }
+        for (ProviderDimension providerDimension : providers) {
+        	session.delete(providerDimension);
+        }
+        for (ConceptDimension conceptDimension : concepts) {
+        	session.delete(conceptDimension);
+        }
+      
         session.flush();
         query = session.createQuery("from ObservationFact o where sourcesystemCd like :sourceSystemCd");
 
@@ -192,7 +197,8 @@ public class ObservationFactTest {
         assertEquals(observationFacts.size(), 0);
     }
 
-    private List<PatientDimension> createPatients() {
+    @SuppressWarnings("unchecked")
+	private List<PatientDimension> createPatients() {
         Session session = i2b2DataDataSourceManager.getSession();
         for (int patNum = 4002000; patNum < 4002020; patNum++) {
             Date timeNow = new Date();
@@ -220,7 +226,8 @@ public class ObservationFactTest {
         return patientDimensions;
     }
 
-    public List<ConceptDimension> createConcepts() {
+    @SuppressWarnings("unchecked")
+	public List<ConceptDimension> createConcepts() {
         Session session = i2b2DataDataSourceManager.getSession();
         for (int deepPheNum = 4002000; deepPheNum < 4002020; deepPheNum++) {
             String cui = "deepPhe:" + deepPheNum;
@@ -249,9 +256,10 @@ public class ObservationFactTest {
         return conceptDimensions;
     }
 
-    private List<VisitDimension> createVisits(List<PatientDimension> patientDimensions) {
+    @SuppressWarnings("unchecked")
+	private List<VisitDimension> createVisits(List<PatientDimension> patientDimensions) {
         Session session = i2b2DataDataSourceManager.getSession();
-        patientDimensions.stream().forEach((patientDimension) -> {
+        for (PatientDimension patientDimension : patientDimensions) {
             for (int encounterNum = 0; encounterNum < 5; encounterNum++) {
                 Date timeNow = new Date();
                 VisitDimension visitDimension = new VisitDimension();
@@ -274,7 +282,7 @@ public class ObservationFactTest {
                 visitDimension.setUploadId(new BigDecimal(99));
                 session.saveOrUpdate(visitDimension);
             }
-        });
+        }
         session.flush();
         Query query = session.createQuery("from VisitDimension v where locationPath like :locationPath and sourcesystemCd = :sourceSystemCd");
         query.setString("locationPath", "Pitt%");
@@ -284,7 +292,8 @@ public class ObservationFactTest {
         return visitDimensions;
     }
 
-    private List<ProviderDimension> createProviders() {
+    @SuppressWarnings("unchecked")
+	private List<ProviderDimension> createProviders() {
         Session session = i2b2DataDataSourceManager.getSession();
         final String[] doctors = {"X", "Y", "Z"};
         for (String doctor : doctors) {

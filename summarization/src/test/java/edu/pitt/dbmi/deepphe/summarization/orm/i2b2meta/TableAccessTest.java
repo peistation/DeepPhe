@@ -8,11 +8,13 @@ package edu.pitt.dbmi.deepphe.summarization.orm.i2b2meta;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
@@ -37,7 +39,8 @@ public class TableAccessTest {
         i2b2MetaDataSourceManager = null;
     }
     
-    @Test
+    @SuppressWarnings("unchecked")
+	@Test
     public void testTableAccessCRUD() {
         System.out.println("testCreate");
         Session session = i2b2MetaDataSourceManager.getSession();
